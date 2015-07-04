@@ -45,10 +45,10 @@ and open the template in the editor.
         <div class="container">         
             
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;" align="center">THÔNG TIN SINH VIÊN</h3><br>
                 </div>          
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-9 col-md-push-3">
                             <div class="dropdown">
@@ -161,7 +161,7 @@ and open the template in the editor.
                         </div> <!-- /class="col-md-3 col-md-pull-9" -->
                     </div> <!-- /row -->
                    
-                </div>  <!-- /class="col-lg-12" -->                     
+                </div>  <!-- /class="col-md-12" -->                     
             </div> <!-- /row -->
             
         </div> <!-- /container -->

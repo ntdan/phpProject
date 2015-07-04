@@ -30,7 +30,7 @@ and open the template in the editor.
         
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">Kế hoạch thực hiện đề tài</h3> 
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" id="bang1">
                         <tr>

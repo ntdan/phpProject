@@ -17,7 +17,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkgreen; font-weight: bold;">THÊM - HIỆU CHỈNH Ý KIẾN</h3>
                     <form action="" method="post" class="form-horizontal">
                         <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>

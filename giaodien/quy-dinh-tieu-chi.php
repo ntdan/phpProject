@@ -25,7 +25,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                     <tr><td align='center'><h3 style="color: blue;">BẢNG TIÊU CHÍ ĐÁNH GIÁ KẾT QUẢ CỦA SINH VIÊN</h3></td></tr>
                     <tr><td>

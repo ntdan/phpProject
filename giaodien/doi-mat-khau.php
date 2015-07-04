@@ -25,7 +25,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">ĐỔI MẬT KHẨU</h3>
                     <form action="" method="post" class="form-horizontal">
                     <table class="table" cellpadding="0px" cellspacing="0px" align='center'>

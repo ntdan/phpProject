@@ -27,7 +27,7 @@ and open the template in the editor.
         
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
                             <th width="6%">

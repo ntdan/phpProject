@@ -27,7 +27,7 @@ and open the template in the editor.
         
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
                         <td><h4 style="color: darkblue; font-weight: bold;">DANH SÁCH NGƯỜI DÙNG</h4></td>
                         <td>

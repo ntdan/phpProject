@@ -32,7 +32,7 @@ and open the template in the editor.
     <div class="container">
         <div class="row">
             <h3 style="color: darkblue; font-weight: bold; margin-left: 20px;">Danh sách các đề tài</h3> 
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="bg-success">
                     <table class="table table-bordered" cellpadding="15px" cellspacing="10px">
                         <tr>                            

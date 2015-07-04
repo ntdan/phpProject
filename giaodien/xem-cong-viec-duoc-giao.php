@@ -27,10 +27,10 @@ and open the template in the editor.
         <div class="container">         
             
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;" align="center">THÔNG TIN CÔNG VIỆC</h3><br>
                 </div>          
-                <div class="col-lg-12">
+                <div class="col-md-12">
                             <table class="table table-bordered" border="0" width="1000px" cellpadding="0px" cellspacing="0px" align='center' id="bang1">
                                 <tr>
                                     <th width="4%">STT</th>
@@ -85,7 +85,7 @@ and open the template in the editor.
                                     <td>10</td>
                                 </tr>
                             </table>
-                </div>  <!-- /class="col-lg-12" -->                     
+                </div>  <!-- /class="col-md-12" -->                     
             </div> <!-- /row -->
             
         </div> <!-- /container -->

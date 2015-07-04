@@ -34,7 +34,7 @@ and open the template in the editor.
         
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">SỬA ĐỀ TÀI</h3>
                     <form action="" method="post">
                         <table class="table table-bordered" id="bang1">

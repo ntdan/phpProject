@@ -1,8 +1,4 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,6 +9,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script src="../bootstrap/js/bootstrap.js"></script>
     </head>
+    
+<?php
+    include 'chucnang/thongtingiangvien.php';
+    
+?>
     
     <style type="text/css">
         th{
@@ -29,7 +30,7 @@ and open the template in the editor.
         <div class="container">
             
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;" align="center">THÔNG TIN GIẢNG VIÊN</h3><br>
                 </div>               
                 <div class="row">

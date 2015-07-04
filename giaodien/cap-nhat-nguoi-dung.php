@@ -26,7 +26,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">CẬP NHẬT NGƯỜI DÙNG</h3>
                     <form action="" method="post" class="form-horizontal">
                     <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align='center'>

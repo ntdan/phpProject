@@ -27,7 +27,7 @@ and open the template in the editor.
         <div class="container">
             <h3 style="color: darkgreen; font-weight: bold;">DANH SÁCH CHỦ ĐỀ THẢO LUẬN</h3>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <table class="table table-bordered" border="1" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
                         <tr>
                             <td>

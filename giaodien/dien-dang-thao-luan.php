@@ -27,7 +27,7 @@ and open the template in the editor.
         
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">Diễn đàn tin tức</h3>
                     <a href="?cn=themthaoluan">
                         <button type="button" name="" class="btn btn-primary">

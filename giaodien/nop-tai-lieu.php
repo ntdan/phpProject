@@ -26,7 +26,7 @@ and open the template in the editor.
         <div class="container">            
             <div class="row">
                         <h3 style="color: darkblue; font-weight: bold;" align="center">NỘP TÀI LIỆU</h3><br>
-                        <div class="col-lg-12">
+                        <div class="col-md-12">
                             <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
                                 <tr>
                                     <td></td>

@@ -28,7 +28,7 @@ and open the template in the editor.
         <div class="container">
             
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                 <h3 style="color: darkblue; font-weight: bold;" align='center'>Đăng ký nhóm làm niên luận</h3>    
                 <table class="table table-bordered" border="1" width="800px" cellpadding="15px" cellspacing="0px" align='center' id="dangky">
                     <tr>
