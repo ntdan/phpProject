@@ -34,7 +34,7 @@ and open the template in the editor.
                     <tr>
                         <th rowspan="2" width='15%' valign='middle'>Tên đề tài:</th>
                         <td width='60%'>
-                            <input type="text" value="" placeholder="Tên đề tài đề xuất" class="form-control">                       
+                            <input type="text" value="" placeholder="Đề xuất đề tài mới" class="form-control">                       
                         </td>
                         <td width='10%'>
                             <input type="button" name='' value='Đề xuất đề tài' class="btn btn-primary">                   
@@ -173,8 +173,8 @@ and open the template in the editor.
                         </td></tr>
                     <tr>
                         <td colspan="3" align='center'>
-                            <button type="button" name="" class="btn btn-success">
-                                <img src="images/save-as-icon.png"> Hoàn thành 
+                            <button type="button" name="" class="btn btn-success" style="width: 20%;">
+                                Đăng ký 
                             </button>
                         </td>
                     </tr>

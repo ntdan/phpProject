@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sinh viên</title>
-         <!-- Bootstrap -->
+        <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap/css/signin.css">
@@ -16,12 +16,12 @@
             <div class="page-header">
                 <h2 style="color: darkblue;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
             </div> <!-- /page-header -->       
-             <!-- Static navbar -->       
+            <!-- Static navbar -->       
             <nav class="navbar navbar-default">
                 <div class="container">                
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                          <li class="dropdown active">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Thông tin sinh viên
                                     <span class="caret"></span>
@@ -57,45 +57,57 @@
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>
-            <div class="container">    
+            <div class="row">    
+                <div class="col-md-12" style="text-align: right;">
+                    <form action="" id="" method="post" class="form-inline">
+                        <div class="form-group"> 
+                            <button type="button" class="btn btn-info" style="padding: 0px 0px;">
+                                <img src="images/Search.png">
+                            </button>
+                            <input type="text" name="" id="" value="" class="form-control" style="margin-right: 30px; width: 500px;">
+                        </div>                                          
+                    </form><hr>
+
+                </div>
+
                 <?php
-                    if(isset($_GET['cn'])){
-                        if($_GET['cn']=="ttsv")
-                            include("giaodien/thong-tin-sinh-vien.php");
-                        if($_GET['cn']=="dmk")
-                            include("giaodien/doi-mat-khau.php");
-                        if($_GET['cn']=="xemcv")
-                            include("giaodien/xem-cong-viec-duoc-giao.php");
+                if (isset($_GET['cn'])) {
+                    if ($_GET['cn'] == "ttsv")
+                        include("giaodien/thong-tin-sinh-vien.php");
+                    if ($_GET['cn'] == "dmk")
+                        include("giaodien/doi-mat-khau.php");
+                    if ($_GET['cn'] == "xemcv")
+                        include("giaodien/xem-cong-viec-duoc-giao.php");
 
-                        if($_GET['cn']=="dknl")
-                            include("giaodien/dang-ky-de-tai.php");
+                    if ($_GET['cn'] == "dknl")
+                        include("giaodien/dang-ky-de-tai.php");
 
-                        if($_GET['cn']=="diendan")
-                            include("giaodien/dien-dang-thao-luan.php");
-                        if($_GET['cn']=="themthaoluan")
-                            include("giaodien/them-chu-de-thao-luan.php");
-                         if($_GET['cn']=="thaoluan")
-                            include("giaodien/chu-de-thao-luan.php");
-                         if($_GET['cn']=="phucdap")
-                                    include("giaodien/them-chu-de-thao-luan.php");
+                    if ($_GET['cn'] == "diendan")
+                        include("giaodien/dien-dang-thao-luan.php");
+                    if ($_GET['cn'] == "themthaoluan")
+                        include("giaodien/them-chu-de-thao-luan.php");
+                    if ($_GET['cn'] == "thaoluan")
+                        include("giaodien/chu-de-thao-luan.php");
+                    if ($_GET['cn'] == "phucdap")
+                        include("giaodien/them-chu-de-thao-luan.php");
 
-                        if($_GET['cn']=="dscv")
-                            include("giaodien/danh-sach-cong-viec.php");
-                        if($_GET['cn']=="congviec")
-                            include("giaodien/phan-cong-nhiem-vu.php");                    
-                        if($_GET['cn']=="themcv")
-                            include("giaodien/them-cong-viec.php");
-                        if($_GET['cn']=="capnhatcv")
-                            include("giaodien/cap-nhat-cong-viec.php");
-                        if($_GET['cn']=="noptl")
-                            include("giaodien/nop-tai-lieu.php");
+                    if ($_GET['cn'] == "dscv")
+                        include("giaodien/danh-sach-cong-viec.php");
+                    if ($_GET['cn'] == "congviec")
+                        include("giaodien/phan-cong-nhiem-vu.php");
+                    if ($_GET['cn'] == "themcv")
+                        include("giaodien/them-cong-viec.php");
+                    if ($_GET['cn'] == "capnhatcv")
+                        include("giaodien/cap-nhat-cong-viec.php");
+                    if ($_GET['cn'] == "noptl")
+                        include("giaodien/nop-tai-lieu.php");
 
-                        if($_GET['cn']=="xemdiem")
-                            include("giaodien/xem-diem.php");
+                    if ($_GET['cn'] == "xemdiem")
+                        include("giaodien/xem-diem.php");
 
-                        if($_GET['cn']=="dangnhap")
-                            include("giaodien/dang-nhap.php");
-                    }
+                    if ($_GET['cn'] == "dangnhap")
+                        include("giaodien/dang-nhap.php");
+                }
                 ?>
 
             </div> <!-- /container -->
