@@ -69,11 +69,11 @@ and open the template in the editor.
                         <tr>
                             <td></td>
                             <td>
-                                <button type="button" name="" class="btn btn-primary">
-                                    <img src="../images/save-as-icon.png"> Hoàn tất
+                                <button type="button" name="" class="btn btn-primary" style="width: 30%;">
+                                    <img src="images/save-as-icon.png"> Hoàn tất
                                 </button>
-                                <button type="button" name="" class="btn btn-primary">
-                                    <img src="../images/delete-icon.png"> Hủy bỏ
+                                <button type="button" name="" class="btn btn-primary" style="width: 30%;">
+                                    <img src="images/delete-icon.png"> Hủy bỏ
                                 </button>                                
                             </td>
                         </tr>

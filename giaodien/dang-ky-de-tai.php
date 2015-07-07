@@ -174,7 +174,7 @@ and open the template in the editor.
                     <tr>
                         <td colspan="3" align='center'>
                             <button type="button" name="" class="btn btn-success">
-                                <img src="../images/save-as-icon.png"> Hoàn thành 
+                                <img src="images/save-as-icon.png"> Hoàn thành 
                             </button>
                         </td>
                     </tr>

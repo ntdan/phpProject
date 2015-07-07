@@ -31,7 +31,7 @@ and open the template in the editor.
                     <h3 style="color: darkblue; font-weight: bold;">Diễn đàn tin tức</h3>
                     <a href="?cn=themthaoluan">
                         <button type="button" name="" class="btn btn-primary">
-                            <img src="../images/add-icon.png">Thêm chủ đề thảo luận
+                            <img src="images/add-icon.png">Thêm chủ đề thảo luận
                         </button>
                     </a>                    
                     <br><br>

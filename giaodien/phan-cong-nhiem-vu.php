@@ -31,7 +31,7 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">Kế hoạch thực hiện đề tài</h3> 
+                    <h3 style="color: darkblue; font-weight: bold;">Phân công thực hiện đề tài</h3> 
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" id="bang1">
                         <tr>
                             <th width="10%">Tên đề tài:</th>
@@ -50,7 +50,7 @@ and open the template in the editor.
                             </th>
                             <th>                                
                                 <a href="#">
-                                    <button type="button" name="" class="btn btn-primary">
+                                    <button type="button" name="" class="btn btn-primary" style="width: 100%;">
                                     <img src="images/delete-icon.png">Hủy công việc
                                 </button></a>
                             </th>

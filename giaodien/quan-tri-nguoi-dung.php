@@ -31,13 +31,17 @@ and open the template in the editor.
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
                         <td><h4 style="color: darkblue; font-weight: bold;">DANH SÁCH NGƯỜI DÙNG</h4></td>
                         <td>
-                            <a href="?cn=themnguoidung"><button type="button" name="" class="btn btn-primary">
-                                <img src="images/add-icon.png"> Thêm
-                            </button></a>
-                            <a href="?cn=capnhatnguoidung"><button type="button" name="" size="10" class="btn btn-primary">
-                                <img src="images/edit-icon.png"> Cập nhật
-                            </button></a>
-                            <button type="button" name="" class="btn btn-primary">
+                            <a href="?cn=themnguoidung">
+                                <button type="button" name="" class="btn btn-primary" style="width: 20%;">
+                                    <img src="images/add-icon.png"> Thêm
+                                </button>
+                            </a>
+                            <a href="?cn=capnhatnguoidung">
+                                <button type="button" name="" size="10" class="btn btn-primary" style="width: 20%;">
+                                    <img src="images/edit-icon.png"> Cập nhật
+                                </button>
+                            </a>
+                            <button type="button" name="" class="btn btn-primary" style="width: 20%;">
                                 <img src="images/Document-Delete-icon.png"> Xóa
                             </button>
                         </td>

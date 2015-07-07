@@ -14,7 +14,7 @@
     <body>
         <div class="container body-content">  
             <div class="page-header">
-                <h2 style="color: darkblue; font-weight: bold; margin-left: 20px;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
+                <h2 style="color: darkblue;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
             </div> <!-- /page-header -->       
              <!-- Static navbar -->       
             <nav class="navbar navbar-default navbar-static-top">

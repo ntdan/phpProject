@@ -113,12 +113,25 @@ and open the template in the editor.
              
                 <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
                     <tr>
-                        <td align="right"><input type="button" value="Từ Exel..." class="btn btn-primary"></td>
-                        <td><input type="button" value="In bảng điểm" class="btn btn-primary"></td>
-                        <td align="right"><input type="button" value="Lưu dữ liệu" class="btn btn-primary"></td>
+                        <td align="right">
+                            <button type="button" name="" class="btn btn-primary" style="width: 50%;">
+                                <img src="images/excel-icon.png"> Nhập từ Exel...
+                            </button> 
+                        </td>
                         <td>
-                            <input type="button" value="Tính ĐTB" class="btn btn-primary"> &nbsp;
-                            <input type="button" value="Thoát" class="btn btn-primary">
+                            <button type="button" name="" class="btn btn-primary" style="width: 50%;">
+                                <img src="images/printer-icon.png"> In bảng điểm
+                            </button>
+                        </td>
+                        <td align="right">
+                            <button type="button" name="" class="btn btn-primary" style="width: 55%;">
+                                <img src="images/save-as-icon.png"> Lưu dữ liệu
+                            </button>                            
+                        </td>
+                        <td>
+                            <button type="button" name="" class="btn btn-primary" style="width: 60%;">
+                                <img src="images/calculator.png"> Tính ĐTB
+                            </button>
                         </td>
                     </tr>
                 </table>

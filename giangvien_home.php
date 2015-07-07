@@ -81,7 +81,7 @@
                         include("giaodien/cap-nhat-nguoi-dung.php");
                     
                     if ($_GET['cn'] == "kehoach")
-                        include("giaodien/theo-doi-lam-de-tai.php");
+                        include("giaodien/theo-doi-ke-hoach.php");
 
                     if ($_GET['cn'] == "dsdt")
                         include("giaodien/danh-sach-de-tai.php");

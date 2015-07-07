@@ -140,10 +140,10 @@ and open the template in the editor.
                                 <tr>
                                     <td></td>
                                     <td align="center">
-                                        <button type="button" name="" class="btn btn-primary" >
+                                        <button type="button" name="" class="btn btn-primary" style="width: 20%;">
                                             <img src="images/save-as-icon.png"> Lưu 
                                         </button>
-                                        <button type="button" name="" class="btn btn-primary">
+                                        <button type="button" name="" class="btn btn-primary" style="width: 20%;">
                                             <img src="images/refresh.png"> Làm lại
                                         </button> 
                                     </td>                                  

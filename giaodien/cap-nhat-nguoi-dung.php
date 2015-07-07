@@ -81,10 +81,10 @@ and open the template in the editor.
                             <td></td>
                             <td colspan="2">
                                 <button type="button" name="" class="btn btn-primary">
-                                    <img src="../images/save-as-icon.png"> Hoàn tất
+                                    <img src="images/save-as-icon.png"> Hoàn tất
                                 </button>
                                 <button type="button" name="" class="btn btn-primary">
-                                    <img src="../images/delete-icon.png"> Hủy bỏ
+                                    <img src="images/delete-icon.png"> Hủy bỏ
                                 </button>                                
                             </td>
                         </tr>
