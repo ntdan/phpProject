@@ -42,8 +42,9 @@
                                     <li><a href="?cn=quantri">Quản trị người dùng</a></li>
                                 </ul>
                             </li>
-                            <li><a href="?cn=theodoidetai">Kế hoạch</a></li>
+                            <li><a href="?cn=kehoach">Kế hoạch</a></li>
                             <li><a href="?cn=dsdt">Đề tài</a></li>
+                            <li><a href="?cn=khotl">Kho tài liệu</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Chấm điểm
@@ -78,14 +79,17 @@
                         include("giaodien/them-nguoi-dung.php");
                     if ($_GET['cn'] == "capnhatnguoidung")
                         include("giaodien/cap-nhat-nguoi-dung.php");
+                    
+                    if ($_GET['cn'] == "kehoach")
+                        include("giaodien/theo-doi-lam-de-tai.php");
 
                     if ($_GET['cn'] == "dsdt")
                         include("giaodien/danh-sach-de-tai.php");
                     if ($_GET['cn'] == "themdt")
                         include("giaodien/them-de-tai.php");
 
-                    if ($_GET['cn'] == "theodoidetai")
-                        include("giaodien/theo-doi-lam-de-tai.php");
+                    if ($_GET['cn'] == "khotl")
+                        include("giaodien/kho-tai-lieu.php");
 
                     if ($_GET['cn'] == "taotc")
                         include("giaodien/quy-dinh-tieu-chi.php");
