@@ -104,9 +104,10 @@ and open the template in the editor.
                                     <td>Website bán điện thoại</td>
                                 </tr>
                                 <tr>
-                                    <td><label>Xem thêm thông tin</label></td>
+                                    <td><label>Thành viên</label></td>
                                     <td>
-                                        <a href="#"><strong>Công việc</strong></a>
+                                        <strong>Nhóm trưởng : </strong>Huỳnh Trung Long<br>
+                                        <strong>Thành viên khác: </strong> Trấn Thành, Phạm Kim Chi
                                     </td>                                    
                                 </tr>
                             </table>
