@@ -16,9 +16,10 @@ and open the template in the editor.
     </head>
     
     <style type="text/css">
-        td:first-child{
+        th{
             text-align: right;
             color: darkblue;
+            font-weight: bold;
         }
     </style>
     
@@ -26,49 +27,48 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">ĐỔI MẬT KHẨU</h3>
+                    <h3 style="color: darkblue; font-weight: bold; margin-left: 50px;">ĐỔI MẬT KHẨU</h3>
                     <form action="" method="post" class="form-horizontal">
-                    <table class="table" cellpadding="0px" cellspacing="0px" align='center'>
+                    <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:900px;" >
                         <tr>
-                            <td>Họ và tên:</td>
-                            <td>
-                                <input type="text" size="2" value="Phan Hoa" class="form-control" readonly=""> 
+                            <th width="20%">Họ và tên:</th>
+                            <td width="50%">
+                                <input type="text" size="2" value="Phan Hoa" class="form-control" readonly="" > 
                             </td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
+                            <th>Email:</th>
                             <td>
                                 <input type="text" value="hoa123@student.ctu.edu.vn" class="form-control" readonly=""> 
                             </td>
                         </tr>
                         <tr></tr>                                              
                         <tr>
-                            <td>Tài khoản:</td>
+                            <th>Tài khoản:</th>
                             <td>
                                 <input type="text" value="hoa123" class="form-control" readonly="">
                             </td>
                         </tr>
                         <tr>
-                            <td>Mật khẩu hiện tại:</td>
+                            <th>Mật khẩu hiện tại:</th>
                             <td>
                                 <input type="text" value="" class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <td>Mật khẩu mới:</td>
+                            <th>Mật khẩu mới:</th>
                             <td>
                                 <input type="text" value="" class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <td>Nhập lại mật khẩu mới:</td>
+                            <th>Nhập lại mật khẩu mới:</th>
                             <td>
                                 <input type="text" value="" class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td>
+                            <td colspan="2" align="center">
                                 <button type="button" name="" class="btn btn-primary" style="width: 30%;">
                                     <img src="images/save-as-icon.png"> Hoàn tất
                                 </button>
