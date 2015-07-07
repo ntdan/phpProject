@@ -17,7 +17,7 @@
                 <h2 style="color: darkblue;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
             </div> <!-- /page-header -->       
              <!-- Static navbar -->       
-            <nav class="navbar navbar-default navbar-static-top">
+            <nav class="navbar navbar-default">
                 <div class="container">                
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
