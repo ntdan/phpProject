@@ -60,11 +60,11 @@
             <div class="row">    
                 <div class="col-md-12" style="text-align: right;">
                     <form action="" id="" method="post" class="form-inline">
-                        <div class="form-group"> 
+                        <div class="form-group">
+                            <input type="text" name="" id="" value="" class="form-control" style="width: 500px;"> 
                             <button type="button" class="btn btn-info" style="padding: 0px 0px;">
                                 <img src="images/Search.png">
                             </button>
-                            <input type="text" name="" id="" value="" class="form-control" style="margin-right: 30px; width: 500px;">
                         </div>                                          
                     </form><hr>
 
