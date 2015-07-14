@@ -70,13 +70,13 @@ and open the template in the editor.
                             <tr>
                                 <td width="25%">Tên đề tài:</td>
                                 <td>
-                                    <input type="text" value="" class="form-control"> 
+                                    <input type="text" id="txtTenDeTai" name="txtTenDeTai" value="" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Số sinh viên tối đa</td>
                                 <td>
-                                    <input type="text" value="" class="form-control"> 
+                                    <input type="text" id="txtSoNguoi" name="txtSoNguoi" value="" class="form-control"> 
                                 </td>
                             </tr>                                            
                             <tr>
@@ -154,6 +154,10 @@ and open the template in the editor.
                                         <option value="3">Đã hoàn thành</option>                                        
                                     </select> 
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>Tập tin đính kèm:</td>
+                                <td><input type="file" /></td>
                             </tr>
                             <tr>
                                 <td></td>

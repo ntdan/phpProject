@@ -28,11 +28,18 @@ and open the template in the editor.
 
     <?php
         include_once 'chucnang/gv_detai.php';
-//        $madt = '1';
-//        $dt = dt_xem($madt);
-//        if($dt != null){
-//            return;
-//        }
+        
+        if(isset($_GET['id'])){
+            if(isset($_GET['d'])){
+                $duyet = $_GET['d'] == 0 ? 1 : 0; 
+                capnhat_duyet($_GET['id'], $duyet);
+            }
+        }
+        $macb = '2134';
+        $dt = dt_xem($macb);
+        if($dt == null){
+            return;
+        }
     ?>
 
     <body>
@@ -44,41 +51,36 @@ and open the template in the editor.
                         <table class="table table-bordered" cellpadding="15px" cellspacing="10px">
                             <tr>                            
                                 <td align="right">Giảng viên:</td>
-                                <td colspan="5" style="color: darkblue; font-weight: bold;">Trấn Thành</td>
+                                <td colspan="5" style="color: darkblue; font-weight: bold;"><?php echo $dt['hoten']; ?></td>
                             </tr>
                             <tr>
                                 <td align="right">Năm học:</td>
                                 <td>
-                                    <select class="form-control">
-                                        <option value="1">2014-2015</option>
-                                        <option value="2">2015-2016</option>
-                                        <option value="3">2016-2017</option>
+                                    <select class="form-control" name="cbmNamHoc">
+                                        <option value="1"><?php echo $dt['nam']; ?></option>
                                     </select>
                                 </td>
                                 <td align="right">Học kỳ:</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">Hè</option>
+                                        <option value="1"><?php echo $dt['hocky']; ?></option>
                                     </select>
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
+                                        <option value="1"><?php echo $dt['tennhomhp']; ?></option>
                                     </select>
                                 </td>
                                 <td align="right">Trạng thái:</td>
                                 <td>
                                     <select class="form-control">
                                         <option value="1">Tất cả</option>
-                                        <option value="2">Đang thực hiện</option>
-                                        <option value="3">Chưa thực hiện</option>
-                                        <option value="3">Được đề xuất</option>
-                                        <option value="3">Đã hoàn thành</option>
+                                        <option value="2">
+                                            <?php 
+                                                echo $dt['trangthai']; 
+                                             ?>
+                                        </option>
                                     </select>
                                 </td>
                                 <td>
@@ -93,12 +95,12 @@ and open the template in the editor.
 
                     <table class="table table-bordered table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th width="4%">STT</th>
+                            <th width="2%">STT</th>
                             <th width="20%">Tên đề tài</th>
                             <th width="15%">Mô tả đề tài</th>
                             <th width="15%">Công nghệ</th>
                             <th width="5%">Tối đa</th>
-                            <th width="20%">Lưu ý</th>
+                            <th width="15%">Lưu ý</th>
                             <th width="8%">Phân loại</th>
                             <th width="4%">Duyệt</th>
                             <th width="8%">Thao tác</th>
