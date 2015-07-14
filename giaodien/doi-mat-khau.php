@@ -24,11 +24,21 @@ and open the template in the editor.
     </style>
 
 <?php
-    include_once 'chucnang/thongtinsinhvien.php';
-    $masv = $_GET['id'];
-    $sv = sv_xem($masv);
-    if($sv == null){
+    include_once 'chucnang/thongtingiangvien.php';
+    $macb = $_GET['id'];
+    $gv = gv_xem($macb);
+    if($gv == null){
         return;
+    }
+    if(isset($_POST['btnCapNhat'])){
+        $macb = $_POST['txtMaCB'];
+        $ten = $_POST['txtTen'];
+        $email = $_POST['txtEmail'];
+        $matkhauMoi = $_POST['txtMatKhauMoi'];
+        
+        gv_doimatkhau($macb, '', $matkhauMoi);
+
+        //echo "<script>window.location.href='?cn=ttgv'</script>";
     }
 ?>  
     
@@ -49,28 +59,28 @@ and open the template in the editor.
                     <form action="" method="post" class="form-horizontal">
                     <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:800px;" />
                         <tr>
-                            <th width="20%">MSSV:</th>
+                            <th width="20%">Mã cán bộ:</th>
                             <td width="50%">
-                                <input type="text" size="2" value="<?php echo $sv['mssv']; ?>" class="form-control" readonly="" /> 
+                                <input type="text" name="txtMaCB" value="<?php echo $gv['macb']; ?>" class="form-control" readonly="" /> 
                             </td>
                         </tr>
                         <tr>
                             <th>Họ và tên:</th>
                             <td>
-                                <input type="text" size="2" value="<?php echo $sv['hoten']; ?>" class="form-control" readonly="" /> 
+                                <input type="text" name="txtTen" value="<?php echo $gv['hoten']; ?>" class="form-control" readonly="" /> 
                             </td>
                         </tr>
                         <tr>
                             <th>Email:</th>
                             <td>
-                                <input type="text" value="<?php echo $sv['email']; ?>" class="form-control" readonly="" /> 
+                                <input type="text" name="txtEmail" value="<?php echo $gv['email']; ?>" class="form-control" readonly="" /> 
                             </td>
                         </tr>
                         <tr></tr>   
                         <tr>
                             <th>Mật khẩu hiện tại:</th>
                             <td>
-                                <input type="text" name="txtMatKhau1" value="<?php echo $sv['matkhau']; ?>" class="form-control" />
+                                <input type=password name="txtMatKhau1" value="<?php echo $gv['matkhau']; ?>" class="form-control" />
                             </td>
                         </tr>
                         <tr>
@@ -87,8 +97,8 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
-                                <button type="submit" name="" class="btn btn-primary" style="width: 30%;">
-                                    <img src="images/save-as-icon.png"> Hoàn tất
+                                <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 30%;">
+                                    <img src="images/save-as-icon.png"> Cập nhật
                                 </button>
                                 <button type="button" name="" class="btn btn-primary" style="width: 30%;">
                                     <img src="images/delete-icon.png"> Hủy bỏ

@@ -75,7 +75,7 @@
                         if ($_GET['cn'] == "ttsv")
                             include("sinhvien/thong-tin-sinh-vien.php");
                         if ($_GET['cn'] == "dmk")
-                            include("sinhvien/doi-mat-khau.php");
+                            include("sinhvien/doi-mat-khau-sv.php");
                         if ($_GET['cn'] == "xemcv")
                             include("giaodien/xem-cong-viec-duoc-giao.php");
 

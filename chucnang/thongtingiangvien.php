@@ -28,6 +28,12 @@
         mysql_query($sql);
         echo $sql;
     }
+    function gv_doimatkhau($macb,$hinh,$matkhau){
+        $mk = md5($matkhau);
+        $sql = "UPDATE giang_vien SET hinhdaidien='$hinh',matkhau='$mk'
+                    WHERE macb='$macb'";
+        mysql_query($sql);
+    }
     function gv_danhsach(){
         $sql = "SELECT *  FROM giang_vien";
         $ds = mysql_query($sql);
