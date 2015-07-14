@@ -25,36 +25,41 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-                    <tr><td align='center'><h3 style="color: blue;">BẢNG TIÊU CHÍ ĐÁNH GIÁ KẾT QUẢ CỦA SINH VIÊN</h3></td></tr>
-                    <tr><td>
-                        <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-                            <tr>
-                                <th>Nội dung đánh giá</th>
-                                <th>Mức điểm</th>
-                                <th colspan="2">Thao tác</th>
-                            </tr>
-                            <tr>
-                                <td colspan="4" align='center'><a href="#">Thêm</a></td>
-                            </tr>
-                            <tr>
-                                <td>1.Đánh giá về sự hoàn thành của dự án</td>
-                                <td align='center'>4</td>
-                                <td align='center'><a href="#">Sửa</a></td>
-                                <td align='center'><a href="#">Xóa</a></td>
-                            </tr>
-                            <tr>
-                                <td>2.Kỹ năng làm việc nhóm</td>
-                                <td align='center'>2</td>
-                                <td align='center'><a href="#">Sửa</a></td>
-                                <td align='center'><a href="#">Xóa</a></td>
-                            </tr>
-                        </table></td>
-                    </tr>
-                </table>
-            </div> 
-            </div> <!-- /row -->
+                <div class="col-md-12">
+                    <h4 style="display:block; float:left; color:blue; font-weight: bold;">BẢNG TIÊU CHÍ ĐÁNH GIÁ KẾT QUẢ CỦA SINH VIÊN</h4>
+                    <a href="?cn=" style="margin-left: 50%;">
+                        <button type="button" name="" class="btn btn-primary" style="width: 10%;">
+                            <img src="images/add-icon.png"> Thêm
+                        </button>
+                    </a><br>
+                    <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
+                        <tr>
+                            <th>STT</th>
+                            <th>Nội dung đánh giá</th>
+                            <th>Mức điểm</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tr>
+                            <td align="center">1</td>
+                            <td>Đánh giá về sự hoàn thành của dự án</td>
+                            <td align='center'>4</td>
+                            <td align="center">                         
+                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;
+                                <input type="image" src="images/Document-Delete-icon.png" name=""> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">2</td>
+                            <td>Kỹ năng làm việc nhóm</td>
+                            <td align='center'>2</td>
+                            <td align="center">                         
+                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;
+                                <input type="image" src="images/Document-Delete-icon.png" name=""> 
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+           </div> <!-- /row -->
         </div> <!-- /container -->       
     </body>
 </html>
