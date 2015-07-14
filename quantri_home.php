@@ -14,8 +14,7 @@
     <body>
         <div class="container body-content">
             <div class="page-header">
-                <h2 style="color: darkblue;">
-                    HỆ THỐNG QUẢN TRỊ WEBSITE</h2>
+                <h2 style="color: darkblue;">HỆ THỐNG QUẢN TRỊ WEBSITE</h2>               
             </div> 
             <!-- Static navbar -->  
             <nav class="navbar navbar-default">
@@ -60,7 +59,7 @@
                 </div><!--/container -->
             </nav>
 
-            <div class="row">
+            <div class="row">                 
                 <div class="col-md-12" style="text-align: right;">
                     <form action="" id="" method="post" class="form-inline">
                         <div class="form-group">                             
@@ -70,8 +69,7 @@
                             </button>
                         </div>                                          
                     </form>
-                    
-                </div>
+                </div>   
                 
                 <?php
                     if (isset($_GET['cn'])) {

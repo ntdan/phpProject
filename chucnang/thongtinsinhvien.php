@@ -62,6 +62,7 @@
 /* ======================== Lay danh sách thong tin sv ======================= */
 
     function sv_danhsach() {
+
         $sql = "SELECT * FROM sinh_vien";
         $ds_sv = mysql_query($sql);
 
@@ -71,4 +72,66 @@
         else
             return null;
     }
+ 
+       function danhsach_sv()
+       {
+            global $sodongtrentrang;
+            $tongsodong = sodong(); 
+            $tranghientai = 1;
+            if(isset($_GET['page']))
+                    $tranghientai = $_GET['page'];
+
+            $tongsotrang = $tongsodong%$sodongtrentrang > 0 ? 
+                    ($tongsodong/$sodongtrentrang + 1) : $tongsodong/$sodongtrentrang;
+
+            $vitridong = $sodongtrentrang*($tranghientai-1);
+
+            $sqlSelect = "SELECT mssv,hoten,email,ngaytao,khoa FROM sinh_vien".
+                                            " LIMIT $vitridong, $sodongtrentrang";
+            $ds = mysql_query($sqlSelect);
+
+            $mssv= "";
+            $ten = "";
+            $email = "";
+            $ngaytao = "";
+            $key = 0;
+
+            $stt = 1 + $vitridong;
+
+            global $hinhcapnhat;
+            global $hinhxoa;
+            global $lock;
+            global $unlock;
+
+            while(list($mssv, $ten, $email, $ngaytao, $key) = mysql_fetch_array($ds))
+            {                     
+                    $dong = "<tr>".
+                                "<td align='center'>$stt</td>".
+                                "<td align='center'>$mssv</td>".
+                                "<td>$ten</td>".
+                                "<td>$email</td>".
+                                "<td>....</td>".                                        
+                                "<td align='center'>$ngaytao</td>".
+                                "<td align='center'>".
+                                    "<a href='#'><img src='$unlock'></a>".
+                                "</td>".
+                                "<td align='center'>".
+                                     "<a href='?cn=capnhatsinhvien'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
+                                     "<input type='image' src='$hinhxoa' name=''>". 
+                                "</td>".
+                            "</tr>";
+
+                    $stt++;
+                    echo $dong;
+            }	
+
+            if($tongsodong > $sodongtrentrang)
+            {
+                    $trang = 1;	
+                    echo "<tr><td colspan='4'>";
+
+                    echo phanTrang($tongsodong, $tranghientai);
+                    echo "</td></tr>";
+            }
+        } 
 ?>

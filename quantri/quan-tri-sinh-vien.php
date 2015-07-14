@@ -25,13 +25,13 @@ and open the template in the editor.
     
 <?php
     
-include 'chucnang/thongtinsinhvien.php';
+    include_once 'chucnang/thongtinsinhvien.php';
 
-$ds_sv = sv_danhsach();
+    $ds_sv = sv_danhsach();
 
-if($ds_sv == null){
-    return;
-}
+    if($ds_sv == null){
+        return;
+    }
     
 ?>
     
@@ -62,7 +62,7 @@ if($ds_sv == null){
                             <th width=8%>Chức năng</th>
                         </tr>
                         <?php 
-                            $gv = null;
+                            $sv = null;
                             while($sv = mysql_fetch_array($ds_sv)){
                                echo "<tr>".
                                         "<td align='center'>1</td>".

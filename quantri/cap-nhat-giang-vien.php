@@ -47,7 +47,7 @@ and open the template in the editor.
         //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
         gv_sua($macb, $ten, $gt, $email, $sdt, '', $matkhau1, 0, 1);
         
-        echo "<script>window.location.href='?cn=qtgv'</script>";
+        //echo "<script>window.location.href='?cn=qtgv'</script>";
     }
  
 ?>
@@ -55,7 +55,8 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">  <!-- Upload hình đại diện -->                      
+                <div class="col-md-4">  <!-- Upload hình đại diện -->    
+                    <br><br><br/>
                     <div align="center">
                         <?php
                         echo "<img src='images/User-image.png'>";

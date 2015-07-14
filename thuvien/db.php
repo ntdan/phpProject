@@ -2,7 +2,18 @@
     $conn = mysql_connect('localhost', 'root', '') or die('Không kết nối được với CSDL!');
     mysql_select_db('qlnienluan_ktpm',$conn);
     mysql_set_charset('utf8',$conn); //chỉ cần thêm dòng này để không bị lỗi phông khi load từ CSDL
-    
+ 
+ /*=================== Các Biến toàn cục ==================================*/
+    $thumucHinhDaiDien = "hinhdaidien";
+    $hinhxoa = "images/Document-Delete-icon.png";
+    $hinhcapnhat = "images/edit-icon.png";
+    $lock = "images/Lock.png";
+    $unlock = "images/Unlock.png";
+    $check = "images/check.png";
+    $uncheck = "images/uncheck.png";
+    $sodongtrentrang = 5;
+
+/*=================== Các Hàm ==================================*/
     function bo_dau_cau($str){
         if(!$str) return false;
         $unicode = array( 
@@ -36,6 +47,28 @@
         }   
     }
     
-    $thumucHinhDaiDien = "hinhdaidien";
+    function phanTrang($rowcount, $pageno)
+   {
+       $str = "<ul class=\"pagination\"> ";
+       global $sodongtrentrang;
+       $pagecount = $rowcount / $sodongtrentrang;
+       if($rowcount % $sodongtrentrang > 0){
+           $pagecount++;
+       }
+       for($i = 1; $i <= ($pagecount); $i++){
+           $params = $_GET;
+           $params['page'] = $i;
+           $paramString = http_build_query($params);
+           if($i == $pageno){
+               $str .= "<li><a id='active' href='?" . $paramString . "'>[" . $i . "]</a></li> ";
+           }else{
+               $str .= "<li><a href='?" . $paramString . "'>" . $i . "</a></li> ";
+          }
+       }
+       
+      $str .="</ul>";
+     return $str;
+   }
+ 
 
 ?>
