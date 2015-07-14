@@ -6,7 +6,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Thêm người dùng</title>
+        <title>Thêm sinh viên</title>
         <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -22,98 +22,99 @@ and open the template in the editor.
         }
     </style>
 
-    <?php
-    if (isset($_POST['btnCapNhat'])) {
+<?php
+    if (isset($_POST['btnThem'])) {
+        
+        
+        include 'chucnang/thongtinsinhvien.php';
 
-
-        include 'chucnang/thongtingiangvien.php';
-
-        $macb = $_POST['txtMaCB'];
+        $mssv = $_POST['txtMaSV'];
         $ten = $_POST['txtHoTen'];
         $gt = $_POST['rdGioiTinh'];
+        $ns = $_POST['txtNamSinh'];
         $email = $_POST['txtEmail'];
-        $sdt = $_POST['txtSDT'];
+        $khoahoc = $_POST['txtKhoaHoc'];
         $matkhau1 = $_POST['txtMatKhau1'];
         $matkhau2 = $_POST['txtMatKhau2'];
-        //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
-        gv_sua($macb, $ten, $gt, $email, $sdt, '', $matkhau1, 0, 1);
+        //($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau)
+        sv_them($mssv, $ten, $gt, $ns, $khoahoc, $email, null, '', '', '', '', $matkhau1);
 
-        echo "<script>window.location.href='?cn=quantri'</script>";
+        echo "<script>window.location.href='?cn=qtsv'</script>";
     }
-    ?>
+?>
 
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">  <!-- Upload hình đại diện -->                      
+                <div class="col-md-4">  <!-- Upload hình đại diện --> 
+                    <h3 style="color: darkblue; font-weight: bold;">THÊM DANH SÁCH SINH VIÊN</h3><br>                    
+                    <div align="center"><input type="file"  />Chọn hình</div><br>
                     <div align="center">
-                        <?php
-                        echo "<img src='images/User-image.png'>";
-                        ?>
-                    </div><br>
-                    <div align="center"><input type="file"  />Chọn hình</div>
+                        <button  type="submit" name="" class="btn btn-info">
+                            <img src="images/excel-icon.png"> Thêm danh sách
+                        </button>
+                    </div>
+                    
                 </div>
                 <div class="col-md-8">
-                    <h3 style="color: darkblue; font-weight: bold;">THÊM NGƯỜI DÙNG</h3>
+                    <h3 style="color: darkblue; font-weight: bold;">THÊM SINH VIÊN</h3>
                     <form action="" method="post" name="frm" class="form-horizontal">
                         <table class="table" cellpadding="0px" cellspacing="0px" align='center'>
                             <tr>
-                                <td width="30%">Mã cán bộ:</td>
-                                <td colspan="2">
-                                    <input type="text" size="2" value="" name="txtMaCB" class="form-control"> 
+                                <td>Mã số sinh viên:</td>
+                                <td>
+                                    <input type="text" size="2" value="" name="txtMaSV" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Họ và tên:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" size="2" value="" name="txtHoTen" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Giới tính:</td>
-                                <td colspan="2">
+                                <td>
                                     Nam: <input type="radio" size="2" value="Nam" name="rdGioiTinh" checked="true"/> ;&nbsp;
                                     Nữ: <input type="radio" size="2" value="Nữ" name="rdGioiTinh"/> 
                                 </td>
                             </tr>
                             <tr>
+                                <td>Năm sinh:</td>
+                                <td>
+                                    <input type="text" size="2" value="" name="txtNamSinh" class="form-control"> 
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Email:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" value="" name="txtEmail" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
-                                <td>Số điện thoại:</td>
-                                <td colspan="2">
-                                    <input type="text" value="" name="txtSDT" class="form-control"> 
+                                <td>Khóa:</td>
+                                <td>
+                                    <input type="text" value="" name="txtKhoaHoc" class="form-control"> 
                                 </td>
                             </tr>
                             <tr></tr> 
                             <tr>
                                 <td>Mật khẩu:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" value="" name="txtMatKhau1" class="form-control">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Nhập lại mật khẩu:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" value="" name="txtMatKhau2" class="form-control">
                                 </td>
                             </tr>
                             <tr>
-                                <td width="20%"><label>Quản trị:</label></td>
-                                <td><input type="checkbox" name=""></td>                              
-                            </tr>
-                            <tr>
-                                <td><label>Mở tài khoản:</label></td>
-                                <td><input type="checkbox" name=""></td>                             
-                            </tr>
-                            <tr>
                                 <td></td>
-                                <td colspan="2">
-                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary">
-                                        <img src="images/save-as-icon.png"> Cập nhật
+                                <td>
+                                    <button  type="submit" name="btnThem" class="btn btn-primary">
+                                        <img src="images/save-as-icon.png"> Thêm
                                     </button>
                                     <a href="?" class="btn btn-primary">
                                         <img src="images/delete-icon.png"> Hủy bỏ

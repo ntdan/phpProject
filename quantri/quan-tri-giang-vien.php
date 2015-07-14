@@ -6,7 +6,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Quản trị người dùng</title>
+        <title>Quản trị giảng viên</title>
         <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -41,16 +41,11 @@ if($ds_gv == null){
             <div class="row">
                 <div class="col-md-12">
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
-                        <td><h4 style="color: darkblue; font-weight: bold;">DANH SÁCH GIAÓ VIÊN</h4></td>
+                        <td><h4 style="color: darkblue; font-weight: bold;">DANH SÁCH GIẢNG VIÊN</h4></td>
                         <td align="right">
-                            <a href="?cn=themnguoidung">
-                                <button type="button" name="" class="btn btn-primary" style="width: 20%;">
+                            <a href="?cn=themgiangvien">
+                                <button type="button" name="" class="btn btn-primary" style="width: 30%;">
                                     <img src="images/add-icon.png"> Thêm
-                                </button>
-                            </a>
-                            <a href="?cn=capnhatnguoidung">
-                                <button type="button" name="" size="10" class="btn btn-danger" style="width: 20%;">
-                                    <img src="images/edit-icon.png"> Cập nhật
                                 </button>
                             </a>
                         </td>
@@ -64,6 +59,7 @@ if($ds_gv == null){
                             <th>Người tạo</th> 
                             <th>Ngày tạo</th>
                             <th>Khóa</th>
+                            <th width=8%>Chức năng</th>
                         </tr>
                         <?php 
                             $gv = null;
@@ -77,6 +73,10 @@ if($ds_gv == null){
                                         "<td>".$gv['ngaytao']."</td>".
                                         "<td align='center'>".
                                             "<a href='#'><img src='images/Unlock.png'></a>".
+                                        "</td>".
+                                       "<td align='center'>".
+                                             "<a href='?cn=capnhatgiangvien'><input type='image' src='images/edit-icon.png' name=''></a>&nbsp;&nbsp;&nbsp;".
+                                             "<input type='image' src='images/Document-Delete-icon.png' name=''>". 
                                         "</td>".
                                     "</tr>";
                             }

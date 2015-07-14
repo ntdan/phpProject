@@ -15,14 +15,20 @@
         mysql_query($sql);
     }
     function sv_them($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau){
-        $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau) 
-                    VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$matkhau')";
+        $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau,ngaytao) 
+                    VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$matkhau',now())";
+        mysql_query($sql);
+        echo $sql;
+    }
+    function sv_themchitiet($mssv,$hinh,$congnghe,$laptrinh,$kinhnghiem){
+        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',kynangcongnghe='$congnghe',kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem' 
+                    WHERE mssv='$mssv'";
         mysql_query($sql);
     }
     function sv_sua(){
         $sql = "UPDATE sinh_vien SET mssv='$mssv',hoten='$ten',gioitinh='$gt',ngaysinh='$ngaysinh',
                     khoahoc=$khoahoc,email='$email',sdt=$sdt,hinhdaidien='$hinh',kynangcongnghe='$congnghe',
-                    kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$matkhau')
+                    kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$matkhau',ngaytao=now()
                 WHERE mssv='$mssv'";
         mysql_query($sql);
     }    

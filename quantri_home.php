@@ -31,7 +31,7 @@
                         <ul class="nav navbar-nav">                            
                             <li class="dropdown">
                                 <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Giảng viên
+                                    Thông tin giảng viên
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
@@ -39,11 +39,22 @@
                                     <li class="divider"></li>
                                     <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
                                 </ul>
-                            </li>   
-                            <li><a href="?cn=quantri">Quản trị người dùng</a></li>
+                            </li>  
+                            <li class="dropdown">
+                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Quản trị
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=qtgv">Giảng viên</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="?cn=qtsv">Sinh viên</a></li>
+                                </ul>
+                            </li>                                                
                         </ul>
                         <ul class="nav navbar-nav">
                             <li><a href="?cn=dangnhap">Đăng nhập</a></li>
+                            <li><a href="?cn=dangnhap">Đăng xuất</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div><!--/container -->
@@ -69,12 +80,19 @@
                         if ($_GET['cn'] == "dmk")
                             include("giaodien/doi-mat-khau.php");
 
-                        if ($_GET['cn'] == "quantri")
-                            include("quantri/quan-tri-nguoi-dung.php");
-                        if ($_GET['cn'] == "themnguoidung")
-                            include("quantri/them-nguoi-dung.php");
-                        if ($_GET['cn'] == "capnhatnguoidung")
-                            include("quantri/cap-nhat-nguoi-dung.php");
+                        if ($_GET['cn'] == "qtgv")
+                            include("quantri/quan-tri-giang-vien.php");
+                        if ($_GET['cn'] == "themgiangvien")
+                            include("quantri/them-giang-vien.php");
+                        if ($_GET['cn'] == "capnhatgiangvien")
+                            include("quantri/cap-nhat-giang-vien.php");
+                        
+                        if ($_GET['cn'] == "qtsv")
+                            include("quantri/quan-tri-sinh-vien.php");
+                        if ($_GET['cn'] == "themsinhvien")
+                            include("quantri/them-sinh-vien.php");
+                        if ($_GET['cn'] == "capnhatsinhvien")
+                            include("quantri/cap-nhat-sinh-vien.php");
                     }
                 ?>
             </div> <!-- /container -->
