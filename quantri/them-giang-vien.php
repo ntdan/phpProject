@@ -38,21 +38,21 @@ and open the template in the editor.
         //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
         gv_them($macb, $ten, $gt, $email, $sdt, '', $matkhau1, 0, 1);
 
-        echo "<script>window.location.href='?cn=quantri'</script>";
+        echo "<script>window.location.href='?cn=qtgv'</script>";
     }
 ?>
 
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">  <!-- Upload hình đại diện --> 
-                    <br><br><br>
+                <div class="col-md-4">  <!-- Upload file danh sách gv  -->                      
+                    <h3 style="color: darkblue; font-weight: bold;">THÊM DANH SÁCH</h3><br>                    
+                    <div align="center"><input type="file"  />Chọn hình</div><br>
                     <div align="center">
-                            <?php
-                                echo "<img src='images/User-image.png'>";
-                            ?>
-                    </div><br>
-                    <div align="center"><input type="file"  />Chọn hình</div>
+                        <button  type="submit" name="" class="btn btn-info">
+                            <img src="images/excel-icon.png"> Thêm
+                        </button>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <h3 style="color: darkblue; font-weight: bold;">THÊM NGƯỜI DÙNG</h3>
@@ -105,10 +105,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td>
-                                    <button  type="submit" name="btnThem" class="btn btn-primary">
+                                    <button  type="submit" name="btnThem" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Thêm
-                                    </button>
-                                    <a href="?" class="btn btn-primary">
+                                    </button> &nbsp;&nbsp;
+                                    <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>

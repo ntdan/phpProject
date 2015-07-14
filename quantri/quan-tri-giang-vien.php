@@ -62,26 +62,26 @@ and open the template in the editor.
                             <th width=8%>Chức năng</th>
                         </tr>
                         <?php 
-                            $gv = null;
-                            while($gv = mysql_fetch_array($ds_gv)){
-                               echo "<tr>".
-                                        "<td align='center'>1</td>".
-                                        "<td>".$gv['macb']."</td>".
-                                        "<td>".$gv['hoten']."</td>".
-                                        "<td>".$gv['email']."</td>".
-                                        "<td>".$gv['nguoitao']."</td>".                                        
-                                        "<td>".$gv['ngaytao']."</td>".
-                                        "<td align='center'>".
-                                            "<a href='#'><img src='images/Unlock.png'></a>".
-                                        "</td>".
-                                       "<td align='center'>".
-                                             "<a href='?cn=capnhatgiangvien'><input type='image' src='images/edit-icon.png' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                             "<input type='image' src='images/Document-Delete-icon.png' name=''>". 
-                                        "</td>".
-                                    "</tr>";
-                            }
-                        ?>
-                        
+//                            $gv = null;
+//                            while($gv = mysql_fetch_array($ds_gv)){
+//                               echo "<tr>".
+//                                        "<td align='center'>1</td>".
+//                                        "<td>".$gv['macb']."</td>".
+//                                        "<td>".$gv['hoten']."</td>".
+//                                        "<td>".$gv['email']."</td>".
+//                                        "<td>".$gv['nguoitao']."</td>".                                        
+//                                        "<td>".$gv['ngaytao']."</td>".
+//                                        "<td align='center'>".
+//                                            "<a href='#'><img src='images/Unlock.png'></a>".
+//                                        "</td>".
+//                                       "<td align='center'>".
+//                                             "<a href='?cn=capnhatgiangvien'><input type='image' src='images/edit-icon.png' name=''></a>&nbsp;&nbsp;&nbsp;".
+//                                             "<input type='image' src='images/Document-Delete-icon.png' name=''>". 
+//                                        "</td>".
+//                                    "</tr>";
+//                            }
+                            danhsach_gv();
+                        ?>                       
                     </table>
                 </div>
             </div>

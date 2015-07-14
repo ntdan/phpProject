@@ -62,45 +62,43 @@ and open the template in the editor.
                             <th width=8%>Chức năng</th>
                         </tr>
                         <?php 
-                            $sv = null;
-                            while($sv = mysql_fetch_array($ds_sv)){
-                               echo "<tr>".
-                                        "<td align='center'>1</td>".
-                                        "<td align='center'>".$sv['mssv']."</td>".
-                                        "<td>".$sv['hoten']."</td>".
-                                        "<td>".$sv['email']."</td>".
-                                        "<td>".$sv['nguoitao']."</td>".                                        
-                                        "<td align='center'>".$sv['ngaytao']."</td>".
-                                        "<td align='center'>".
-                                            "<a href='#'><img src='images/Unlock.png'></a>".
-                                        "</td>".
-                                        "<td align='center'>".
-                                             "<a href='?cn=capnhatsinhvien'><input type='image' src='images/edit-icon.png' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                             "<input type='image' src='images/Document-Delete-icon.png' name=''>". 
-                                        "</td>".
-                                    "</tr>";
-                            }
+//                            $sv = null;
+//                            while($sv = mysql_fetch_array($ds_sv)){
+//                               echo "<tr>".
+//                                        "<td align='center'>1</td>".
+//                                        "<td align='center'>".$sv['mssv']."</td>".
+//                                        "<td>".$sv['hoten']."</td>".
+//                                        "<td>".$sv['email']."</td>".
+//                                        "<td>".$sv['nguoitao']."</td>".                                        
+//                                        "<td align='center'>".$sv['ngaytao']."</td>".
+//                                        "<td align='center'>".
+//                                            "<a href='#'><img src='images/Unlock.png'></a>".
+//                                        "</td>".
+//                                        "<td align='center'>".
+//                                             "<a href='?cn=capnhatsinhvien'><input type='image' src='images/edit-icon.png' name=''></a>&nbsp;&nbsp;&nbsp;".
+//                                             "<input type='image' src='images/Document-Delete-icon.png' name=''>". 
+//                                        "</td>".
+//                                    "</tr>";
+//                            }
+                               danhsach_sv();
                         ?>
                         
-                    </table>
-                    <table class="table" border="0" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
-                        <tr>
-                            <th>
-                                <ul class="pagination">
-                                    <li class="disabled">
-                                        <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-                                    </li>
-                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-                                    </li>
-                                </ul>
-                            </th>
-                        </tr>
-                    </table> 
+                   </table>
+                    
+<!--                 <div class="col-md-12" align="center">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                            </li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">8</a></li>
+                            <li>
+                                <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                            </li>
+                        </ul>
+                    </div>-->
                 </div>
             </div>
         </div>

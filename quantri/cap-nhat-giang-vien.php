@@ -55,14 +55,14 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">  <!-- Upload hình đại diện -->    
-                    <br><br><br/>
+                <div class="col-md-4">  <!-- Upload file danh sách gv  -->                      
+                    <h3 style="color: darkblue; font-weight: bold;">CẬP NHẬT DANH SÁCH</h3><br>                    
+                    <div align="center"><input type="file"  />Chọn hình</div><br>
                     <div align="center">
-                        <?php
-                        echo "<img src='images/User-image.png'>";
-                        ?>
-                    </div><br>
-                    <div align="center"><input type="file"  />Chọn hình</div>
+                        <button  type="submit" name="" class="btn btn-info">
+                            <img src="images/excel-icon.png"> Cập nhật
+                        </button>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <h3 style="color: darkblue; font-weight: bold;">CẬP NHẬT GIẢNG VIÊN</h3>
@@ -70,19 +70,19 @@ and open the template in the editor.
                         <table class="table" cellpadding="0px" cellspacing="0px" align='center'>
                             <tr>
                                 <td width="30%">Mã cán bộ:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" name="txtMaCB" size="2" value="<?php echo $gv['macb'];?>" class="form-control" readonly="true"/> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Họ và tên:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" name="txtHoTen" size="2" value="<?php echo $gv['hoten'];?>" class="form-control"/> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Giới tính:</td>
-                                <td colspan="2">
+                                <td>
                                     <?php
                                         $gtNam = strcasecmp($gv['gioitinh'], 'Nam');
                                         $gtNu = strcasecmp($gv['gioitinh'], 'Nữ');
@@ -99,7 +99,7 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                 <td>Email:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" name="txtEmail" value="<?php echo $gv['email'];?>" class="form-control"/> 
                                 </td>
                             </tr>
@@ -109,16 +109,19 @@ and open the template in the editor.
                                     <input type="text" name="txtSDT" value="<?php echo $gv['sdt'];?>" class="form-control"/> 
                                 </td>
                             </tr>
-                            <tr></tr> 
+                            <tr>
+                                <td>Hướng dẫn nhóm:</td>
+                                <td><input type="text" name="txtMatKhau2" value="" class="form-control"/></td>
+                            </tr> 
                             <tr>
                                 <td>Mật khẩu:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="password" name="txtMatKhau1" value="<?php echo $gv['matkhau'];?>" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Nhập lại mật khẩu:</td>
-                                <td colspan="2">
+                                <td>
                                     <input type="text" name="txtMatKhau2" value="" class="form-control"/>
                                 </td>
                             </tr>
@@ -151,10 +154,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary">
+                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>
-                                    <a href="?" class="btn btn-primary">
+                                    <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>

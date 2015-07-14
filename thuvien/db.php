@@ -49,7 +49,8 @@
     
     function phanTrang($rowcount, $pageno)
    {
-       $str = "<ul class=\"pagination\"> ";
+       $str = "<ul class=\"pagination\">";
+       $str .= "<li class=\"disabled\"><a href='#' aria-label=\"Previous\"><span aria-hidden='true'>&laquo;</span></a></li>";
        global $sodongtrentrang;
        $pagecount = $rowcount / $sodongtrentrang;
        if($rowcount % $sodongtrentrang > 0){
@@ -60,12 +61,13 @@
            $params['page'] = $i;
            $paramString = http_build_query($params);
            if($i == $pageno){
-               $str .= "<li><a id='active' href='?" . $paramString . "'>[" . $i . "]</a></li> ";
+               $str .= "<li class=\"active\"><a href='?" . $paramString . "'>" . $i . "</a></li> ";
            }else{
                $str .= "<li><a href='?" . $paramString . "'>" . $i . "</a></li> ";
           }
        }
-       
+      
+      $str .="<li><a href='#' aria-label=\"Next\"><span aria-hidden='true'>&raquo;</span></a></li>";
       $str .="</ul>";
      return $str;
    }

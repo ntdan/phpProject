@@ -72,66 +72,77 @@
         else
             return null;
     }
- 
-       function danhsach_sv()
-       {
-            global $sodongtrentrang;
-            $tongsodong = sodong(); 
-            $tranghientai = 1;
-            if(isset($_GET['page']))
-                    $tranghientai = $_GET['page'];
+ /*======================== Danh sach phan trang =======================*/
+    function sodong(){
+        $count = 0;
 
-            $tongsotrang = $tongsodong%$sodongtrentrang > 0 ? 
-                    ($tongsodong/$sodongtrentrang + 1) : $tongsodong/$sodongtrentrang;
+        $sqlSelect = "SELECT mssv FROM sinh_vien";
+        $ds = mysql_query($sqlSelect);
 
-            $vitridong = $sodongtrentrang*($tranghientai-1);
+        if(isset($ds))
+            $count = mysql_num_rows($ds);
 
-            $sqlSelect = "SELECT mssv,hoten,email,ngaytao,khoa FROM sinh_vien".
-                                            " LIMIT $vitridong, $sodongtrentrang";
-            $ds = mysql_query($sqlSelect);
+        return $count;
+    }
+    function danhsach_sv()
+    {
+         global $sodongtrentrang;
+         $tongsodong = sodong(); 
+         $tranghientai = 1;
+         if(isset($_GET['page']))
+                 $tranghientai = $_GET['page'];
 
-            $mssv= "";
-            $ten = "";
-            $email = "";
-            $ngaytao = "";
-            $key = 0;
+         $tongsotrang = $tongsodong%$sodongtrentrang > 0 ? 
+                 ($tongsodong/$sodongtrentrang + 1) : $tongsodong/$sodongtrentrang;
 
-            $stt = 1 + $vitridong;
+         $vitridong = $sodongtrentrang*($tranghientai-1);
 
-            global $hinhcapnhat;
-            global $hinhxoa;
-            global $lock;
-            global $unlock;
+         $sqlSelect = "SELECT mssv,hoten,email,ngaytao,khoa FROM sinh_vien".
+                                         " LIMIT $vitridong, $sodongtrentrang";
+         $ds = mysql_query($sqlSelect);
 
-            while(list($mssv, $ten, $email, $ngaytao, $key) = mysql_fetch_array($ds))
-            {                     
-                    $dong = "<tr>".
-                                "<td align='center'>$stt</td>".
-                                "<td align='center'>$mssv</td>".
-                                "<td>$ten</td>".
-                                "<td>$email</td>".
-                                "<td>....</td>".                                        
-                                "<td align='center'>$ngaytao</td>".
-                                "<td align='center'>".
-                                    "<a href='#'><img src='$unlock'></a>".
-                                "</td>".
-                                "<td align='center'>".
-                                     "<a href='?cn=capnhatsinhvien'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                     "<input type='image' src='$hinhxoa' name=''>". 
-                                "</td>".
-                            "</tr>";
+         $mssv= "";
+         $ten = "";
+         $email = "";
+         $ngaytao = "";
+         $key = 0;
 
-                    $stt++;
-                    echo $dong;
-            }	
+         $stt = 1 + $vitridong;
 
-            if($tongsodong > $sodongtrentrang)
-            {
-                    $trang = 1;	
-                    echo "<tr><td colspan='4'>";
+         global $hinhcapnhat;
+         global $hinhxoa;
+         global $lock;
+         global $unlock;
 
-                    echo phanTrang($tongsodong, $tranghientai);
-                    echo "</td></tr>";
-            }
-        } 
+         while(list($mssv, $ten, $email, $ngaytao, $key) = mysql_fetch_array($ds))
+         {                     
+                 $dong = "<tr>".
+                             "<td align='center'>$stt</td>".
+                             "<td align='center'>$mssv</td>".
+                             "<td>$ten</td>".
+                             "<td>$email</td>".
+                             "<td>..NULL..</td>".                                        
+                             "<td align='center'>$ngaytao</td>".
+                             "<td align='center'>".
+                                 "<a href='#'><img src='$unlock'></a>".
+                             "</td>".
+                             "<td align='center'>".
+                                  "<a href='?cn=capnhatsinhvien'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
+                                  "<input type='image' src='$hinhxoa' name=''>". 
+                             "</td>".
+                         "</tr>";
+
+                 $stt++;
+                 echo $dong;
+         }	
+
+         if($tongsodong > $sodongtrentrang)
+         {
+                 $trang = 1;	
+                 echo "<div class=\"col-md-12\" align=\"center\">";
+
+                 echo phanTrang($tongsodong, $tranghientai);
+                 echo "</div>";
+         }
+     } 
 ?>

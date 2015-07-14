@@ -54,7 +54,7 @@ and open the template in the editor.
                         <div align="center"><input type="file" name="fDanhSach" id="fDanhSach" /></div><br>
                         <div align="center">
                             <button  type="submit" class="btn btn-info">
-                                <img src="images/excel-icon.png"> Import
+                                <img src="images/excel-icon.png"> Thêm
                             </button>
                         </div>
                     </form>                                    
@@ -116,10 +116,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td>
-                                    <button  type="submit" name="btnThem" class="btn btn-primary">
+                                    <button  type="submit" name="btnThem" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Thêm
                                     </button>
-                                    <a href="?" class="btn btn-primary">
+                                    <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>

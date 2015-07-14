@@ -54,6 +54,13 @@
                             <li><a href="?cn=dangnhap">Đăng nhập</a></li>
                             <li><a href="../navbar-static/">Đăng xuất</a></li>
                         </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="" style="padding: 0px 0px; margin-top: 5px; margin-right: 40px;">
+                                    <img src="images/search-icon(4).png">
+                                </a>
+                            </li>                        
+                        </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>

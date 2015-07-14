@@ -52,12 +52,12 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">  <!-- Upload hình đại diện -->                      
+                <div class="col-md-4">  <!-- Upload file danh sách sv  -->                      
                     <h3 style="color: darkblue; font-weight: bold;">CẬP NHẬT DANH SÁCH</h3><br>                    
                     <div align="center"><input type="file"  />Chọn hình</div><br>
                     <div align="center">
                         <button  type="submit" name="" class="btn btn-info">
-                            <img src="images/excel-icon.png"> Cập nhật danh sách
+                            <img src="images/excel-icon.png"> Cập nhật
                         </button>
                     </div>
                 </div>
@@ -147,10 +147,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary">
+                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>
-                                    <a href="?" class="btn btn-primary">
+                                    <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>
