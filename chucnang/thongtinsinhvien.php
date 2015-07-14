@@ -14,9 +14,9 @@
         $sql = "DELETE FROM sinh_vien WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-    function sv_them($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau){
-        $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau,ngaytao) 
-                    VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$matkhau',now())";
+    function sv_them($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau,$khoa){
+        $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau,ngaytao,khoa) 
+                    VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$matkhau',now(),$khoa)";
         mysql_query($sql);
         echo $sql;
     }
@@ -25,10 +25,10 @@
                     WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-    function sv_sua(){
+    function sv_sua($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau,$khoa){
         $sql = "UPDATE sinh_vien SET mssv='$mssv',hoten='$ten',gioitinh='$gt',ngaysinh='$ngaysinh',
                     khoahoc=$khoahoc,email='$email',sdt=$sdt,hinhdaidien='$hinh',kynangcongnghe='$congnghe',
-                    kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$matkhau',ngaytao=now()
+                    kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$matkhau',ngaytao=now(),khoa=$khoa
                 WHERE mssv='$mssv'";
         mysql_query($sql);
     }    

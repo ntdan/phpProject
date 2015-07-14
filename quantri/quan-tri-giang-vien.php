@@ -25,13 +25,13 @@ and open the template in the editor.
     
 <?php
     
-include 'chucnang/thongtingiangvien.php';
+    include 'chucnang/thongtingiangvien.php';
 
-$ds_gv = gv_danhsach();
+    $ds_gv = gv_danhsach();
 
-if($ds_gv == null){
-    return;
-}
+    if($ds_gv == null){
+        return;
+    }
     
 ?>
     

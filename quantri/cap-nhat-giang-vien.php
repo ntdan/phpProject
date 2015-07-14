@@ -18,15 +18,22 @@ and open the template in the editor.
     <style type="text/css">
         td:first-child{
             text-align: right;
-            color: darkblue;
+            color: black;
         }
     </style>
 
-    <?php
+<?php
+    include_once 'chucnang/thongtingiangvien.php';
+    
+    //Lấy thông tin từ csdl vào input
+    //$maso = '2134';
+    $maso = $_GET['id'];
+    $gv = gv_xem($maso);
+    if($gv == null){
+        return;
+    }
     if (isset($_POST['btnCapNhat'])) {
-
-
-        include 'chucnang/thongtingiangvien.php';
+        include_once 'chucnang/thongtingiangvien.php';
 
         $macb = $_POST['txtMaCB'];
         $ten = $_POST['txtHoTen'];
@@ -35,12 +42,15 @@ and open the template in the editor.
         $sdt = $_POST['txtSDT'];
         $matkhau1 = $_POST['txtMatKhau1'];
         $matkhau2 = $_POST['txtMatKhau2'];
+        //$key = $_POST['ckbKhoa'];
+        //$quantri = $_POST['ckbQuanTri'];
         //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
         gv_sua($macb, $ten, $gt, $email, $sdt, '', $matkhau1, 0, 1);
-
-        echo "<script>window.location.href='?cn=quantri'</script>";
+        
+        echo "<script>window.location.href='?cn=qtgv'</script>";
     }
-    ?>
+ 
+?>
 
     <body>
         <div class="container">
@@ -60,54 +70,82 @@ and open the template in the editor.
                             <tr>
                                 <td width="30%">Mã cán bộ:</td>
                                 <td colspan="2">
-                                    <input type="text" size="2" value="" name="txtMaCB" class="form-control"> 
+                                    <input type="text" name="txtMaCB" size="2" value="<?php echo $gv['macb'];?>" class="form-control" readonly="true"/> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Họ và tên:</td>
                                 <td colspan="2">
-                                    <input type="text" size="2" value="" name="txtHoTen" class="form-control"> 
+                                    <input type="text" name="txtHoTen" size="2" value="<?php echo $gv['hoten'];?>" class="form-control"/> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Giới tính:</td>
                                 <td colspan="2">
-                                    Nam: <input type="radio" size="2" value="Nam" name="rdGioiTinh" checked="true"/> ;&nbsp;
-                                    Nữ: <input type="radio" size="2" value="Nữ" name="rdGioiTinh"/> 
+                                    <?php
+                                        $gtNam = strcasecmp($gv['gioitinh'], 'Nam');
+                                        $gtNu = strcasecmp($gv['gioitinh'], 'Nữ');
+                                        if($gtNam == 0 && $gtNu != 0){
+                                            echo "Nam: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nam' checked='true'/> &nbsp&nbsp";
+                                            echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value=''/> &nbsp&nbsp";
+                                        }
+                                        elseif ($gtNam != 0 && $gtNu == 0) {
+                                            echo "Nam: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value=''/> &nbsp&nbsp";
+                                            echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nữ' checked='true'/>";
+                                        }
+                                    ?>                                    
                                 </td>
                             </tr>
                             <tr>
                                 <td>Email:</td>
                                 <td colspan="2">
-                                    <input type="text" value="" name="txtEmail" class="form-control"> 
+                                    <input type="text" name="txtEmail" value="<?php echo $gv['email'];?>" class="form-control"/> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Số điện thoại:</td>
                                 <td colspan="2">
-                                    <input type="text" value="" name="txtSDT" class="form-control"> 
+                                    <input type="text" name="txtSDT" value="<?php echo $gv['sdt'];?>" class="form-control"/> 
                                 </td>
                             </tr>
                             <tr></tr> 
                             <tr>
                                 <td>Mật khẩu:</td>
                                 <td colspan="2">
-                                    <input type="text" value="" name="txtMatKhau1" class="form-control">
+                                    <input type="password" name="txtMatKhau1" value="<?php echo $gv['matkhau'];?>" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Nhập lại mật khẩu:</td>
                                 <td colspan="2">
-                                    <input type="text" value="" name="txtMatKhau2" class="form-control">
+                                    <input type="text" name="txtMatKhau2" value="" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="20%"><label>Quản trị:</label></td>
-                                <td><input type="checkbox" name=""></td>                              
+                                <td>
+                                    <?php
+                                        if($gv['quantri'] == 1){
+                                            echo "<input type='checkbox' name='ckbQuanTri' id='ckbQuanTri' value='1' checked='true'/>";
+                                        }
+                                        elseif ($gv['quantri'] == 0) {
+                                            echo "<input type='checkbox' name='ckbQuanTri' id='ckbQuanTri' value='0'/>";
+                                        }
+                                    ?>
+                                </td>                              
                             </tr>
                             <tr>
                                 <td><label>Mở tài khoản:</label></td>
-                                <td><input type="checkbox" name=""></td>                             
+                                <td>
+                                    <?php
+                                        if($gv['khoa'] == 0){
+                                            echo "<input type='checkbox' name='ckbKhoa' value='0' checked='true'/>";
+                                        }
+                                        elseif ($gv['khoa'] == 1) {
+                                            echo "<input type='checkbox' name='ckbKhoa' value='1'/>";
+                                        }
+                                    ?>
+                                </td>                             
                             </tr>
                             <tr>
                                 <td></td>

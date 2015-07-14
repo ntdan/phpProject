@@ -22,10 +22,11 @@
     }
     function gv_sua($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
-        $sql = "UPDATE giang_vien SET macb='$macb',hoten='$ten',giotinh='$gt',email='$email',sdt='$sdt',
-                   hinhdaidien='$hinh',matkhau='$mk',ngaytao=now(),khoa=$khoa,quantri='$quantri'
+        $sql = "UPDATE giang_vien SET macb='$macb',hoten='$ten',gioitinh='$gt',email='$email',sdt='$sdt',
+                   hinhdaidien='$hinh',matkhau='$mk',ngaytao=now(),khoa=$khoa,quantri=$quantri
                 WHERE macb='$macb'";
         mysql_query($sql);
+        echo $sql;
     }
     function gv_danhsach(){
         $sql = "SELECT *  FROM giang_vien";

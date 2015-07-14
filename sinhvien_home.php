@@ -10,7 +10,7 @@
         <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
-    </head>
+    </head>    
     <body>
         <div class="container body-content">  
             <div class="page-header">
@@ -75,7 +75,7 @@
                         if ($_GET['cn'] == "ttsv")
                             include("sinhvien/thong-tin-sinh-vien.php");
                         if ($_GET['cn'] == "dmk")
-                            include("giaodien/doi-mat-khau.php");
+                            include("sinhvien/doi-mat-khau.php");
                         if ($_GET['cn'] == "xemcv")
                             include("giaodien/xem-cong-viec-duoc-giao.php");
 
