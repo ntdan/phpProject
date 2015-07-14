@@ -1,6 +1,6 @@
 <?php
     include 'thuvien/db.php';
-
+/*======================== Lay thong tin gv =======================*/
     function gv_xem($macb){
         $sql = "SELECT *  FROM giang_vien WHERE macb='$macb'";
         $ds = mysql_query($sql);
@@ -9,6 +9,7 @@
         }
         else return null;
     }
+/*======================== Xóa thong tin gv =======================*/
     function gv_xoa($macb){
         $delete = "DELETE FROM giang_vien WHERE macb='$macb'";
         mysql_query($delete);
@@ -23,6 +24,7 @@
     }
   * 
   */
+/*======================== Them thong tin gv =======================*/
     function gv_them($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
         $sql = "INSERT INTO giang_vien(macb,hoten,gioitinh,email,sdt,hinhdaidien,matkhau,ngaytao,khoa,quantri)
@@ -30,6 +32,7 @@
 
         mysql_query($sql);
     }
+/*======================== Cap nhat thong tin gv =======================*/
     function gv_sua($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
         $sql = "UPDATE giang_vien SET macb='$macb',hoten='$ten',gioitinh='$gt',email='$email',sdt='$sdt',
@@ -38,12 +41,14 @@
         mysql_query($sql);
         echo $sql;
     }
+/*======================== Doi mat khau gv =======================*/
     function gv_doimatkhau($macb,$hinh,$matkhau){
         $mk = md5($matkhau);
         $sql = "UPDATE giang_vien SET hinhdaidien='$hinh',matkhau='$mk'
                     WHERE macb='$macb'";
         mysql_query($sql);
     }
+/*======================== Lay danh sách thong tin gv =======================*/
     function gv_danhsach(){
         $sql = "SELECT *  FROM giang_vien";
         $ds = mysql_query($sql);

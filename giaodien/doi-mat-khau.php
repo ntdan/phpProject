@@ -35,8 +35,10 @@ and open the template in the editor.
         $ten = $_POST['txtTen'];
         $email = $_POST['txtEmail'];
         $matkhauMoi = $_POST['txtMatKhauMoi'];
+        
         $filename = $gv['hinhdaidien'];
         $tachten = lay_ten($ten);
+        
         global  $thumucHinhDaiDien;
             if(!file_exists($thumucHinhDaiDien))
                 mkdir($thumucHinhDaiDien);
