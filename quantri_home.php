@@ -58,7 +58,7 @@
                                 <img src="images/Search.png">
                             </button>
                         </div>                                          
-                    </form><hr>
+                    </form>
                     
                 </div>
                 
@@ -74,7 +74,7 @@
                         if ($_GET['cn'] == "themnguoidung")
                             include("quantri/them-nguoi-dung.php");
                         if ($_GET['cn'] == "capnhatnguoidung")
-                            include("giaodien/cap-nhat-nguoi-dung.php");
+                            include("quantri/cap-nhat-nguoi-dung.php");
                     }
                 ?>
             </div> <!-- /container -->

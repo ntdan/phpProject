@@ -73,7 +73,7 @@
                 <?php
                     if (isset($_GET['cn'])) {
                         if ($_GET['cn'] == "ttsv")
-                            include("giaodien/thong-tin-sinh-vien.php");
+                            include("sinhvien/thong-tin-sinh-vien.php");
                         if ($_GET['cn'] == "dmk")
                             include("giaodien/doi-mat-khau.php");
                         if ($_GET['cn'] == "xemcv")
