@@ -13,6 +13,14 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+        
+        
+        <script type="text/javascript">
+            $( function(){
+                $("#txtNgaySinh").datepicker();
+            });
+        </script>
+        
     </head>
 
     <style type="text/css">
@@ -24,28 +32,30 @@ and open the template in the editor.
 
 <?php
     include_once 'chucnang/thongtinsinhvien.php';
+    
     $masv = $_GET['id'];
-    $sv = sv_xem($masv);
-    if($sv == null){
-        return;
-    }
+    
     if (isset($_POST['btnCapNhat'])) {
         include_once 'chucnang/thongtinsinhvien.php';
 
         $masv = $_POST['txtMaSV'];
         $ten = $_POST['txtHoTen'];
-        $ns = $_POST['txtNamSinh'];
+        $ns = $_POST['txtNgaySinh'];
         $gt = $_POST['rdGioiTinh'];
         $email = $_POST['txtEmail'];
         $khoahoc = $_POST['txtKhoaHoc'];
         $sdt = $_POST['txtSDT'];
-        $matkhau1 = $_POST['txtMatKhau1'];
-        $matkhau2 = $_POST['txtMatKhau2'];
-        //$key = $_POST['ckbKhoa'];
+        $matkhau1 = $_POST['txtMatKhauMoi1'];
+        $matkhau2 = $_POST['txtMatKhauMoi2'];
+        $lock = isset($_POST['ckbKhoa']) ? 1:0  ;
         //($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau)
         sv_sua($masv, $ten, $gt, $ns, $khoahoc, $email, $sdt, '', '', '', '', $matkhau1, 0);
 
         //echo "<script>window.location.href='?cn=qtsv'</script>";
+    }    
+    $sv = sv_xem($masv);
+    if($sv == null){
+        return;
     }
 ?>
 
@@ -78,9 +88,9 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             <tr>
-                                <td>Năm sinh:</td>
+                                <td>Ngày sinh:</td>
                                 <td colspan="2">
-                                    <input type="text" name="txtNamSinh" value="<?php echo $sv['ngaysinh']; ?>" class="form-control"> 
+                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $sv['ngaysinh']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
@@ -91,10 +101,10 @@ and open the template in the editor.
                                         $gtNu = strcasecmp($sv['gioitinh'], 'Nữ');
                                         if($gtNam == 0 && $gtNu != 0){
                                             echo "Nam: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nam' checked='true'/> &nbsp&nbsp";
-                                            echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value=''/> &nbsp&nbsp";
+                                            echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nữ'/> &nbsp&nbsp";
                                         }
                                         elseif ($gtNam != 0 && $gtNu == 0) {
-                                            echo "Nam: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value=''/> &nbsp&nbsp";
+                                            echo "Nam: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nam'/> &nbsp&nbsp";
                                             echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nữ' checked='true'/>";
                                         }
                                     ?>    
@@ -120,15 +130,21 @@ and open the template in the editor.
                             </tr>
                             <tr></tr> 
                             <tr>
-                                <td>Mật khẩu:</td>
+                                <td>Mật khẩu hiện tại:</td>
                                 <td colspan="2">
-                                    <input type="text" name="txtMatKhau1" value="<?php echo $sv['matkhau']; ?>" class="form-control">
+                                    <input type="text" id="txtMatKhauCu" name="txtMatKhauCu" value="" class="form-control">
                                 </td>
                             </tr>
                             <tr>
-                                <td>Nhập lại mật khẩu:</td>
+                                <td>Mật khẩu mới:</td>
                                 <td colspan="2">
-                                    <input type="text" name="txtMatKhau2" value="" class="form-control">
+                                    <input type="text" id="txtMatKhauMoi1" name="txtMatKhauMoi1" value="" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nhập lại mật khẩu mới:</td>
+                                <td colspan="2">
+                                    <input type="text" id="txtMatKhauMoi2" name="txtMatKhauMoi2" value="" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -136,10 +152,10 @@ and open the template in the editor.
                                 <td>
                                     <?php
                                         if($sv['khoa'] == 0){
-                                            echo "<input type='checkbox' name='ckbKhoa' value='0' checked='true'/>";
+                                            echo "<input type='checkbox' name='ckbKhoa' value='0' />";
                                         }
                                         elseif ($sv['khoa'] == 1) {
-                                            echo "<input type='checkbox' name='ckbKhoa' value='1'/>";
+                                            echo "<input type='checkbox' name='ckbKhoa' value='1' checked='true'/>";
                                         }
                                     ?> 
                                 </td>                             

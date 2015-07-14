@@ -27,11 +27,11 @@ and open the template in the editor.
     
     include 'chucnang/thongtingiangvien.php';
 
-    $ds_gv = gv_danhsach();
-
-    if($ds_gv == null){
-        return;
-    }
+//    $ds_gv = gv_danhsach();
+//
+//    if($ds_gv == null){
+//        return;
+//    }
     
 ?>
     

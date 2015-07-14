@@ -35,7 +35,7 @@ and open the template in the editor.
         $masv = $_POST['txtMaSV'];
         $ten = $_POST['txtTen'];
         $email = $_POST['txtEmail'];        
-        $matkhauMoi = $_POST['txtMatKhauMoi'];
+        $matkhauMoi = $_POST['txtMatKhauMoi1'];
         
         $filename = $sv['hinhdaidien'];
         $tachten = lay_ten($ten);
@@ -112,19 +112,19 @@ and open the template in the editor.
                             <tr>
                                 <th>Mật khẩu hiện tại:</th>
                                 <td>
-                                    <input type="password" name="txtMatKhau1" value="<?php echo $sv['matkhau']; ?>" class="form-control" />
+                                    <input type="password" name="txtMatKhauCu" value="" class="form-control" />
                                 </td>
                             </tr>
                             <tr>
                                 <th>Mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi" value="" class="form-control" />
+                                    <input type="text" name="txtMatKhauMoi1" value="" class="form-control" />
                                 </td>
                             </tr>
                             <tr>
                                 <th>Nhập lại mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhau2" value="" class="form-control" />
+                                    <input type="text" name="txtMatKhauMoi2" value="" class="form-control" />
                                 </td>
                             </tr>
                             <tr>

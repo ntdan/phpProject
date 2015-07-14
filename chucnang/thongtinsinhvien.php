@@ -127,7 +127,7 @@
                                  "<a href='#'><img src='$unlock'></a>".
                              "</td>".
                              "<td align='center'>".
-                                  "<a href='?cn=capnhatsinhvien'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
+                                  "<a href='?cn=capnhatsinhvien&id=$mssv'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
                                   "<input type='image' src='$hinhxoa' name=''>". 
                              "</td>".
                          "</tr>";
