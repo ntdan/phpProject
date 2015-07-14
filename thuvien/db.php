@@ -12,7 +12,7 @@
     $check = "images/check.png";
     $uncheck = "images/uncheck.png";
     $tinyPDF = "images/file-pdf-icon.png";
-    $sodongtrentrang = 5;
+    $sodongtrentrang = 2;
 
 /*=================== Các Hàm ==================================*/
     function bo_dau_cau($str){

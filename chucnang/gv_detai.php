@@ -64,12 +64,12 @@
 
             $vitridong = $sodongtrentrang*($tranghientai-1);
 
-            $sqlSelect = "SELECT madt,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,duyet,ngaytao,ghichu". 
+            $sqlSelect = "SELECT madt,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichu". 
                          "FROM de_tai".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
 
-            $madt= "";
+            $madt = "";
             $tendt = "";
             $mota = "";
             $congnghe = "";
@@ -89,14 +89,14 @@
             global $uncheck;
             global $tinyPDF;
 
-            while(list($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu) 
-                    = mysql_fetch_array($ds))
+            while(list($madt,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu) = mysql_fetch_array($ds))
             {           
+                
                  $dong = "<tr>".
                             "<td>$stt</td>".
                             "<td style='font-weight: bold;'>".
                                 "<a href='#'>$tendt</a><br>".
-                                "<a href='#'  align='center'><input type='image' src='$tinyPDF' name=''></a>".
+                                "<a href='$taptin'  align='center'><input type='image' src='$tinyPDF' name=''></a>".
                             "</td>".
                             "<td>$mota</td>". 
                             "<td>$congnghe</td>".
@@ -119,7 +119,7 @@
             if($tongsodong > $sodongtrentrang)
             {
                     $trang = 1;	
-                    echo "<tr><td colspan='8'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='9'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";
