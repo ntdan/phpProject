@@ -41,20 +41,23 @@ and open the template in the editor.
 
         echo "<script>window.location.href='?cn=qtsv'</script>";
     }
+
 ?>
 
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">  <!-- Upload hình đại diện --> 
-                    <h3 style="color: darkblue; font-weight: bold;">THÊM DANH SÁCH SINH VIÊN</h3><br>                    
-                    <div align="center"><input type="file"  />Chọn hình</div><br>
-                    <div align="center">
-                        <button  type="submit" name="" class="btn btn-info">
-                            <img src="images/excel-icon.png"> Thêm danh sách
-                        </button>
-                    </div>
-                    
+                    <h3 style="color: darkblue; font-weight: bold;">THÊM DANH SÁCH SINH VIÊN</h3><br>
+                    <form enctype="multipart/form-data" action="" method="post">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+                        <div align="center"><input type="file" name="fDanhSach" id="fDanhSach" /></div><br>
+                        <div align="center">
+                            <button  type="submit" class="btn btn-info">
+                                <img src="images/excel-icon.png"> Import
+                            </button>
+                        </div>
+                    </form>                                    
                 </div>
                 <div class="col-md-8">
                     <h3 style="color: darkblue; font-weight: bold;">THÊM SINH VIÊN</h3>

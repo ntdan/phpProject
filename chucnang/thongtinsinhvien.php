@@ -1,58 +1,74 @@
 <?php
+
     include 'thuvien/db.php';
-/*======================== Lay thong tin sv=======================*/
-    function sv_xem($mssv){
+/* ======================== Lay thong tin sv======================= */
+
+    function sv_xem($mssv) {
         $sql = "SELECT * FROM sinh_vien WHERE mssv='$mssv'";
         $ds_sv = mysql_query($sql);
-        
-        if(mysql_num_rows($ds_sv)>0){
+
+        if (mysql_num_rows($ds_sv) > 0) {
             return mysql_fetch_array($ds_sv);
         }
-        else return null;
+        else
+            return null;
     }
-/*======================== Xoa thong tin sv=======================*/
-    function sv_xoa($mssv){
+
+/* ======================== Xoa thong tin sv======================= */
+
+    function sv_xoa($mssv) {
         $sql = "DELETE FROM sinh_vien WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-/*======================== Them thong tin sv=======================*/
-    function sv_them($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau,$khoa){
+
+/* ======================== Them thong tin sv======================= */
+
+    function sv_them($mssv, $ten, $gt, $ngaysinh, $khoahoc, $email, $sdt, $hinh, $congnghe, $laptrinh, $kinhnghiem, $matkhau, $khoa) {
         $mk = md5($matkhau);
         $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau,ngaytao,khoa) 
-                    VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$mk',now(),$khoa)";
+                        VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$mk',now(),$khoa)";
         mysql_query($sql);
         echo $sql;
     }
-/*======================== Them thong tin khac =======================*/
-    function sv_themchitiet($mssv,$hinh,$congnghe,$laptrinh,$kinhnghiem){
+
+/* ======================== Them thong tin khac ======================= */
+
+    function sv_themchitiet($mssv, $hinh, $congnghe, $laptrinh, $kinhnghiem) {
         $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',kynangcongnghe='$congnghe',kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem' 
-                    WHERE mssv='$mssv'";
+                        WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-/*======================== Cap nhat thong tin sv =======================*/
-    function sv_sua($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau,$khoa){
+
+/* ======================== Cap nhat thong tin sv ======================= */
+
+    function sv_sua($mssv, $ten, $gt, $ngaysinh, $khoahoc, $email, $sdt, $hinh, $congnghe, $laptrinh, $kinhnghiem, $matkhau, $khoa) {
         $mk = md5($matkhau);
         $sql = "UPDATE sinh_vien SET mssv='$mssv',hoten='$ten',gioitinh='$gt',ngaysinh='$ngaysinh',
-                    khoahoc=$khoahoc,email='$email',sdt=$sdt,hinhdaidien='$hinh',kynangcongnghe='$congnghe',
-                    kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$mk',ngaytao=now(),khoa=$khoa
-                WHERE mssv='$mssv'";
-        mysql_query($sql);
-    }  
-/*======================== Doi mat khau sv =======================*/
-    function sv_doimatkhau($mssv,$hinh,$matkhau){
-        $mk = md5($matkhau);
-        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',matkhau='$mk'
+                        khoahoc=$khoahoc,email='$email',sdt=$sdt,hinhdaidien='$hinh',kynangcongnghe='$congnghe',
+                        kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem',matkhau='$mk',ngaytao=now(),khoa=$khoa
                     WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-/*======================== Lay danh sách thong tin sv =======================*/
-    function sv_danhsach(){
+
+/* ======================== Doi mat khau sv ======================= */
+
+    function sv_doimatkhau($mssv, $hinh, $matkhau) {
+        $mk = md5($matkhau);
+        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',matkhau='$mk'
+                        WHERE mssv='$mssv'";
+        mysql_query($sql);
+    }
+
+/* ======================== Lay danh sách thong tin sv ======================= */
+
+    function sv_danhsach() {
         $sql = "SELECT * FROM sinh_vien";
         $ds_sv = mysql_query($sql);
-        
-        if(mysql_num_rows($ds_sv)>0){
+
+        if (mysql_num_rows($ds_sv) > 0) {
             return $ds_sv;
         }
-        else return null;
+        else
+            return null;
     }
 ?>
