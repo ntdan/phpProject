@@ -34,17 +34,19 @@ and open the template in the editor.
                     </a><br>
                     <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th>STT</th>
+                            <th width="5%">STT</th>
                             <th>Nội dung đánh giá</th>
-                            <th>Mức điểm</th>
+                            <th width="10%">Mức điểm</th>
+                            <th>Ngày tạo</th>
                             <th>Thao tác</th>
                         </tr>
                         <tr>
                             <td align="center">1</td>
                             <td>Đánh giá về sự hoàn thành của dự án</td>
                             <td align='center'>4</td>
+                            <td></td>
                             <td align="center">                         
-                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;
+                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;&nbsp;
                                 <input type="image" src="images/Document-Delete-icon.png" name=""> 
                             </td>
                         </tr>
@@ -52,8 +54,9 @@ and open the template in the editor.
                             <td align="center">2</td>
                             <td>Kỹ năng làm việc nhóm</td>
                             <td align='center'>2</td>
+                            <td></td>
                             <td align="center">                         
-                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;
+                                <a href="?cn=suadetai"><input type="image" src="images/edit-icon.png" name=""></a>&nbsp;&nbsp;
                                 <input type="image" src="images/Document-Delete-icon.png" name=""> 
                             </td>
                         </tr>
