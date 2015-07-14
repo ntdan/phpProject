@@ -18,8 +18,8 @@ and open the template in the editor.
         <script type="text/javascript">
             function kiemtra()
             {
-                if (document.getElementById("txtMatKhauNew1").value !==
-                        document.getElementById("txtMatKhauNew2").value)
+                if (document.getElementById("txtMatKhauMoi1").value !==
+                        document.getElementById("txtMatKhauMoi2").value)
                 {
                     alert("Mat khau khong giong nhau");
                     return false;
@@ -176,10 +176,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button onclick="return kiemtra();"  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
+                                    <button onclick = "return kiemtra();"  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="?" class="btn btn-warning" style="width:30%;">
+                                    <a href="?" class="btn btn-warning" style="width:10%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>

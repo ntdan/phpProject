@@ -13,6 +13,24 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+        
+        <script type="text/javascript">
+            function ktMatKhau()
+            {
+                if (document.getElementById("txtMatKhauMoi1").value !==
+                        document.getElementById("txtMatKhauMoi2").value)
+                {
+                    alert("Mật khẩu chưa khớp!");
+                    return false;
+                } else
+                {
+                    return true;
+                }
+            }
+            
+            
+        </script>
+        
     </head>
     
     <style type="text/css">
@@ -71,7 +89,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <form action="" enctype="multipart/form-data" method="post" class="form-horizontal">
+                <form action="" enctype="multipart/form-data" method="post" name="" class="form-horizontal">
                     <div class="col-md-4">  <!-- Upload hình đại diện -->                      
                         <div align="center">
                             <br><br><br/>
@@ -90,7 +108,7 @@ and open the template in the editor.
                     </div>
                     <div class="col-md-8">
                         <h3 style="color: darkblue; font-weight: bold; margin-left: 50px;">ĐỔI MẬT KHẨU</h3>
-                        <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:800px;" />
+                        <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:800px;">
                             <tr>
                                 <th width="20%">Mã cán bộ:</th>
                                 <td width="50%">
@@ -113,29 +131,29 @@ and open the template in the editor.
                             <tr>
                                 <th>Mật khẩu hiện tại:</th>
                                 <td>
-                                    <input type=password name="txtMatKhauCu" value="" class="form-control" />
+                                    <input type=password name="txtMatKhauCu" value="" class="form-control" required/>
                                 </td>
                             </tr>
                             <tr>
                                 <th>Mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi1" value="" class="form-control" />
+                                    <input type="text" name="txtMatKhauMoi1" value="" class="form-control" required/>                                    
                                 </td>
                             </tr>
                             <tr>
                                 <th>Nhập lại mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi2" value="" class="form-control" />
+                                    <input type="text" name="txtMatKhauMoi2" value="" class="form-control" required/>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="center">
-                                    <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 30%;">
+                                    <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
-                                    </button>
-                                    <button type="button" name="" class="btn btn-primary" style="width: 30%;">
+                                    </button>&nbsp;&nbsp;
+                                    <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
-                                    </button>                                
+                                    </a>                              
                                 </td>
                             </tr>
                         </table>                   

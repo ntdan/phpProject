@@ -68,7 +68,7 @@
             </nav>
 
             <div class="row">                 
-                <div class="col-md-12" style="text-align: right;">
+<!--                <div class="col-md-12" style="text-align: right;">
                     <form action="" id="" method="post" class="form-inline">
                         <div class="form-group">                             
                             <input type="text" name="" id="" value="" class="form-control" style="width: 500px;">
@@ -77,7 +77,7 @@
                             </button>
                         </div>                                          
                     </form>
-                </div>   
+                </div>   -->
                 
                 <?php
                     if (isset($_GET['cn'])) {
