@@ -125,10 +125,10 @@
             if($tongsodong > $sodongtrentrang)
             {
                     $trang = 1;	
-                    echo "<div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='8'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
-                    echo "</div>";
+                    echo "</div></td></tr>";
             }
         } 
 ?>
