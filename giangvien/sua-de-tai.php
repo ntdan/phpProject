@@ -32,6 +32,16 @@ and open the template in the editor.
     
     <?php 
         include_once 'chucnang/gv_detai.php';
+        
+        $madt = $_GET['id'];
+        if(isset($_POST['btnCapNhat'])){
+            
+        }
+        $macb = '2134';
+        $dt = dt_xem($macb);
+        if($dt == null){
+            return;
+        }
     ?>
     
     <body>
@@ -167,7 +177,7 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td align="center">
-                                    <button type="button" name="" class="btn btn-primary">
+                                    <button type="submit" name="btnCapNhat" class="btn btn-primary">
                                         <img src="images/save-as-icon.png"> Hoàn tất
                                     </button>&nbsp;&nbsp;
                                     <button type="button" name="" class="btn btn-warning">

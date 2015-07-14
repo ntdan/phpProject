@@ -34,6 +34,9 @@ and open the template in the editor.
                 $duyet = $_GET['d'] == 0 ? 1 : 0; 
                 capnhat_duyet($_GET['id'], $duyet);
             }
+            else{
+                dt_xoa($_GET['id']);
+            }
         }
         $macb = '2134';
         $dt = dt_xem($macb);

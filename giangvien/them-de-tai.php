@@ -13,22 +13,46 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+        
+        <style type="text/css">
+            #bang2 td:first-child{
+                text-align: center;
+                color: darkblue;
+                background-color: #dff0d8;
+                font-weight: bold;
+            }
+            #bang1 td{
+                text-align: center;
+                color: darkblue;
+                background-color: #dff0d8;
+                font-weight: bold;
+            }
+        </style>
+
     </head>
 
-    <style type="text/css">
-        #bang2 td:first-child{
-            text-align: center;
-            color: darkblue;
-            background-color: #dff0d8;
-            font-weight: bold;
-        }
-        #bang1 td{
-            text-align: center;
-            color: darkblue;
-            background-color: #dff0d8;
-            font-weight: bold;
-        }
-    </style>
+    <?php 
+        if (isset($_POST['btnThem'])) {        
+        
+        include 'chucnang/gv_detai.php';
+
+        $madt = $_POST['txtMaDeTai'];
+        $macb = '2134';
+        $ten = $_POST['txtTenDeTai'];
+        $mota = $_POST['txtMoTa'];
+        $congnghe= $_POST['txtCongNghe'];
+        $taptin = isset($_POST['txtTapTinKem']) ? $_POST['txtTapTinKem'] : "";
+        $songuoi = $_POST['txtSoNguoi'];
+        $phanloai = $_POST['cbmPhanLoai'];
+        $trangthai = $_POST['cbmTrangThai'];
+        $gchu = $_POST['txtGhiChu'];
+        
+        //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
+        dt_them($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
+
+        //echo "<script>window.location.href='?cn=dsdt'</script>";
+    }
+    ?>
 
     <body>
 
@@ -66,7 +90,13 @@ and open the template in the editor.
                             </tr>
                         </table>
                         
-                        <table class="table table-bordered" id="bang2">                           
+                        <table class="table table-bordered" id="bang2">
+                            <tr>
+                                <td width="25%">Mã đề tài:</td>
+                                <td>
+                                    <input type="text" id="txtMaDeTai" name="txtMaDeTai" value="" class="form-control"> 
+                                </td>
+                            </tr>
                             <tr>
                                 <td width="25%">Tên đề tài:</td>
                                 <td>
@@ -126,9 +156,9 @@ and open the template in the editor.
                             <tr>
                                 <td>Những yếu tố cần lưu ý trong đề tài:</td>
                                 <td>
-                                    <textarea name="txtLuuY" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <textarea name="txtGhiChu" rows="2" cols="2" class="ckeditor"></textarea>
                                     <script language="javascript">
-                                        CKEDITOR.replace('txtLuuY',
+                                        CKEDITOR.replace('txtGhiChu',
                                                 {
                                                     skin: 'kama',
                                                     extraPlugins: 'uicolor',
@@ -146,28 +176,37 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             <tr>
+                                <td>Phân loại:</td>
+                                <td>
+                                    <select class="form-control" name="cbmPhanLoai">
+                                        <option value="Đề tài gợi ý">Đề tài gợi ý</option>
+                                        <option value="Được đề xuất">Được đề xuất</option>                                       
+                                    </select> 
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Trạng thái</td>
                                 <td>
-                                    <select class="form-control">
-                                        <option value="1">Được đề xuất</option>
-                                        <option value="2">Đang thực hiện</option>
-                                        <option value="3">Đã hoàn thành</option>                                        
+                                    <select class="form-control" name="cbmTrangThai">
+                                        <option value="Chưa thực hiện">Chưa thực hiện</option>
+                                        <option value="Đang thực hiện">Đang thực hiện</option>
+                                        <option value="Đã hoàn thành">Đã hoàn thành</option>                                        
                                     </select> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Tập tin đính kèm:</td>
-                                <td><input type="file" /></td>
+                                <td><input type="file" name="txtTapTinKem"/></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td align="center">
-                                    <button type="button" name="" class="btn btn-primary">
-                                        <img src="../images/save-as-icon.png"> Hoàn tất
+                                    <button type="submit" name="btnThem" class="btn btn-primary" style="width:20%;">
+                                        <img src="images/save-as-icon.png"> Thêm
                                     </button>
-                                    <button type="button" name="" class="btn btn-primary">
-                                        <img src="../images/delete-icon.png"> Hủy bỏ
-                                    </button>                                  
+                                    <a href="?" class="btn btn-warning" style="width:20%;">
+                                        <img src="images/delete-icon.png"> Hủy bỏ
+                                    </a>                                   
                                 </td>
                             </tr>
                         </table>

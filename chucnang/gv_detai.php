@@ -60,9 +60,9 @@
         mysql_query($sql);
     } 
 /*====================== Thêm đề tài ====================================*/
-    function dt_them($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu){
+    function dt_them($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ghichu){
         $sql = "INSERT INTO de_tai(madt,macb,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichu) 
-                        VALUES('$madt','$macb','$tendt','$mota','$congnghe','$taptin',$songuoi,'$phanloai','$trangthai',$duyet,'$ngaytao','$ghichu')";
+                        VALUES('$madt','$macb','$tendt','$mota','$congnghe','$taptin',$songuoi,'$phanloai','$trangthai',$duyet,now(),'$ghichu')";
     
         mysql_query($sql);
     }
@@ -152,8 +152,8 @@
                                 "<a href='?cn=dsdt&d=$duyet&id=$madt'><img src='$hd'/></a>".
                             "</td>".                           
                             "<td align='center'>".
-                                "<a href='?cn=suadetai&id=$madt'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                "<input type='image' src='$hinhxoa' name=''>". 
+                                "<a href='?cn=suadetai&id=$madt'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
+                                "<a onclick=\"return confirm('Đề tài --$tendt-- sẽ bị xóa?');\" href='?cn=dsdt&page=$tranghientai&id=$madt'><img src='$hinhxoa'/></a> ".
                             "</td>".            
                          "</tr>";
 

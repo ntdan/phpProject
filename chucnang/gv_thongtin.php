@@ -114,8 +114,8 @@
                                     "<a href='#'><img src='$unlock'></a>".
                                 "</td>".
                                 "<td align='center'>".
-                                     "<a href='?cn=capnhatgiangvien&id=$macb'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                     "<input type='image' src='$hinhxoa' name=''>". 
+                                     "<a href='?cn=capnhatgiangvien&id=$macb'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
+                                     "<a onclick=\"return confirm('Giảng viên --$ten-- sẽ bị xóa?');\" href='?cn=qtgv&page=$tranghientai&id=$macb'><img src='$hinhxoa'/></a> ". 
                                 "</td>".
                             "</tr>";
 

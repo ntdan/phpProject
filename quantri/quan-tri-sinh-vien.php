@@ -26,6 +26,10 @@ and open the template in the editor.
 <?php
     
     include_once 'chucnang/sv_thongtin.php';
+    
+    if(isset($_GET['id'])){
+        sv_xoa($_GET['id']);
+    }
 
     $ds_sv = sv_danhsach();
 

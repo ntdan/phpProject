@@ -128,7 +128,7 @@
                              "</td>".
                              "<td align='center'>".
                                   "<a href='?cn=capnhatsinhvien&id=$mssv'><input type='image' src='$hinhcapnhat' name=''></a>&nbsp;&nbsp;&nbsp;".
-                                  "<input type='image' src='$hinhxoa' name=''>". 
+                                  "<a onclick=\"return confirm('Sinh viên --$ten-- sẽ bị xóa?');\" href='?cn=qtsv&page=$tranghientai&id=$mssv'><img src='$hinhxoa'/></a> ".
                              "</td>".
                          "</tr>";
 
