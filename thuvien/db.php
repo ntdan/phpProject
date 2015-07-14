@@ -11,6 +11,7 @@
     $unlock = "images/Unlock.png";
     $check = "images/check.png";
     $uncheck = "images/uncheck.png";
+    $tinyPDF = "images/file-pdf-icon.png";
     $sodongtrentrang = 5;
 
 /*=================== Các Hàm ==================================*/

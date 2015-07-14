@@ -13,19 +13,19 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
-    </head>
-    
-     <style type="text/css">
-        th{
-            text-align: center;
-            color: darkblue;
-            background-color: #dff0d8;
-        }
-    </style>
-    
+        
+        <style type="text/css">
+            th{
+                text-align: center;
+                color: darkblue;
+                background-color: #dff0d8;
+            }
+        </style>
+    </head> 
+      
 <?php
     
-    include 'chucnang/thongtingiangvien.php';
+    include 'chucnang/gv_thongtin.php';
 
 //    $ds_gv = gv_danhsach();
 //

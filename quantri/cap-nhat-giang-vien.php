@@ -42,14 +42,14 @@ and open the template in the editor.
     </style>
 
     <?php
-    include_once 'chucnang/thongtingiangvien.php';
+    include_once 'chucnang/gv_thongtin.php';
 
     //Lấy thông tin từ csdl vào input
     //$maso = '2134';
     $maso = $_GET['id'];
     
     if (isset($_POST['btnCapNhat'])) {
-        include_once 'chucnang/thongtingiangvien.php';
+        include_once 'chucnang/gv_thongtin.php';
 
         $macb = $_POST['txtMaCB'];
         $ten = $_POST['txtHoTen'];

@@ -45,7 +45,7 @@ and open the template in the editor.
     </style>
 
 <?php
-    include_once 'chucnang/thongtingiangvien.php';
+    include_once 'chucnang/gv_thongtin.php';
     $macb = '2134';
     //$macb = $_GET['id'];
     $gv = gv_xem($macb);

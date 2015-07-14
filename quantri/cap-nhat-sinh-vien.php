@@ -39,12 +39,12 @@ and open the template in the editor.
     </style>
 
 <?php
-    include_once 'chucnang/thongtinsinhvien.php';
+    include_once 'chucnang/sv_thongtin.php';
     
     $masv = $_GET['id'];
     
     if (isset($_POST['btnCapNhat'])) {
-        include_once 'chucnang/thongtinsinhvien.php';
+        include_once 'chucnang/sv_thongtin.php';
 
         $masv = $_POST['txtMaSV'];
         $ten = $_POST['txtHoTen'];

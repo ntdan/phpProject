@@ -26,7 +26,7 @@ and open the template in the editor.
     if (isset($_POST['btnThem'])) {
         
         
-        include 'chucnang/thongtinsinhvien.php';
+        include 'chucnang/sv_thongtin.php';
 
         $mssv = $_POST['txtMaSV'];
         $ten = $_POST['txtHoTen'];

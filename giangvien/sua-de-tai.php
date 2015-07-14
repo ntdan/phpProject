@@ -124,7 +124,7 @@ and open the template in the editor.
                                     </script>
                                 </td>
                             </tr>
-                                                        <tr>
+                            <tr>
                                 <td>Những yếu tố cần lưu ý trong đề tài:</td>
                                 <td>
                                     <textarea name="txtLuuY" rows="2" cols="2" class="ckeditor"></textarea>
@@ -155,6 +155,10 @@ and open the template in the editor.
                                         <option value="3">Đã hoàn thành</option>
                                     </select> 
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>Tập tin đính kèm:</td>
+                                <td><input type="file" /></td>
                             </tr>
                             <tr>
                                 <td></td>

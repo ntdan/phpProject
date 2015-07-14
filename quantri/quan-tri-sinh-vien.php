@@ -25,7 +25,7 @@ and open the template in the editor.
     
 <?php
     
-    include_once 'chucnang/thongtinsinhvien.php';
+    include_once 'chucnang/sv_thongtin.php';
 
     $ds_sv = sv_danhsach();
 

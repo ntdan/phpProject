@@ -42,8 +42,8 @@ and open the template in the editor.
     </style>
   
 <?php 
-    include 'chucnang/thongtinsinhvien.php';
-    include 'chucnang/thongtingiangvien.php';
+    include 'chucnang/sv_thongtin.php';
+    include 'chucnang/gv_thongtin.php';
     
     $mssv = 1111317;    
     $sv = sv_xem($mssv);

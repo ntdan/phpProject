@@ -1,5 +1,6 @@
 <?php
     include 'thuvien/db.php';
+    
 /*======================== Lay thong tin gv =======================*/
     function gv_xem($macb){
         $sql = "SELECT *  FROM giang_vien WHERE macb='$macb'";

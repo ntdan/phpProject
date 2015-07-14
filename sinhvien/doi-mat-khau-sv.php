@@ -36,7 +36,7 @@ and open the template in the editor.
     </style>
 
 <?php
-    include_once 'chucnang/thongtinsinhvien.php';
+    include_once 'chucnang/sv_thongtin.php';
     $masv = '1111317';
     //$masv = $_GET['id'];
     $sv = sv_xem($masv);
