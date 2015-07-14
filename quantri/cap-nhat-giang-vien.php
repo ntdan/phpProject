@@ -63,7 +63,7 @@ and open the template in the editor.
         //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
         gv_sua($macb, $ten, $gt, $email, $sdt, '', $matkhau1, $lock, $quantri);
 
-        //echo "<script>window.location.href='?cn=qtgv'</script>";
+        echo "<script>window.location.href='?cn=qtgv'</script>";
     }
     $gv = gv_xem($maso);
     if ($gv == null) {
@@ -113,6 +113,12 @@ and open the template in the editor.
                                         echo "Nữ: <input type='radio' name='rdGioiTinh' id='rdGioiTinh' value='Nữ' checked='true'/>";
                                     }
                                     ?>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ngày sinh:</td>
+                                <td colspan="2">
+                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $gv['ngaysinh']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>

@@ -40,16 +40,12 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
-                        <td><h4 style="color: darkblue; font-weight: bold;">DANH SÁCH SINH VIÊN</h4></td>
-                        <td align="right">
-                            <a href="?cn=themsinhvien">
-                                <button type="button" name="" class="btn btn-primary" style="width: 30%;">
-                                    <img src="images/add-icon.png"> Thêm
-                                </button>
-                            </a>
-                        </td>
-                    </table>
+                    <h4 style="display:block; float: left; color: darkblue; font-weight: bold;">DANH SÁCH SINH VIÊN</h4>
+                    <a href="?cn=themgiangvien" style="margin-left: 71%;">
+                        <button type="button" name="" class="btn btn-primary" style="width: 10%;">
+                            <img src="images/add-icon.png"> Thêm
+                        </button>
+                    </a><br>
                     <table class="table table-bordered" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
                         <tr>
                             <th>STT</th>

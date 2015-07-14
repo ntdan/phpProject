@@ -59,7 +59,7 @@ and open the template in the editor.
         //($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau)
         sv_sua($masv, $ten, $gt, $ns, $khoahoc, $email, $sdt, '', '', '', '', $matkhau1, 0);
 
-        //echo "<script>window.location.href='?cn=qtsv'</script>";
+        echo "<script>window.location.href='?cn=qtsv'</script>";
     }    
     $sv = sv_xem($masv);
     if($sv == null){

@@ -55,10 +55,28 @@
                             <li><a href="../navbar-static/">Đăng xuất</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="" style="padding: 0px 0px; margin-top: 5px; margin-right: 40px;">
-                                    <img src="images/search-icon(4).png">
-                                </a>
+                            <li> 
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bs-example-modal-lg" style="padding: 0px 0px; margin-top: 5px; margin-right: 40px;">
+                                     <img src="images/search-icon(4).png">
+                                </button>
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                    <div class="modal-dialog modal-lg">       
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                <h4 class="modal-title" id="myLargeModalLabel" style="color: darkblue; font-weight: bold;">Thanh tìm kiếm</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="" id="" method="post" class="form-inline" align="center">                         
+                                                     <input type="text" name="" id="" value="" class="form-control" style="width: 90%">
+                                                     <button type="button" class="btn btn-info" style="padding: 0px 0px;">
+                                                         <img src="images/Search.png">
+                                                     </button>                                         
+                                                </form>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>                        
                         </ul>
                     </div><!--/.nav-collapse -->

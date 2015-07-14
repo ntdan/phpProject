@@ -25,18 +25,18 @@
   * 
   */
 /*======================== Them thong tin gv =======================*/
-    function gv_them($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
+    function gv_them($macb,$ten,$gt,$ngaysinh,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
-        $sql = "INSERT INTO giang_vien(macb,hoten,gioitinh,email,sdt,hinhdaidien,matkhau,ngaytao,khoa,quantri)
-                  VALUES('$macb','$ten','$gt','$email',$sdt,'$hinh','$mk',now(),$khoa,1)";
+        $sql = "INSERT INTO giang_vien(macb,hoten,gioitinh,ngaysinh,email,sdt,hinhdaidien,matkhau,ngaytao,khoa,quantri)
+                  VALUES('$macb','$ten','$gt',$ngaysinh,'$email',$sdt,'$hinh','$mk',now(),$khoa,1)";
 
         mysql_query($sql);
        // echo $sql;
     }
 /*======================== Cap nhat thong tin gv =======================*/
-    function gv_sua($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
+    function gv_sua($macb,$ten,$gt,$ngaysinh,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
-        $sql = "UPDATE giang_vien SET macb='$macb',hoten='$ten',gioitinh='$gt',email='$email',sdt='$sdt',
+        $sql = "UPDATE giang_vien SET macb='$macb',hoten='$ten',gioitinh='$gt',ngaysinh=$ngaysinh,email='$email',sdt='$sdt',
                    hinhdaidien='$hinh',matkhau='$mk',ngaytao=now(),khoa=$khoa,quantri=$quantri
                 WHERE macb='$macb'";
         mysql_query($sql);

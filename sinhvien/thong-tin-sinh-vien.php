@@ -183,7 +183,7 @@ and open the template in the editor.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="center"><a href="#">Đổi ảnh đại diện</a></td>
+                                    <td align="center"><a href="#">Ảnh đại diện</a></td>
                                 </tr>
                             </table >  <!-- /table anh dai dien -->
                         </div> <!-- /class="col-md-3 col-md-pull-9" -->
