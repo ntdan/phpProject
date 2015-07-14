@@ -94,8 +94,8 @@ and open the template in the editor.
                                 </tr>
                                 <tr>                                    
                                     <td></td>
-                                    <td align="right"><input type="button" value="Browse" class="btn btn-primary"></td>
-                                    <td colspan="2"><input type="text" value="" class="form-control"></td>
+                                    <td align="right"></td>
+                                    <td colspan="2"><input type="file" value="" class="form-control"></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>

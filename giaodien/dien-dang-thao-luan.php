@@ -28,8 +28,8 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">Diễn đàn tin tức</h3>
-                    <a href="?cn=themthaoluan">
+                    <h4 style="display: block; float: left; color: darkblue; font-weight: bold;">Diễn đàn tin tức</h4>
+                    <a href="?cn=themthaoluan" style="margin-left: 70%;">
                         <button type="button" name="" class="btn btn-primary">
                             <img src="images/add-icon.png">Thêm chủ đề thảo luận
                         </button>

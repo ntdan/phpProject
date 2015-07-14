@@ -22,20 +22,20 @@ and open the template in the editor.
                     <form action="" method="post" class="form-horizontal">
                         <table class="table" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
                             <tr>
-                                <td>Tên người viết</td>
+                                <th>Tên người viết</th>
                                 <td>
                                     <input type="text" value="" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
-                                <td>Tiêu đề</td>
+                                <th>Tiêu đề</th>
                                 <td>
                                     <input type="text" value="" class="form-control"> 
                                 </td>
                             </tr>
                             <tr></tr>                                              
                             <tr>
-                                <td>Nội dung ý kiến:</td>
+                                <th>Nội dung ý kiến:</th>
                                 <td>
                                     <textarea name="txtNoiDung" rows="2" cols="2" class="ckeditor"></textarea>
                                     <script language="javascript">
@@ -58,9 +58,13 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>
-                                    <input type="button" value="Lưu" class="btn btn-primary">
-                                    <input type="button" value="Hủy bỏ" class="btn btn-primary">                                
+                                <td align="center">
+                                    <button  type="submit" name="btnThem" class="btn btn-primary" style="width:20%;">
+                                        <img src="images/save-as-icon.png"> Thêm
+                                    </button>&nbsp;&nbsp;
+                                    <a href="?" class="btn btn-warning" style="width:20%;">
+                                        <img src="images/delete-icon.png"> Hủy bỏ
+                                    </a>                                
                                 </td>
                             </tr>
                         </table>

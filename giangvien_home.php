@@ -101,15 +101,17 @@
                             include("giaodien/theo-doi-ke-hoach.php");
 
                         if ($_GET['cn'] == "dsdt")
-                            include("giaodien/danh-sach-de-tai.php");
+                            include("giangvien/danh-sach-de-tai.php");
                         if ($_GET['cn'] == "themdt")
-                            include("giaodien/them-de-tai.php");
+                            include("giangvien/them-de-tai.php");
+                        if ($_GET['cn'] == "suadetai")
+                            include("giangvien/sua-de-tai.php");
 
                         if ($_GET['cn'] == "khotl")
                             include("giaodien/kho-tai-lieu.php");
 
                         if ($_GET['cn'] == "taotc")
-                            include("giaodien/quy-dinh-tieu-chi.php");
+                            include("giangvien/quy-dinh-tieu-chi.php");
                         if ($_GET['cn'] == "nhapdiem")
                             include("giaodien/nhap-diem.php");
 
