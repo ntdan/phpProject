@@ -36,8 +36,8 @@ and open the template in the editor.
         $khoahoc = $_POST['txtKhoaHoc'];
         $matkhau1 = $_POST['txtMatKhau1'];
         $matkhau2 = $_POST['txtMatKhau2'];
-        //($mssv,$ten,$gt,$ngaysinh,$khoahoc,$email,$sdt,$hinh,$congnghe,$laptrinh,$kinhnghiem,$matkhau)
-        sv_them($mssv, $ten, $gt, $ns, $khoahoc, $email, null, '', '', '', '', $matkhau1);
+        //($mssv, $ten, $gt, $ngaysinh, $khoahoc, $email, $sdt, $hinh, $congnghe, $laptrinh, $kinhnghiem, $matkhau, $khoa)
+        sv_them($mssv, $ten, $gt, $ns, $khoahoc, $email, 'NULL', '', '', '', '', $matkhau1,0);
 
         echo "<script>window.location.href='?cn=qtsv'</script>";
     }
@@ -118,7 +118,7 @@ and open the template in the editor.
                                 <td>
                                     <button  type="submit" name="btnThem" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Thêm
-                                    </button>
+                                    </button>&nbsp;&nbsp;
                                     <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                

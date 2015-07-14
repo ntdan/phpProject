@@ -156,7 +156,7 @@ and open the template in the editor.
                                 <td colspan="2">
                                     <button  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
-                                    </button>
+                                    </button>&nbsp;&nbsp;
                                     <a href="?" class="btn btn-warning" style="width:30%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                

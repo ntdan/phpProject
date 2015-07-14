@@ -28,7 +28,7 @@
         $sql = "INSERT INTO sinh_vien(mssv,hoten,gioitinh,ngaysinh,khoahoc,email,sdt,hinhdaidien,kynangcongnghe,kienthuclaptrinh,kinhnghiem,matkhau,ngaytao,khoa) 
                         VALUES('$mssv','$ten','$gt','$ngaysinh',$khoahoc,'$email',$sdt,'$hinh','$congnghe','$laptrinh','$kinhnghiem','$mk',now(),$khoa)";
         mysql_query($sql);
-        echo $sql;
+        //echo $sql;
     }
 
 /* ======================== Them thong tin khac ======================= */
