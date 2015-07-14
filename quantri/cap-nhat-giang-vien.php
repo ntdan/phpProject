@@ -176,10 +176,10 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button onclick = "return kiemtra();"  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
+                                    <button onclick = "return kiemtra();"  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="?" class="btn btn-warning" style="width:10%;">
+                                    <a href="?" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                
                                 </td>

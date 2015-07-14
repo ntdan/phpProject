@@ -13,6 +13,18 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+        
+        <script type="text/javascript">
+            function ktMatKhau(){
+                if(document.getElementById("txtMatKhauMoi1") !== document.getElementById("txtMatKhauMoi2"))
+                {
+                    alert("Mật khẩu không giống nhau!");
+                    return false;
+                }
+                else return true;
+            }
+        </script>
+        
     </head>
     
     <style type="text/css">
@@ -89,7 +101,7 @@ and open the template in the editor.
                     </div>
                     <div class="col-md-8">
                         <h3 style="color: darkblue; font-weight: bold; margin-left: 50px;">ĐỔI MẬT KHẨU</h3>
-                        <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:800px;" />
+                        <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center" style="width:800px;">
                             <tr>
                                 <th width="20%">MSSV:</th>
                                 <td width="50%">
@@ -118,21 +130,21 @@ and open the template in the editor.
                             <tr>
                                 <th>Mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi1" value="" class="form-control" />
+                                    <input type="text" id="txtMatKhauMoi1" name="txtMatKhauMoi1" value="" class="form-control" />
                                 </td>
                             </tr>
                             <tr>
                                 <th>Nhập lại mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi2" value="" class="form-control" />
+                                    <input type="text" id="txtMatKhauMoi2" name="txtMatKhauMoi2" value="" class="form-control" />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="center">
-                                    <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 30%;">
+                                    <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 20%;">
                                         <img src="images/save-as-icon.png"> Cập Nhật
                                     </button>
-                                    <button type="button" name="" class="btn btn-primary" style="width: 30%;">
+                                    <button type="button" name="" class="btn btn-warning="width: 20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </button>                                
                                 </td>

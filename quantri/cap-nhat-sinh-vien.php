@@ -19,6 +19,14 @@ and open the template in the editor.
             $( function(){
                 $("#txtNgaySinh").datepicker();
             });
+            function ktMatKhau(){
+                if(document.getElementById("txtMatKhauMoi1") !== document.getElementById("txtMatKhauMoi2"))
+                {
+                    alert("Mật khẩu không giống nhau!");
+                    return false;
+                }
+                else return true;
+            }
         </script>
         
     </head>
@@ -163,7 +171,7 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button  type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
+                                    <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
                                     <a href="?" class="btn btn-warning" style="width:30%;">

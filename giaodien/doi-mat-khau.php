@@ -17,17 +17,20 @@ and open the template in the editor.
         <script type="text/javascript">
             function ktMatKhau()
             {
-                if (document.getElementById("txtMatKhauMoi1").value !==
-                        document.getElementById("txtMatKhauMoi2").value)
+//                var mk = document.getElementById("hidMatKhauCu");
+//                if(document.getElementById("txtMatKhauCu").value !== mk){
+//                    alert("Nhập sai mật khẩu!");
+//                    return false;
+//                }                
+                if (document.getElementById("txtMatKhauMoi1").value !== document.getElementById("txtMatKhauMoi2").value)
                 {
-                    alert("Mật khẩu chưa khớp!");
+                    alert("Mật khẩu chưa giống nhau!");
                     return false;
                 } else
                 {
                     return true;
                 }
-            }
-            
+            }     
             
         </script>
         
@@ -89,7 +92,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
-                <form action="" enctype="multipart/form-data" method="post" name="" class="form-horizontal">
+                <form action="" enctype="multipart/form-data" method="post" name="frmDoiMatKhau" class="form-horizontal">
                     <div class="col-md-4">  <!-- Upload hình đại diện -->                      
                         <div align="center">
                             <br><br><br/>
@@ -131,19 +134,20 @@ and open the template in the editor.
                             <tr>
                                 <th>Mật khẩu hiện tại:</th>
                                 <td>
-                                    <input type=password name="txtMatKhauCu" value="" class="form-control" required/>
+                                    <input type=password id="txtMatKhauCu" name="txtMatKhauCu" value="" class="form-control" required/>
+                                    <input type="hidden" id="hidMatKhauCu" name="hidMatKhauCu" value="<?php echo $gv['matkhau']; ?>"
                                 </td>
                             </tr>
                             <tr>
                                 <th>Mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi1" value="" class="form-control" required/>                                    
+                                    <input type="text" id="txtMatKhauMoi1" name="txtMatKhauMoi1" value="" class="form-control" required/>                                    
                                 </td>
                             </tr>
                             <tr>
                                 <th>Nhập lại mật khẩu mới:</th>
                                 <td>
-                                    <input type="text" name="txtMatKhauMoi2" value="" class="form-control" required/>
+                                    <input type="text" id="txtMatKhauMoi2" name="txtMatKhauMoi2" value="" class="form-control" required/>
                                 </td>
                             </tr>
                             <tr>
@@ -151,7 +155,7 @@ and open the template in the editor.
                                     <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="?" class="btn btn-warning" style="width:30%;">
+                                    <a href="?" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                              
                                 </td>
