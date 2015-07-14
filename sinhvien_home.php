@@ -66,48 +66,48 @@
                                 <img src="images/Search.png">
                             </button>
                         </div>                                          
-                    </form><hr>
+                    </form>
 
                 </div>
 
                 <?php
-                if (isset($_GET['cn'])) {
-                    if ($_GET['cn'] == "ttsv")
-                        include("giaodien/thong-tin-sinh-vien.php");
-                    if ($_GET['cn'] == "dmk")
-                        include("giaodien/doi-mat-khau.php");
-                    if ($_GET['cn'] == "xemcv")
-                        include("giaodien/xem-cong-viec-duoc-giao.php");
+                    if (isset($_GET['cn'])) {
+                        if ($_GET['cn'] == "ttsv")
+                            include("giaodien/thong-tin-sinh-vien.php");
+                        if ($_GET['cn'] == "dmk")
+                            include("giaodien/doi-mat-khau.php");
+                        if ($_GET['cn'] == "xemcv")
+                            include("giaodien/xem-cong-viec-duoc-giao.php");
 
-                    if ($_GET['cn'] == "dknl")
-                        include("giaodien/dang-ky-de-tai.php");
+                        if ($_GET['cn'] == "dknl")
+                            include("giaodien/dang-ky-de-tai.php");
 
-                    if ($_GET['cn'] == "diendan")
-                        include("giaodien/dien-dang-thao-luan.php");
-                    if ($_GET['cn'] == "themthaoluan")
-                        include("giaodien/them-chu-de-thao-luan.php");
-                    if ($_GET['cn'] == "thaoluan")
-                        include("giaodien/chu-de-thao-luan.php");
-                    if ($_GET['cn'] == "phucdap")
-                        include("giaodien/them-chu-de-thao-luan.php");
+                        if ($_GET['cn'] == "diendan")
+                            include("giaodien/dien-dang-thao-luan.php");
+                        if ($_GET['cn'] == "themthaoluan")
+                            include("giaodien/them-chu-de-thao-luan.php");
+                        if ($_GET['cn'] == "thaoluan")
+                            include("giaodien/chu-de-thao-luan.php");
+                        if ($_GET['cn'] == "phucdap")
+                            include("giaodien/them-chu-de-thao-luan.php");
 
-                    if ($_GET['cn'] == "dscv")
-                        include("giaodien/danh-sach-cong-viec.php");
-                    if ($_GET['cn'] == "congviec")
-                        include("giaodien/phan-cong-nhiem-vu.php");
-                    if ($_GET['cn'] == "themcv")
-                        include("giaodien/them-cong-viec.php");
-                    if ($_GET['cn'] == "capnhatcv")
-                        include("giaodien/cap-nhat-cong-viec.php");
-                    if ($_GET['cn'] == "noptl")
-                        include("giaodien/nop-tai-lieu.php");
+                        if ($_GET['cn'] == "dscv")
+                            include("giaodien/danh-sach-cong-viec.php");
+                        if ($_GET['cn'] == "congviec")
+                            include("giaodien/phan-cong-nhiem-vu.php");
+                        if ($_GET['cn'] == "themcv")
+                            include("giaodien/them-cong-viec.php");
+                        if ($_GET['cn'] == "capnhatcv")
+                            include("giaodien/cap-nhat-cong-viec.php");
+                        if ($_GET['cn'] == "noptl")
+                            include("giaodien/nop-tai-lieu.php");
 
-                    if ($_GET['cn'] == "xemdiem")
-                        include("giaodien/xem-diem.php");
+                        if ($_GET['cn'] == "xemdiem")
+                            include("giaodien/xem-diem.php");
 
-                    if ($_GET['cn'] == "dangnhap")
-                        include("giaodien/dang-nhap.php");
-                }
+                        if ($_GET['cn'] == "dangnhap")
+                            include("giaodien/dang-nhap.php");
+                    }
                 ?>
 
             </div> <!-- /container -->

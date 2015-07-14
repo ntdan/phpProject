@@ -129,7 +129,7 @@ and open the template in the editor.
                         </td>
                     </tr>
                     <tr>
-                        <th>Mô tả:</th>
+                        <th>Mô tả đề tài (Nếu có):</th>
                         <td align='center' colspan="2">
                             <textarea name="txtMoTa" rows="2" cols="2" class="ckeditor"></textarea>
                                 <script language="javascript">
@@ -151,7 +151,7 @@ and open the template in the editor.
                         </td>
                     </tr>
                     <tr>
-                        <th>Phạm vi:</th>
+                        <th>Phạm vi đề tài:</th>
                         <td align='center' colspan="2">
                             <textarea name="txtPhamVi" rows="2" cols="2" class="ckeditor"></textarea>
                                 <script language="javascript">

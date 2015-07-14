@@ -44,14 +44,14 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td><a href="?cn=thaoluan">Các sơ đồ cần vẽ?</a></td>
-                            <td width="5%" align="center"><img src="../images/small-user.png"></td>
+                            <td width="5%" align="center"><img src="images/small-user.png"></td>
                             <td width="10%">Trấn Thành</td>
                             <td><a href="#">3</a></td>
                             <td>02/09/2013</td>
                         </tr>
                         <tr>
                             <td><a href="#">Cách viết tài liệu?</a></td>
-                            <td align="center"><img src="../images/small-user.png"></td>
+                            <td align="center"><img src="images/small-user.png"></td>
                             <td>Trấn Thành</td>
                             <td><a href="#">3</a></td>
                             <td>02/09/2013</td>
