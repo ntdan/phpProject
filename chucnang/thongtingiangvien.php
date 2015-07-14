@@ -10,9 +10,19 @@
         else return null;
     }
     function gv_xoa($macb){
-        $sql = "DELETE FROM giang_vien WHERE macb='$macb'";
+        $delete = "DELETE FROM giang_vien WHERE macb='$macb'";
+        mysql_query($delete);
+    }    
+ /*   
+  * function gv_xoahinh($macb,$hinhdaidien){
+        global $thumucHinhDaiDien;
+        $sql = "UPDATE giang_vien SET hinhdaidien='' WHERE macb='$macb' ";
         mysql_query($sql);
+        
+        unlink($thumucHinhDaiDien."/".$hinhdaidien);
     }
+  * 
+  */
     function gv_them($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$khoa,$quantri){
         $mk = md5($matkhau);
         $sql = "INSERT INTO giang_vien(macb,hoten,gioitinh,email,sdt,hinhdaidien,matkhau,ngaytao,khoa,quantri)
