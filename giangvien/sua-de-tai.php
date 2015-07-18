@@ -50,7 +50,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">SỬA ĐỀ TÀI</h3>
-                    <form action="" method="post">
+                    <form id="formSuaDeTai" name="formSuaDeTai" action="" method="post">
                         <table class="table table-bordered" id="bang1">
                              <tr>
                                 <td align="right">Năm học:</td>
@@ -71,33 +71,35 @@ and open the template in the editor.
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <select class="form-control">
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                    </select>
+                                    <?php chonNhomHP(); ?>
                                 </td>
                             </tr>
                         </table>
                         
                         <table class="table table-bordered" id="bang2">
                             <tr>
+                                <td width="25%">Mã đề tài:</td>
+                                <td>
+                                    <input type="text" value="<?php echo $dt['madt']; ?>" readonly="" class="form-control"> 
+                                </td>
+                            </tr>
+                            <tr>
                                 <td width="25%">Tên đề tài:</td>
                                 <td>
-                                    <input type="text" value="Phần mềm quản lý nghiên cứu khoa học" readonly="" class="form-control"> 
+                                    <input type="text" value="<?php echo $dt['tendt']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Số sinh viên tối đa</td>
                                 <td>
-                                    <input type="text" value="3" class="form-control"> 
+                                    <input type="text" value="<?php echo $dt['songuoitoida']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr></tr>                                              
                             <tr>
                                 <td>Mô tả:</td>
                                 <td>
-                                    <textarea name="txtMoTa" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <textarea name="txtMoTa" rows="2" cols="2" class="ckeditor"><?php echo $dt['motadt']; ?></textarea>
                                     <script language="javascript">
                                         CKEDITOR.replace( 'txtMoTa',
                                         {
@@ -119,7 +121,7 @@ and open the template in the editor.
                             <tr>
                                 <td>Công nghệ thực hiện:</td>
                                 <td>
-                                    <textarea name="txtCongNghe" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <textarea name="txtCongNghe" rows="2" cols="2" class="ckeditor"><?php echo $dt['congnghe']; ?></textarea>
                                     <script language="javascript">
                                         CKEDITOR.replace( 'txtCongNghe',
                                         {
@@ -141,7 +143,7 @@ and open the template in the editor.
                             <tr>
                                 <td>Những yếu tố cần lưu ý trong đề tài:</td>
                                 <td>
-                                    <textarea name="txtLuuY" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <textarea name="txtLuuY" rows="2" cols="2" class="ckeditor"><?php echo $dt['ghichudt']; ?></textarea>
                                     <script language="javascript">
                                         CKEDITOR.replace( 'txtLuuY',
                                         {
@@ -164,9 +166,9 @@ and open the template in the editor.
                                 <td>Trạng thái</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1">Chưa thực hiện</option>
-                                        <option value="2">Đang thực hiện</option>
-                                        <option value="3">Đã hoàn thành</option>
+                                        <option value="Chưa thực hiện">Chưa thực hiện</option>
+                                        <option value="Đang thực hiện">Đang thực hiện</option>
+                                        <option value="Đã hoàn thành">Đã hoàn thành</option>
                                     </select> 
                                 </td>
                             </tr>

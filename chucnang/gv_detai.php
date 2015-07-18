@@ -37,6 +37,27 @@
 			return "";
 		}
 	}
+/*====================== Xem nhóm học phần ====================================*/
+        function chonNhomHP(){
+            $sql = "SELECT manhomhp, tennhomhp, mank, siso FROM nhom_hocphan ORDER BY tennhomhp";
+            $dshp = mysql_query($sql);
+            
+            if(mysql_num_rows($dshp) > 0)
+            {
+			echo "<select name='cbmNhomHP' class=\"form-control\">";
+				echo "<option value='-1'>";
+					echo "Tất cả";
+				echo "</option>";
+				while($row = mysql_fetch_array($dshp))
+				{
+                                     echo "<option value='".$row['manhomhp']."'>".$row['tennhomhp']."</option>";                                                                     
+				}
+			echo "</select>";
+            } else
+		{
+                    return "";
+		}          
+        }
 /*====================== Xem đề tài ====================================*/
     function dt_xem($macb){
         $sql = "SELECT * 
@@ -61,7 +82,7 @@
     } 
 /*====================== Thêm đề tài ====================================*/
     function dt_them($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ghichu){
-        $sql = "INSERT INTO de_tai(madt,macb,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichu) 
+        $sql = "INSERT INTO de_tai(madt,macb,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichudt) 
                         VALUES('$madt','$macb','$tendt','$mota','$congnghe','$taptin',$songuoi,'$phanloai','$trangthai',$duyet,now(),'$ghichu')";
     
         mysql_query($sql);
@@ -71,7 +92,7 @@
     function dt_sua($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ghichu){
         $sql = "UPDATE de_tai SET madt='$madt',$madt,macb='$macb',tendt='$tendt',motadt='$mota',congnghe='$congnghe',".
                     "taptindinhkem='$taptin',songuoitoida=$songuoi,phanloai='$phanloai',trangthai='$trangthai',".
-                    "duyet=$duyet,ngaytao=now(),ghichu='$ghichu'".
+                    "duyet=$duyet,ngaytao=now(),ghichudt='$ghichu'".
                 "WHERE madt='$madt'";     
         mysql_query($sql);
     }
@@ -104,7 +125,7 @@
 
             $vitridong = $sodongtrentrang*($tranghientai-1);
 
-            $sqlSelect = "SELECT madt,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichu". 
+            $sqlSelect = "SELECT madt,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichudt". 
                          " FROM de_tai".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);

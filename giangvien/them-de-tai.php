@@ -32,6 +32,8 @@ and open the template in the editor.
     </head>
 
     <?php 
+        include_once 'chucnang/gv_detai.php';
+        
         if (isset($_POST['btnThem'])) {        
         
         include 'chucnang/gv_detai.php';
@@ -81,11 +83,7 @@ and open the template in the editor.
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <select class="form-control">
-                                        <option value="1">01</option>
-                                        <option value="2">02</option>
-                                        <option value="3">03</option>
-                                    </select>
+                                    <?php chonNhomHP(); ?>
                                 </td>
                             </tr>
                         </table>

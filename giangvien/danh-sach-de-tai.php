@@ -43,6 +43,7 @@ and open the template in the editor.
         if($dt == null){
             return;
         }
+        
     ?>
 
     <body>
@@ -60,30 +61,30 @@ and open the template in the editor.
                                 <td align="right">Năm học:</td>
                                 <td>
                                     <select class="form-control" name="cbmNamHoc">
-                                        <option value="1"><?php echo $dt['nam']; ?></option>
+                                        <option value="2013-2014">2013-2014</option>
+                                        <option value="2014-2015">2014-2015</option>
+                                        <option value="2015-2016">2015-2016</option>
                                     </select>
                                 </td>
                                 <td align="right">Học kỳ:</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1"><?php echo $dt['hocky']; ?></option>
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">Hè</option>
                                     </select>
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <select class="form-control">
-                                        <option value="1"><?php echo $dt['tennhomhp']; ?></option>
-                                    </select>
+                                    <?php chonNhomHP(); ?>
                                 </td>
                                 <td align="right">Trạng thái:</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1">Tất cả</option>
-                                        <option value="2">
-                                            <?php 
-                                                echo $dt['trangthai']; 
-                                             ?>
-                                        </option>
+                                        <option value="-1">Tất cả</option>
+                                        <option value="1">Chưa thực hiện</option>
+                                        <option value="2">Đang thực hiện</option>
+                                        <option value="3">Đã hoàn thành</option>
                                     </select>
                                 </td>
                                 <td>
