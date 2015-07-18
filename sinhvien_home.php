@@ -106,7 +106,7 @@
                             include("giaodien/them-chu-de-thao-luan.php");
 
                         if ($_GET['cn'] == "dscv")
-                            include("giaodien/danh-sach-cong-viec.php");
+                            include("sinhvien/danh-sach-cong-viec.php");
                         if ($_GET['cn'] == "congviec")
                             include("giaodien/phan-cong-nhiem-vu.php");
                         if ($_GET['cn'] == "themcv")
