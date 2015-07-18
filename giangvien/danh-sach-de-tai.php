@@ -28,7 +28,9 @@ and open the template in the editor.
 
     <?php
         include_once 'chucnang/gv_detai.php';
-        
+        include_once 'chucnang/gv_thongtin.php';
+  
+ //Lấy thông tin đề tài
         if(isset($_GET['id'])){
             if(isset($_GET['d'])){
                 $duyet = $_GET['d'] == 0 ? 1 : 0; 
@@ -38,13 +40,17 @@ and open the template in the editor.
                 dt_xoa($_GET['id']);
             }
         }
-        $macb = '2134';
         $madt = '1';
-        $dt = dt_xem($macb,$madt);
+        $dt = dt_xem($madt);
         if($dt == null){
             return;
         }
-        
+ //Lấy thông tin giảng viên 
+        $maso = $dt['macb'];
+        $gv = gv_xem($maso);
+        if ($gv == null) {
+            return;
+        }
     ?>
 
     <body>
@@ -56,7 +62,7 @@ and open the template in the editor.
                         <table class="table table-bordered" cellpadding="15px" cellspacing="10px">
                             <tr>                            
                                 <td align="right">Giảng viên:</td>
-                                <td colspan="5" style="color: darkblue; font-weight: bold;"><?php echo $dt['hoten']; ?></td>
+                                <td colspan="5" style="color: darkblue; font-weight: bold;"><?php echo $gv['hoten']; ?></td>
                             </tr>
                             <tr>
                                 <td align="right">Năm học:</td>
@@ -71,21 +77,29 @@ and open the template in the editor.
                                 <td>
                                     <select class="form-control">
                                         <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">Hè</option>
+                                        <option value="2">2</option>
+                                        <option value="3">Hè</option>
                                     </select>
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <?php chonNhomHP(); ?>
+                                    <select class="form-control">
+                                        <?php
+                                            $sql = "SELECT * FROM nhom_hocphan";
+                                            $kq = mysql_query($sql);
+                                            while($rw = mysql_fetch_assoc($kq)){
+                                                echo "<option value='".$rw['tennhomhp']."'>".$rw['tennhomhp']."</option>";
+                                            }
+                                        ?>
+                                    </select>
                                 </td>
                                 <td align="right">Trạng thái:</td>
                                 <td>
                                     <select class="form-control">
                                         <option value="-1">Tất cả</option>
-                                        <option value="1">Chưa thực hiện</option>
-                                        <option value="2">Đang thực hiện</option>
-                                        <option value="3">Đã hoàn thành</option>
+                                        <option value="Chưa thực hiện">Chưa thực hiện</option>
+                                        <option value="Đang thực hiện">Đang thực hiện</option>
+                                        <option value="Hoàn thành">Hoàn thành</option>
                                     </select>
                                 </td>
                                 <td>

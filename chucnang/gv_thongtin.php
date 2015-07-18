@@ -1,5 +1,5 @@
 <?php
-    include 'thuvien/db.php';
+    include_once 'thuvien/db.php';
     
 /*======================== Lay thong tin gv =======================*/
     function gv_xem($macb){
@@ -60,7 +60,7 @@
         else return null;
     }
 /*======================== Danh sach phan trang =======================*/
-    function sodong(){
+    function sodong_gv(){
         $count = 0;
 
         $sqlSelect = "SELECT macb FROM giang_vien";
@@ -74,7 +74,7 @@
     function danhsach_gv()
        {
             global $sodongtrentrang;
-            $tongsodong = sodong(); 
+            $tongsodong = sodong_gv(); 
             $tranghientai = 1;
             if(isset($_GET['page']))
                     $tranghientai = $_GET['page'];

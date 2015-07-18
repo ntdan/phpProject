@@ -1,6 +1,6 @@
 <?php
 
-    include 'thuvien/db.php';
+    include_once 'thuvien/db.php';
 /* ======================== Lay thong tin sv======================= */
 
     function sv_xem($mssv) {
@@ -73,7 +73,7 @@
             return null;
     }
  /*======================== Danh sach phan trang =======================*/
-    function sodong(){
+    function sodong_sv(){
         $count = 0;
 
         $sqlSelect = "SELECT mssv FROM sinh_vien";
@@ -87,7 +87,7 @@
     function danhsach_sv()
     {
          global $sodongtrentrang;
-         $tongsodong = sodong(); 
+         $tongsodong = sodong_sv(); 
          $tranghientai = 1;
          if(isset($_GET['page']))
                  $tranghientai = $_GET['page'];

@@ -12,7 +12,7 @@
     
 <?php
     
-    include 'chucnang/gv_thongtin.php';
+    include_once 'chucnang/gv_thongtin.php';
 
     $maso = '2134';
     $gv = gv_xem($maso);

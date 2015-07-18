@@ -34,27 +34,26 @@ and open the template in the editor.
         include_once 'chucnang/gv_detai.php';
         
         if(isset($_POST['btnCapNhat'])){
-            include 'chucnang/gv_detai.php';
+            include_once 'chucnang/gv_detai.php';
 
             $madt = $_POST['txtMaDeTai'];
-            $macb = $_GET['id_cb'];
             $ten = $_POST['txtTenDeTai'];
             $mota = $_POST['txtMoTa'];
             $congnghe= $_POST['txtCongNghe'];
             $taptin = isset($_POST['txtTapTinKem']) ? $_POST['txtTapTinKem'] : "";
             $songuoi = $_POST['txtSoNguoi'];
-            $phanloai = $_POST['cbmPhanLoai'];
-            $trangthai = $_POST['cbmTrangThai'];
+            $phanloai = $_POST['rdPhanLoai'];
+            $trangthai = $_POST['rdTrangThai'];
             $gchu = $_POST['txtGhiChu'];
 
             //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
-            dt_sua($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
+            dt_sua($madt,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
 
-            //echo "<script>window.location.href='?cn=dsdt'</script>";
+            echo "<script>window.location.href='?cn=dsdt'</script>";
         }
+        
         $madt = $_GET['id_dt'];
-        $macb = $_GET['id_cb'];
-        $dt = dt_xem($macb,$madt);
+        $dt = dt_xem($madt);
         if($dt == null){
             return;
         }
@@ -71,9 +70,9 @@ and open the template in the editor.
                                 <td align="right">Năm học:</td>
                                 <td>
                                     <select class="form-control">
-                                        <option value="1">2014-2015</option>
-                                        <option value="2">2015-2016</option>
-                                        <option value="3">2016-2017</option>
+                                        <option value="2014-2015">2014-2015</option>
+                                        <option value="2015-2016">2015-2016</option>
+                                        <option value="2016-2017">2016-2017</option>
                                     </select>
                                 </td>
                                 <td align="right">Học kỳ:</td>
@@ -86,7 +85,15 @@ and open the template in the editor.
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <?php chonNhomHP(); ?>
+                                    <select class="form-control">
+                                        <?php
+                                            $sql = "SELECT * FROM nhom_hocphan";
+                                            $kq = mysql_query($sql);
+                                            while($rw = mysql_fetch_assoc($kq)){
+                                                echo "<option value='".$rw['tennhomhp']."'>".$rw['tennhomhp']."</option>";
+                                            }
+                                        ?>
+                                    </select>
                                 </td>
                             </tr>
                         </table>
@@ -180,20 +187,40 @@ and open the template in the editor.
                             <tr>
                                 <td>Phân loại:</td>
                                 <td>
-                                    <select name="cbmPhanLoai" class="form-control">
-                                        <option value="Đề tài gợi ý">Đề tài gợi ý</option>
-                                        <option value="Được đề xuất">Được đề xuất</option>                                       
-                                    </select> 
+                                    <?php
+                                        $goiy = strcasecmp($dt['phanloai'], 'Gợi ý');
+                                        $dexuat = strcasecmp($dt['phanloai'], 'Đề xuất');
+                                        if ($goiy == 0 && $dexuat != 0) {
+                                            echo "Gợi ý: <input type='radio' name='rdPhanLoai' id='rdPhanLoai' value='Gợi ý' checked='true'/> &nbsp&nbsp&nbsp&nbsp";
+                                            echo "Đề xuất: <input type='radio' name='rdPhanLoai' id='rdPhanLoai' value='Đề xuất'/>";
+                                        } elseif ($goiy != 0 && $dexuat == 0) {
+                                            echo "Gợi ý: <input type='radio' name='rdPhanLoai' id='rdPhanLoai' value='Gợi ý'/> &nbsp&nbsp&nbsp&nbsp";
+                                            echo "Đề xuất: <input type='radio' name='rdPhanLoai' id='rdPhanLoai' value='Đề xuất' checked='true'/>";
+                                        }
+                                    ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Trạng thái</td>
                                 <td>
-                                    <select name="cbmTrangThai" class="form-control">
-                                        <option value="Chưa thực hiện">Chưa thực hiện</option>
-                                        <option value="Đang thực hiện">Đang thực hiện</option>
-                                        <option value="Đã hoàn thành">Đã hoàn thành</option>
-                                    </select> 
+                                    <?php
+                                        $chuath = strcasecmp($dt['trangthai'], 'Chưa thực hiện');
+                                        $dangth = strcasecmp($dt['trangthai'], 'Đang thực hiện');
+                                        $ht = strcasecmp($dt['trangthai'], 'Hoàn thành');
+                                        if ($chuath == 0 && $dangth != 0 && $ht != 0) {
+                                            echo "Chưa thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Chưa thực hiện' checked='true'/> &nbsp&nbsp&nbsp&nbsp";
+                                            echo "Đang thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Đang thực hiện'/>&nbsp&nbsp&nbsp&nbsp";
+                                            echo "Hoàn thành: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Hoàn thành'/>";
+                                        } elseif ($chuath != 0 && $dangth == 0 && $ht != 0) {
+                                            echo "Chưa thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Chưa thực hiện'/> &nbsp&nbsp&nbsp&nbsp";
+                                            echo "Đang thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Đang thực hiện' checked='true'/>&nbsp&nbsp&nbsp&nbsp";
+                                            echo "Hoàn thành: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Hoàn thành'/>";
+                                        }elseif ($chuath != 0 && $dangth != 0 && $ht == 0) {
+                                            echo "Chưa thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Chưa thực hiện'/> &nbsp&nbsp&nbsp&nbsp";
+                                            echo "Đang thực hiện: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Đang thực hiện'/>&nbsp&nbsp&nbsp&nbsp";
+                                            echo "Hoàn thành: <input type='radio' name='rdTrangThai' id='rdTrangThai' value='Hoàn thành' checked='true'/>";
+                                        }
+                                    ?>
                                 </td>
                             </tr>
                             <tr>
@@ -203,12 +230,12 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td align="center">
-                                    <button type="submit" name="btnCapNhat" class="btn btn-primary">
-                                        <img src="images/save-as-icon.png"> Hoàn tất
-                                    </button>&nbsp;&nbsp;
-                                    <button type="button" name="" class="btn btn-warning">
+                                    <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
+                                        <img src="images/save-as-icon.png"> Cập nhật
+                                    </button>&nbsp;&nbsp;  
+                                    <a href="?cn=dsdt" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
-                                    </button>                                
+                                    </a>                         
                                 </td>
                             </tr>
                         </table>

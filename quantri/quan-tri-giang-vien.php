@@ -25,7 +25,7 @@ and open the template in the editor.
       
 <?php
     
-    include 'chucnang/gv_thongtin.php';
+    include_once 'chucnang/gv_thongtin.php';
     
     if(isset($_GET['id'])){
         gv_xoa($_GET['id']);

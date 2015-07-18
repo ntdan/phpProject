@@ -49,7 +49,7 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="?cn=taotc">Tiêu chí</a></li>
+                                    <li><a href="?cn=dstc">Tiêu chí</a></li>
                                     <li class="divider"></li>
                                     <li><a href="?cn=nhapdiem">Nhập điểm</a></li>
 
@@ -110,8 +110,13 @@
                         if ($_GET['cn'] == "khotl")
                             include("giaodien/kho-tai-lieu.php");
 
-                        if ($_GET['cn'] == "taotc")
+                        if ($_GET['cn'] == "dstc")
                             include("giangvien/quy-dinh-tieu-chi.php");
+                        if ($_GET['cn'] == "themtieuchi")
+                            include("giangvien/them-tieu-chi.php");
+                         if ($_GET['cn'] == "capnhattieuchi")
+                            include("giangvien/cap-nhat-tieu-chi.php");
+                         
                         if ($_GET['cn'] == "nhapdiem")
                             include("giaodien/nhap-diem.php");
 

@@ -136,7 +136,7 @@ and open the template in the editor.
                                 <th>Mật khẩu hiện tại:</th>
                                 <td>
                                     <input type=password id="txtMatKhauCu" name="txtMatKhauCu" value="" class="form-control" required/>
-                                    <input type="hidden" id="hidMatKhauCu" name="hidMatKhauCu" value="<?php echo $gv['matkhau']; ?>"
+                                    <input type="hidden" id="hidMatKhauCu" name="hidMatKhauCu" value="<?php echo $gv['matkhau']; ?>"/>
                                 </td>
                             </tr>
                             <tr>

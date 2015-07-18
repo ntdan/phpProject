@@ -36,7 +36,7 @@ and open the template in the editor.
         
         if (isset($_POST['btnThem'])) {        
         
-            include 'chucnang/gv_detai.php';
+            include_once 'chucnang/gv_detai.php';
 
             $madt = $_POST['txtMaDeTai'];
             $macb = '2134';
@@ -52,7 +52,7 @@ and open the template in the editor.
             //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
             dt_them($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
 
-            //echo "<script>window.location.href='?cn=dsdt'</script>";
+            echo "<script>window.location.href='?cn=dsdt'</script>";
         }
     ?>
 
@@ -201,7 +201,7 @@ and open the template in the editor.
                                     <button type="submit" name="btnThem" class="btn btn-primary" style="width:20%;">
                                         <img src="images/save-as-icon.png"> Thêm
                                     </button>
-                                    <a href="?" class="btn btn-warning" style="width:20%;">
+                                    <a href="?cn=dsdt" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                                   
                                 </td>
