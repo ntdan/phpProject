@@ -33,12 +33,28 @@ and open the template in the editor.
     <?php 
         include_once 'chucnang/gv_detai.php';
         
-        $madt = $_GET['id'];
         if(isset($_POST['btnCapNhat'])){
-            
+            include 'chucnang/gv_detai.php';
+
+            $madt = $_POST['txtMaDeTai'];
+            $macb = $_GET['id_cb'];
+            $ten = $_POST['txtTenDeTai'];
+            $mota = $_POST['txtMoTa'];
+            $congnghe= $_POST['txtCongNghe'];
+            $taptin = isset($_POST['txtTapTinKem']) ? $_POST['txtTapTinKem'] : "";
+            $songuoi = $_POST['txtSoNguoi'];
+            $phanloai = $_POST['cbmPhanLoai'];
+            $trangthai = $_POST['cbmTrangThai'];
+            $gchu = $_POST['txtGhiChu'];
+
+            //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
+            dt_sua($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
+
+            //echo "<script>window.location.href='?cn=dsdt'</script>";
         }
-        $macb = '2134';
-        $dt = dt_xem($macb);
+        $madt = $_GET['id_dt'];
+        $macb = $_GET['id_cb'];
+        $dt = dt_xem($macb,$madt);
         if($dt == null){
             return;
         }
@@ -49,8 +65,7 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">SỬA ĐỀ TÀI</h3>
-                    <form id="formSuaDeTai" name="formSuaDeTai" action="" method="post">
+                    <h3 style="color: darkblue; font-weight: bold;">SỬA ĐỀ TÀI</h3>                    
                         <table class="table table-bordered" id="bang1">
                              <tr>
                                 <td align="right">Năm học:</td>
@@ -75,24 +90,24 @@ and open the template in the editor.
                                 </td>
                             </tr>
                         </table>
-                        
+                     <form id="formSuaDeTai" name="formSuaDeTai" action="" method="post"> 
                         <table class="table table-bordered" id="bang2">
                             <tr>
                                 <td width="25%">Mã đề tài:</td>
                                 <td>
-                                    <input type="text" value="<?php echo $dt['madt']; ?>" readonly="" class="form-control"> 
+                                    <input type="text" name="txtMaDeTai" value="<?php echo $dt['madt']; ?>" readonly="" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td width="25%">Tên đề tài:</td>
                                 <td>
-                                    <input type="text" value="<?php echo $dt['tendt']; ?>" class="form-control"> 
+                                    <input type="text" name="txtTenDeTai" value="<?php echo $dt['tendt']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>Số sinh viên tối đa</td>
                                 <td>
-                                    <input type="text" value="<?php echo $dt['songuoitoida']; ?>" class="form-control"> 
+                                    <input type="text" name="txtSoNguoi" value="<?php echo $dt['songuoitoida']; ?>" class="form-control"> 
                                 </td>
                             </tr>
                             <tr></tr>                                              
@@ -143,9 +158,9 @@ and open the template in the editor.
                             <tr>
                                 <td>Những yếu tố cần lưu ý trong đề tài:</td>
                                 <td>
-                                    <textarea name="txtLuuY" rows="2" cols="2" class="ckeditor"><?php echo $dt['ghichudt']; ?></textarea>
+                                    <textarea name="txtGhiChu" rows="2" cols="2" class="ckeditor"><?php echo $dt['ghichudt']; ?></textarea>
                                     <script language="javascript">
-                                        CKEDITOR.replace( 'txtLuuY',
+                                        CKEDITOR.replace( 'txtGhiChu',
                                         {
                                             skin : 'kama',
                                             extraPlugins : 'uicolor',
@@ -163,9 +178,18 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             <tr>
+                                <td>Phân loại:</td>
+                                <td>
+                                    <select name="cbmPhanLoai" class="form-control">
+                                        <option value="Đề tài gợi ý">Đề tài gợi ý</option>
+                                        <option value="Được đề xuất">Được đề xuất</option>                                       
+                                    </select> 
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Trạng thái</td>
                                 <td>
-                                    <select class="form-control">
+                                    <select name="cbmTrangThai" class="form-control">
                                         <option value="Chưa thực hiện">Chưa thực hiện</option>
                                         <option value="Đang thực hiện">Đang thực hiện</option>
                                         <option value="Đã hoàn thành">Đã hoàn thành</option>
@@ -174,7 +198,7 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                 <td>Tập tin đính kèm:</td>
-                                <td><input type="file" /></td>
+                                <td><input type="file" name="txtTapTinKem"/></td>
                             </tr>
                             <tr>
                                 <td></td>

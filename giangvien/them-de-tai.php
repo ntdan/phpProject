@@ -36,24 +36,24 @@ and open the template in the editor.
         
         if (isset($_POST['btnThem'])) {        
         
-        include 'chucnang/gv_detai.php';
+            include 'chucnang/gv_detai.php';
 
-        $madt = $_POST['txtMaDeTai'];
-        $macb = '2134';
-        $ten = $_POST['txtTenDeTai'];
-        $mota = $_POST['txtMoTa'];
-        $congnghe= $_POST['txtCongNghe'];
-        $taptin = isset($_POST['txtTapTinKem']) ? $_POST['txtTapTinKem'] : "";
-        $songuoi = $_POST['txtSoNguoi'];
-        $phanloai = $_POST['cbmPhanLoai'];
-        $trangthai = $_POST['cbmTrangThai'];
-        $gchu = $_POST['txtGhiChu'];
-        
-        //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
-        dt_them($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
+            $madt = $_POST['txtMaDeTai'];
+            $macb = '2134';
+            $ten = $_POST['txtTenDeTai'];
+            $mota = $_POST['txtMoTa'];
+            $congnghe= $_POST['txtCongNghe'];
+            $taptin = isset($_POST['txtTapTinKem']) ? $_POST['txtTapTinKem'] : "";
+            $songuoi = $_POST['txtSoNguoi'];
+            $phanloai = $_POST['cbmPhanLoai'];
+            $trangthai = $_POST['cbmTrangThai'];
+            $gchu = $_POST['txtGhiChu'];
 
-        //echo "<script>window.location.href='?cn=dsdt'</script>";
-    }
+            //($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu)
+            dt_them($madt,$macb,$ten,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,0,$gchu);
+
+            //echo "<script>window.location.href='?cn=dsdt'</script>";
+        }
     ?>
 
     <body>
@@ -62,7 +62,6 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">THÊM ĐỀ TÀI MỚI</h3>
-                    <form action="" method="post">
                         <table class="table table-bordered" id="bang1">
                              <tr>
                                 <td align="right">Năm học:</td>
@@ -87,7 +86,7 @@ and open the template in the editor.
                                 </td>
                             </tr>
                         </table>
-                        
+                    <form id="formThemDeTai" name="formThemDeTai" action="" method="post">                        
                         <table class="table table-bordered" id="bang2">
                             <tr>
                                 <td width="25%">Mã đề tài:</td>

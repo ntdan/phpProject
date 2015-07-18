@@ -2,7 +2,7 @@
     include_once 'thuvien/db.php';
     
  /*====================== Chọn năm học ====================================*/   
-    function chonNamHoc($mank, $submit)
+/*    function chonNamHoc($mank, $submit)
 	{
 		$select = "SELECT mank,nam,hocky FROM nien_khoa order by nam";
                 $dsNam  = mysql_query($select);
@@ -36,7 +36,7 @@
 		{
 			return "";
 		}
-	}
+	}*/
 /*====================== Xem nhóm học phần ====================================*/
         function chonNhomHP(){
             $sql = "SELECT manhomhp, tennhomhp, mank, siso FROM nhom_hocphan ORDER BY tennhomhp";
@@ -50,7 +50,7 @@
 				echo "</option>";
 				while($row = mysql_fetch_array($dshp))
 				{
-                                     echo "<option value='".$row['manhomhp']."'>".$row['tennhomhp']."</option>";                                                                     
+                                     echo "<option value='".$row['tennhomhp']."'>".$row['tennhomhp']."</option>";                                                                     
 				}
 			echo "</select>";
             } else
@@ -59,14 +59,14 @@
 		}          
         }
 /*====================== Xem đề tài ====================================*/
-    function dt_xem($macb){
+    function dt_xem($macb,$madt){
         $sql = "SELECT * 
                 FROM de_tai AS dt 
                 JOIN giang_vien AS gv ON dt.macb=gv.macb
                 JOIN ra_de_tai AS radt ON dt.madt = radt.madt
                 JOIN nhom_hocphan AS hp ON radt.manhomhp = hp.manhomhp
                 JOIN nien_khoa AS nk ON hp.mank = nk.mank
-                WHERE dt.macb='$macb'";
+                WHERE dt.macb='$macb' AND dt.madt='$madt'";
         $ds = mysql_query($sql);
         
         if(mysql_num_rows($ds)>0){
@@ -125,12 +125,13 @@
 
             $vitridong = $sodongtrentrang*($tranghientai-1);
 
-            $sqlSelect = "SELECT madt,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichudt". 
+            $sqlSelect = "SELECT madt,macb,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichudt". 
                          " FROM de_tai".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
 
             $madt = "";
+            $macb = "";
             $tendt = "";
             $mota = "";
             $congnghe = "";
@@ -150,7 +151,7 @@
             global $uncheck;
             global $tinyPDF;
 
-            while(list($madt,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu) 
+            while(list($madt,$macb,$tendt,$mota,$congnghe,$taptin,$songuoi,$phanloai,$trangthai,$duyet,$ngaytao,$ghichu) 
                     = mysql_fetch_array($ds))
             {           
                  $hd = $duyet == 0 ? $uncheck : $check;
@@ -173,7 +174,7 @@
                                 "<a href='?cn=dsdt&d=$duyet&id=$madt'><img src='$hd'/></a>".
                             "</td>".                           
                             "<td align='center'>".
-                                "<a href='?cn=suadetai&id=$madt'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
+                                "<a href='?cn=suadetai&id_cb=$macb&id_dt=$madt'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
                                 "<a onclick=\"return confirm('Đề tài --$tendt-- sẽ bị xóa?');\" href='?cn=dsdt&page=$tranghientai&id=$madt'><img src='$hinhxoa'/></a> ".
                             "</td>".            
                          "</tr>";

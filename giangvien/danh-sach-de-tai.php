@@ -39,7 +39,8 @@ and open the template in the editor.
             }
         }
         $macb = '2134';
-        $dt = dt_xem($macb);
+        $madt = '1';
+        $dt = dt_xem($macb,$madt);
         if($dt == null){
             return;
         }
