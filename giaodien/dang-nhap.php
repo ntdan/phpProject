@@ -18,7 +18,7 @@ and open the template in the editor.
         <div class="container">
  
             <form class="form-signin">
-                <h2 class="form-signin-heading">Vui lòng đăng nhập:</h2>
+                <h2 class="form-signin-heading" style="color: darkblue;">Vui lòng đăng nhập:</h2>
                 <label for="inputUsername" >Tên đăng nhập:</label>
                 <input type="username" id="inputEmail" class="form-control" placeholder="Tên đăng nhập" required autofocus><br>
                 <label for="inputPassword" >Mật khẩu</label>

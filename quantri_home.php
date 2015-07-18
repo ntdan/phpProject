@@ -54,7 +54,7 @@
                                 </ul>
                             </li> 
                             <li><a href="?cn=dangnhap">Đăng nhập</a></li>
-                            <li><a href="?cn=dangnhap">Đăng xuất</a></li> 
+                            <li><a href="">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -107,6 +107,9 @@
                             include("quantri/them-sinh-vien.php");
                         if ($_GET['cn'] == "capnhatsinhvien")
                             include("quantri/cap-nhat-sinh-vien.php");
+                        
+                        if ($_GET['cn'] == "dangnhap")
+                            include("giaodien/dang-nhap.php");
                     }
                 ?>
             </div> <!-- /container -->

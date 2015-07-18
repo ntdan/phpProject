@@ -117,7 +117,7 @@
                             include("giaodien/nop-tai-lieu.php");
 
                         if ($_GET['cn'] == "xemdiem")
-                            include("giaodien/xem-diem.php");
+                            include("sinhvien/xem-diem.php");
 
                         if ($_GET['cn'] == "dangnhap")
                             include("giaodien/dang-nhap.php");

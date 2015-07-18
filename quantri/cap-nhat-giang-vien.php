@@ -11,9 +11,18 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
+        <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/style.css">
+        <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/jquery-ui.min.css">
+        <script src="../jquery-ui-1.11.4/jquery-ui.min.js"></script>
+        <script src="../bootstrap/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
-        <script src="../bootstrap/js/bootstrap.js"></script>
-
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        
+        <script>
+            $(function() {
+              $( "#txtNgaySinh" ).datepicker();
+            });
+        </script>
 
         <script type="text/javascript">
             function kiemtra()
@@ -54,6 +63,7 @@ and open the template in the editor.
         $macb = $_POST['txtMaCB'];
         $ten = $_POST['txtHoTen'];
         $gt = $_POST['rdGioiTinh'];
+        $ns = $_POST['txtNgaySinh'];
         $email = $_POST['txtEmail'];
         $sdt = $_POST['txtSDT'];
         $matkhau1 = $_POST['txtMatKhauMoi1'];
@@ -61,7 +71,7 @@ and open the template in the editor.
         $lock = isset($_POST['ckbKhoa']) ? 1 : 0;
         $quantri = isset($_POST['ckbQuanTri']) ? 1 : 0;
         //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
-        gv_sua($macb, $ten, $gt, $email, $sdt, '', $matkhau1, $lock, $quantri);
+        gv_sua($macb, $ten, $gt, $ns,$email, $sdt, '', $matkhau1, $lock, $quantri);
 
         echo "<script>window.location.href='?cn=qtgv'</script>";
     }
@@ -118,7 +128,7 @@ and open the template in the editor.
                             <tr>
                                 <td>Ngày sinh:</td>
                                 <td colspan="2">
-                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $gv['ngaysinh']; ?>" class="form-control"> 
+                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $gv['ngaysinh']; ?>" class="form-control hasDatepicker" /> 
                                 </td>
                             </tr>
                             <tr>
