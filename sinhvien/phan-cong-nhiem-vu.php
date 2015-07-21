@@ -57,6 +57,7 @@ and open the template in the editor.
                             <th rowspan="2" width="20%">Giao cho</th>
                             <th colspan="2" width="10%">Kế hoạch</th>
                             <th rowspan="2" width="20%">Nội dung công việc</th>
+                            <th rowspan="2">Phụ thuộc</th>
                             <th rowspan="2" width="8%">Tiến độ<br>(%)</th>
                             <th colspan="6" width="15%">Tháng 1</th>  
                             <th colspan="7" width="15%">Tháng 2</th>
@@ -85,6 +86,7 @@ and open the template in the editor.
                             <td>02/01/2015</td>
                             <td>28/02/2015</td>
                             <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
+                            <td>0</td>
                             <td>
                                 <div class="progress">  
                                     <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">  
@@ -113,6 +115,7 @@ and open the template in the editor.
                             <td>02/02/2015</td>
                             <td>30/03/2015</td>
                             <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
+                            <td>1</td>
                             <td>
                                 <div class="progress">  
                                     <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width:35%">  
