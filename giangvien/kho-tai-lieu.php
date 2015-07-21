@@ -46,7 +46,7 @@ and open the template in the editor.
                             <th width="50%">Ghi chú</th>
                         </tr>
                         <tr>
-                            <td><img src="images/folder-page-icon.png"/>Website bán đồ nội thất</td>
+                            <td><img src="images/folder-page-icon.png"/>  Website bán đồ nội thất</td>
                             <td></td>
                             <td>2</td>
                             <td>2 ngày trước</td>
@@ -54,7 +54,7 @@ and open the template in the editor.
                             <td>Cập nhật thêm chức năng mới trong tài liệu đặc tả</td>
                         </tr>
                         <tr>
-                            <td><img src="images/folder-page-icon.png"/>Phần mềm quản lý nghiên cứu khoa học</td>
+                            <td><img src="images/folder-page-icon.png"/>  Phần mềm quản lý nghiên cứu khoa học</td>
                             <td>3M</td>
                             <td>10</td>
                             <td>4 ngày trước</td>
@@ -87,19 +87,22 @@ and open the template in the editor.
                 <div class="col-md-12">
                     <table class="table table-bordered" cellpadding="0px" cellspacing="0px" align="center">
                         <tr>
-                            <th width="5%">#</th>
+                            <th width="3%">#</th>
+                            <th width="10%">Tên bản điều chỉnh</th>
                             <th width="12%">Ngày</th>
-                            <th width="15%">Tác giả</th>
-                            <th width="30%">Ghi chú</th>
+                            <th width="10%">Tác giả</th>
+                            <th width="30%">Nội dung điều chỉnh</th>
                         </tr>
                         <tr>
                             <td>1</td>
+                            <td></td>
                             <td>02/01/2014</td>
                             <td>Hoàng Trung Long</td>
                             <td>Tài liệu phân tích yêu cầu phần mềm</td>
                         </tr>
                         <tr>
                             <td>2</td>
+                            <td></td>
                             <td>23/02/2014</td>
                             <td>Phan Ngọc Yến</td>
                             <td>Tài liệu đặc tả sơ bộ</td>

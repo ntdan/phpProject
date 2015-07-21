@@ -107,7 +107,7 @@
                             include("giangvien/doi-mat-khau.php");
 
                         if ($_GET['cn'] == "kehoach")
-                            include("giaodien/theo-doi-ke-hoach.php");
+                            include("giangvien/theo-doi-ke-hoach.php");
 
                         if ($_GET['cn'] == "dsdt")
                             include("giangvien/danh-sach-de-tai.php");
@@ -117,7 +117,7 @@
                             include("giangvien/sua-de-tai.php");
 
                         if ($_GET['cn'] == "khotl")
-                            include("giaodien/kho-tai-lieu.php");
+                            include("giangvien/kho-tai-lieu.php");
 
                         if ($_GET['cn'] == "dstc")
                             include("giangvien/quy-dinh-tieu-chi.php");

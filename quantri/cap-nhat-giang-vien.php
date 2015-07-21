@@ -128,7 +128,7 @@ and open the template in the editor.
                             <tr>
                                 <td>Ngày sinh:</td>
                                 <td colspan="2">
-                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $gv['ngaysinh']; ?>" class="form-control hasDatepicker" /> 
+                                    <input type="text" id="txtNgaySinh" name="txtNgaySinh" value="<?php echo $gv['ngaysinh']; ?>" class="form-control" /> 
                                 </td>
                             </tr>
                             <tr>

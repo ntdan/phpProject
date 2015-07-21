@@ -91,9 +91,9 @@
                     = mysql_fetch_array($ds))
             {           
                  $hd = $duyet == 0 ? $uncheck : $check;
-                 $mta = substr($mota, 0, 50);
-                 $cn = substr($congnghe, 0, 50);
-                 $gchu = substr($ghichu, 0, 50);
+                 //$mta = substr($mota, 0, 50);
+                 //$cn = substr($congnghe, 0, 50);
+                 //$gchu = substr($ghichu, 0, 50);
                  
                  $dong = "<tr>".
                             "<td>$stt</td>".
@@ -101,10 +101,10 @@
                                 "<a href='#'>$tendt</a><br>".
                                 "<a href='$taptin'  align='center'><input type='image' src='$tinyPDF' name=''></a>".
                             "</td>".
-                            "<td>$mta<br>.....</td>". 
-                            "<td>$cn<br>.....</td>".
+                            "<td>$mota<br></td>". 
+                            "<td>$congnghe<br></td>".
                             "<td align='center'>$songuoi</td>".
-                            "<td>$gchu<br>.....</td>".
+                            "<td>$ghichu<br></td>".
                             "<td>$phanloai</td>".
                             "<td align='center'>".
                                 "<a href='?cn=dsdt&d=$duyet&id=$madt'><img src='$hd'/></a>".

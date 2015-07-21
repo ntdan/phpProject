@@ -82,7 +82,18 @@ and open the template in the editor.
                                 </td>
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
-                                    <?php chonNhomHP(); ?>
+                                <td>
+                                    <select class="form-control">
+                                        <?php
+                                            $sql = "SELECT * FROM nhom_hocphan";
+                                            $kq = mysql_query($sql);
+                                            while($rw = mysql_fetch_assoc($kq)){
+                                                echo "<option value='".$rw['tennhomhp']."'>".$rw['tennhomhp']."</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </td>
+                                    
                                 </td>
                             </tr>
                         </table>

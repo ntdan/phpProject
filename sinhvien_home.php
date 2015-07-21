@@ -91,10 +91,10 @@
                         if ($_GET['cn'] == "dmk")
                             include("sinhvien/doi-mat-khau-sv.php");
                         if ($_GET['cn'] == "xemcv")
-                            include("giaodien/xem-cong-viec-duoc-giao.php");
+                            include("sinhvien/xem-cong-viec-duoc-giao.php");
 
                         if ($_GET['cn'] == "dknl")
-                            include("giaodien/dang-ky-de-tai.php");
+                            include("sinhvien/dang-ky-de-tai.php");
 
                         if ($_GET['cn'] == "diendan")
                             include("giaodien/dien-dang-thao-luan.php");
@@ -108,13 +108,14 @@
                         if ($_GET['cn'] == "dscv")
                             include("sinhvien/danh-sach-cong-viec.php");
                         if ($_GET['cn'] == "congviec")
-                            include("giaodien/phan-cong-nhiem-vu.php");
+                            include("sinhvien/phan-cong-nhiem-vu.php");
                         if ($_GET['cn'] == "themcv")
-                            include("giaodien/them-cong-viec.php");
+                            include("sinhvien/them-cong-viec.php");
                         if ($_GET['cn'] == "capnhatcv")
-                            include("giaodien/cap-nhat-cong-viec.php");
+                            include("sinhvien/cap-nhat-cong-viec.php");
+                        
                         if ($_GET['cn'] == "noptl")
-                            include("giaodien/nop-tai-lieu.php");
+                            include("sinhvien/nop-tai-lieu.php");
 
                         if ($_GET['cn'] == "xemdiem")
                             include("sinhvien/xem-diem.php");
