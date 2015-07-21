@@ -44,7 +44,7 @@
         $sqlSelect = "SELECT macv FROM cong_viec";
         $dscv = mysql_query($sqlSelect);
 
-        if(isset($ds))
+        if(isset($dscv))
             $count = mysql_num_rows($dscv);
 
         return $count;
@@ -85,19 +85,16 @@
 
             global $hinhcapnhat;
             global $hinhxoa;
-            global $check;
-            global $uncheck;
-            global $tinyPDF;
 
             while(list($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
                     $uutien,$trangthai,$tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
             {          
                  $dong = "<tr>".
-                            "<td>$stt</td>".
+                            "<td align='center'>$stt</td>".
                             "<td style='font-weight: bold;'>".
                                 "<a href='#'>$tencv</a><br>".
                             "</td>".
-                            "<td>$trangthai</td>".
+                            "<td align='center'>$trangthai</td>".
                             "<td>$giaocho</td>". 
                             "<td>$bdkehoach</td>".
                             "<td>$ketthuctkehoach</td>".
@@ -114,8 +111,9 @@
 
             if($tongsodong > $sodongtrentrang)
             {
+                
                     $trang = 1;	
-                    echo "<tr><td colspan='9'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='11'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";

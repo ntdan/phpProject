@@ -40,26 +40,20 @@ and open the template in the editor.
                             </th>
                             <th width="30%">
                                 <a href="?cn=themcv">
-                                    <button type="button" name="" class="btn btn-primary">
+                                    <button type="button" name="" class="btn btn-primary" style="width:45%;">
                                     <img src="images/add-icon.png">Thêm công việc
                                     </button></a> &nbsp;
                                 <a href="?cn=capnhatcv">
-                                    <button type="button" name="" class="btn btn-primary">
+                                    <button type="button" name="" class="btn btn-primary" style="width:45%;">
                                     <img src="images/edit-icon.png">Cập nhật công việc
                                     </button></a> &nbsp;
-                            </th>
-                            <th>                                
-                                <a href="#">
-                                    <button type="button" name="" class="btn btn-primary" style="width: 100%;">
-                                    <img src="images/delete-icon.png">Hủy công việc
-                                </button></a>
                             </th>
                         </tr>
                     </table>
                     <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
                             <th rowspan="2" width="2%">ID</th>
-                            <th rowspan="2" width="20%">Tên công việc</th>
+                            <th rowspan="2" width="15%">Tên công việc</th>
                             <th rowspan="2" width="20%">Giao cho</th>
                             <th colspan="2" width="10%">Kế hoạch</th>
                             <th rowspan="2" width="20%">Nội dung công việc</th>
