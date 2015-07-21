@@ -18,7 +18,7 @@ and open the template in the editor.
 
     <style type="text/css">
             th{
-                text-align: center;
+                text-align: right;
                 color: darkblue;
                 background-color: #dff0d8;
             }
@@ -34,7 +34,10 @@ and open the template in the editor.
                         <tr>
                             <th width="10%">Tên công việc:</th>
                             <td colspan="3">
-                                <input type="text" name="" value="Phân tích yêu cầu" class="form-control">
+                                <select class="form-control" size="1">
+                                    <option value="1">Phân tích yêu cầu</option>
+                                    <option value="2">Đặc tả yêu cầu</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

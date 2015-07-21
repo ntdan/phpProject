@@ -18,7 +18,7 @@ and open the template in the editor.
 
     <style type="text/css">
             th{
-                text-align: center;
+                text-align: right;
                 color: darkblue;
                 background-color: #dff0d8;
             }
@@ -34,7 +34,10 @@ and open the template in the editor.
                         <tr>
                             <th width="10%">Tên công việc:</th>
                             <td colspan="3">
-                                <input type="text" name="" value="Phân tích yêu cầu" class="form-control">
+                                <select class="form-control" size="1">
+                                    <option value="1">Phân tích yêu cầu</option>
+                                    <option value="2">Đặc tả yêu cầu</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -103,7 +106,13 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <th>Trạng thái</th>
-                            <td><input type="text" name="" value="" class="form-control"></td>
+                            <td>
+                                <select class="form-control" size="1">
+                                    <option value="1">Đang làm</option>
+                                    <option value="2">Sắp làm</option>
+                                    <option value="3">Hoàn thành</option>
+                                </select>
+                            </td>
                             <th>Tiến độ (%):</th>
                             <td><input type="text" name="" value="" class="form-control"></td>
                         </tr>
@@ -124,13 +133,13 @@ and open the template in the editor.
                         </tr>                     
                         <tr>
                             <td></td>
-                            <td colspan="3">
-                                <button type="button" name="" class="btn btn-primary">
-                                    <img src="images/save-as-icon.png"> Hoàn tất
-                                </button>
-                                <button type="button" name="" class="btn btn-primary">
+                            <td colspan="3" align="center">
+                                <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
+                                    <img src="images/save-as-icon.png"> Cập nhật
+                                </button>&nbsp;&nbsp;
+                                <a href="?cn=phancongnv" class="btn btn-warning" style="width:20%;">
                                     <img src="images/delete-icon.png"> Hủy bỏ
-                                </button>                                
+                                </a>                              
                             </td>
                         </tr>
                     </table>

@@ -16,7 +16,7 @@ and open the template in the editor.
         
         <style type="text/css">
             #bang2 td:first-child{
-                text-align: center;
+                text-align: right;
                 color: darkblue;
                 background-color: #dff0d8;
                 font-weight: bold;

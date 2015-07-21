@@ -81,10 +81,7 @@ and open the template in the editor.
                                     <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
                                 </tr>
                             </table>
-                    
-                    <table class="table" border="0" width="800px" cellpadding="0px" cellspacing="0px" align='center'>
-                        <tr>
-                            <th>
+                        <div class="col-md-12" align="center">
                                 <ul class="pagination">
                                     <li class="disabled">
                                         <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
@@ -97,9 +94,7 @@ and open the template in the editor.
                                         <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                                     </li>
                                 </ul>
-                            </th>
-                        </tr>
-                    </table> 
+                        </div>
                 </div>  <!-- /class="col-md-12" -->                     
             </div> <!-- /row -->
             

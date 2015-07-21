@@ -45,9 +45,8 @@ and open the template in the editor.
                                             <option value="4">Đang làm</option>
                                         </select>
                                     </th>
-                                    <th width="10%">Ngày bắt đầu</th>
-                                    <th width="14%">Hạn hoàn tất <br>
-                                        <input type="text" value="" class="form-control">
+                                    <th width="8%">Ngày bắt đầu</th>
+                                    <th width="8%">Hạn hoàn tất <br>
                                     </th>
                                     <th width="14%">Độ ưu tiên <br>
                                         <select name="" class="form-control">
