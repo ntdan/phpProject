@@ -108,6 +108,8 @@
 
                         if ($_GET['cn'] == "kehoach")
                             include("giangvien/theo-doi-ke-hoach.php");
+                        if($_GET['cn'] == "chitietkehoach")
+                            include("giangvien/ke-hoach-chi-tiet.php");
 
                         if ($_GET['cn'] == "dsdt")
                             include("giangvien/danh-sach-de-tai.php");

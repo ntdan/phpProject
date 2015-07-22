@@ -72,7 +72,7 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td><a href="">Game pikachu trên Androi</a></td>
+                            <td><a href="?cn=chitietkehoach">Game pikachu trên Androi</a></td>
                             <td>Kim Nguyên</td>
                             <td>Hoàng Thành</td>
                             <td>Chiều thứ hai</td>
@@ -86,7 +86,7 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><a href="">Website quản lý hàng hóa ở siêu thị</a></td>
+                            <td><a href="?cn=chitietkehoach">Website quản lý hàng hóa ở siêu thị</a></td>
                             <td>Trung Thành</td>
                             <td>Phan Anh, Mai Vàng</td>
                             <td>Sáng thứ ba</td>
