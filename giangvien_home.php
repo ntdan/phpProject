@@ -64,9 +64,8 @@
 
                                 </ul>
                             </li>
-                            <li><a href="?cn=qldiendan">Diễn đàn</a></li>
-                            <li><a href="?cn=dangnhap">Đăng nhập</a></li>
-                            <li><a href="">Đăng xuất</a></li>                        
+                            <li><a href="?cn=qldiendan">Thảo luận</a></li>
+                            <li><a href="giaodien/dang-nhap.php">Đăng xuất</a></li>                        
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -137,17 +136,13 @@
                             include("giaodien/chu-de-thao-luan.php");
                         if ($_GET['cn'] == "phucdap")
                             include("giaodien/them-chu-de-thao-luan.php");
-
-                        if ($_GET['cn'] == "dangnhap")
-                            include("giaodien/dang-nhap.php");
                     }
                 ?>
             </div> <!-- /container -->
-
             <hr>
             <footer class="footer">
                 <p>&copy; Company 2015</p>
-            </footer>
-        </div>    
+            </footer>                     
+        </div>                   
     </body>
 </html>

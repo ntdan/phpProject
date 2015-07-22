@@ -43,6 +43,7 @@
 
         $sqlSelect = "SELECT macv FROM cong_viec";
         $dscv = mysql_query($sqlSelect);
+        echo $dscv;
 
         if(isset($dscv))
             $count = mysql_num_rows($dscv);

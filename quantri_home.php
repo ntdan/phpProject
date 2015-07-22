@@ -53,8 +53,7 @@
                                     <li><a href="?cn=qtsv">Sinh viên</a></li>
                                 </ul>
                             </li> 
-                            <li><a href="?cn=dangnhap">Đăng nhập</a></li>
-                            <li><a href="">Đăng xuất</a></li> 
+                            <li><a href="giaodien/dang-nhap.php">Đăng xuất</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -107,13 +106,9 @@
                             include("quantri/them-sinh-vien.php");
                         if ($_GET['cn'] == "capnhatsinhvien")
                             include("quantri/cap-nhat-sinh-vien.php");
-                        
-                        if ($_GET['cn'] == "dangnhap")
-                            include("giaodien/dang-nhap.php");
                     }
                 ?>
             </div> <!-- /container -->
-
             <hr>
             <footer class="footer">
                 <p>&copy; Company 2015</p>

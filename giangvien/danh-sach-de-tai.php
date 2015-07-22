@@ -29,6 +29,7 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/gv_detai.php';
         include_once 'chucnang/gv_thongtin.php';
+        include_once 'chucnang/hocky_nienkhoa.php';
   
  //Lấy thông tin đề tài
         if(isset($_GET['id'])){
@@ -64,23 +65,8 @@ and open the template in the editor.
                                 <td align="right">Giảng viên:</td>
                                 <td colspan="5" style="color: darkblue; font-weight: bold;"><?php echo $gv['hoten']; ?></td>
                             </tr>
-                            <tr>
-                                <td align="right">Năm học:</td>
-                                <td>
-                                    <select class="form-control" name="cbmNamHoc">
-                                        <option value="2013-2014">2013-2014</option>
-                                        <option value="2014-2015">2014-2015</option>
-                                        <option value="2015-2016">2015-2016</option>
-                                    </select>
-                                </td>
-                                <td align="right">Học kỳ:</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">Hè</option>
-                                    </select>
-                                </td>
+                            <tr> 
+                                <?php hocky_nienkhoa();?>                             
                                 <td align="right">Nhóm học phần:</td>
                                 <td>
                                     <select class="form-control">

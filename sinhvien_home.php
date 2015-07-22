@@ -50,9 +50,8 @@
                                 </ul>
                             </li>                        
                             <li><a href="?cn=xemdiem">Xem kết quả</a></li>
-                            <li><a href="?cn=diendan">Diễn đàn</a></li>    
-                            <li><a href="?cn=dangnhap">Đăng nhập</a></li>
-                            <li><a href="../navbar-static/">Đăng xuất</a></li>
+                            <li><a href="?cn=diendan">Thảo luận</a></li>  
+                            <li><a href="giaodien/dang-nhap.php">Đăng xuất</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -119,9 +118,6 @@
 
                         if ($_GET['cn'] == "xemdiem")
                             include("sinhvien/xem-diem.php");
-
-                        if ($_GET['cn'] == "dangnhap")
-                            include("giaodien/dang-nhap.php");
                     }
                 ?>
 
