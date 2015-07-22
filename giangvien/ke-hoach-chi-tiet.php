@@ -28,6 +28,7 @@ and open the template in the editor.
     <body>
         <div class="container">
             <div class="row">
+                <h3 style="color: darkblue;font-weight: bold; margin-left: 2%">KẾ HOẠCH CHI TIẾT</h3>
                 <div class="col-md-12">
                     <h4 style="color: #c7254e;"><img src="images/box-icon1.png"/> Phân tích yêu cầu</h4>
                     <div class="progress" style="width:50%;">  

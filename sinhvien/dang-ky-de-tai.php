@@ -17,7 +17,7 @@ and open the template in the editor.
     
     <style type="text/css">
         th{
-            text-align: center;
+            text-align: right;
             color: darkblue;
             background-color: #dff0d8;
             vertical-align: middle;

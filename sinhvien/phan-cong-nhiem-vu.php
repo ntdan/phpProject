@@ -155,7 +155,7 @@ and open the template in the editor.
                             <td>02/01/2015</td>
                             <td>28/02/2015</td>                            
                             <td>5</td>
-                            <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
+                            <td>Phải phân tích cấu trúc lưu CSDL, xác định các thực thể cần lưu</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -175,7 +175,7 @@ and open the template in the editor.
                             <td>02/02/2015</td>
                             <td>30/03/2015</td>                            
                             <td>6</td>
-                            <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
+                            <td>Dựa vào các thực thể đã phân tích để vẽ sơ đồ CDM và sơ đồ usecase</td>
                             <td></td>
                             <td></td>
                             <td></td>
