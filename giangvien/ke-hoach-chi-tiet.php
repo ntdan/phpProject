@@ -42,25 +42,11 @@ and open the template in the editor.
                             <th rowspan="2" width="15%">Giao cho</th>
                             <th colspan="3" width="20%">Thực tế</th>
                             <th rowspan="2" width="20%">Chi tiết công việc</th>
-                            <th colspan="6" width="15%">Tháng 1</th>  
-                            <th colspan="7" width="15%">Tháng 2</th>
                         </tr>
                         <tr>
                             <th>Bắt đầu</th>
                             <th>Kết thúc</th>
                             <th>Số giờ</th>
-                            <th>26</th>
-                            <th>27</th>
-                            <th>28</th>
-                            <th>29</th>
-                            <th>30</th>
-                            <th>31</th>                            
-                            <th>20</th>
-                            <th>21</th>
-                            <th>22</th>
-                            <th>23</th>
-                            <th>24</th>
-                            <th>25</th>
                         </tr>
                         <tr>
                             <td>1</td>
@@ -69,18 +55,6 @@ and open the template in the editor.
                             <td>28/02/2015</td>                            
                             <td>5</td>
                             <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>1</td>
@@ -89,18 +63,6 @@ and open the template in the editor.
                             <td>30/03/2015</td>                            
                             <td>6</td>
                             <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                     </table>
                 </div>
@@ -117,25 +79,11 @@ and open the template in the editor.
                             <th rowspan="2" width="15%">Giao cho</th>
                             <th colspan="3" width="20%">Thực tế</th>
                             <th rowspan="2" width="20%">Chi tiết công việc</th>
-                            <th colspan="6" width="15%">Tháng 1</th>  
-                            <th colspan="7" width="15%">Tháng 2</th>
                         </tr>
                         <tr>
                             <th>Bắt đầu</th>
                             <th>Kết thúc</th>
                             <th>Số giờ</th>
-                            <th>26</th>
-                            <th>27</th>
-                            <th>28</th>
-                            <th>29</th>
-                            <th>30</th>
-                            <th>31</th>                            
-                            <th>20</th>
-                            <th>21</th>
-                            <th>22</th>
-                            <th>23</th>
-                            <th>24</th>
-                            <th>25</th>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -144,18 +92,6 @@ and open the template in the editor.
                             <td>28/02/2015</td>                            
                             <td>0</td>
                             <td>Xác định các yêu cầu chức năng và phi chức năng của phần mềm</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                     </table>
                 </div>

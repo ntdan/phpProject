@@ -15,6 +15,12 @@
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
         
         <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
+        
+        <script>
             $(function() {
               $( "#txtNgaySinh" ).datepicker();
             });
@@ -49,7 +55,9 @@
                                     <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
                                 </ul>
                             </li>
-                            <li><a href="?cn=kehoach">Kế hoạch</a></li>
+                            <li>
+                                <a href="?cn=kehoach" data-toggle="tooltip" data-placement="bottom" title="Theo dõi thực hiện dự án">Kế hoạch</a>
+                            </li>                            
                             <li><a href="?cn=dsdt">Đề tài</a></li>
                             <li><a href="?cn=khotl">Kho tài liệu</a></li>
                             <li class="dropdown">

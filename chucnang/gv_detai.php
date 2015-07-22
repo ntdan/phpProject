@@ -38,10 +38,10 @@
         mysql_query($sql);
     }
 /*====================== Danh sách đề tài - Phân trang ====================================*/
-    function sodong_dt(){
+    function sodong_dt($macb){
         $count = 0;
 
-        $sqlSelect = "SELECT madt FROM de_tai";
+        $sqlSelect = "SELECT madt FROM de_tai WHERE macb='$macb'";
         $ds = mysql_query($sqlSelect);
 
         if(isset($ds))
@@ -49,9 +49,9 @@
 
         return $count;
     }
-    function dt_danhsach(){
+    function dt_danhsach($macb){
         global $sodongtrentrang;
-            $tongsodong = sodong_dt(); 
+            $tongsodong = sodong_dt($macb); 
             $tranghientai = 1;
             if(isset($_GET['page']))
                     $tranghientai = $_GET['page'];
@@ -62,7 +62,7 @@
             $vitridong = $sodongtrentrang*($tranghientai-1);
 
             $sqlSelect = "SELECT madt,macb,tendt,motadt,congnghe,taptindinhkem,songuoitoida,phanloai,trangthai,duyet,ngaytao,ghichudt". 
-                         " FROM de_tai".
+                         " FROM de_tai WHERE macb='$macb'".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
 

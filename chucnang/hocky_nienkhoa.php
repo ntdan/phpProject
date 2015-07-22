@@ -26,7 +26,10 @@
         {
             echo '<option value="'.$hk['hocky'].'">'.$hk['hocky'].'</option>';
         }
-        echo'    </select></td>';
+        echo'    </select></td>';        
+    }
+    
+    function nhomhp($mank){
         
     }
 ?>

@@ -44,7 +44,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="?cn=dscv">Danh sách các nhiệm vụ</a></li>
                                     <li class="divider"></li>                                
-                                    <li><a href="?cn=phancongnv">Phân nhiệm vụ</a></li>
+                                    <li><a href="?cn=phancongcv">Phân công việc</a></li>
                                     <hr style="margin-bottom: 7px;margin-top: 10px;">                               
                                     <li><a href="?cn=noptl">Nộp tài liệu</a></li>                               
                                 </ul>
@@ -106,7 +106,7 @@
 
                         if ($_GET['cn'] == "dscv")
                             include("sinhvien/danh-sach-cong-viec.php");
-                        if ($_GET['cn'] == "phancongnv")
+                        if ($_GET['cn'] == "phancongcv")
                             include("sinhvien/phan-cong-nhiem-vu.php");
                         if ($_GET['cn'] == "themcv")
                             include("sinhvien/them-cong-viec.php");

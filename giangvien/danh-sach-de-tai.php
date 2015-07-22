@@ -61,7 +61,11 @@ and open the template in the editor.
                     <h3 style="color: darkblue; font-weight: bold; margin-left: 20px;">Danh sách các đề tài</h3> 
                     <div class="bg-success">
                         <table class="table table-bordered" cellpadding="15px" cellspacing="10px">
-                            <tr>                            
+                            <tr> 
+                                <td align="right">Mã cán bộ:</td>
+                                <td style="color: darkblue; font-weight: bold;">
+                                    <?php echo $gv['macb']; ?>
+                                </td>
                                 <td align="right">Giảng viên:</td>
                                 <td colspan="5" style="color: darkblue; font-weight: bold;"><?php echo $gv['hoten']; ?></td>
                             </tr>
@@ -110,7 +114,7 @@ and open the template in the editor.
                             <th width="4%">Duyệt</th>
                             <th width="8%">Thao tác</th>
                         </tr>
-                        <?php dt_danhsach(); ?>
+                        <?php dt_danhsach($gv['macb']); ?>
                     </table>
                 </div>
             </div><!-- /row -->
