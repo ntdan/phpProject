@@ -26,6 +26,12 @@ and open the template in the editor.
             }
     </style>
     
+    <?php
+        include_once 'chucnang/gv_dsthuchiendetai.php';
+        include_once 'chucnang/hocky_nienkhoa.php';
+
+    ?>
+    
     <body>
         
         <div class="container">
@@ -34,22 +40,7 @@ and open the template in the editor.
                     <h3 style="color: darkblue; font-weight: bold;">Theo dõi kế hoạch thực hiện đề tài</h3> 
                     <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th align='right' width="8%">Năm học: &nbsp;</th>
-                            <th width="13%">
-                                <select class="form-control" size="1">
-                                    <option value="1">2014-2015</option>
-                                    <option value="2">2015-2016</option>
-                                    <option value="3">2016-2017</option>
-                                </select>
-                            </th>
-                            <th align="right" valign="middle" width="6%">Học kỳ: &nbsp;</th>
-                            <th width="8%">
-                                <select class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">Hè</option>
-                                </select>
-                            </th>
+                            <?php hocky_nienkhoa();?> 
                             <th align='right' width="12%">Nhóm học phần:</th>
                             <th width="8%">
                                 <select class="form-control">
