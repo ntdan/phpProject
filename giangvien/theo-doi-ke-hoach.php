@@ -62,6 +62,7 @@ and open the template in the editor.
                             <th width="10%">Trưởng nhóm</th>
                             <th width="15%">Tổ chức nhóm</th>
                             <th width="6%">Lịch họp</th>
+                            <th width="6%">Thời gian làm dự án</th>
                             <th width="10%">Trạng thái(%)</th>
                         </tr>
                         <?php danhsach_lamDeTai($macb); ?>

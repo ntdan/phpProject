@@ -86,3 +86,10 @@
 
 
 ?>
+<!-- cv_danhsach($manth)
+        "SELECT macv,congviec,giaocho,ngaybatdau_kehoach,ngayketthuc_kehoach,ngaybatdau_thucte,".
+                    "ngayketthuc_thucte,sogio_thucte,uutien,trangthai,tiendo,noidungthuchien,ghichu". 
+             " FROM cong_viec cv".
+             " JOIN thuc_hien th ON cv.macv=th.macv".
+             " WHERE th.manhomthuchien='$manth'".
+             " LIMIT $vitridong, $sodongtrentrang";-->

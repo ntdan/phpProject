@@ -112,6 +112,8 @@
                             include("sinhvien/them-cong-viec.php");
                         if ($_GET['cn'] == "capnhatcv")
                             include("sinhvien/cap-nhat-cong-viec.php");
+                        if ($_GET['cn'] == "chitietphancong")
+                            include("sinhvien/cap-nhat-cong-viec-sv.php");
                         
                         if ($_GET['cn'] == "noptl")
                             include("sinhvien/nop-tai-lieu.php");

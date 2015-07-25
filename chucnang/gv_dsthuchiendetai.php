@@ -44,7 +44,7 @@
 
             $vitridong = $sodongtrentrang*($tranghientai-1);
 
-            $sqlSelect = "SELECT nth.manhomthuchien, dt.tendt, sv.hoten, nth.tochucnhom, nth.lichhop, nth.tiendo".
+            $sqlSelect = "SELECT nth.manhomthuchien, dt.tendt, sv.hoten, nth.tochucnhom, nth.lichhop, nth.sogio_thucte, nth.tiendo".
                             " FROM nhom_thuc_hien nth". 
                             " JOIN dangky_nhom dk ON nth.manhomthuchien = dk.manhomthuchien".
                             " JOIN sinh_vien sv ON dk.mssv = sv.mssv".
@@ -60,6 +60,7 @@
             $sv = "";
             $tochuc = "";
             $lichhop = "";
+            $gioduan = 0;
             $tiendo = 0;
 
             $stt = 1 + $vitridong;
@@ -70,7 +71,7 @@
             global $uncheck;
             global $tinyPDF;
 
-            while(list($manth,$tendt,$sv,$tochuc,$lichhop,$tiendo) = mysql_fetch_array($ds))
+            while(list($manth,$tendt,$sv,$tochuc,$lichhop,$gioduan,$tiendo) = mysql_fetch_array($ds))
             {         
                 $b = "";
                 $buoi = substr($lichhop, 0,1);
@@ -92,6 +93,7 @@
                             "<td align='center'>$sv</td>".
                             "<td>$tochuc</td>".
                             "<td align='center'>$b$so</td>".
+                            "<td align='center'>$gioduan giờ</td>".
                             "<td>".
                                 "<div class=\"progress\">".  
                                     "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=$tiendo aria-valuemin='0' aria-valuemax='100' style='width:$tiendo%;'>".  
@@ -108,7 +110,7 @@
             if($tongsodong > $sodongtrentrang)
             {
                     $trang = 1;	
-                    echo "<tr><td colspan='7'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='8'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";

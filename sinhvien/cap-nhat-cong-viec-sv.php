@@ -23,11 +23,7 @@ and open the template in the editor.
                 background-color: #dff0d8;
             }
     </style>
-    
-    <?php
-               
-        
-    ?>
+
 
     <body>
         

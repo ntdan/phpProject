@@ -29,7 +29,7 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/sv_phancv.php';
         
-        $manth = 'NTH01';
+        $manth = 'NTH02';
         $dtth = xem_dtthuchien($manth);
         if($dtth == NULL){
             return;
@@ -62,7 +62,8 @@ and open the template in the editor.
                     </table>
                     <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th rowspan="2" width="2%">ID</th>
+                            <th rowspan="2" width="2%">STT</th>
+                            <th rowspan="2" width="3%">ID</th>
                             <th rowspan="2" width="15%">Tên công việc</th>
                             <th rowspan="2" width="15%">Giao cho</th>
                             <th colspan="2" width="10%">Kế hoạch</th>
@@ -78,59 +79,10 @@ and open the template in the editor.
                             <th>Kết thúc</th>
                             <th>Số giờ</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phân tích yêu cầu</td>
-                            <td>Kim Nguyên, Thành Long</td>
-                            <td>02/01/2015</td>
-                            <td>28/02/2015</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
-                            <td>0</td>
-                            <td>
-                                <div class="progress">  
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">  
-                                        70% Complete  
-                                    </div>  
-                                </div>  
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Đặc tả yêu cầu</td>
-                            <td>Trung Thành</td>
-                            <td>02/02/2015</td>
-                            <td>30/03/2015</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
-                            <td>1</td>
-                            <td>
-                                <div class="progress">  
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width:35%">  
-                                        35% Complete  
-                                    </div>  
-                                </div>  
-                            </td>
-                        </tr>
+                        <?php
+                            danhsach_phancv($manth);
+                        ?>
                     </table>
-                    <div class="col-md-12" align="center">
-                                <ul class="pagination">
-                                    <li class="disabled">
-                                        <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-                                    </li>
-                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-                                    </li>
-                                </ul>
-                        </div><br><br><br>
 <!-- Cập nhật chi tiết công sức làm dự án của mỗi thành viên -->
                     <h4 style="color: darkblue; font-weight: bold;">CHI TIẾT PHÂN CÔNG CHO MỖI THÀNH VIÊN</h4>
                     <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
@@ -154,7 +106,7 @@ and open the template in the editor.
                             <td>5</td>
                             <td>Phải phân tích cấu trúc lưu CSDL, xác định các thực thể cần lưu</td>
                             <td align='center'>
-                                <a href='#'><img src='images/edit-icon.png' /></a>&nbsp;&nbsp;&nbsp;
+                                <a href='?cn=chitietphancong'><img src='images/edit-icon.png' /></a>&nbsp;&nbsp;&nbsp;
                                 <a href='?cn=phancongcv'><img src='images/Document-Delete-icon.png'/></a>
                             </td>
                         </tr>
@@ -166,7 +118,7 @@ and open the template in the editor.
                             <td>6</td>
                             <td>Dựa vào các thực thể đã phân tích để vẽ sơ đồ CDM và sơ đồ usecase</td>
                             <td align='center'>
-                                <a href='#'><img src='images/edit-icon.png' /></a>&nbsp;&nbsp;&nbsp;
+                                <a href='?cn=chitietphancong'><img src='images/edit-icon.png' /></a>&nbsp;&nbsp;&nbsp;
                                 <a href='?cn=phancongcv'><img src='images/Document-Delete-icon.png'/></a>
                             </td>
                         </tr>
