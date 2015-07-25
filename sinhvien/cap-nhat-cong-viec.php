@@ -23,6 +23,12 @@ and open the template in the editor.
                 background-color: #dff0d8;
             }
     </style>
+    
+    <?php
+        include_once 'sv_congviec.php';
+        
+        
+    ?>
 
     <body>
         
@@ -117,18 +123,15 @@ and open the template in the editor.
                             <td><input type="text" name="" value="" class="form-control"></td>
                         </tr>
                         <tr>
-                            <th>Ô thời gian:</th>
-                            <td colspan="3">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
-                                <input type="checkbox" name="" value="">
+                            <th>Số giờ thực tế</th>
+                            <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="" class="form-control"/></td>
+                            <th width="13%">Phụ thuộc công việc:</th>
+                            <td>
+                                <select class="form-control" size="1" name="cbPhuThuoc">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">2.1</option>
+                                </select>
                             </td>
                         </tr>                     
                         <tr>

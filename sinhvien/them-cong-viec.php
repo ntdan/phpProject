@@ -34,13 +34,13 @@ and open the template in the editor.
                         <tr>
                             <th width="10%">Tên công việc:</th>
                             <td colspan="3">
-                                <input type="text" name="" value="" class="form-control">
+                                <input type="text" name="txtTenCV" value="" class="form-control">
                             </td>
                         </tr>
                         <tr>
                             <th width="10%">Ngày thực hiện:</th>
                             <td width="30%">
-                               <select class="form-control" size="1">
+                               <select class="form-control" size="1" name="cbNgayBatDauKeHoach">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                     <option value="3"></option>
@@ -48,7 +48,7 @@ and open the template in the editor.
                             </td>
                             <th width="10%">Ngày kết thúc:</th>
                             <td width="30%">
-                                <select class="form-control" size="1">
+                                <select class="form-control" size="1" name="cbNgayKTKeHoach">
                                     <option value="1"></option>
                                     <option value="2"></option>
                                     <option value="3"></option>
@@ -58,7 +58,7 @@ and open the template in the editor.
                         <tr>
                             <th>Giao cho:</th>
                             <td colspan="3">
-                                <textarea name="" cols="50" rows="5" class="form-control"></textarea>
+                                <textarea name="txtGiaoCho" cols="50" rows="5" class="form-control"></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -86,10 +86,24 @@ and open the template in the editor.
                         <tr>
                             <th>Trạng thái</th>
                             <td>
-                                <select class="form-control" size="1">
+                                <select class="form-control" size="1" name="cbTrangThai">
                                     <option value="1">Đang làm</option>
                                     <option value="2">Sắp làm</option>
                                     <option value="3">Hoàn thành</option>
+                                </select>
+                            </td>
+                            <th>Tiến độ (%):</th>
+                            <td><input type="text" id="txtTienDo" name="txtTienDo" value="" class="form-control"/></td>
+                        </tr>
+                        <tr>
+                            <th>Số giờ thực tế</th>
+                            <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="" class="form-control"/></td>
+                            <th width="13%">Phụ thuộc công việc:</th>
+                            <td>
+                                <select class="form-control" size="1" name="cbPhuThuoc">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">2.1</option>
                                 </select>
                             </td>
                         </tr>

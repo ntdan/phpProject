@@ -30,7 +30,6 @@
                 " join de_tai dt on radt.madt = dt.madt".
                 " WHERE dt.macb='$macb'";
         $ds = mysql_query($sql);
-
     }
 
     function danhsach_lamDeTai($macb){
@@ -96,7 +95,7 @@
                             "<td>".
                                 "<div class=\"progress\">".  
                                     "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=$tiendo aria-valuemin='0' aria-valuemax='100' style='width:$tiendo%;'>".  
-                                        "<p style='color:black;'>$tiendo%</p>".  
+                                        "<p style='color:orange;'>$tiendo%</p>".  
                                     "</div>".  
                                 "</div>".  
                             "</td>".

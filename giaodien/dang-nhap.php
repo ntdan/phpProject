@@ -18,7 +18,7 @@
     -->        
         <div class="container">
             <div class="page-header">
-                <h2 style="color: aqua;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
+                <h2 style="color: darkblue;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>
             </div> 
             <div class="card card-container">                
                 <img id="profile-img" class="profile-img-card" src="../images/User-image.png" />

@@ -30,11 +30,25 @@ and open the template in the editor.
            if($ds == NULL){
                return;
            }
+           $chitietkehoach = chitiet_kehoach($manth);
+           if($chitietkehoach == NULL){
+               return;
+           }
      ?>
     <body>
         <div class="container">
             <div class="row">
                 <h3 style="color: darkblue;font-weight: bold; margin-left: 2%">KẾ HOẠCH CHI TIẾT</h3>
+                    <?php  
+                        $dtnth = detai_nhom($manth);
+                        if($dtnth != NULL){
+                            $dtn = mysql_fetch_array($dtnth);
+                            echo "<h4 style='color: #398439; margin-left: 10%'> Đề tài thực hiện: <label>"
+                                        .$dtn['tendt'].
+                                 "</label></h4>";
+                        }
+                    ?>
+                
                 <div class="col-md-6 col-md-offset-3">
                     <table class="table table-hover" width="500px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
@@ -66,70 +80,40 @@ and open the template in the editor.
                 
           <!-- Danh sách chi tiết các công việc -->      
                 <div class="col-md-12">
-                    <h4 style="color: #c7254e;"><img src="images/box-icon1.png"/> Phân tích yêu cầu</h4>
-                    <div class="progress" style="width:50%;">  
-                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">  
-                            30% Complete  
-                        </div>  
-                    </div>
-                    <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
-                        <tr>
-                            <th rowspan="2" width="2%">ID</th>
-                            <th rowspan="2" width="15%">Giao cho</th>
-                            <th colspan="3" width="20%">Thực tế</th>
-                            <th rowspan="2" width="20%">Chi tiết công việc</th>
-                        </tr>
-                        <tr>
-                            <th>Bắt đầu</th>
-                            <th>Kết thúc</th>
-                            <th>Số giờ</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kim Nguyên</td>
-                            <td>02/01/2015</td>
-                            <td>28/02/2015</td>                            
-                            <td>5</td>
-                            <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Thành Long</td>
-                            <td>02/02/2015</td>
-                            <td>30/03/2015</td>                            
-                            <td>6</td>
-                            <td>Thiết kế chi tiết các chức năng theo CSDL đã phân tích, cập nhật lại CDM khi thiết kế</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-md-12">
-                    <h4 style="color: #c7254e;"><img src="images/box-icon1.png"/> Đặc tả yêu cầu phần mềm</h4>
-                    <div class="progress" style="width:50%;">  
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">  
-                            0% Complete  
-                        </div> 0% 
-                    </div>
-                    <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
-                        <tr>
-                            <th rowspan="2" width="2%">ID</th>
-                            <th rowspan="2" width="15%">Giao cho</th>
-                            <th colspan="3" width="20%">Thực tế</th>
-                            <th rowspan="2" width="20%">Chi tiết công việc</th>
-                        </tr>
-                        <tr>
-                            <th>Bắt đầu</th>
-                            <th>Kết thúc</th>
-                            <th>Số giờ</th>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kim Nguyên</td>
-                            <td>02/01/2015</td>
-                            <td>28/02/2015</td>                            
-                            <td>0</td>
-                            <td>Xác định các yêu cầu chức năng và phi chức năng của phần mềm</td>
-                        </tr>
-                    </table>
+                    <?php
+                        $ctkh = "";
+                        while($ctkh = mysql_fetch_array($chitietkehoach)){
+                            echo "<div class=\"col-md-12\">".
+                                    "<h4 style='color: #c7254e;'><img src='images/box-icon1.png'/> ".$ctkh['congviec']."</h4> ".
+                                    "<div class=\"progress\" style='width:50%;'>". 
+                                          "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow='".$ctkh['tiendo']."' aria-valuemin='0' aria-valuemax='100' style='width:".$ctkh['tiendo']."%'>".  
+                                                  $ctkh['tiendo']."% Complete".  
+                                          "</div>".  
+                                    "</div>".
+                                    "<table class=\"table table-hover\" width='800px' cellpadding='15px' cellspacing='0px' align='center'>".
+                                          "<tr>".
+                                              "<th rowspan='2' width='2%'>ID</th>".
+                                              "<th rowspan='2' width='15%'>Giao cho</th>".
+                                              "<th colspan='3' width='20%'>Thực tế</th>".
+                                              "<th rowspan='2' width='20%'>Chi tiết công việc</th>".
+                                          "</tr>".
+                                          "<tr>".
+                                             "<th>Bắt đầu</th>".
+                                             "<th>Kết thúc</th>".
+                                             "<th>Số giờ</th>".
+                                          "</tr>".
+                                          "<tr>".
+                                             "<td>1</td>".
+                                             "<td>".$ctkh['giaocho']."</td>".
+                                             "<td>".$ctkh['ngaybatdau_thucte']."</td>".
+                                             "<td>".$ctkh['ngayketthuc_thucte']."</td>".                            
+                                             "<td>".$ctkh['sogio_thucte']."</td>".
+                                             "<td>".$ctkh['noidungthuchien']."</td>".
+                                          "</tr>".
+                                      "</table>".
+                                    "</div>";
+                        }
+                    ?>                                                          
                 </div>
             </div>
         </div>

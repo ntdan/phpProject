@@ -26,6 +26,16 @@ and open the template in the editor.
             }
     </style>
     
+    <?php
+        include_once 'chucnang/sv_phancv.php';
+        
+        $manth = 'NTH01';
+        $dtth = xem_dtthuchien($manth);
+        if($dtth == NULL){
+            return;
+        }
+    ?>
+    
     <body>
         
         <div class="container">
@@ -34,17 +44,17 @@ and open the template in the editor.
                     <h3 style="color: darkblue; font-weight: bold;">Phân công thực hiện đề tài</h3> 
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" id="bang1">
                         <tr>
-                            <th width="10%">Tên đề tài:</th>
-                            <th width="45%">
-                                <input type="text" name="" value="Website bán đồ nội thất" readonly="" class="form-control">
+                            <th width="8%">Tên đề tài:</th>
+                            <th width="40%">
+                                <input type="text" name="txtTenDT" value="<?php echo $dtth['tendt']; ?>" readonly="" class="form-control">
                             </th>
-                            <th width="30%">
+                            <th width="35%">
                                 <a href="?cn=themcv">
-                                    <button type="button" name="" class="btn btn-primary" style="width:45%;">
+                                    <button type="button" name="btnThem" class="btn btn-primary" style="width:45%;">
                                     <img src="images/add-icon.png">Thêm công việc
                                     </button></a> &nbsp;
                                 <a href="?cn=capnhatcv">
-                                    <button type="button" name="" class="btn btn-primary" style="width:45%;">
+                                    <button type="button" name="btnCapNhat" class="btn btn-primary" style="width:45%;">
                                     <img src="images/edit-icon.png">Cập nhật công việc
                                     </button></a> &nbsp;
                             </th>
