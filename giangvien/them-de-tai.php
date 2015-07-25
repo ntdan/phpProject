@@ -15,6 +15,12 @@ and open the template in the editor.
         <script src="../bootstrap/js/bootstrap.js"></script>
         
         <style type="text/css">
+            th{
+                text-align: center;
+                color: darkblue;
+                background-color: #dff0d8;
+                vertical-align: middle;
+            }
             #bang2 td:first-child{
                 text-align: right;
                 color: darkblue;
@@ -32,8 +38,10 @@ and open the template in the editor.
     </head>
 
     <?php 
+        include_once 'chucnang/hocky_nienkhoa.php';
         include_once 'chucnang/gv_detai.php';
-        
+ 
+//Thêm đề tài theo mã cán bộ       
         if (isset($_POST['btnThem'])) {        
         
             include_once 'chucnang/gv_detai.php';
@@ -64,25 +72,9 @@ and open the template in the editor.
                     <h3 style="color: darkblue; font-weight: bold;">THÊM ĐỀ TÀI MỚI</h3>
                         <table class="table table-bordered" id="bang1">
                              <tr>
-                                <td align="right">Năm học:</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option value="1">2014-2015</option>
-                                        <option value="2">2015-2016</option>
-                                        <option value="3">2016-2017</option>
-                                    </select>
-                                </td>
-                                <td align="right">Học kỳ:</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">Hè</option>
-                                    </select>
-                                </td>
-                                <td align="right">Nhóm học phần:</td>
-                                <td>
-                                <td>
+                                <?php hocky_nienkhoa();?>
+                                <td align="right" width="10%">Nhóm học phần:</td>
+                                <td width="10%">
                                     <select class="form-control">
                                         <?php
                                             $sql = "SELECT * FROM nhom_hocphan";
@@ -92,8 +84,6 @@ and open the template in the editor.
                                             }
                                         ?>
                                     </select>
-                                </td>
-                                    
                                 </td>
                             </tr>
                         </table>

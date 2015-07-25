@@ -29,6 +29,8 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/gv_dsthuchiendetai.php';
         include_once 'chucnang/hocky_nienkhoa.php';
+        
+        $macb = '2134';
 
     ?>
     
@@ -54,58 +56,16 @@ and open the template in the editor.
                     </table>
                     <table class="table table-bordered table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th width="2%">ID</th>
-                            <th width="25%">Tên đề tài</th>
-                            <th width="8%">Trưởng nhóm</th>
-                            <th width="10%">Thành viên khác</th>
-                            <th width="8%">Lịch họp nhóm</th>
+                            <th width="1%">STT</th>
+                            <th width="4%">Mã nhóm</th>
+                            <th width="20%">Tên đề tài</th>
+                            <th width="10%">Trưởng nhóm</th>
+                            <th width="15%">Tổ chức nhóm</th>
+                            <th width="6%">Lịch họp</th>
                             <th width="10%">Trạng thái(%)</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="?cn=chitietkehoach">Game pikachu trên Androi</a></td>
-                            <td>Kim Nguyên</td>
-                            <td>Hoàng Thành</td>
-                            <td>Chiều thứ hai</td>
-                            <td>
-                                <div class="progress">  
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">  
-                                        70% Complete  
-                                    </div>  
-                                </div>  
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><a href="?cn=chitietkehoach">Website quản lý hàng hóa ở siêu thị</a></td>
-                            <td>Trung Thành</td>
-                            <td>Phan Anh, Mai Vàng</td>
-                            <td>Sáng thứ ba</td>
-                            <td>
-                                <div class="progress">  
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">  
-                                        40% Complete  
-                                    </div>  
-                                </div>  
-                            </td>
-                        </tr>
-                    </table>
-                    
-                    <div class="col-md-12" align="center">
-                        <ul class="pagination">
-                            <li class="disabled">
-                                <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-                            </li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">8</a></li>
-                            <li>
-                                <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    
+                        <?php danhsach_lamDeTai($macb); ?>
+                    </table>                    
                 </div>
             </div> <!-- /row -->
         </div> <!-- /container -->
