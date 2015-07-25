@@ -51,14 +51,14 @@
         mysql_query($sql);
     }
 /*======================== Lay danh sách thong tin gv =======================*/
-    function gv_danhsach(){
+/*    function gv_danhsach(){
         $sql = "SELECT *  FROM giang_vien";
         $ds = mysql_query($sql);
         if(mysql_num_rows($ds)>0){
             return $ds;
         }
         else return null;
-    }
+    }*/
 /*======================== Danh sach phan trang =======================*/
     function sodong_gv(){
         $count = 0;

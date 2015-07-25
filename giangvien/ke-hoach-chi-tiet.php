@@ -23,12 +23,48 @@ and open the template in the editor.
         </style>
     </head>
      <?php
-            // put your code here
+           include_once 'chucnang/gv_chitietkehoach.php';
+           
+           $manth = $_GET['id_nth'];
+           $ds = danhsach_thanhvien($manth);
+           if($ds == NULL){
+               return;
+           }
      ?>
     <body>
         <div class="container">
             <div class="row">
                 <h3 style="color: darkblue;font-weight: bold; margin-left: 2%">KẾ HOẠCH CHI TIẾT</h3>
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-hover" width="500px" cellpadding="15px" cellspacing="0px" align='center'>
+                        <tr>
+                            <th width="2%">STT</th>
+                            <th width="10%">Nhóm niên luận</th>
+                            <th width="20%">Danh sách thành viên</th>
+                            <th width="5%">Trưởng nhóm</th>
+                        </tr>         
+                        <?php
+                             global $check;
+                             global $uncheck;
+                             $stt = 1;
+                             $n = mysql_num_rows($ds);
+                             $tv = NULL;
+                            while($tv = mysql_fetch_array($ds)){
+                                $ch = $tv['nhomtruong'] == 1 ? $check : $uncheck;
+                                
+                                echo "<tr>".
+                                          "<td align='center'>".$stt."</td>".
+                                          "<td>".$tv['manhomthuchien']."</td>".
+                                          "<td>".$tv['hoten']."</td>".
+                                          "<td align='center'><img src='$ch'></td>".
+                                      "</tr>";
+                                $stt++;
+                            }
+                        ?>
+                    </table>
+                </div>
+                
+          <!-- Danh sách chi tiết các công việc -->      
                 <div class="col-md-12">
                     <h4 style="color: #c7254e;"><img src="images/box-icon1.png"/> Phân tích yêu cầu</h4>
                     <div class="progress" style="width:50%;">  
