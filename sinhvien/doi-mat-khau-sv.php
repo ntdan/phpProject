@@ -16,7 +16,7 @@ and open the template in the editor.
         
         <script type="text/javascript">
             function ktMatKhau(){
-                if(document.getElementById("txtMatKhauMoi1") !== document.getElementById("txtMatKhauMoi2"))
+                if(document.getElementById("txtMatKhauMoi1").value !== document.getElementById("txtMatKhauMoi2").value)
                 {
                     alert("Mật khẩu không giống nhau!");
                     return false;
@@ -47,8 +47,7 @@ and open the template in the editor.
         $masv = $_POST['txtMaSV'];
         $ten = $_POST['txtTen'];
         $email = $_POST['txtEmail'];        
-        $matkhauMoi = $_POST['txtMatKhauMoi1'];
-        
+        $matkhauMoi = $_POST['txtMatKhauMoi1'];        
         $filename = $sv['hinhdaidien'];
         $tachten = lay_ten($ten);
         
@@ -77,7 +76,7 @@ and open the template in the editor.
         
         sv_doimatkhau($masv, $filename, $matkhauMoi);
 
-        //echo "<script>window.location.href='?cn=ttsv'</script>";
+        echo "<script>window.location.href='?cn=ttsv'</script>";
     }
 ?>  
     
@@ -144,9 +143,9 @@ and open the template in the editor.
                                     <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 20%;">
                                         <img src="images/save-as-icon.png"> Cập Nhật
                                     </button>
-                                    <button type="button" name="" class="btn btn-warning="width: 20%;">
+                                    <a href="?cn=ttsv" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
-                                    </button>                                
+                                    </a>                                    
                                 </td>
                             </tr>
                         </table>                    

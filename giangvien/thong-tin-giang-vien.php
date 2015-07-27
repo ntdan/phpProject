@@ -71,7 +71,7 @@
                                 </tr>
                                 <tr>
                                     <td><label>Hướng dẫn nhóm học phần:</label></td>
-                                    <td>01, 02</td>
+                                    <td></td>
                                 </tr>
                             </table>
                         </div> <!-- /class="col-md-9 col-md-pull-3" -->

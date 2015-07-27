@@ -49,6 +49,8 @@
         $sql = "UPDATE giang_vien SET hinhdaidien='$hinh',matkhau='$mk'
                     WHERE macb='$macb'";
         mysql_query($sql);
+        
+        echo $sql;
     }
 /*======================== Lay danh sách thong tin gv =======================*/
 /*    function gv_danhsach(){

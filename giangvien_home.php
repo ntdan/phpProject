@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
+        
+    <?php 
+        session_start();
+    ?>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Giảng viên</title>
         <!-- Bootstrap -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap/css/signin.css">
-        <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/style.css">
-        <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/jquery-ui.min.css">
-        <script src="../jquery-ui-1.11.4/jquery-ui.min.js"></script>        
+        <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
+        <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">     
         <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
         
@@ -152,6 +158,7 @@
             });
         </script>
     </head>
+
     <body>
         <div class="container body-content">
             <div class="page-header">
@@ -199,7 +206,19 @@
                                 </ul>
                             </li>
                             <li><a href="?cn=qldiendan">Thảo luận</a></li>
-                            <li><a href="giaodien/dang-nhap.php">Đăng xuất</a></li>                        
+<!--                           
+                            <li><a href="giangvien/dang-nhap-gv.php">Đăng nhập</a></li>
+                            <li><a href="giangvien/dang-nhap-gv.php">Đăng xuất</a></li>                       
+-->
+                           <?php 
+                                $dn = "Đăng nhập";
+                                if(isset($_SESSION['user']))
+                                {
+                                    $dn = $_SESSION['user'];
+                                }                                
+                           ?>                         
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo $dn; ?></a></li>
+                            <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -270,6 +289,7 @@
                             include("giaodien/chu-de-thao-luan.php");
                         if ($_GET['cn'] == "phucdap")
                             include("giaodien/them-chu-de-thao-luan.php");
+                        
                     }
                 ?>
             </div> <!-- /container -->

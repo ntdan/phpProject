@@ -56,8 +56,7 @@ and open the template in the editor.
         $macb = $_POST['txtMaCB'];
         $ten = $_POST['txtTen'];
         $email = $_POST['txtEmail'];
-        $matkhauMoi = $_POST['txtMatKhauMoi1'];
-        
+        $matkhauMoi = $_POST['txtMatKhauMoi1'];        
         $filename = $gv['hinhdaidien'];
         $tachten = lay_ten($ten);
         
@@ -86,7 +85,7 @@ and open the template in the editor.
         
         gv_doimatkhau($macb, $filename, $matkhauMoi);
 
-        //echo "<script>window.location.href='?cn=ttgv'</script>";
+        echo "<script>window.location.href='?cn=ttgv'</script>";
     }
 ?>  
     

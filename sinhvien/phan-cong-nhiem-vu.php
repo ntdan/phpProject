@@ -45,14 +45,20 @@ and open the template in the editor.
                     <div class="col-md-12">                        
                         <lable style="display: block; float: left; width: 27%;">Thời gian quy định (20/02/2014 - 30/06/2014): &nbsp;</lable>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-                              30%
+                            <div class="progress-bar progress-bar-success" style="width: 35%">
+                              35% Complete (success)
+                            </div>
+                            <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+                              20% Complete (warning)
+                            </div>
+                            <div class="progress-bar progress-bar-danger" style="width: 10%">
+                              <span class="sr-only">10% Complete (danger)</span>
                             </div>
                         </div>
                         <lable style="display: block; float: left; width: 27%;">Công việc hoàn thành: &nbsp;</lable>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                              40%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                              70%
                             </div>
                         </div>
                     </div>

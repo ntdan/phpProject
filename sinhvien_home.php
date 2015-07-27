@@ -4,7 +4,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sinh viên</title>
         <!-- Bootstrap -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="../public/css/login-bootstrap.css">
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">        
         <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
         <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
@@ -36,7 +38,12 @@
             });
         </script>
         
-    </head>    
+    </head>  
+    
+    <?php 
+        session_start();
+    ?>
+    
     <body>
         <div class="container body-content">  
             <div class="page-header">
@@ -84,7 +91,19 @@
                             </li>                        
                             <li><a href="?cn=xemdiem">Xem kết quả</a></li>
                             <li><a href="?cn=diendan">Thảo luận</a></li>  
-                            <li><a href="giaodien/dang-nhap.php">Đăng xuất</a></li>
+<!--                            
+                            <li><a href="sinhvien/dang-nhap-sv.php">Đăng nhập</a></li>
+                            <li><a href="sinhvien/dang-nhap-sv.php">Đăng xuất</a></li>
+-->
+                           <?php 
+                                $dn = "Đăng nhập";
+                                if(isset($_SESSION['user']))
+                                {
+                                    $dn = $_SESSION['user'];
+                                }                                
+                           ?>    
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo $dn; ?></a></li>
+                            <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
@@ -153,7 +172,8 @@
 
                         if ($_GET['cn'] == "xemdiem")
                             include("sinhvien/xem-diem.php");
-                    }
+                        
+                     }
                 ?>
 
             </div> <!-- /container -->

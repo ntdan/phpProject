@@ -1,10 +1,33 @@
 <?php
-    include_once 'thuvien/db.php';
+    include_once '../thuvien/db.php';
     
 /*====================== Xem  ====================================*/
   
 /*====================== Danh sách  ====================================*/
-     function dangnhap(){
+     function gv_dangnhap($tendangnhap,$matkhau){
+         $mk = md5($matkhau);
+        $sqlGV = "SELECT * FROM giang_vien WHERE macb='$tendangnhap' AND matkhau='$mk'";
+        $kqgv = mysql_query($sqlGV);
+        echo $sqlGV;
+        
+        if(mysql_num_rows($kqgv)>0){
+            return $tendangnhap;
+        }
+        else 
+            return "";
+        
+    }
+    function sv_dangnhap($tendangnhap,$matkhau){
+         $mk = md5($matkhau);
+        $sqlSV = "SELECT * FROM sinh_vien WHERE mssv='$tendangnhap' AND matkhau='$mk'";
+        $kqsv = mysql_query($sqlSV);
+        echo $sqlSV;
+        
+        if(mysql_num_rows($kqsv)>0){
+            return $tendangnhap;
+        }
+        else 
+            return "";
         
     }
 
