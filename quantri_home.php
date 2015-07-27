@@ -6,13 +6,20 @@
         <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link type="text/css" rel="stylesheet" href="bootstrap/css/signin.css">
+        <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
         <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
-        <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
+        <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="bootstrap/js/jquery-1.11.3.min.js "></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>                
+        <script>
+            $(function() {
+              $( "#txtNgaySinh" ).datepicker({
+                  dateFormat: "yy-mm-dd"
+              });
+            });
+        </script>
+              
     </head>
     <body>
         <div class="container body-content">

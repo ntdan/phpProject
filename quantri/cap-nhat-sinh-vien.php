@@ -15,17 +15,18 @@ and open the template in the editor.
         <script src="../bootstrap/js/bootstrap.js"></script>
         
         
-        <script type="text/javascript">
-            $( function(){
-                $("#txtNgaySinh").datepicker();
-            });
-            function ktMatKhau(){
-                if(document.getElementById("txtMatKhauMoi1") !== document.getElementById("txtMatKhauMoi2"))
+        <script type="text/javascript">            
+            function kiemtra()
+            {
+                if (document.getElementById("txtMatKhauMoi1").value !==
+                        document.getElementById("txtMatKhauMoi2").value)
                 {
-                    alert("Mật khẩu không giống nhau!");
+                    alert("Mat khau khong giong nhau");
                     return false;
+                } else
+                {
+                    return true;
                 }
-                else return true;
             }
         </script>
         
@@ -171,7 +172,7 @@ and open the template in the editor.
                             <tr>
                                 <td></td>
                                 <td colspan="2">
-                                    <button onclick="return ktMatKhau();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
+                                    <button onclick="return kiemtra();" type="submit" name="btnCapNhat" class="btn btn-primary" style="width:30%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
                                     <a href="?" class="btn btn-warning" style="width:30%;">

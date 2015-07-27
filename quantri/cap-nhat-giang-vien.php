@@ -9,24 +9,22 @@ and open the template in the editor.
         <title>Cập nhật giảng viên</title>
         <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../bootstrap/css/signin.css">
+        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">        
         <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/style.css">
-        <link rel="stylesheet" href="../scripts/jquery-ui-1.11.4/jquery-ui.min.css">
-        <script src="../jquery-ui-1.11.4/jquery-ui.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="../scripts/jquery-ui-1.11.4/jquery-ui.min.css">
+        <script type="text/javascript" src="../scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
         <script src="../bootstrap/js/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-        
-        <script>
-            $(function() {
-              $( "#txtNgaySinh" ).datepicker();
-            });
-        </script>
-
+        <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>        
+  
         <script type="text/javascript">
             function kiemtra()
             {
+//                var mk = document.getElementById("hidMatKhauCu");
+//                if(document.getElementById("txtMatKhauCu").value !== mk){
+//                    alert("Nhập sai mật khẩu!");
+//                    return false;
+//                }  
                 if (document.getElementById("txtMatKhauMoi1").value !==
                         document.getElementById("txtMatKhauMoi2").value)
                 {
@@ -36,8 +34,7 @@ and open the template in the editor.
                 {
                     return true;
                 }
-            }
-            
+            }           
             
         </script>
 
@@ -151,6 +148,7 @@ and open the template in the editor.
                                 <td>Mật khẩu hiện tại:</td>
                                 <td>
                                     <input type="password" id="txtMatKhauCu" name="txtMatKhauCu" value="" class="form-control"/>
+                                    <input type="hidden" id="hidMatKhauCu" name="hidMatKhauCu" value="<?php echo $gv['matkhau']; ?>"/>
                                 </td>
                             </tr>
                             <tr>
