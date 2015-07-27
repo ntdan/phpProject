@@ -42,6 +42,20 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">Phân công thực hiện đề tài</h3> 
+                    <div class="col-md-12">                        
+                        <lable style="display: block; float: left; width: 27%;">Thời gian quy định (20/02/2014 - 30/06/2014): &nbsp;</lable>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                              30%
+                            </div>
+                        </div>
+                        <lable style="display: block; float: left; width: 27%;">Công việc hoàn thành: &nbsp;</lable>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                              40%
+                            </div>
+                        </div>
+                    </div>
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" id="bang1">
                         <tr>
                             <th width="8%">Tên đề tài:</th>

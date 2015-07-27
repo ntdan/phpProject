@@ -45,7 +45,14 @@
             <!-- Static navbar -->       
             <nav class="navbar navbar-default">
                 <div class="container">                
-                    <div id="navbar" class="navbar-collapse collapse">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>               
+                    <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

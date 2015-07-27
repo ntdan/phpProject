@@ -36,6 +36,10 @@ and open the template in the editor.
            }
      ?>
     <body>
+        <script src="scripts/Highcharts-4.1.7/js/highcharts.js"></script>
+        <script src="scripts/Highcharts-4.1.7/js/modules/data.js"></script>
+        <script src="scripts/Highcharts-4.1.7/js/modules/drilldown.js"></script>              
+        
         <div class="container">
             <div class="row">
                 <h3 style="color: darkblue;font-weight: bold; margin-left: 2%">KẾ HOẠCH CHI TIẾT</h3>
@@ -49,7 +53,7 @@ and open the template in the editor.
                         }
                     ?>
                 
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6">
                     <table class="table table-hover" width="500px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
                             <th width="2%">STT</th>
@@ -76,6 +80,9 @@ and open the template in the editor.
                             }
                         ?>
                     </table>
+                </div>
+                <div class="col-md-6">
+                    <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>                        
                 </div>
                 
           <!-- Danh sách chi tiết các công việc -->      

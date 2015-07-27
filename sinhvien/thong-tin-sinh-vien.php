@@ -130,44 +130,46 @@ and open the template in the editor.
                                     </td>                                    
                                 </tr>
                             </table>
-                            <table class="table table-bordered" border="0" width="800px" cellpadding="25px" cellspacing="0px" align='center' id="bang2">
-                                <tr><th colspan="2" style="text-align: center">Xác nhận thông tin</th></tr>
-                                <tr>
-                                    <td>Số điện thoại:</td>
-                                    <td>
-                                        <input type="text" name="" value="" class="form-control">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kỹ năng công nghệ:</td>
-                                    <td>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kiến thức về ngôn lập trình:</td>
-                                    <td>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Kinh nghiệm:</td>
-                                    <td>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td align="center">
-                                        <button type="button" name="" class="btn btn-primary" style="width: 20%;">
-                                            <img src="images/save-as-icon.png"> Lưu 
-                                        </button>
-                                        <button type="button" name="" class="btn btn-primary" style="width: 20%;">
-                                            <img src="images/refresh.png"> Làm lại
-                                        </button> 
-                                    </td>                                  
-                                </tr>
-                            </table>
+                            <form action="" method="post">
+                                <table class="table table-bordered" border="0" width="800px" cellpadding="25px" cellspacing="0px" align='center' id="bang2">
+                                    <tr><th colspan="2" style="text-align: center">Xác nhận thông tin</th></tr>
+                                    <tr>
+                                        <td>Số điện thoại:</td>
+                                        <td>
+                                            <input type="text" name="" value="" class="form-control">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kỹ năng công nghệ:</td>
+                                        <td>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kiến thức về ngôn lập trình:</td>
+                                        <td>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kinh nghiệm:</td>
+                                        <td>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td align="center">
+                                            <button type="submit" name="btnLuu" class="btn btn-primary" style="width: 20%;">
+                                                <img src="images/save-as-icon.png"> Lưu 
+                                            </button>
+                                            <button type="reset" name="" class="btn btn-primary" style="width: 20%;">
+                                                <img src="images/refresh.png"> Làm lại
+                                            </button> 
+                                        </td>                                  
+                                    </tr>
+                                </table>
+                            </form>                            
                         </div> <!-- /class="col-md-9 col-md-pull-3" -->
                         <div class="col-md-3 col-md-pull-9">
                             <table class="table table-bordered" border="0" width="800px" cellpadding="25px" cellspacing="0px" align='center'>
