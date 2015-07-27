@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+            
+    <?php 
+        session_start();
+    ?>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sinh viên</title>
@@ -39,11 +44,7 @@
         </script>
         
     </head>  
-    
-    <?php 
-        session_start();
-    ?>
-    
+
     <body>
         <div class="container body-content">  
             <div class="page-header">
@@ -96,7 +97,7 @@
                             <li><a href="sinhvien/dang-nhap-sv.php">Đăng xuất</a></li>
 -->
                            <?php 
-                                $dn = "Đăng nhập";
+                                $dn = "";
                                 if(isset($_SESSION['user']))
                                 {
                                     $dn = $_SESSION['user'];

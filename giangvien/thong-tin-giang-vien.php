@@ -5,9 +5,6 @@
         <title>Thông tin giảng viên</title>
          <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../bootstrap/css/signin.css">
-        <script src="../bootstrap/js/bootstrap.js"></script>
     </head>
     
 <?php

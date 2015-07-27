@@ -83,7 +83,11 @@
                     echo "</div></td></tr>";
             }
     }
-
+    
+    function chitiet_cv($manth){
+        $sql = "";
+        $ds = mysql_query($sql);
+    }
 
 ?>
 <!-- cv_danhsach($manth)

@@ -11,27 +11,34 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script src="../bootstrap/js/bootstrap.js"></script>
+        
+        <style type="text/css">
+                th{
+                    text-align: center;
+                    color: darkblue;
+                    background-color: #dff0d8;
+                }
+                #bang1 th{
+                    text-align: left;                
+                    color: darkblue;
+                    background-color: #dff0d8;
+                }
+        </style>
     </head>
     
-    <style type="text/css">
-            th{
-                text-align: center;
-                color: darkblue;
-                background-color: #dff0d8;
-            }
-            #bang1 th{
-                text-align: left;                
-                color: darkblue;
-                background-color: #dff0d8;
-            }
-    </style>
     
     <?php
         include_once 'chucnang/sv_phancv.php';
+        include_once 'chucnang/sv_nhomthuchien.php';
         
         $manth = 'NTH02';
         $dtth = xem_dtthuchien($manth);
         if($dtth == NULL){
+            return;
+        }
+  //Lấy thông tin của 1 nhóm.      
+        $nhom = thongtinnhom_thuchien($manth);
+        if($nhom == null){
             return;
         }
     ?>
@@ -42,7 +49,8 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-12">
                     <h3 style="color: darkblue; font-weight: bold;">Phân công thực hiện đề tài</h3> 
-                    <div class="col-md-12">                        
+                    <div class="col-md-12"> 
+                        <!-- thanh tiến độ thời gian thực hiện -->
                         <lable style="display: block; float: left; width: 27%;">Thời gian quy định (20/02/2014 - 30/06/2014): &nbsp;</lable>
                         <div class="progress">
                             <div class="progress-bar progress-bar-success" style="width: 35%">
@@ -55,10 +63,11 @@ and open the template in the editor.
                               <span class="sr-only">10% Complete (danger)</span>
                             </div>
                         </div>
+                        <!-- thanh tiến độ côg việc -->
                         <lable style="display: block; float: left; width: 27%;">Công việc hoàn thành: &nbsp;</lable>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                              70%
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo $nhom['tiendo']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $nhom['tiendo']; ?>%;">
+                              <?php echo $nhom['tiendo']; ?>%
                             </div>
                         </div>
                     </div>
