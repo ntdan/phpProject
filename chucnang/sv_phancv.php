@@ -1,6 +1,32 @@
 <?php
     include_once 'thuvien/db.php';
     
+
+
+ /*====================== Xem tên thành viên của 1 nhóm 'sv.mssv, sv.hoten, nth.manhomthuchien' ====================================*/   
+    function xem_thanhvien($manth){
+        $sql = "SELECT * FROM sinh_vien sv".
+                " JOIN dangky_nhom dk ON sv.mssv=dk.mssv".
+                " JOIN nhom_thuc_hien nth ON dk.manhomthuchien=nth.manhomthuchien".
+                " WHERE nth.manhomthuchien='$manth'";
+        $ds = mysql_query($sql);
+        echo "<select class=\"form-control\" size='1' name='cbGiaoCho'>";
+        while($row = mysql_fetch_array($ds)){
+            echo "<option value='$row[hoten]'>$row[hoten]</option>";
+        }
+        echo "</select>";
+    }
+/*====================== Xem mã công việc của 1 nhóm ====================================*/
+    function xem_maCV($manth){
+        $sql = "SELECT * FROM thuc_hien WHERE manhomthuchien='$manth'";
+        $ds = mysql_query($sql);
+        echo "<select class=\"form-control\" size='1' name='cbPhuThuoc'>";
+        while($row = mysql_fetch_array($ds)){
+            echo "<option value='$row[macv]'>$row[macv]</option>";
+        }
+        echo "</select>";
+    }
+    
 /*====================== Xem tên Đề tài của 1 nhóm ====================================*/
     function xem_dtthuchien($manth){
         $sql = "SELECT *".
@@ -15,7 +41,7 @@
         }
     }
 /*====================== Xem công việc ====================================*/
-    function cv_xem(){
+    function cv_xem($manth){
         $sql = "SELECT * FROM cong_viec";
         $dscv = mysql_query($sql);
         if(mysql_num_rows($dscv)>0){
@@ -32,21 +58,22 @@
     }
 /*====================== Thêm công việc ====================================*/
     function cv_them($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
-            $taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
+            $phuthuoc,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
     {
         $sql = "INSERT INTO cong_viec(macv,congviec,giaocho,ngaybatdau_kehoach,ngayketthuc_kehoach,ngaybatdau_thucte,".
-                                "ngayketthuc_thucte,sogio_thucte,taisudung_cv,uutien,trangthai,tiendo,noidungthuchien,ghichu". 
+                                "ngayketthuc_thucte,sogio_thucte,phuthuoc_cv,uutien,trangthai,tiendo,noidungthuchien,ghichu)". 
                     "VALUES('$macv','$tencv','$giaocho','$bdkehoach','$ketthuctkehoach','$bdthucte','$ketthucte',$sogio_thucte,".
-                        "'$taisdcv','$uutien','$trangthai',$tiendo,'$ndthuchien','$ghichu')";
+                        "'$phuthuoc','$uutien','$trangthai',$tiendo,'$ndthuchien','$ghichu')";
         mysql_query($sql);
+        //echo $sql;
     }
 /*====================== Cập nhật công việc ====================================*/    
     function cv_sua($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
-            $taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
+            $phuthuoc,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
     {
         $sql = "UPDATE cong_viec SET congviec='$tencv',giaocho='$giaocho',ngaybatdau_kehoach='$bdkehoach',ngayketthuc_kehoach='$ketthuctkehoach',".
                                 "ngaybatdau_thucte='$bdthucte',ngayketthuc_thucte='$ketthucte',sogio_thucte=$sogio_thucte,".
-                                "taisudung_cv='$taisdcv',uutien='$uutien',trangthai='$trangthai',tiendo=$tiendo,noidungthuchien='$ndthuchien',ghichu='$ghichu'". 
+                                "phuthuoc_cv='$phuthuoc',uutien='$uutien',trangthai='$trangthai',tiendo=$tiendo,noidungthuchien='$ndthuchien',ghichu='$ghichu'". 
                     "WHERE macv='$macv'";
         mysql_query($sql);
     }
@@ -145,4 +172,5 @@
             }
     }
 /*====================== Danh sách công việc cho từng thành viên ====================================*/
+    
 ?>

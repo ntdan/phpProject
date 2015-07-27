@@ -40,7 +40,7 @@ and open the template in the editor.
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
                             <tr>
                                 <th width="10%">Mã công việc:</th>
-                                <input type="text" name="txtMaCV" value="" class="form-control">
+                                <td><input type="text" name="txtMaCV" value="" class="form-control"></td>
                                 <th width="10%">Tên công việc:</th>
                                 <td colspan="3">
                                     <select class="form-control" size="1" name="txtTenCV">
@@ -52,43 +52,27 @@ and open the template in the editor.
                             <tr>
                                 <th width="10%">Ngày bắt đầu (kế hoạch):</th>
                                 <td width="30%">
-                                   <select class="form-control" size="1" name="cbNgayBatDauKH">
-                                        <option value="1">02/01/2015</option>
-                                        <option value="2"></option>
-                                        <option value="3"></option>
-                                    </select>
+                                   <input type="text" id="txtNgayBatDauKH" name="txtNgayBatDauKH" value="" class="form-control"/>
                                 </td>
                                 <th width="18%">Ngày kết thúc (kế hoạch):</th>
                                 <td width="30%">
-                                    <select class="form-control" size="1" name="cbNgayKetThucKH">
-                                        <option value="1">28/02/2015</option>
-                                        <option value="2"></option>
-                                        <option value="3"></option>
-                                    </select>
+                                    <input type="text" id="txtNgayKetThucKH" name="txtNgayKetThucKH" value="" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th width="10%">Ngày bắt đầu (thực tế):</th>
                                 <td width="30%">
-                                   <select class="form-control" size="1" name="cbNgayBatDauThucTe">
-                                        <option value="1"></option>
-                                        <option value="2"></option>
-                                        <option value="3"></option>
-                                    </select>
+                                   <input type="text" id="txtNgayBatDauThucTe" name="txtNgayBatDauThucTe" value="" class="form-control"/>
                                 </td>
                                 <th width="18%">Ngày kết thúc (thực tế):</th>
                                 <td width="30%">
-                                    <select class="form-control" size="1" name="cbNgayKTThucTe">
-                                        <option value="1"></option>
-                                        <option value="2"></option>
-                                        <option value="3"></option>
-                                    </select>
+                                    <input type="text" id="txtNgayKTThucTe" name="txtNgayKTThucTe" value="" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th>Giao cho:</th>
                                 <td colspan="3">
-                                    <textarea name="txtGiaoCho" cols="50" rows="10" class="form-control"></textarea>
+                                    <?php $manth='NTH02'; xem_thanhvien($manth) ?>
                                 </td>
                             </tr>
                             <tr>
@@ -130,11 +114,7 @@ and open the template in the editor.
                                 </td>                                
                                 <th width="13%">Phụ thuộc công việc:</th>
                                 <td>
-                                    <select class="form-control" size="1" name="cbPhuThuoc">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">2.1</option>
-                                    </select>
+                                    <?php $manth='NTH02'; xem_maCV($manth); ?>
                                 </td>
                             </tr>                     
                             <tr>

@@ -25,6 +25,16 @@ and open the template in the editor.
         
     </style>
     
+    <?php
+        include_once 'chucnang/sv_dknienluan.php';
+        
+        $manhp = '1';
+        $tt = dt_canbo($manhp);
+        if($tt == null){
+            return;
+        }
+    ?>
+    
     <body>
         <div class="container">
             
@@ -35,20 +45,18 @@ and open the template in the editor.
                     <table class="table table-bordered" border="1" width="800px" cellpadding="15px" cellspacing="0px" align='center' id="dangky">
                         <tr>
                             <th>Mã cán bộ:</th>
-                            <td width="20%"><input type="text" name="txtMaCB" value="" class="form-control" readonly="true"/></td>
-                            <th width="10%">Họ và tên:</th>
-                            <td><input type="text" name="txtTen" value="" class="form-control" readonly="true"/></td>
+                            <td width="15%">
+                                <input type="text" name="txtMaCB" value="<?php echo $tt['macb'] ?>" class="form-control" readonly="true"/>
+                            </td>
+                            <th width="20%">Họ và tên cán bộ hướng dẫn:</th>
+                            <td>
+                                <input type="text" name="txtTen" value="<?php echo $tt['hoten'] ?>" class="form-control" readonly="true"/>
+                            </td>
                         </tr>
                         <tr>
                             <th width='15%' valign='middle'>Tên đề tài:</th>
                             <td align='center' colspan="3">
-                                <select class="form-control">                                
-                                    <option value="4">--Chọn đề tài--</option>
-                                    <option value="1">Phần mềm quản lý nghiên cứu khoa học</option>
-                                    <option value="1">Website quản lý bán điện thoại laptop</option>
-                                    <option value="1">Website bán đồ nội thất</option>
-                                    <option value="4">Game cờ caro trên Androi</option>
-                                </select>
+                                <?php $macb='2134'; detai_canbo($macb); ?>
                             </td>
                         </tr>
                         <tr>
@@ -56,9 +64,29 @@ and open the template in the editor.
                             <td colspan="3">
                                 <table class="table table-bordered" id="tblChonTV">
                                     <tr>
+                                        <td>
+                                            Thành viên 1: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 2: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 3: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                        </td>
+                                        <td>
+                                            Thành viên 4: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 5: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 6: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                        </td>
+                                        <td>   
+                                            Thành viên 7: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 8: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 9: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                        </td>
+                                        <td>   
+                                            Thành viên 10: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 11: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                            Thành viên 12: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
+                                        </td>
                                     </tr>                                
                                     <tr>
-                                        <td colspan="3" align='center'>
+                                        <td colspan="4" align='center'>
                                             <input type="button" value="Thêm thành viên" class="btn btn-primary">
                                         </td>
                                     </tr>

@@ -5,11 +5,37 @@
         <title>Sinh viên</title>
         <!-- Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bootstrap/css/signin.css">
+        <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">        
+        <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
+        <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
         <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
+        
+        <script>
+            $(function() {
+              $( "#txtNgayBatDauKH" ).datepicker({
+                  dateFormat: "yy-mm-dd"
+              });
+            });
+            $(function() {
+              $( "#txtNgayKetThucKH" ).datepicker({
+                  dateFormat: "yy-mm-dd"
+              });
+            });
+            $(function() {
+              $( "#txtNgayBatDauThucTe" ).datepicker({
+                  dateFormat: "yy-mm-dd"
+              });
+            });
+            $(function() {
+              $( "#txtNgayKTThucTe" ).datepicker({
+                  dateFormat: "yy-mm-dd"
+              });
+            });
+        </script>
+        
     </head>    
     <body>
         <div class="container body-content">  
