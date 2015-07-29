@@ -30,20 +30,38 @@ and open the template in the editor.
         
         $manth = $_GET['id_manth'];
         $macv = $_GET['id_macv'];
-               
+//Lấy mã công việc mà công việc đang câp nhật phụ thuộc
+        $ma = maCVchinh($manth, $macv); 
+        if($ma == NULL){
+            return;
+        }     
+        $macvphuthuoc = $ma['phuthuoc_cv'];
+        
         if(isset($_POST['btnCapNhat'])){
-            
+            $macv = $_POST['txtMaCV'];
+              $tencv = $_POST['txtTenCV'];
+              $bdkh = $_POST['txtNgayBatDauKH'];
+              $ktkh = $_POST['txtNgayKetThucKH'];
+              $bdtt = $_POST['txtNgayBatDauThucTe'];
+              $kttt =  $_POST['txtNgayKTThucTe'];
+              $giaocho = $_POST['cbGiaoCho'];
+              $ndcv = $_POST['txtNoiDungViec'];
+              $trangthai = $_POST['cbTrangThai'];
+              $tiendo = $_POST['txtTienDo'];
+              $gio_thucte = $_POST['txtGioThucTe'];
+              $uutien = $_POST['cbUuTien'];
+              
+              //($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
+            //$taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
+              cv_sua($macv,$tencv,$giaocho,$bdkh,$ktkh,$bdtt,$kttt,$gio_thucte,$macvphuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
+              
+              echo "<script>window.location.href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macvphuthuoc'</script>";
         }
         
         $dscv = thongtin_cvnhom($manth, $macv); 
         if($dscv == NULL){
             return;
-        } 
- //Lấy mã công việc mà công việc đang câp nhật phụ thuộc
-        $ma = maCVchinh($manth, $macv); 
-        if($ma == NULL){
-            return;
-        } 
+        }           
     ?>
     
     <body>
@@ -51,7 +69,9 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">Cập nhật công việc phụ thuộc</h3>
+                    <h3 style="color: darkblue; font-weight: bold;">
+                        Cập nhật công việc phụ thuộc việc: <label><?php echo $ma['phuthuoc_cv']; ?></label> 
+                    </h3>
                     
                     <form action="" method="post" >
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
@@ -118,7 +138,7 @@ and open the template in the editor.
                                 <th>Số giờ thực tế</th>
                                 <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="<?php echo $dscv['sogio_thucte']; ?>" class="form-control"/></td>
                                 <th>Tiến độ (%):</th>
-                                <td><input type="text" name="" value="<?php echo $dscv['tiendo']; ?>" class="form-control"></td>
+                                <td><input type="text" name="txtTienDo" value="<?php echo $dscv['tiendo']; ?>" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th>Trạng thái</th>
@@ -128,10 +148,14 @@ and open the template in the editor.
                                         <option value="2">Sắp làm</option>
                                         <option value="3">Hoàn thành</option>
                                     </select>
-                                </td>                                
-                                <th width="13%">Phụ thuộc công việc:</th>
+                                </td>  
+                                <th width="13%">Độ ưu tiên:</th>
                                 <td>
-                                    <?php xem_maCVphuthuoc($manth); ?>
+                                    <select class="form-control" size="1" name="cbUuTien">
+                                        <option value="Cao">Cao</option>
+                                        <option value="Trung bình">Trung bình</option>
+                                        <option value="Thấp">Thấp</option>
+                                    </select>
                                 </td>
                             </tr>                     
                             <tr>
@@ -140,7 +164,7 @@ and open the template in the editor.
                                     <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="" class="btn btn-warning" style="width:20%;">
+                                    <a href="?cn=dschitietphancong&id_manth=<?php echo $manth;?>&id_macv=<?php echo $macv;?>" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                              
                                 </td>

@@ -78,7 +78,7 @@ and open the template in the editor.
                                 <input type="text" name="txtTenDT" value="<?php echo $dtth['tendt']; ?>" readonly="" class="form-control">
                             </th>
                             <th width="35%">
-                                <a href="?cn=themcv">
+                                <a href="?cn=themcv&id_manth=<?php echo $manth; ?>">
                                     <button type="button" name="btnThem" class="btn btn-primary" style="width:45%;">
                                     <img src="images/add-icon.png">Thêm công việc
                                     </button></a> &nbsp;
@@ -94,16 +94,13 @@ and open the template in the editor.
                             <th rowspan="2" width="2%">STT</th>
                             <th rowspan="2" width="3%">ID</th>
                             <th rowspan="2" width="15%">Tên công việc</th>
-                            <th rowspan="2" width="15%">Giao cho</th>
-                            <th colspan="2" width="10%">Kế hoạch</th>
-                            <th colspan="3" width="20%">Thực tế</th>
-                            <th rowspan="2" width="20%">Nội dung công việc</th>
+                            <th rowspan="2" width="10%">Giao cho</th>
+                            <th colspan="3" width="15%">Thực tế</th>
+                            <th rowspan="2" width="15%">Nội dung công việc</th>
                             <th rowspan="2" width="3%">Phụ thuộc</th>
-                            <th rowspan="2" width="10%">Tiến độ<br>(%)</th>
+                            <th rowspan="2" width="8%">Tiến độ<br>(%)</th>
                         </tr>
                         <tr>
-                            <th>Bắt đầu</th>
-                            <th>Kết thúc</th>
                             <th>Bắt đầu</th>
                             <th>Kết thúc</th>
                             <th>Số giờ</th>

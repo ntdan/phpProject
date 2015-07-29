@@ -27,6 +27,8 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/sv_phancv.php';     
         
+          $manth='NTH02';
+                  
           if(isset($_POST['btnThem']))
            {
               $macv = $_POST['txtMaCV'];
@@ -38,14 +40,13 @@ and open the template in the editor.
               $trangthai = $_POST['cbTrangThai'];
               $tiendo = $_POST['txtTienDo'];
               $gio_thucte = $_POST['txtGioThucTe'];
-              $phuthuoc = $_POST['cbPhuThuoc'];
               $uutien = $_POST['cbUuTien'];
               
               //($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
             //$taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
-              cv_them($macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,$phuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
+              cv_them($manth,$macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,'0',$uutien,$trangthai,$tiendo,$ndcv,'null');
               
-              echo "<script>window.location.href='?cn=phancongcv'</script>";
+              //echo "<script>window.location.href='?cn=phancongcv'</script>";
           }
     ?>
 
@@ -77,7 +78,7 @@ and open the template in the editor.
                             <tr>
                                 <th>Giao cho:</th>
                                 <td colspan="3">
-                                    <?php $manth='NTH02'; xem_thanhvien($manth) ?>
+                                    <?php xem_thanhvien($manth) ?>
                                 </td>
                             </tr>
                             <tr>
@@ -112,9 +113,9 @@ and open the template in the editor.
                                 <th>Trạng thái</th>
                                 <td>
                                     <select class="form-control" size="1" name="cbTrangThai">
-                                        <option value="1">Đang làm</option>
-                                        <option value="2">Sắp làm</option>
-                                        <option value="3">Hoàn thành</option>
+                                        <option value="Đang làm">Đang làm</option>
+                                        <option value="Sắp làm">Sắp làm</option>
+                                        <option value="Hoàn thành">Hoàn thành</option>
                                     </select>
                                 </td>
                                  <th width="13%">Độ ưu tiên:</th>

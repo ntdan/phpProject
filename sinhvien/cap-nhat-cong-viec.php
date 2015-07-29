@@ -61,7 +61,7 @@ and open the template in the editor.
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
                             <tr>
                                 <th width="10%">Mã công việc:</th>
-                                <td><input type="text" name="txtMaCV" value="" class="form-control"></td>
+                                <td><input type="text" name="txtMaCV" value="" class="form-control" readonly=""></td>
                                 <th width="10%">Tên công việc:</th>
                                 <td colspan="3">
                                     <?php $manth = $_GET['id_manth']; xem_tenCVchinh($manth); ?>

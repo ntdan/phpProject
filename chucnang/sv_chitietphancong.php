@@ -18,7 +18,7 @@
     }
 /*====================== Danh sách công việc chính của 1 côg việc phụ thuộc ====================================*/   
     function maCVchinh($manth,$macv){
-        $sql = "SELECT cv.phuthuoc_cv".
+        $sql = "SELECT *".
                 " FROM nhom_thuc_hien nth".
                 " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
                 " JOIN cong_viec cv on th.macv=cv.macv".
@@ -45,7 +45,7 @@ function xem_maCVphuthuoc($manth){
         }
         echo "</select>";
     }
-/*====================== Danh sách công việc cho từng thành viên ====================================*/
+ /*====================== Danh sách công việc cho từng thành viên ====================================*/
     function sodong_chitietcv($macv){
         $count = 0;
 

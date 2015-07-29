@@ -44,7 +44,7 @@
                 return null;
         }
     }
-/*====================== Xem công việc ====================================*/
+/*====================== Xem công việc của một nhóm ====================================*/
     function cv_xem($manth){
         $sql = "SELECT * ".
                 " FROM cong_viec cv".
@@ -64,16 +64,17 @@
         $sql = "DELETE FROM cong_viec WHERE macv='$macv'";
         mysql_query($sql);
     }
-/*====================== Thêm công việc ====================================*/
-    function cv_them($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
+/*====================== Thêm vào bảng công việc 'công việc' và bảng 'thực hiện'====================================*/
+    function cv_them($manth,$macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
             $phuthuoc,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
     {
         $sql = "INSERT INTO cong_viec(macv,congviec,giaocho,ngaybatdau_kehoach,ngayketthuc_kehoach,ngaybatdau_thucte,".
                                 "ngayketthuc_thucte,sogio_thucte,phuthuoc_cv,uutien,trangthai,tiendo,noidungthuchien,ghichu)". 
-                    "VALUES('$macv','$tencv','$giaocho','$bdkehoach','$ketthuctkehoach','$bdthucte','$ketthucte',$sogio_thucte,".
-                        "'$phuthuoc','$uutien','$trangthai',$tiendo,'$ndthuchien','$ghichu')";
+                    " VALUES('$macv','$tencv','$giaocho','$bdkehoach','$ketthuctkehoach','$bdthucte','$ketthucte',$sogio_thucte,".
+                        "'$phuthuoc','$uutien','$trangthai',$tiendo,'$ndthuchien','$ghichu');".
+                "INSERT INTO thuc_hien(manhomthuchien,macv) VALUES('$manth','$macv')";
         mysql_query($sql);
-        //echo $sql;
+        echo $sql;
     }
 /*====================== Cập nhật công việc ====================================*/    
     function cv_sua($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
@@ -145,17 +146,17 @@
                     $uutien,$trangthai,$tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
             {          
                  $dong = "<tr>".
-                            "<td>$stt</td>".
-                            "<td>$macv</td>".
-                            "<td><a href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macv'>$tencv</a></td>".
+                            "<td align='center'>$stt</td>".
+                            "<td align='center'>$macv</td>".
+                            "<td><a href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macv' data-toggle=\"tooltip\" data-placement=\"bottom\" title='Bắt đầu kế hoạch: $bdkehoach - Kết thúc kế hoạch: $ketthuctkehoach'>".
+                                       "$tencv".
+                            "</a></td>".
                             "<td>$giaocho</td>".
-                            "<td>$bdkehoach</td>".
-                            "<td>$ketthuctkehoach</td>".
-                            "<td>$bdthucte</td>".
-                            "<td>$ketthucte</td>".
-                            "<td>$sogio_thucte</td>".
+                            "<td align='center'>$bdthucte</td>".
+                            "<td align='center'>$ketthucte</td>".
+                            "<td align='center'>$sogio_thucte</td>".
                             "<td>$ndthuchien</td>".
-                            "<td>$phuthuoc</td>".
+                            "<td >$phuthuoc</td>".
                             "<td>".
                                 "<div class=\"progress\">".  
                                     "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow='$tiendo' aria-valuemin='0' aria-valuemax='100' style='width:$tiendo%'>".  
@@ -173,7 +174,7 @@
             {
                 
                     $trang = 1;	
-                    echo "<tr><td colspan='12'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='10'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";

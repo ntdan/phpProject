@@ -27,7 +27,10 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/sv_chitietphancong.php';
         include_once 'chucnang/sv_phancv.php';   
-        
+                
+          $manth = $_GET['id_manth'];
+          $phuthuoc = $_GET['id_macv'];
+          
           if(isset($_POST['btnThem']))
            {
               $macv = $_POST['txtMaCV'];
@@ -39,22 +42,20 @@ and open the template in the editor.
               $trangthai = $_POST['cbTrangThai'];
               $tiendo = $_POST['txtTienDo'];
               $gio_thucte = $_POST['txtGioThucTe'];
-              $phuthuoc = $_POST['cbPhuThuoc'];
               $uutien = $_POST['cbUuTien'];
               
               //($macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
-            //$taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
-              cv_them($macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,$phuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
+             //$taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
+              cv_them($manth,$macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,$phuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
               
-              echo "<script>window.location.href='?cn=phancongcv'</script>";
+              echo "<script>window.location.href='?cn=dschitietphancong&id_manth=$manth&id_macv=$phuthuoc'</script>";
           }
     ?>
-
     <body>        
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">Thêm công việc</h3> 
+                    <h3 style="color: darkblue; font-weight: bold;">Thêm việc phụ thuộc công việc</h3> 
                     <form action="" method="post">
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
                             <tr>
@@ -78,7 +79,7 @@ and open the template in the editor.
                             <tr>
                                 <th>Giao cho:</th>
                                 <td colspan="3">
-                                    <?php $manth='NTH02'; xem_thanhvien($manth) ?>
+                                    <?php xem_thanhvien($manth) ?>
                                 </td>
                             </tr>
                             <tr>
@@ -118,7 +119,7 @@ and open the template in the editor.
                                         <option value="3">Hoàn thành</option>
                                     </select>
                                 </td>
-                                 <th width="13%">Độ ưu tiên:</th>
+                                <th width="13%">Độ ưu tiên:</th>
                                 <td>
                                     <select class="form-control" size="1" name="cbUuTien">
                                         <option value="Cao">Cao</option>
