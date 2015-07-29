@@ -25,7 +25,7 @@
         }
         else return null;
     }
- /*====================== Danh sách công việc chính ====================================*/   
+ /*====================== Danh sách công việc chính của công việc phụ thuộc====================================*/   
     function cv_chinh($manth,$macv){
         $sql = "SELECT *".
                 " FROM nhom_thuc_hien nth".
@@ -40,7 +40,22 @@
         else return NULL;
         
     }
-  /*====================== Danh sách công việc phụ thuộc ====================================*/
+  /*====================== Danh sách công việc chính của 1 nhóm niên luận ====================================*/   
+    function nhomcv_chinh($manth){
+        $sql = "SELECT *".
+                " FROM nhom_thuc_hien nth".
+                " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
+                " JOIN cong_viec cv on th.macv=cv.macv".
+                " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";
+        $dsct = mysql_query($sql);
+        //echo $sql;
+        if(mysql_num_rows($dsct)>0){
+            return $dsct;
+        }
+        else return NULL;
+        
+    }
+ /*====================== Danh sách công việc phụ thuộc ====================================*/
     function cv_phuthuoc($macv){
         $sql = "SELECT macv,congviec,giaocho,ngaybatdau_kehoach,ngayketthuc_kehoach,ngaybatdau_thucte,ngayketthuc_thucte".
                       ",sogio_thucte,phuthuoc_cv,trangthai,tiendo,noidungthuchien,ghichu".

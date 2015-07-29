@@ -28,68 +28,60 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
             <div class="col-md-12">
+                <h3 style="color: darkblue; font-weight: bold;">BẢNG GHI ĐIỂM NIÊN LUẬN</h3>
                 <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-                    <tr><td colspan="8" align='center'>
-                            <h3 style="color: darkblue; font-weight: bold;">BẢNG GHI ĐIỂM NIÊN LUẬN</h3>
-                        </td>
-                    </tr>
                     <tr>
-                        <td align='right'>Năm học: &nbsp;</td>
-                        <td>
-                            <select class="form-control" size="1">
-                                <option value="1">2014-2015</option>
-                                <option value="2">2015-2016</option>
-                                <option value="3">2016-2017</option>
-                            </select>
-                        </td>
-                        <td align="right" valign="middle">Học kỳ: &nbsp;</td>
-                        <td>
-                            <select class="form-control" size="1">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">hè</option>
-                            </select>
-                        </td>
-                        <td align='right'>Nhóm học phần:</td>
-                        <td>
-                            <select class="form-control" size="1">
+                        <th align='center' width="6%">Năm học:
+                            <input type="text" name="" value="2013-2014" style="text-align: center;" class="form-control"/>
+                            </th>
+                        <th align="center" width="3%">Học kỳ:
+                            <input style="text-align: center;" type="text" name="" value="1" class="form-control"/>
+                        </th>
+                        <th align='center' width="4%">Nhóm HP:
+                            <select class="form-control" style="text-align: center;" size="1">
                                 <option value="1">01</option>
                                 <option value="2">02</option>
                                 <option value="3">03</option>
                             </select>
-                        </td>
-                        <td align='right'>Đề tài:</td>
-                        <td>
+                        </th>
+                        <th align='center' width="6%">Nhóm niên luận:
+                            <select class="form-control" size="1" align="center">
+                                <option value="NTH01">NTH01</option>
+                                <option value="NTH02">NTH02</option>
+                                <option value="NTH03">NTH03</option>
+                            </select>
+                        </th>
+                        <th align='center' width="20%">Đề tài:
                             <select class="form-control" size="1">
                                 <option value="1">Website bán quần áo</option>
                                 <option value="2">Game cờ caro trên Androi</option>
                                 <option value="3">Phần mềm quản lý hóa đơn</option>
                             </select>
-                        </td>
+                        </th>
                     </tr>
                  </table>
                 <form id="" name="" action="" method="post">
                     <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
-                            <th rowspan="2">STT</th>
-                            <th rowspan="2">MSSV</th>
-                            <th rowspan="2">Họ và tên</th>
-                            <th rowspan="2">Nhóm</th>
-                            <th colspan="4">Tiêu chí</th>
-                            <th rowspan="2">Tổng điểm</th>
-                            <th rowspan="2">Điểm chữ</th>                         
+                            <th rowspan="2" width="1%">STT</th>                            
+                            <th rowspan="2" width="8%">Nhóm niên luận</th>
+                            <th rowspan="2" width="8%">MSSV</th>
+                            <th rowspan="2" width="20%">Họ và tên</th>
+                            <th colspan="4" width="25%">Tiêu chí</th>
+                            <th rowspan="2" width="4%">Tổng điểm</th>
+                            <th rowspan="2" width="4%">Điểm chữ</th>                         
                         </tr>
                         <tr>
-                            <th>4</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>1</th>
+                            <th width='2%'>4</th>
+                            <th width='2%'>2</th>
+                            <th width='2%'>3</th>
+                            <th width='2%'>1</th>
                         </tr>
                         <tr>
                             <td align='center'>1</td>
+                            <td align='center'>NTH01</td>
                             <td align='center'>1234567</td>
                             <td>Hoàng thành</td>
-                            <td align='center'>1</td>
                             <td align='center'><input type="text" size="1" align="center" value="3"></td>
                             <td align='center'><input type="text" size="1" align="center" value="1.5"></td>
                             <td align='center'><input type="text" size="1" align="center" value="2"></td>
@@ -99,9 +91,9 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td align='center'>2</td>
+                            <td align='center'>NTH01</td>
                             <td align='center'>1324568</td>
                             <td>Phan Long</td>
-                            <td align='center'>1</td>
                             <td align='center'><input type="text" size="1" align="center" value="3.5"></td>
                             <td align='center'><input type="text" size="1" align="center" value="2"></td>
                             <td align='center'><input type="text" size="1" align="center" value="2.5"></td>

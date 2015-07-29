@@ -54,10 +54,10 @@
             echo  "<th style='width:6%;'>Năm học:".
                        "<input style='text-align:center' type='text' name='txtNamHoc' value='".$row['nam']."' class=\"form-control\" readonly=''/>".
                    "</th>".
-                  "<th align='right' width='4%'>Học kỳ:".
+                  "<th align='right' width='3%'>Học kỳ:".
                        "<input style='text-align:center' type='text' name='txtHocKi' value='".$row['hocky']."' class=\"form-control\" readonly=''/>".
                   "</th>".                    
-                  "<th align='right' width='6%'>Nhóm học phần:".
+                  "<th align='right' width='4%'>Nhóm HP:".
                       "<input style='text-align:center' type='text' name='txtTenNhomHP' value='".$row['tennhomhp']."' class=\"form-control\" readonly=''/>".  
                   "</th>".
                   "<th align='right' width='4%'>Mã nhóm:".

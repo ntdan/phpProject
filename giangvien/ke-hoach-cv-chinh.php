@@ -30,7 +30,7 @@ and open the template in the editor.
            if($ds == NULL){
                return;
            }
-           $cvchinh = cv_chinh($manth);
+           $cvchinh = nhomcv_chinh($manth);
            if($cvchinh == NULL){
                return;
            }
