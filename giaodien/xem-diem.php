@@ -58,7 +58,7 @@ and open the template in the editor.
                     </tr>
                  </table>
            
-                <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
+                <table class="table table-bordered" align='center'>
                     <tr>
                         <th rowspan="2">STT</th>
                         <th rowspan="2">MSSV</th>
@@ -98,11 +98,35 @@ and open the template in the editor.
                         <td align='center'>9.5</td>
                         <td align='center'>A</td>
                     </tr>
-                </table>
-             
-                <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
-                    <tr>                        
-                        <td align="right"><input type="button" value="In bảng điểm" class="btn btn-primary"></td>                        
+                </table><hr>
+                <div class="col-md-12" style="margin-bottom: 10px; text-align: right;">
+                    <input type="button" value="In bảng điểm" class="btn btn-primary">
+                </div><hr>
+                <table class="table table-bordered" style="width: 600px;">
+                    <tr>
+                        <th width="2%">STT</th>
+                        <th width="50%">Nội dung đánh giá</th>
+                        <th width="10%">Mức điểm tối đa</th>                        
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Đánh giá về sự hoàn thành của dự án</td>
+                        <td>4</td>                        
+                    </tr>                    
+                    <tr>
+                        <td>2</td>
+                        <td>Tài liệu báo cáo</td>
+                        <td>1</td>                        
+                    </tr>                    
+                    <tr>
+                        <td>3</td>
+                        <td>Kỹ năng làm việc nhóm</td>
+                        <td>3</td>                        
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Phần Demo dự án</td>
+                        <td>2</td>                        
                     </tr>
                 </table>
             </div>

@@ -25,11 +25,13 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/gv_tieuchidiem.php';
         
+        $macb = '2134';
+                
         if(isset($_GET['id_tc'])){
             tc_xoa($_GET['id_tc']);
         }
         
-        $ds_tc = tc_danhsach();
+        $ds_tc = tc_danhsach($macb);
         if($ds_tc == NULL){
             return;
         }
@@ -39,7 +41,7 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 style="display:block; float:left; color:blue; font-weight: bold;">BẢNG TIÊU CHÍ ĐÁNH GIÁ KẾT QUẢ CỦA SINH VIÊN</h4>
+                    <h4 style="display:block; float:left; color:blue; font-weight: bold;">BẢNG TIÊU CHÍ ĐÁNH GIÁ KẾT QUẢ NIÊN LUẬN</h4>
                     <a href="?cn=themtieuchi" style="margin-left: 50%;">
                         <button type="button" class="btn btn-primary" style="width: 10%;">
                             <img src="images/add-icon.png"> Thêm

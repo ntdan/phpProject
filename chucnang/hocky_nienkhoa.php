@@ -6,8 +6,7 @@
     function hocky_nienkhoa()
     {
         $sql = "SELECT distinct(nam) nam FROM nien_khoa order by mank desc";
-        $hk_nk = mysql_query($sql);
-        
+        $hk_nk = mysql_query($sql);        
         
         $hk="";
         echo '<th align="right" width="10%">Năm học: </th>

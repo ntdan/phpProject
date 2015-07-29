@@ -26,12 +26,14 @@ and open the template in the editor.
 <?php
     include_once 'chucnang/gv_tieuchidiem.php';
     
+    $macb = '2134';
+    
     if(isset($_POST['btnThem'])){
         $matc = $_POST['txtMaTC'];
         $ndtc = $_POST['txtNoiDungTC'];
         $md = $_POST['txtMucDiem'];
         //tc_them($matc,$noidungtc,$heso)
-        tc_them($matc, $ndtc, $md);
+        tc_them($macb,$matc, $ndtc, $md);
         
         echo "<script>window.location.href='?cn=dstc'</script>";
     }
