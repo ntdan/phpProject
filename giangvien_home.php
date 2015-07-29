@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
-<html>  
-    
-        <?php session_start(); ?>
+<html>     
+      <?php session_start(); ?>
     
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -258,8 +257,10 @@
 
                         if ($_GET['cn'] == "kehoach")
                             include("giangvien/theo-doi-ke-hoach.php");
-                        if($_GET['cn'] == "chitietkehoach")
-                            include("giangvien/ke-hoach-chi-tiet.php");
+                        if($_GET['cn'] == "kehoachcvchinh")
+                            include("giangvien/ke-hoach-cv-chinh.php");
+                        if($_GET['cn'] == "kehoachcvphuthuoc")
+                            include("giangvien/ke-hoach-cv-phuthuoc.php");
 
                         if ($_GET['cn'] == "dsdt")
                             include("giangvien/danh-sach-de-tai.php");

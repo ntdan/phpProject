@@ -30,10 +30,12 @@ and open the template in the editor.
            if($ds == NULL){
                return;
            }
-           $chitietkehoach = chitiet_kehoach($manth);
-           if($chitietkehoach == NULL){
+           $cvchinh = cv_chinh($manth);
+           if($cvchinh == NULL){
                return;
            }
+           
+           
      ?>
     <body>
         <script src="scripts/Highcharts-4.1.7/js/highcharts.js"></script>
@@ -81,37 +83,42 @@ and open the template in the editor.
                         ?>
                     </table>
                 </div>
-                <div class="col-md-6">
-                    <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>                        
+                <div class="col-md-6" style="background-color: #dff0d8;">
+                    <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto; "></div>                        
                 </div>
                 
           <!-- Danh sách chi tiết các công việc -->      
                 <div class="col-md-12">
                     <?php
                         $ctkh = "";
-                        while($ctkh = mysql_fetch_array($chitietkehoach)){
+                        while( $ctkh = mysql_fetch_array($cvchinh)){
                             echo "<div class=\"col-md-12\">".
-                                    "<h4 style='color: #c7254e;'><img src='images/box-icon1.png'/> ".$ctkh['congviec']."</h4> ".
+                                    "<h4 style='color: #c7254e;'><a href='?cn=kehoachcvphuthuoc&id_manth=".$ctkh['manhomthuchien']."&id_macv=".$ctkh['macv']."'><img src='images/box-icon1.png'/> ".$ctkh['congviec']."</a></h4> ".
                                     "<div class=\"progress\" style='width:50%;'>". 
                                           "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow='".$ctkh['tiendo']."' aria-valuemin='0' aria-valuemax='100' style='width:".$ctkh['tiendo']."%'>".  
                                                   $ctkh['tiendo']."% Complete".  
                                           "</div>".  
                                     "</div>".
-                                    "<table class=\"table table-hover\" width='800px' cellpadding='15px' cellspacing='0px' align='center'>".
+                                    "<table class=\"table table-hover\" width='800px' align='center'>".
                                           "<tr>".
                                               "<th rowspan='2' width='2%'>ID</th>".
                                               "<th rowspan='2' width='15%'>Giao cho</th>".
+                                              "<th colspan='2' width='20%'>Kế hoạch</th>".
                                               "<th colspan='3' width='20%'>Thực tế</th>".
                                               "<th rowspan='2' width='20%'>Chi tiết công việc</th>".
                                           "</tr>".
                                           "<tr>".
+                                            "<th>Bắt đầu</th>".
+                                             "<th>Kết thúc</th>".
                                              "<th>Bắt đầu</th>".
                                              "<th>Kết thúc</th>".
                                              "<th>Số giờ</th>".
                                           "</tr>".
                                           "<tr>".
-                                             "<td>1</td>".
+                                             "<td>".$ctkh['macv']."</td>".
                                              "<td>".$ctkh['giaocho']."</td>".
+                                             "<td>".$ctkh['ngaybatdau_kehoach']."</td>".
+                                             "<td>".$ctkh['ngayketthuc_kehoach']."</td>". 
                                              "<td>".$ctkh['ngaybatdau_thucte']."</td>".
                                              "<td>".$ctkh['ngayketthuc_thucte']."</td>".                            
                                              "<td>".$ctkh['sogio_thucte']."</td>".

@@ -89,7 +89,7 @@
                  $dong = "<tr>".
                             "<td align='center'>$stt</td>".
                             "<td align='center'>$manth</td>".
-                            "<td><a href='?cn=chitietkehoach&id_nth=$manth'>$tendt</a></td>".
+                            "<td><a href='?cn=kehoachcvchinh&id_nth=$manth'>$tendt</a></td>".
                             "<td align='center'>$sv</td>".
                             "<td>$tochuc</td>".
                             "<td align='center'>$b$so</td>".
