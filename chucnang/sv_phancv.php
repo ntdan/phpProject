@@ -68,12 +68,17 @@
     function cv_them($manth,$macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
             $phuthuoc,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
     {
+            
+        $connect = mysqli_connect('localhost', 'root', '', 'qlnienluan_ktpm');
+        mysqli_set_charset($connect,'utf8');
+        
         $sql = "INSERT INTO cong_viec(macv,congviec,giaocho,ngaybatdau_kehoach,ngayketthuc_kehoach,ngaybatdau_thucte,".
                                 "ngayketthuc_thucte,sogio_thucte,phuthuoc_cv,uutien,trangthai,tiendo,noidungthuchien,ghichu)". 
                     " VALUES('$macv','$tencv','$giaocho','$bdkehoach','$ketthuctkehoach','$bdthucte','$ketthucte',$sogio_thucte,".
                         "'$phuthuoc','$uutien','$trangthai',$tiendo,'$ndthuchien','$ghichu');".
                 "INSERT INTO thuc_hien(manhomthuchien,macv) VALUES('$manth','$macv')";
-        mysql_query($sql);
+        
+        mysqli_multi_query($connect,$sql);
         echo $sql;
     }
 /*====================== Cập nhật công việc ====================================*/    

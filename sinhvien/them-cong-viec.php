@@ -46,7 +46,7 @@ and open the template in the editor.
             //$taisdcv,$uutien,$trangthai,$tiendo,$ndthuchien,$ghichu)
               cv_them($manth,$macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,'0',$uutien,$trangthai,$tiendo,$ndcv,'null');
               
-              //echo "<script>window.location.href='?cn=phancongcv'</script>";
+              echo "<script>window.location.href='?cn=phancongcv'</script>";
           }
     ?>
 

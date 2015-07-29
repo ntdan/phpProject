@@ -164,7 +164,7 @@ and open the template in the editor.
                                     <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="?cn=dschitietphancong&id_manth=<?php echo $manth;?>&id_macv=<?php echo $macv;?>" class="btn btn-warning" style="width:20%;">
+                                    <a href="?cn=dschitietphancong&id_manth=<?php echo $manth;?>&id_macv=<?php echo $macvphuthuoc;?>" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                              
                                 </td>
