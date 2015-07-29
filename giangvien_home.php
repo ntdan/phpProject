@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-          
-    <?php 
-        session_start();
-    ?>
-  
-<html>
 
+<html>  
+    
+        <?php session_start(); ?>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Giảng viên</title>
@@ -157,7 +155,7 @@
               $( "#txtNgaySinh" ).datepicker();
             });
         </script>
-    </head>
+    </head>          
 
     <body>
         <div class="container body-content">
@@ -211,7 +209,7 @@
                             <li><a href="giangvien/dang-nhap-gv.php">Đăng xuất</a></li>                       
 -->
                            <?php 
-                                $dn = "<image src='images/user-delete-icon.png'/>";
+                                $dn = "";                                
                                 if(isset($_SESSION['user']))
                                 {
                                     $dn = $_SESSION['user'];
