@@ -109,7 +109,7 @@
                                 "ngayketthuc_thucte,sogio_thucte,phuthuoc_cv,uutien,trangthai,tiendo,noidungthuchien,ghichu". 
                          " FROM cong_viec cv".
                          " JOIN thuc_hien th ON cv.macv=th.macv".
-                         " WHERE th.manhomthuchien='$manth'".
+                         " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
 
@@ -139,7 +139,7 @@
                  $dong = "<tr>".
                             "<td>$stt</td>".
                             "<td>$macv</td>".
-                            "<td>$tencv</td>".
+                            "<td><a href='?cn=dschitietphancong&id_macv=$macv'>$tencv</a></td>".
                             "<td>$giaocho</td>".
                             "<td>$bdkehoach</td>".
                             "<td>$ketthuctkehoach</td>".
@@ -165,12 +165,106 @@
             {
                 
                     $trang = 1;	
-                    echo "<tr><td colspan='11'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='12'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";
             }
     }
 /*====================== Danh sách công việc cho từng thành viên ====================================*/
-    
+    function sodong_chitietcv($macv){
+        $count = 0;
+
+        $sqlSelect = "SELECT * FROM cong_viec WHERE phuthuoc_cv='$macv'";
+        $dscv = mysql_query($sqlSelect);
+
+        if(isset($dscv))
+            $count = mysql_num_rows($dscv);
+
+        return $count;
+    }   
+    function ds_chitietcv($macv){
+        global $sodongtrentrang;
+            $tongsodong = sodong_chitietcv($macv); 
+            $tranghientai = 1;
+            if(isset($_GET['page']))
+                    $tranghientai = $_GET['page'];
+
+            $tongsotrang = $tongsodong%$sodongtrentrang > 0 ? 
+                    ($tongsodong/$sodongtrentrang + 1) : $tongsodong/$sodongtrentrang;
+
+            $vitridong = $sodongtrentrang*($tranghientai-1);
+
+            $sqlSelect = "SELECT macv,congviec,giaocho,ngaybatdau_thucte,ngayketthuc_thucte".
+                         ",sogio_thucte,phuthuoc_cv,trangthai,tiendo,noidungthuchien,ghichu".
+                         " FROM cong_viec WHERE phuthuoc_cv='$macv'".
+                         " LIMIT $vitridong, $sodongtrentrang";
+            $ds = mysql_query($sqlSelect);
+
+            $macv = "";
+            $tencv = "";
+            $giaocho = "";
+            $bdthucte = "";
+            $ketthucte = "";
+            $sogio_thucte = 0;
+            $phuthuoc = "0";
+            $trangthai = "";
+            $tiendo = 0;
+            $ndthuchien = "";
+            $ghichu = "";
+
+            $stt = 1 + $vitridong;
+
+            global $hinhcapnhat;
+            global $hinhxoa;
+ //Cập nhật nếu trang thai = 'Hoàn thành' thì cập nhật tiến độ = 100          
+            $trangthaicn = strcasecmp($trangthai, 'Hoàn thành');
+            if($trangthaicn == 0){
+                $sqltiendo = "UPDATE cong_viec SET tiendo=100 WHERE macv='$macv'";
+            }
+            
+            while(list($macv,$tencv,$giaocho,$bdthucte,$ketthucte,$sogio_thucte,$phuthuoc,$trangthai,$tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
+            {           
+                //Cập nhật nếu trang thai = 'Hoàn thành' thì cập nhật tiến độ = 100          
+                    $trangthaicn = strcasecmp($trangthai, 'Hoàn thành');
+                    if($trangthaicn == 0){
+                        $sqltiendo = "UPDATE cong_viec SET tiendo=100 WHERE macv='$macv'";
+                    }
+                    
+                 $dong = "<tr>".
+                            "<td>$stt</td>".
+                            "<td>$macv</td>".
+                            "<td>$tencv</td>".
+                            "<td>$giaocho</td>".
+                            "<td>$bdthucte</td>".
+                            "<td>$ketthucte</td>".
+                            "<td>$sogio_thucte</td>".
+                            "<td>$ndthuchien</td>".
+                            "<td>".
+                                "<div class=\"progress\">".
+                                    "<div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='$tiendo' aria-valuemin='0' aria-valuemax='100' style='width: $tiendo%;'>".
+                                      "$tiendo%".
+                                    "</div>".
+                                "</div>".
+                            "</td>".
+                            "<td align='center'>".
+                                "<a href='?cn=capnhatchitietphancong&id_macv=$macv'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
+                                "<a onclick=\"return confirm('Công việc --$tencv-- sẽ bị xóa?');\" href='#'><img src='$hinhxoa'/></a> ".
+                            "</td>".
+                        "</tr>";
+
+                 $stt++;
+                 echo $dong;
+            }	
+
+            if($tongsodong > $sodongtrentrang)
+            {
+                
+                    $trang = 1;	
+                    echo "<tr><td colspan='10'><div class=\"col-md-12\" align=\"center\">";
+
+                    echo phanTrang($tongsodong, $tranghientai);
+                    echo "</div></td></tr>";
+            }
+    }
 ?>

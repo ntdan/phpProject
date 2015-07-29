@@ -159,13 +159,17 @@
 
                         if ($_GET['cn'] == "dscv")
                             include("sinhvien/danh-sach-cong-viec.php");
+                        
                         if ($_GET['cn'] == "phancongcv")
                             include("sinhvien/phan-cong-nhiem-vu.php");
                         if ($_GET['cn'] == "themcv")
                             include("sinhvien/them-cong-viec.php");
                         if ($_GET['cn'] == "capnhatcv")
                             include("sinhvien/cap-nhat-cong-viec.php");
-                        if ($_GET['cn'] == "chitietphancong")
+                        
+                        if ($_GET['cn'] == "dschitietphancong")
+                            include("sinhvien/phan-cong-chi-tiet-cv.php");
+                        if ($_GET['cn'] == "capnhatchitietphancong")
                             include("sinhvien/cap-nhat-cong-viec-sv.php");
                         
                         if ($_GET['cn'] == "noptl")

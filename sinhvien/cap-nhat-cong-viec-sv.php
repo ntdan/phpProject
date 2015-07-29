@@ -123,7 +123,7 @@ and open the template in the editor.
                                     <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width:20%;">
                                         <img src="images/save-as-icon.png"> Cập nhật
                                     </button>&nbsp;&nbsp;
-                                    <a href="?cn=phancongcv" class="btn btn-warning" style="width:20%;">
+                                    <a href="?cn=dschitietphancong" class="btn btn-warning" style="width:20%;">
                                         <img src="images/delete-icon.png"> Hủy bỏ
                                     </a>                              
                                 </td>

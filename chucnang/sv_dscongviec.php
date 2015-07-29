@@ -84,7 +84,7 @@
             }
     }
     
-    function chitiet_cv($manth){
+    function sv_chitietcv($manth){
         $sql = "";
         $ds = mysql_query($sql);
     }
