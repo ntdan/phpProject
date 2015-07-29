@@ -48,7 +48,7 @@ and open the template in the editor.
               cv_sua($macv,$tencv,$giaocho,$bdkh,$ktkh,$bdtt,$kttt,$gio_thucte,$phuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
               
               //echo "<script>window.location.href='?cn=phancongcv'</script>";
-          }
+          }     
     ?>
 
     <body>
@@ -64,10 +64,7 @@ and open the template in the editor.
                                 <td><input type="text" name="txtMaCV" value="" class="form-control"></td>
                                 <th width="10%">Tên công việc:</th>
                                 <td colspan="3">
-                                    <select class="form-control" size="1" name="txtTenCV">
-                                        <option value="1">Phân tích yêu cầu</option>
-                                        <option value="2">Đặc tả yêu cầu</option>
-                                    </select>
+                                    <?php $manth = $_GET['id_manth']; xem_tenCVchinh($manth); ?>
                                 </td>
                             </tr>
                             <tr>
@@ -93,7 +90,7 @@ and open the template in the editor.
                             <tr>
                                 <th>Giao cho:</th>
                                 <td colspan="3">                                    
-                                    <?php $manth='NTH02'; xem_thanhvien($manth) ?>
+                                    <?php $manth=$_GET['id_manth']; xem_thanhvien($manth) ?>
                                 </td>
                             </tr>
                             <tr>
@@ -127,18 +124,6 @@ and open the template in the editor.
                                         <option value="3">Hoàn thành</option>
                                     </select>
                                 </td>
-                                <th>Tiến độ (%):</th>
-                                <td><input type="text" name="txtTienDo" value="" class="form-control"></td>
-                            </tr>
-                            <tr>
-                                <th>Số giờ thực tế</th>
-                                <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="" class="form-control"/></td>
-                                <th width="13%">Phụ thuộc công việc:</th>
-                                <td>
-                                    <?php $manth='NTH02'; xem_maCV($manth); ?>
-                                </td>
-                            </tr>   
-                            <tr>
                                 <th width="13%">Độ ưu tiên:</th>
                                 <td>
                                     <select class="form-control" size="1" name="cbUuTien">
@@ -148,6 +133,12 @@ and open the template in the editor.
                                     </select>
                                 </td>
                             </tr>
+                            <tr>
+                                <th>Số giờ thực tế</th>
+                                <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="" class="form-control"/></td>
+                                <th>Tiến độ (%):</th>
+                                <td><input type="text" name="txtTienDo" value="" class="form-control"></td>
+                            </tr> 
                             <tr>
                                 <td></td>
                                 <td colspan="3" align="center">

@@ -25,9 +25,16 @@ and open the template in the editor.
     </style>
 
     <?php
+        include_once 'chucnang/sv_chitietphancong.php';
         include_once 'chucnang/sv_phancv.php';
         
+        $manth = $_GET['id_manth'];
+        $macv = $_GET['id_macv'];
         
+        $dscv = thongtin_cvnhom($manth, $macv); 
+        if($dscv == NULL){
+            return;
+        }             
     ?>
     
     <body>
@@ -35,50 +42,47 @@ and open the template in the editor.
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;">Cập nhật công việc</h3>
+                    <h3 style="color: darkblue; font-weight: bold;">Cập nhật công việc phụ thuộc</h3>
                     <form action="" method="post" >
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
                             <tr>
                                 <th width="10%">Mã công việc:</th>
-                                <td><input type="text" name="txtMaCV" value="" class="form-control"></td>
+                                <td><input type="text" name="txtMaCV" value="<?php echo $dscv['macv'];  ?>" class="form-control" readonly=""/></td>
                                 <th width="10%">Tên công việc:</th>
                                 <td colspan="3">
-                                    <select class="form-control" size="1" name="txtTenCV">
-                                        <option value="1">Phân tích yêu cầu</option>
-                                        <option value="2">Đặc tả yêu cầu</option>
-                                    </select>
+                                    <input type="text" name="txtTenCV" value="<?php echo $dscv['congviec']; ?>" class="form-control" readonly=""/>
                                 </td>
                             </tr>
                             <tr>
                                 <th width="10%">Ngày bắt đầu (kế hoạch):</th>
                                 <td width="30%">
-                                   <input type="text" id="txtNgayBatDauKH" name="txtNgayBatDauKH" value="" class="form-control"/>
+                                   <input type="text" id="txtNgayBatDauKH" name="txtNgayBatDauKH" value="<?php echo $dscv['ngaybatdau_kehoach']; ?>" class="form-control"/>
                                 </td>
                                 <th width="18%">Ngày kết thúc (kế hoạch):</th>
                                 <td width="30%">
-                                    <input type="text" id="txtNgayKetThucKH" name="txtNgayKetThucKH" value="" class="form-control"/>
+                                    <input type="text" id="txtNgayKetThucKH" name="txtNgayKetThucKH" value="<?php echo $dscv['ngayketthuc_kehoach']; ?>" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th width="10%">Ngày bắt đầu (thực tế):</th>
                                 <td width="30%">
-                                   <input type="text" id="txtNgayBatDauThucTe" name="txtNgayBatDauThucTe" value="" class="form-control"/>
+                                   <input type="text" id="txtNgayBatDauThucTe" name="txtNgayBatDauThucTe" value="<?php echo $dscv['ngaybatdau_thucte']; ?>" class="form-control"/>
                                 </td>
                                 <th width="18%">Ngày kết thúc (thực tế):</th>
                                 <td width="30%">
-                                    <input type="text" id="txtNgayKTThucTe" name="txtNgayKTThucTe" value="" class="form-control"/>
+                                    <input type="text" id="txtNgayKTThucTe" name="txtNgayKTThucTe" value="<?php echo $dscv['ngayketthuc_thucte']; ?>" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th>Giao cho:</th>
                                 <td colspan="3">
-                                    <?php $manth='NTH02'; xem_thanhvien($manth) ?>
+                                    <?php xem_thanhvien($manth) ?>
                                 </td>
                             </tr>
                             <tr>
                                 <th width="20%">Nội dung công việc:</th>
                                 <td colspan="3">
-                                    <textarea name="txtNoiDungViec" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <textarea name="txtNoiDungViec" rows="2" cols="2" class="ckeditor"><?php echo $dscv['noidungthuchien']; ?></textarea>
                                     <script language="javascript">
                                         CKEDITOR.replace( 'txtNoiDungViec',
                                         {
@@ -99,9 +103,9 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                 <th>Số giờ thực tế</th>
-                                <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="" class="form-control"/></td>
+                                <td><input type="text" id="txtGioThucTe" name="txtGioThucTe" value="<?php echo $dscv['sogio_thucte']; ?>" class="form-control"/></td>
                                 <th>Tiến độ (%):</th>
-                                <td><input type="text" name="" value="" class="form-control"></td>
+                                <td><input type="text" name="" value="<?php echo $dscv['tiendo']; ?>" class="form-control"></td>
                             </tr>
                             <tr>
                                 <th>Trạng thái</th>
@@ -114,7 +118,7 @@ and open the template in the editor.
                                 </td>                                
                                 <th width="13%">Phụ thuộc công việc:</th>
                                 <td>
-                                    <?php $manth='NTH02'; xem_maCV($manth); ?>
+                                    <?php xem_maCVphuthuoc($manth); ?>
                                 </td>
                             </tr>                     
                             <tr>

@@ -82,7 +82,7 @@ and open the template in the editor.
                                     <button type="button" name="btnThem" class="btn btn-primary" style="width:45%;">
                                     <img src="images/add-icon.png">Thêm công việc
                                     </button></a> &nbsp;
-                                <a href="?cn=capnhatcv">
+                                <a href="?cn=capnhatcv&id_manth=<?php echo $manth; ?>">
                                     <button type="button" name="btnCapNhat" class="btn btn-primary" style="width:45%;">
                                     <img src="images/edit-icon.png">Cập nhật công việc
                                     </button></a> &nbsp;

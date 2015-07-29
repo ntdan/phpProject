@@ -26,8 +26,9 @@ and open the template in the editor.
         </style>
     </head>      
     <?php 
-            include_once 'chucnang/sv_phancv.php';
+            include_once 'chucnang/sv_chitietphancong.php';
             include_once 'chucnang/gv_chitietkehoach.php';
+            
             $macv = $_GET['id_macv'];
             $manth = $_GET['id_manth'];
             
@@ -65,7 +66,7 @@ and open the template in the editor.
                             <th>Số giờ</th>
                         </tr>
                         <?php
-                            ds_chitietcv($macv);
+                            ds_chitietcv($manth,$macv);
                         ?>
                     </table>     
                 </div>
