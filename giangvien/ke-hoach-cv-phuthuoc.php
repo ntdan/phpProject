@@ -33,8 +33,7 @@ and open the template in the editor.
             $cvchinh = cv_chinh($manth);
             if($cvchinh == NULL){
                 return;
-            }
-            
+            }            
             $khchinh = mysql_fetch_array($cvchinh);
     ?>
     <body>

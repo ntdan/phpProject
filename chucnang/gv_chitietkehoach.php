@@ -81,6 +81,7 @@
                          " FROM cong_viec WHERE phuthuoc_cv='$macv'".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
+            echo $sqlSelect;
 
             $macv = "";
             $tencv = "";
@@ -99,9 +100,11 @@
             global $hinhcapnhat;
             global $hinhxoa;
 
-            while(list($macv,$tencv,$giaocho,$bdthucte,$ketthucte,$sogio_thucte,$phuthuoc,$trangthai,$tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
+            while(list($macv,$tencv,$giaocho,$bdthucte,$ketthucte,$sogio_thucte,$phuthuoc,$trangthai,
+                    $tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
             {                     
               $dong = "<tr>".
+                            "<td>$stt</td>".
                             "<td>$macv</td>".
                             "<td>$tencv</td>".
                             "<td>$giaocho</td>".
@@ -126,7 +129,7 @@
             {
                 
                     $trang = 1;	
-                    echo "<tr><td colspan='8'>".
+                    echo "<tr><td colspan='9'>".
                              "<div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);

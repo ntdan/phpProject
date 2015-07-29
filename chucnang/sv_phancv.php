@@ -42,8 +42,12 @@
     }
 /*====================== Xem công việc ====================================*/
     function cv_xem($manth){
-        $sql = "SELECT * FROM cong_viec";
+        $sql = "SELECT * ".
+                " FROM cong_viec cv".
+                " JOIN thuc_hien th ON cv.macv=th.macv".
+                " WHERE th.manhomthuchien='$manth'";
         $dscv = mysql_query($sql);
+        //echo $sql;
         if(mysql_num_rows($dscv)>0){
             return mysql_fetch_array($dscv);
         }  else {
@@ -139,7 +143,7 @@
                  $dong = "<tr>".
                             "<td>$stt</td>".
                             "<td>$macv</td>".
-                            "<td><a href='?cn=dschitietphancong&id_macv=$macv'>$tencv</a></td>".
+                            "<td><a href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macv'>$tencv</a></td>".
                             "<td>$giaocho</td>".
                             "<td>$bdkehoach</td>".
                             "<td>$ketthuctkehoach</td>".

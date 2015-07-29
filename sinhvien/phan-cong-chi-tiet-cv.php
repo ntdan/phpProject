@@ -27,7 +27,15 @@ and open the template in the editor.
     </head>      
     <?php 
             include_once 'chucnang/sv_phancv.php';
+            include_once 'chucnang/gv_chitietkehoach.php';
             $macv = $_GET['id_macv'];
+            $manth = $_GET['id_manth'];
+            
+            $cvchinh = cv_chinh($manth);
+            if($cvchinh == NULL){
+                return;
+            }            
+            $cvchinh = mysql_fetch_array($cvchinh);
     ?>
     <body>
         
@@ -38,7 +46,7 @@ and open the template in the editor.
                     <h4 style="color: darkblue; font-weight: bold;">CHI TIẾT PHÂN CÔNG CHO MỖI THÀNH VIÊN</h4><br>
                     <div class="col-md-12">
                         <label style="color: darkblue;">Thuộc công việc:</label>
-                        <label style="color: #F65D20;">macv - tên công việc</label>
+                        <label style="color: #F65D20;"><?php echo "<a href='?cn=phancongcv'>".$manth." - ".$cvchinh['congviec']."</a>"; ?></label>
                     </div>
                     <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>
