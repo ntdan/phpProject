@@ -25,7 +25,7 @@ and open the template in the editor.
     </style>
     
     <?php
-            include_once 'chucnang/diem.php';
+            include_once 'chucnang/sv_diem.php';
             include_once 'chucnang/gv_tieuchidiem.php';;            
             $manth = 'NTH01';
             $macb = '2134';
@@ -75,7 +75,7 @@ and open the template in the editor.
                     ?>
                     <tr> 
                     <?php 
-                        $stt = 1;
+                        $stt = 1;                        
                         while($sv = mysql_fetch_array($ds_sv)){
                             echo "<tr>".
                                     "<td align='center'>$stt</td>".
@@ -83,15 +83,15 @@ and open the template in the editor.
                                     "<td>".$sv['hoten']."</td>".                                    
                             //Lấy điểm của các thành viên theo tiêu chí
                                 $sv_diem = sv_diem($sv['mssv']);
-                                if($sv_diem == NULL){
-                                    return;
-                                }
+//                                if($sv_diem == NULL){
+//                                    return;
+//                                }
                             while($diem = mysql_fetch_array($sv_diem)){
                                 echo "<td align='center'>".$diem['diem']."</td>";
                             }
                             
-                                echo "<td align='center'>8.0</td>".
-                                     "<td align='center'>B+</td>".
+                                echo "<td align='center'>".tongdiem($sv['mssv'])."</td>".
+                                     "<td align='center' style='color: brown; font-weight:bold;'>".diemchu($sv['mssv'])."</td>".
                                  "</tr>";
                             $stt++;
                         }                                

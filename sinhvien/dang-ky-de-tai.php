@@ -26,13 +26,19 @@ and open the template in the editor.
     </style>
     
     <?php
-        include_once 'chucnang/sv_dknienluan.php';
+        include_once 'chucnang/sv_dangkydetai.php';
         
         $manhp = '1';
         $tt = dt_canbo($manhp);
         if($tt == null){
             return;
         }
+//Lây mssv của 1 nhóm hoc phần
+        $ds_masv = lay_mssv($manhp);
+        if($ds_masv == null){
+            return;
+        }
+            
     ?>
     
     <body>
@@ -62,34 +68,28 @@ and open the template in the editor.
                         <tr>
                             <th>Thành viên nhóm:</th>
                             <td colspan="3">
-                                <table class="table table-bordered" id="tblChonTV">
-                                    <tr>
-                                        <td>
-                                            Thành viên 1: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 2: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 3: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                        </td>
-                                        <td>
-                                            Thành viên 4: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 5: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 6: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                        </td>
-                                        <td>   
-                                            Thành viên 7: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 8: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 9: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                        </td>
-                                        <td>   
-                                            Thành viên 10: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 11: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                            Thành viên 12: <input type="checkbox" name="ckbThanhVien1" value=""/> Nhóm trưởng: <input type="radio" name="" value=""/><br>
-                                        </td>
-                                    </tr>                                
-                                    <tr>
-                                        <td colspan="4" align='center'>
-                                            <input type="button" value="Thêm thành viên" class="btn btn-primary">
-                                        </td>
-                                    </tr>
+                                <table class="table table-bordered" id="tblChonTV"> 
+                                    <?php
+                                        $n = mysql_num_rows($ds_masv);
+                                        if($n<=20){
+                                            $col = $n/5;
+                                        }else
+                                            $col = $n/10;
+                                        
+                                        while($ma = mysql_fetch_array($ds_masv)){
+                                            
+                                            echo "<td>".
+                                                     $ma['mssv'].": <input type='checkbox' name='ckbThanhVien' value=''/>".
+                                                     "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>".
+                                                 "</td>";
+                                            
+                                        }
+                                        echo "<tr>".
+                                                 "<td colspan='4' align='center'>".
+                                                      "<input type='button' value='Thêm thành viên' class=\"btn btn-primary\">".
+                                                "</td>".
+                                             "</tr>";
+                                    ?>   
                                 </table>                       
                             </td>
                         </tr>
@@ -101,25 +101,20 @@ and open the template in the editor.
                                         <th>Chọn buổi họp nhóm:</th>
                                         <td>
                                             <select class="form-control">
-                                                <option value="sang">Buổi sáng</option>
-                                                <option value="chieu">Buổi chiều</option>
+                                                <option value="S">Buổi sáng</option>
+                                                <option value="C">Buổi chiều</option>
                                             </select>                                        
                                         </td>
                                         <th>Chọn ngày trong tuần:</th>
                                         <td>
                                             <select class="form-control">
-                                                <option value="hai">Thứ hai</option>
-                                                <option value="ba">Thứ ba</option>
-                                                <option value="tu">Thứ tư</option>
-                                                <option value="nam">Thứ năm</option>
-                                                <option value="sau">Thứ sáu</option>
-                                                <option value="bay">Thứ bảy</option>
+                                                <option value="2">Thứ 2</option>
+                                                <option value="3">Thứ 3</option>
+                                                <option value="3">Thứ 3</option>
+                                                <option value="5">Thứ 5</option>
+                                                <option value="6">Thứ 6</option>
+                                                <option value="7">Thứ 7</option>
                                             </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" align='center'>
-                                            <input type="button" value="Buổi khác" class="btn btn-primary">
                                         </td>
                                     </tr>
                                 </table>

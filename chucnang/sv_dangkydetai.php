@@ -1,6 +1,5 @@
 <?php
     include_once 'thuvien/db.php';
-
     
 /*====================== Xem thông tin cán bộ của 1 đề tài ====================================*/  
      function dt_canbo($manhp){
@@ -24,5 +23,15 @@
             echo "<option value='$row[tendt]'>$row[tendt]</option>";
         }
         echo "</select>";
+    }
+/*====================== Lấy mssv của 1 nhóm hoc phần ====================================*/
+    function lay_mssv($manhomhp){
+        $sql = "SELECT mssv, manhomhp FROM dangky_nhom WHERE manhomhp='$manhomhp'";
+        $ds = mysql_query($sql);
+        if(mysql_num_rows($ds)>0){
+            return $ds;
+        }
+        else
+            return null;
     }
 ?>
