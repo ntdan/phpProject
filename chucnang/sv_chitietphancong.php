@@ -16,6 +16,21 @@
                 return NULL;
         }
     }
+/*====================== Danh sách công việc chính của 1 côg việc phụ thuộc ====================================*/   
+    function maCVchinh($manth,$macv){
+        $sql = "SELECT cv.phuthuoc_cv".
+                " FROM nhom_thuc_hien nth".
+                " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
+                " JOIN cong_viec cv on th.macv=cv.macv".
+                " WHERE th.manhomthuchien='$manth' AND cv.macv='$macv'";
+        $dsct = mysql_query($sql);
+        //echo $sql;
+        if(mysql_num_rows($dsct)>0){
+            return mysql_fetch_array($dsct);
+        }
+        else return NULL;
+        
+    }
 /*====================== Lấy mã công việc mà cv đang cập nhật phụ thuộc ====================================*/   
 function xem_maCVphuthuoc($manth){
         $sql = "SELECT *".
@@ -24,7 +39,7 @@ function xem_maCVphuthuoc($manth){
                 " JOIN cong_viec cv on th.macv=cv.macv".
                 " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";;
         $ds = mysql_query($sql);
-        echo "<select class=\"form-control\" size='1' name='cbMaCV'>";
+        echo "<select class=\"form-control\" size='1' name='cbMaCvPhuThuoc'>";
         while($row = mysql_fetch_array($ds)){
             echo "<option value='$row[macv]'>$row[macv]</option>";
         }

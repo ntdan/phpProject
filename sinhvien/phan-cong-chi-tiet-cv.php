@@ -32,7 +32,7 @@ and open the template in the editor.
             $macv = $_GET['id_macv'];
             $manth = $_GET['id_manth'];
             
-            $cvchinh = cv_chinh($manth);
+            $cvchinh = cv_chinh($manth,$macv);
             if($cvchinh == NULL){
                 return;
             }            
@@ -45,9 +45,14 @@ and open the template in the editor.
                 <div class="col-md-12">                    
 <!-- Cập nhật chi tiết công sức làm dự án của mỗi thành viên -->
                     <h4 style="color: darkblue; font-weight: bold;">CHI TIẾT PHÂN CÔNG CHO MỖI THÀNH VIÊN</h4><br>
-                    <div class="col-md-12">
-                        <label style="color: darkblue;">Thuộc công việc:</label>
+                    <div class="col-md-12" style="background-color:#dff0d8; margin-bottom: 20px; padding: 8px;">
+                        <label style="color: darkblue; font-size: 13pt;">Thuộc công việc:</label>
                         <label style="color: #F65D20;"><?php echo "<a href='?cn=phancongcv'>".$manth." - ".$cvchinh['congviec']."</a>"; ?></label>
+                         <a href="?cn=themcvphuthuoc" style="margin-left: 40%;">
+                            <button type="button" name="btnThem" class="btn btn-primary" style="width:20%;">
+                            <img src="images/add-icon.png">Thêm công việc
+                            </button>
+                         </a>
                     </div>
                     <table class="table table-hover" width="800px" cellpadding="15px" cellspacing="0px" align='center'>
                         <tr>

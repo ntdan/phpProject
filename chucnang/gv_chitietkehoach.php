@@ -26,13 +26,14 @@
         else return null;
     }
  /*====================== Danh sách công việc chính ====================================*/   
-    function cv_chinh($manth){
+    function cv_chinh($manth,$macv){
         $sql = "SELECT *".
                 " FROM nhom_thuc_hien nth".
                 " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
                 " JOIN cong_viec cv on th.macv=cv.macv".
-                " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";
+                " WHERE th.manhomthuchien='$manth' AND cv.macv='$macv' AND cv.phuthuoc_cv='0'";
         $dsct = mysql_query($sql);
+        //echo $sql;
         if(mysql_num_rows($dsct)>0){
             return $dsct;
         }
@@ -53,7 +54,7 @@
         
     }
 /*====================== Danh sách công việc cho từng thành viên ====================================*/
-  function gv_sodong_chitietcv($macv){
+  function sodong_cvphuthuoc($macv){
         $count = 0;
 
         $sqlSelect = "SELECT * FROM cong_viec WHERE phuthuoc_cv='$macv'";
@@ -66,7 +67,7 @@
     }   
     function gv_ds_chitietcv($macv){
         global $sodongtrentrang;
-            $tongsodong = gv_sodong_chitietcv($macv); 
+            $tongsodong = sodong_cvphuthuoc($macv); 
             $tranghientai = 1;
             if(isset($_GET['page']))
                     $tranghientai = $_GET['page'];
@@ -81,7 +82,7 @@
                          " FROM cong_viec WHERE phuthuoc_cv='$macv'".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
-            echo $sqlSelect;
+            //echo $sqlSelect;
 
             $macv = "";
             $tencv = "";

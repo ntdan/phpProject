@@ -22,6 +22,12 @@ and open the template in the editor.
             background-color: #dff0d8;
         }
     </style>
+    <?php
+        include_once 'chucnang/sv_duocgiaocv.php';
+        
+        //$mssv = $_GET['id_mssv'];
+        $mssv = '1111317';
+    ?>
     
     <body>
         <div class="container">         
@@ -59,30 +65,7 @@ and open the template in the editor.
                                     <th width="20%">Nội dung</th>
                                     <th>%</th>
                                 </tr>
-                                <tr>
-                                    <td align="center">1</td>
-                                    <td>Phân tích đề tài và thiết kế CSDL</td>
-                                    <td>Đang làm</td>
-                                    <td>02/09/2014</td>
-                                    <td>01/10/2014</td>
-                                    <td>Cao</td>
-                                    <td>Cả nhóm</td>
-                                    <td>Phải phân tích cấu trúc lưu CSDL và các chức năng chình cần thực hiện</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">2</td>
-                                    <td>Vẽ sơ đồ CDM và thiết kế giao diện</td>
-                                    <td>Sắp làm</td>
-                                    <td>02/10/2014</td>
-                                    <td>05/11/2014</td>
-                                    <td>Cao</td>
-                                    <td>Trấn Thành, <br>
-                                        Kim Nguyên
-                                    </td>
-                                    <td></td>
-                                    <td>10</td>
-                                </tr>
+                                <?php danhsach_viecduocgiao($mssv); ?>
                             </table>
                 </div>  <!-- /class="col-md-12" -->                     
             </div> <!-- /row -->

@@ -171,6 +171,8 @@
                             include("sinhvien/phan-cong-chi-tiet-cv.php");
                         if ($_GET['cn'] == "capnhatchitietphancong")
                             include("sinhvien/cap-nhat-cong-viec-sv.php");
+                        if ($_GET['cn'] == "themcvphuthuoc")
+                            include("sinhvien/them-cong-viec-phu-thuoc.php");
                         
                         if ($_GET['cn'] == "noptl")
                             include("sinhvien/nop-tai-lieu.php");

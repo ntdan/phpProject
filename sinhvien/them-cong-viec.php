@@ -117,13 +117,7 @@ and open the template in the editor.
                                         <option value="3">Hoàn thành</option>
                                     </select>
                                 </td>
-                                <th width="13%">Phụ thuộc công việc:</th>
-                                <td>
-                                    <?php $manth='NTH02'; xem_maCV($manth); ?>                                
-                                </td>
-                            </tr>
-                            <tr>
-                                <th width="13%">Độ ưu tiên:</th>
+                                 <th width="13%">Độ ưu tiên:</th>
                                 <td>
                                     <select class="form-control" size="1" name="cbUuTien">
                                         <option value="Cao">Cao</option>

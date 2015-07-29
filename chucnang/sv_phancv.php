@@ -30,7 +30,7 @@
         }
         echo "</select>";
     }
-    
+  
 /*====================== Xem tên Đề tài của 1 nhóm ====================================*/
     function xem_dtthuchien($manth){
         $sql = "SELECT *".
