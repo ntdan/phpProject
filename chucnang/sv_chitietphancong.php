@@ -1,8 +1,8 @@
 <?php
     include_once 'thuvien/db.php';
     
-/*====================== Xem công việc của 1 nhóm theo mã công việc ====================================*/    
-    function thongtin_cvnhom($manth, $macv){
+/*====================== Xem công việc của 1 phụ thuộc nhóm theo mã công việc chính ====================================*/    
+    function thongtin_cvNhom($manth, $macv){
         $sql = "SELECT * ".
                 " FROM cong_viec cv".
                 " JOIN thuc_hien th ON cv.macv=th.macv".

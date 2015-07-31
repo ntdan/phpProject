@@ -12,21 +12,28 @@
         <!-- Bootstrap -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="../public/css/login-bootstrap.css">
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">        
         <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
         <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
-        <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="scripts/datetimepicker/jquery.datetimepicker.css"/> 
+        <script src="bootstrap/js/jquery-1.11.3.min.js"></script>  
+        <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>   
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts/datetimepicker/jquery.datetimepicker.js"></script>
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
-        
+         
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('[data-toggle="tooltip"]').tooltip();   
+            $('#txtNgayBatDauThucTe').datetimepicker({
+                format: "y-m-d H:i:s",
+                step: 10
             });
-        </script>
-        
+            
+            $('#txtNgayKTThucTe').datetimepicker({
+                format: "y-m-d H:i:s",
+                step: 10
+            });
+
+        </script>       
         <script type="text/javascript">
             $(function() {
               $( "#txtNgayBatDauKH" ).datepicker({
@@ -38,21 +45,24 @@
                   dateFormat: "yy-mm-dd"
               });
             });
-            $(function() {
-              $( "#txtNgayBatDauThucTe" ).datepicker({
-                  dateFormat: "yy-mm-dd"
-              });
-            });
-            $(function() {
-              $( "#txtNgayKTThucTe" ).datepicker({
-                  dateFormat: "yy-mm-dd"
-              });
+        </script>
+                
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
             });
         </script>
         
+        <style type="text/css">
+
+            .custom-date-style {
+                background-color: red !important;
+            }
+
+        </style>
     </head>
        
-    <body>
+    <body>                        
         <div class="container body-content">  
             <div class="page-header">
                 <h2 style="color: darkblue;">HỆ THỐNG QUẢN LÝ NHÓM LÀM NIÊN LUẬN</h2>

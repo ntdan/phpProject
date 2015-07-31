@@ -4,28 +4,28 @@
         <meta charset="utf-8">
         <title>jQuery UI Datepicker - Default functionality</title>
         <meta charset="utf-8">
-<!--  <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.css">
-  <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
-  <script src="scripts/jquery-ui-1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">-->
-
+        
+       
         <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="scripts/jquery-ui-1.11.4/style.css">
-        <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">
+        <link type="text/css" rel="stylesheet" href="scripts/jquery-ui-1.11.4/jquery-ui.min.css">         
         <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-        
         <script>
         $(function() {
           $( "#datepicker" ).datepicker();
         });
         </script>
+        
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker();
+            });
+        </script>
     </head>
     <body>
-
+        
         <p>Date: <input type="text" id="datepicker" class="form-control" style="width:20%"></p>
-
-
     </body>
 </html>

@@ -34,6 +34,11 @@ and open the template in the editor.
         
         $mssv = '1111317';
         
+        if(isset($_GET['id_macv'])){
+            $macv = $_GET['id_macv'];
+            cv_xoa($macv);
+        }
+        
         $manl = sv_maNhomNL($mssv);
         if($manl == null){
             return;
@@ -82,18 +87,15 @@ and open the template in the editor.
                     <table class="table" width="800px" cellpadding="0px" cellspacing="0px" id="bang1">
                         <tr>
                             <th width="8%">Tên đề tài:</th>
-                            <th width="40%">
+                            <th width="70%">
                                 <input type="text" name="txtTenDT" value="<?php echo $dtth['tendt']; ?>" readonly="" class="form-control">
                             </th>
-                            <th width="35%">
+                            <th width="10%" style="text-align: right;">
                                 <a href="?cn=themcv&id_manth=<?php echo $manth; ?>">
-                                    <button type="button" name="btnThem" class="btn btn-primary" style="width:45%;">
+                                    <button type="button" name="btnThem" class="btn btn-primary">
                                     <img src="images/add-icon.png">Thêm công việc
-                                    </button></a> &nbsp;
-                                <a href="?cn=capnhatcv&id_manth=<?php echo $manth; ?>">
-                                    <button type="button" name="btnCapNhat" class="btn btn-primary" style="width:45%;">
-                                    <img src="images/edit-icon.png">Cập nhật công việc
-                                    </button></a> &nbsp;
+                                    </button>
+                                </a>
                             </th>
                         </tr>
                     </table>
@@ -103,10 +105,11 @@ and open the template in the editor.
                             <th rowspan="2" width="3%">ID</th>
                             <th rowspan="2" width="15%">Tên công việc</th>
                             <th rowspan="2" width="10%">Giao cho</th>
+                            <th rowspan="2" width="10%">Trạng thái</th>
                             <th colspan="3" width="15%">Thực tế</th>
-                            <th rowspan="2" width="15%">Nội dung công việc</th>
                             <th rowspan="2" width="3%">Phụ thuộc</th>
-                            <th rowspan="2" width="8%">Tiến độ<br>(%)</th>
+                            <th rowspan="2" width="6%">Tiến độ<br>(%)</th>
+                            <th rowspan="2" width="6%">Thao tác</th>
                         </tr>
                         <tr>
                             <th>Bắt đầu</th>

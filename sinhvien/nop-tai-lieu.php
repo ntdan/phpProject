@@ -21,89 +21,100 @@ and open the template in the editor.
             background-color: #dff0d8;
         }
     </style>
-    
+    <?php
+            include_once 'chucnang/sv_noptailieu.php';
+            include_once 'chucnang/sv_phancv.php';
+            include_once 'chucnang/sv_thongtin.php';
+            
+            $mssv = '1111317';
+            $ma = sv_maNhomNL($mssv);
+            
+            $manth = $ma['manhomthuchien'] ;
+            $detainhom = xem_dtthuchien($manth);
+    ?>
     <body>
         <div class="container">            
             <div class="row">
-                        <h3 style="color: darkblue; font-weight: bold;" align="center">NỘP TÀI LIỆU</h3><br>
-                        <div class="col-md-12">
-                            <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
-                                <tr>
-                                    <td></td>
-                                    <td align="right"><strong>Tên đề tài:</strong></td>
-                                    <td style="color: darkblue; font-weight: bold;">Game cờ caro trên Androi</td>
-                                    <td align="right" valign="middle"><strong>Công việc:</strong> &nbsp;</td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option value="1">Phân tích yêu cầu</option>
-                                            <option value="2">Đặc tả yêu cầu</option>
-                                            <option value="3">Thiết kế chức năng</option>
-                                            <option value="3">Thiết kế giao diện</option>
-                                        </select>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên tập tin</th>
-                                    <th>Dung lượng</th>
-                                    <th>Loại</th>
-                                    <th>Đường dẫn</th>
-                                    <th>Ngày đăng</th>   
-                                    <th>Thao tác</th>
-                                </tr> 
-                                <tr>
-                                    <td>1</td>
-                                    <td><label>Đặc tả sơ bộ</label></td>
-                                    <td>3Mb</td>
-                                    <td>Tập tin</td>
-                                    <td>D:/NienLuan</td>
-                                    <td>02/03/2014</td>
-                                    <td align="center"><a href="#">[Xóa]</a></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <table  class="table" cellpadding="15px" cellspacing="0px" align='center'>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td colspan="2">
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                <span class="sr-only">45% Complete</span>
-                                            </div>
+                <h3 style="color: darkblue; font-weight: bold;" align="center">NỘP TÀI LIỆU</h3><br>
+                <form method="post">
+                     <div class="col-md-12">
+                        <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
+                            <tr>
+                                <td></td>
+                                <td align="right"><strong>Tên đề tài:</strong></td>
+                                <td style="color: darkblue; font-weight: bold;"><?php echo $detainhom['tendt']; ?></td>
+                                <td align="right" valign="middle"><strong>Công việc:</strong> &nbsp;</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option value="1">Phân tích yêu cầu</option>
+                                        <option value="2">Đặc tả yêu cầu</option>
+                                        <option value="3">Thiết kế chức năng</option>
+                                        <option value="3">Thiết kế giao diện</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên tập tin</th>
+                                <th>Dung lượng</th>
+                                <th>Loại</th>
+                                <th>Đường dẫn</th>
+                                <th>Ngày đăng</th>   
+                                <th>Thao tác</th>
+                            </tr> 
+                            <tr>
+                                <td>1</td>
+                                <td><label>Đặc tả sơ bộ</label></td>
+                                <td>3Mb</td>
+                                <td>Tập tin</td>
+                                <td>D:/NienLuan</td>
+                                <td>02/03/2014</td>
+                                <td align="center"><a href="#">[Xóa]</a></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <table  class="table" cellpadding="15px" cellspacing="0px" align='center'>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                            <span class="sr-only">45% Complete</span>
                                         </div>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>                                    
-                                </tr>
-                                <tr>                                    
-                                    <td></td>
-                                    <td align="right"></td>
-                                    <td colspan="2"><input type="file" value="" class="form-control"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </table>                            
-                        </div>
-                          
-                    </div>   <!-- /row -->
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>                                    
+                            </tr>
+                            <tr>                                    
+                                <td></td>
+                                <td align="right"></td>
+                                <td colspan="2"><input type="file" value="" class="form-control"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>                            
+                    </div>
+                </form>               
+            </div>   <!-- /row -->
         </div> <!-- /container -->
     </body>
 </html>

@@ -48,7 +48,8 @@ and open the template in the editor.
     $mssv = 1111317;    
 
 //Lấy thông tin giảng viên hướng dẫn
-    $maso = '2134';
+    $ma = sv_maCB($mssv);
+    $maso = $ma['macb'];
     $gv = gv_xem($maso);
 
     if($gv == null){

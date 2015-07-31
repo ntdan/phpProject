@@ -27,7 +27,9 @@ and open the template in the editor.
         <script>
             function dschon_detai() {
                 $macb = document.getElementById('txtMaCB').value;
-                window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php?id_macb=$macb", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=400");
+                //prompt($macb);
+                alert($macb);
+                window.open('http://localhost/phpProject/sinhvien/chon-de-tai.php?id_macb=$macb', "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=400");
             }
         </script>
     </head>

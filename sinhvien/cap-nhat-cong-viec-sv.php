@@ -58,7 +58,7 @@ and open the template in the editor.
               echo "<script>window.location.href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macvphuthuoc'</script>";
         }
         
-        $dscv = thongtin_cvnhom($manth, $macv); 
+        $dscv = thongtin_cvNhom($manth, $macv); 
         if($dscv == NULL){
             return;
         }           

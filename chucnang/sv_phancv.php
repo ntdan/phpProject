@@ -14,7 +14,7 @@
         }
             return  $mamoi = $pre .=$so;     
     }
-/*====================== Mã công việc phụ thuộc tự tăng ====================================*/
+    /*====================== Mã công việc phụ thuộc tự tăng ====================================*/
     function macvphuthuoc_tutang($macvchinh){
         $pre = $macvchinh;
         
@@ -86,9 +86,16 @@
     }
     
 /*====================== Xóa công việc ====================================*/
-    function cv_xoa($macv){
-        $sql = "DELETE FROM cong_viec WHERE macv='$macv'";
-        mysql_query($sql);
+    function cv_xoa($macv){        
+        $sqlCVphu = "SELECT macv FROM cong_viec WHERE phuthuoc_cv='$macv'";
+        $dsCVphu = mysql_query($sqlCVphu);
+        
+        if(mysql_num_rows($dsCVphu)>0){
+            echo "<script>alert('Phải xóa các công việc con của --$macv-- trước!');</script>";
+        }else{
+            $sql = "DELETE FROM cong_viec WHERE macv='$macv'";
+            mysql_query($sql);            
+        }     
     }
 /*====================== Thêm vào bảng công việc 'công việc' và bảng 'thực hiện'====================================*/
     function cv_them($manth,$macv,$tencv,$giaocho,$bdkehoach,$ketthuctkehoach,$bdthucte,$ketthucte,$sogio_thucte,
@@ -116,6 +123,7 @@
                                 "phuthuoc_cv='$phuthuoc',uutien='$uutien',trangthai='$trangthai',tiendo=$tiendo,noidungthuchien='$ndthuchien',ghichu='$ghichu'". 
                     "WHERE macv='$macv'";
         mysql_query($sql);
+        echo $sql;
     }
 
 /*====================== Danh sách công việc theo nhóm ====================================*/
@@ -177,17 +185,17 @@
                     $uutien,$trangthai,$tiendo,$ndthuchien,$ghichu) = mysql_fetch_array($ds))
             {          
                  $dong = "<tr>".
-                            "<td align='center'>$stt</td>".
+                            "<td style='text-align:center; vertical-align: middle;' rowspan='2'>$stt</td>".
                             "<td align='center'>$macv</td>".
                             "<td><a href='?cn=dschitietphancong&id_manth=$manth&id_macv=$macv' data-toggle=\"tooltip\" data-placement=\"bottom\" title='Bắt đầu kế hoạch: $bdkehoach - Kết thúc kế hoạch: $ketthuctkehoach'>".
                                        "$tencv".
                             "</a></td>".
                             "<td>$giaocho</td>".
+                            "<td align='center'>$trangthai</td>".
                             "<td align='center'>$bdthucte</td>".
                             "<td align='center'>$ketthucte</td>".
                             "<td align='center'>$sogio_thucte</td>".
-                            "<td>$ndthuchien</td>".
-                            "<td >$phuthuoc</td>".
+                            "<td align='center'>$phuthuoc</td>".
                             "<td>".
                                 "<div class=\"progress\">".  
                                     "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow='$tiendo' aria-valuemin='0' aria-valuemax='100' style='width:$tiendo%'>".  
@@ -195,7 +203,19 @@
                                     "</div>".  
                                 "</div>".  
                             "</td>".
-                        "</tr>";
+                            "<td style='text-align:center; vertical-align: middle;' rowspan='2'>".
+                                "<a href='?cn=capnhatcv&id_manth=$manth&id_macv=$macv'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
+                                "<a onclick=\"return confirm('Công việc --$tencv-- sẽ bị xóa?');\" href='?cn=phancongcv&id_manth=$manth&page=$tranghientai&id_macv=$macv'>".
+                                    "<img src='$hinhxoa'/>".
+                                "</a> ".
+                            "</td>".
+                        "</tr>".
+                        "<tr>".                            
+                            "<td colspan='9'>".
+                                "<h5 style='color: darkblue; font-weight:bold;'>Nội dung công việc</h5>".
+                                "$ndthuchien".
+                            "</td>".
+                        "</tr>" ;
 
                  $stt++;
                  echo $dong;
