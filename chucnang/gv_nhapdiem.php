@@ -64,13 +64,14 @@
     }
 /*========================== Tạo Selectbox: 'tên nhóm học phần, mã nhóm niên luận, đề tài' mà nhóm đăng ký của 1 cán bộ =====================================*/
     function gv_manthdt_hp($macb){        
-        $sqlTenHp = "SELECT hp.manhomhp, hp.tennhomhp".
+        $sqlTenHp = "SELECT DISTINCT hp.manhomhp, hp.tennhomhp".
                 " FROM nhom_hocphan hp".
                 " JOIN nien_khoa nk ON hp.mank=nk.mank".
                 " JOIN ra_de_tai radt ON hp.manhomhp=radt.manhomhp".
                 " JOIN de_tai dt ON radt.madt = dt.madt".
                 " WHERE dt.macb='$macb'";
-        $kqTenHp = mysql_query($sqlTenHp);
+        $kqTenHp = mysql_query($sqlTenHp);        
+        echo $sqlTenHp;
         echo "<th align='center' width='4%' name='cbNhomHP'>Nhóm học phần:".
                 "<select class=\"form-control\" size='1' align='center'>";
         while($rw = mysql_fetch_array($kqTenHp)){
@@ -84,7 +85,7 @@
                 " JOIN ra_de_tai radt ON hp.manhomhp=radt.manhomhp".
                 " JOIN de_tai dt ON radt.madt = dt.madt".
                 " WHERE dt.macb='$macb'";
-        $kqMaNhom = mysql_query($sqlMaNhom);       
+        $kqMaNhom = mysql_query($sqlMaNhom); 
         echo "<th align='center' width='6%' name='cbNhomNL'>Nhóm niên luận:".
                 "<select class=\"form-control\" size='1' align='center'>";
         while($rw = mysql_fetch_array($kqMaNhom)){

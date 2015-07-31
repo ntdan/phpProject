@@ -80,17 +80,16 @@
                             <li><a href="?cn=qldiendan">Thảo luận</a></li>
 <!--                           
                             <li><a href="giangvien/dang-nhap-gv.php">Đăng nhập</a></li>
-                            <li><a href="giangvien/dang-nhap-gv.php">Đăng xuất</a></li>                       
--->                                             
-                            <li><a href="giaodienchung/dang-nhap.php">
-                                <?php  
+                            <li><a href="giangvien/dang-nhap-gv.php">Đăng xuất</a></li> 
+
+-->                             <?php  
                                     $dn = "";                                
                                     if(isset($_SESSION['username']) && $_SESSION['username'])
                                     {
-                                        echo $dn = $_SESSION['user'];
+                                       $dn = $_SESSION['user'];
                                     }    
-                                ?>
-                            </a></li>
+                                ?>                
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo $dn ; ?></a></li>
                             <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
