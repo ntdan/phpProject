@@ -1,7 +1,5 @@
 <?php
         include_once 'thuvien/db.php';
-        include_once 'sv_thongtin.php';
-        include_once 'sv_phancv.php';
         
 /*======================== Danh sách công việc được giao của sinh viên ==================================*/ 
     function sv_sodongcvduocgiao($mssv){
