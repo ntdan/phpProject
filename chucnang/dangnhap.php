@@ -25,7 +25,7 @@
         //echo $sqlSV;
         
         if(mysql_num_rows($kqsv)>0){
-           $rw = mysql_fetch_array($kqgv); 
+           $rw = mysql_fetch_array($kqsv); 
            return $rw['hoten']; //$tendangnhap;
         }
         else 

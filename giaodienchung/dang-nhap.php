@@ -24,7 +24,6 @@
                 
         if($dn_gv != ""){
             $_SESSION['user'] = $dn_gv;
-           // echo $dn_gv;
             echo "<script>window.location.href = '../giangvien_home.php?cn=ttgv';</script>";
         }
         else if($dn_sv != ""){

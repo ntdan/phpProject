@@ -1,7 +1,10 @@
 <?php
     include_once 'thuvien/db.php';
     
-
+/*====================== Mã công việc tự tăng ====================================*/
+    function macv_tutang(){
+        
+    }
 
  /*====================== Xem tên thành viên của 1 nhóm 'sv.mssv, sv.hoten, nth.manhomthuchien' ====================================*/   
     function xem_thanhvien($manth){

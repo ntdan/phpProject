@@ -47,6 +47,10 @@ and open the template in the editor.
         }
 //Thêm thành viên vào nhóm
         if(isset($_POST['btnThem'])){
+            $mssv = $_POST['ckbThanhVien$stt'];
+            $manth = '';
+            $nhomtruong = $_POST['raNhomTruong'];
+            //($mssv,$manhomhp,$manhomthuchien,$nhomtruong)
             
         }
 //Đăng ký nhóm làm niên luận
@@ -92,7 +96,7 @@ and open the template in the editor.
                                             {
                                                 $ma = mysql_fetch_array($ds_masv);
                                                 if($ma != NULL){
-                                                    echo $ma['mssv'].": <input type='checkbox' name='ckbThanhVien$stt' value=''/>&nbsp;&nbsp;&nbsp;&nbsp;".
+                                                    echo $ma['mssv'].": <input type='checkbox' name='ckbThanhVien$stt' value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
                                                      "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
                                                 }
                                                 
@@ -118,14 +122,14 @@ and open the template in the editor.
                                     <tr>
                                         <th>Chọn buổi họp nhóm:</th>
                                         <td>
-                                            <select class="form-control">
+                                            <select class="form-control" name="cbBuoi">
                                                 <option value="S">Buổi sáng</option>
                                                 <option value="C">Buổi chiều</option>
                                             </select>                                        
                                         </td>
                                         <th>Chọn ngày trong tuần:</th>
                                         <td>
-                                            <select class="form-control">
+                                            <select class="form-control" name="cbThu">
                                                 <option value="2">Thứ 2</option>
                                                 <option value="3">Thứ 3</option>
                                                 <option value="3">Thứ 3</option>

@@ -57,4 +57,8 @@
         $kq = mysqli_multi_query($sql);
         
     }
+ /*====================== Mã nhóm thực hiện tự tăng ====================================*/
+    function manth_tutang(){
+        $pre = "NTH";
+    }
 ?>
