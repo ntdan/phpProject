@@ -31,11 +31,11 @@ and open the template in the editor.
         sv_xoa($_GET['id']);
     }
 
-    $ds_sv = sv_danhsach();
+    //$ds_sv = sv_danhsach();
 
-    if($ds_sv == null){
-        return;
-    }
+//    if($ds_sv == null){
+//        return;
+//    }
     
 ?>
     

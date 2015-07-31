@@ -31,12 +31,13 @@ and open the template in the editor.
         $macb = $_POST['txtMaCB'];
         $ten = $_POST['txtHoTen'];
         $gt = $_POST['rdGioiTinh'];
+        $ns = $_POST['txtNgaySinh'];
         $email = $_POST['txtEmail'];
         $sdt = $_POST['txtSDT'];
         $matkhau1 = $_POST['txtMatKhau1'];
         $matkhau2 = $_POST['txtMatKhau2'];
-        //($macb,$ten,$gt,$email,$sdt,$hinh,$matkhau,$ngaytao,$khoa,$quantri
-        gv_them($macb, $ten, $gt, $email, $sdt, '', $matkhau1, 0, 1);
+        //($macb,$ten,$gt,$ngaysinh,$email,$sdt,$hinh,$matkhau,$khoa,$quantri)
+        gv_them($macb, $ten, $gt, $ns, $email, $sdt, '', $matkhau1, 0, 1);
 
         echo "<script>window.location.href='?cn=qtgv'</script>";
     }
@@ -75,6 +76,12 @@ and open the template in the editor.
                                 <td>
                                     Nam: <input type="radio" size="2" value="Nam" name="rdGioiTinh" checked="true"/> ;&nbsp;
                                     Nữ: <input type="radio" size="2" value="Nữ" name="rdGioiTinh"/> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ngày sinh:</td>
+                                <td>
+                                    <input type="text" size="2" value="" id="txtNgaySinh" name="txtNgaySinh" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>

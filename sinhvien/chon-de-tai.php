@@ -23,18 +23,28 @@ and open the template in the editor.
 
         </style>
     </head>
+    <?php
+            include_once '../chucnang/sv_dschondetai.php';
+            
+            $macb = 
+            $thongtindt = ds_chondetai($macb);
+    ?>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-bordered table-hover" style="margin-top: 5%;">
                         <tr>
+                            <th>STT</th>
                             <th>Tên đề tài</th>
                             <th>Số người tối đa</th>
                             <th>Môt tả</th>
-                            <th>Đăng ký</th>
+                            <th>Công nghệ sử dụng</th>
+                            <th>Trạng thái</th>
                         </tr>
                         <tr>
+                            <td></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>

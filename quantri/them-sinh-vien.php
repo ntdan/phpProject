@@ -31,7 +31,7 @@ and open the template in the editor.
         $mssv = $_POST['txtMaSV'];
         $ten = $_POST['txtHoTen'];
         $gt = $_POST['rdGioiTinh'];
-        $ns = $_POST['txtNamSinh'];
+        $ns = $_POST['txtNgaySinh'];
         $email = $_POST['txtEmail'];
         $khoahoc = $_POST['txtKhoaHoc'];
         $matkhau1 = $_POST['txtMatKhau1'];
@@ -83,9 +83,9 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             <tr>
-                                <td>Năm sinh:</td>
+                                <td>Ngày sinh:</td>
                                 <td>
-                                    <input type="text" size="2" value="" name="txtNamSinh" class="form-control"> 
+                                    <input type="text" size="2" value="" name="txtNgaySinh" class="form-control"> 
                                 </td>
                             </tr>
                             <tr>

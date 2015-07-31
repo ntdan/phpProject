@@ -26,6 +26,7 @@ and open the template in the editor.
         
         <script>
             function dschon_detai() {
+                $macb = document.getElementById('txtMaCB');
                 window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
             }
         </script>
@@ -129,7 +130,7 @@ and open the template in the editor.
                         <tr>
                             <th>Mã cán bộ:</th>
                             <td width="15%">
-                                <input type="text" name="txtMaCB" value="<?php echo $tt['macb'] ?>" class="form-control" readonly="true"/>
+                                <input type="text" id="txtMaCB" name="txtMaCB" value="<?php echo $tt['macb'] ?>" class="form-control" readonly="true"/>
                             </td>
                             <th width="20%">Họ và tên cán bộ hướng dẫn:</th>
                             <td>

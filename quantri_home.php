@@ -77,11 +77,12 @@
                                       }
                                   }
                                   
-                                  if(isset($_SESSION['user'])){
-                                      $quantriUser = $_SESSION['user'];
-                                  }
+                                  if(isset($_SESSION['user']))
+                                    {
+                                       $quantriUSER = $_SESSION['user']; 
+                                    }  
                             ?>
-                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$quantriUserUSER['hoten']." (".$quantriUserUSER['macb'].")</strong>" ; ?></a></li>
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$quantriUSER['hoten']." (".$quantriUSER['macb'].")</strong>" ; ?></a></li>
                             <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

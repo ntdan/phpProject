@@ -31,6 +31,15 @@
         else return NULL;
         
     }
+/*======================== Xóa công việc phụ thuộc ==================================================*/
+    function xoa_cvphu($manth,$macv){
+        $connect = mysqli_connect('localhost','root','','qlnienluan_ktpm');
+        
+        $sqlDelete = "DELETE FROM thuc_hien WHERE macv='$macv' AND manhomthuchien='$manth';".
+                     " DELETE FROM cong_viec WHERE macv='$macv'";
+        //echo $sqlDelete;
+        mysqli_multi_query($connect,$sqlDelete);
+    }
 /*====================== Lấy mã công việc mà cv đang cập nhật phụ thuộc ====================================*/   
 function xem_maCVphuthuoc($manth){
         $sql = "SELECT *".
@@ -58,6 +67,12 @@ function xem_maCVphuthuoc($manth){
         return $count;
     }   
     function ds_chitietcv($manth,$macv){
+            $cvchinh = cv_chinh($manth,$macv);
+            if($cvchinh == NULL){
+                return;
+            }            
+            $cvchinh = mysql_fetch_array($cvchinh);
+        
         global $sodongtrentrang;
             $tongsodong = sodong_chitietcv($macv); 
             $tranghientai = 1;
@@ -123,7 +138,9 @@ function xem_maCVphuthuoc($manth){
                             "</td>".
                             "<td align='center'>".
                                 "<a href='?cn=capnhatchitietphancong&id_manth=$manth&id_macv=$macv'><img src='$hinhcapnhat' /></a>&nbsp;&nbsp;&nbsp;".
-                                "<a onclick=\"return confirm('Công việc --$tencv-- sẽ bị xóa?');\" href='#'><img src='$hinhxoa'/></a> ".
+                                "<a onclick=\"return confirm('Công việc --$tencv-- sẽ bị xóa?');\" href='?cn=dschitietphancong&id_manth=$manth&id_macv=".$cvchinh['macv']."&page=$tranghientai&id_macvphu=$macv'>".
+                                    "<img src='$hinhxoa'/>".
+                                "</a> ".
                             "</td>".
                         "</tr>";
 

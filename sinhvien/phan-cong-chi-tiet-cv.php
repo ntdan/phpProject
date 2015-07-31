@@ -37,6 +37,13 @@ and open the template in the editor.
                 return;
             }            
             $cvchinh = mysql_fetch_array($cvchinh);
+            
+            if(isset($_GET['id_macvphu'])){                
+                $macvp = $_GET['id_macvphu'];
+                xoa_cvphu($manth,$macvp);
+            }
+            
+            
     ?>
     <body>
         
