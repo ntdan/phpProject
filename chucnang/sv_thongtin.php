@@ -36,7 +36,6 @@
     }
 
 /* ======================== Xoa thong tin sv ======================= */
-
     function sv_xoa($mssv) {
         $sql = "DELETE FROM sinh_vien WHERE mssv='$mssv'";
         mysql_query($sql);
@@ -65,9 +64,10 @@
 
 /* ======================== Cập nhật thông tin khác ======================= */
 
-    function sv_themchitiet($mssv, $hinh, $congnghe, $laptrinh, $kinhnghiem) {
-        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',kynangcongnghe='$congnghe',kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem' 
-                        WHERE mssv='$mssv'";
+    function sv_themchitiet($mssv, $dt, $congnghe, $laptrinh, $kinhnghiem) {
+        $sql = "UPDATE sinh_vien SET sdt=$dt,kynangcongnghe='$congnghe',".
+                    "kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem'". 
+               "WHERE mssv='$mssv'";
         mysql_query($sql);
     }
 
@@ -80,10 +80,21 @@
         mysql_query($sql);
     }
 /* ======================== Thong tin làm niên luận của sv ======================= */ 
-    function sv_nhom($mssv){
+    function sv_nhom($mssv){        
+        $nhomnl = sv_maNhomNL($mssv);
+        $manth = $nhomnl['manhomthuchien'];
+        $sql = "SELECT radt.madt, radt.manhomthuchien, radt.manhomhp, dt.tendt, hp.tennhomhp".
+                   " FROM ra_de_tai radt".
+                " JOIN de_tai dt ON radt.madt=dt.madt".
+                " JOIN nhom_hocphan hp ON radt.manhomhp=hp.manhomhp".
+                " WHERE radt.manhomthuchien='$manth'";
         
-    }    
-    
+        $kq = mysql_query($sql);
+        if(mysql_num_rows($kq)>0){
+            return mysql_fetch_array($kq);
+        }
+        else return NULL;
+    } 
 /* ======================== Lay danh sách thong tin sv ======================= */
 //    function sv_danhsach() {
 

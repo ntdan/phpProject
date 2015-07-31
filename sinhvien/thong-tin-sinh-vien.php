@@ -46,16 +46,29 @@ and open the template in the editor.
     include 'chucnang/gv_thongtin.php';
     
     $mssv = 1111317;    
-    $sv = sv_xem($mssv);
-    
-    if($sv == null){
-        return;
-    }
+
 //Lấy thông tin giảng viên hướng dẫn
     $maso = '2134';
     $gv = gv_xem($maso);
 
     if($gv == null){
+        return;
+    }
+//Lấy thông tin đề tài, nhóm niên luận
+    $dtnhom = sv_nhom($mssv);
+//Sinh viên cập nhật thêm thông tin
+    if(isset($_POST['btnLuu'])){
+        $sdt = $_POST['txtDienThoai']; 
+        $congnghe = $_POST['txtCongNghe'];
+        $laptrinh = $_POST['txtLapTrinh'];
+        $kinhnghiem = $_POST['txtKinhNghiem'];
+        
+        //sv_themchitiet($mssv, $hinh, $congnghe, $laptrinh, $kinhnghiem)
+        sv_themchitiet($mssv, $sdt, $congnghe, $laptrinh, $kinhnghiem);
+    }
+    
+    $sv = sv_xem($mssv);    
+    if($sv == null){
         return;
     }
 ?>
@@ -100,31 +113,33 @@ and open the template in the editor.
                                 </ul>
                             </div> <!-- /dropdown -->
                             <br>
-                            <table class="table table-bordered" border="0" width="800px" cellpadding="25px" cellspacing="0px" align='center' id="bang1">
-                                <tr><th colspan="2" style="text-align: center">Thông tin sinh viên</th></tr>
+                            <table class="table table-bordered" border="0" width="700px" cellpadding="25px" cellspacing="0px" align='center' id="bang1">
+                                <tr><th colspan="4" style="text-align: center">Thông tin sinh viên</th></tr>
                                 <tr>
                                     <td><label>Mã số sinh viên:</label></td>
-                                    <td style="color:blue;"><?php echo $sv['mssv']; ?></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $sv['mssv']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Họ và tên:</label></td>
-                                    <td style="color:blue;"><?php echo $sv['hoten']; ?></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $sv['hoten']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Năm sinh:</label></td>
-                                    <td style="color:blue;"><?php echo $sv['ngaysinh']; ?></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $sv['ngaysinh']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Khóa:</label></td>
-                                    <td style="color:blue;"><?php echo $sv['khoahoc']; ?></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $sv['khoahoc']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Tên đề tài:</label></td>
-                                    <td></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $dtnhom['tendt']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Mã nhóm niên luận</label></td>
-                                    <td></td>
+                                    <td style="color:blue;"><?php echo $dtnhom['manhomthuchien']; ?></td>
+                                    <td width="20%"><label>Nhóm học phần:</label></td>
+                                    <td style="color:blue;"><?php echo $dtnhom['tennhomhp']; ?></td>
                                 </tr>
                             </table>
                             <form action="" method="post">
@@ -133,25 +148,31 @@ and open the template in the editor.
                                     <tr>
                                         <td>Số điện thoại:</td>
                                         <td>
-                                            <input type="text" name="txtDienThoai" value="" class="form-control">
+                                            <input type="text" name="txtDienThoai" value="<?php echo $sv['sdt'];?>" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kỹ năng công nghệ:</td>
                                         <td>
-                                            <textarea class="form-control" name="txtCongNghe" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtCongNghe" rows="3">
+                                                <?php echo $sv['kynangcongnghe'];?>
+                                            </textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kiến thức về ngôn lập trình:</td>
                                         <td>
-                                            <textarea class="form-control" name="txtLapTrinh" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtLapTrinh" rows="3">
+                                                <?php echo $sv['kienthuclaptrinh'];?>
+                                            </textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kinh nghiệm:</td>
                                         <td>
-                                            <textarea class="form-control" name="txtKinhNghiem" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtKinhNghiem" rows="3">
+                                                <?php echo $sv['kinhnghiem'];?>
+                                            </textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -160,9 +181,6 @@ and open the template in the editor.
                                             <button type="submit" name="btnLuu" class="btn btn-primary" style="width: 20%;">
                                                 <img src="images/save-as-icon.png"> Lưu 
                                             </button>
-                                            <button type="submit" name="btnLamLai" class="btn btn-primary" style="width: 20%;">
-                                                <img src="images/refresh.png"> Làm lại
-                                            </button> 
                                         </td>                                  
                                     </tr>
                                 </table>
