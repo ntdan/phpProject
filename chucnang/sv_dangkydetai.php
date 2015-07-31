@@ -42,7 +42,7 @@
         $ds = mysql_query($sql);
 
         if(mysql_num_rows($ds)>0){
-            return $ds;
+            return mysql_fetch_array($ds);
         }
         else
             return null;

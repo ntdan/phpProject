@@ -44,4 +44,15 @@
         }
         else return null;
     }
+/*====================== Mã tiêu chí tự tăng ====================================*/
+    function matc_tutang(){
+        $sqlMaTC = "SELECT matc FROM tieu_chi_danh_gia ORDER BY matc DESC";
+        $kq = mysql_query($sqlMaTC);
+
+        if(mysql_num_rows($kq)>0){
+            $macuoi = mysql_fetch_array($kq);
+            $ma = $macuoi['matc'];  //Lấy mã cuối cùng của nhóm thưc hiện
+            return $so = (int)$ma + 1;
+        }     
+    }
 ?>

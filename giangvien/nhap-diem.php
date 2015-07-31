@@ -11,47 +11,61 @@ and open the template in the editor.
             background-color: #dff0d8;
         }
     </style>
+    
+    <?php
+        include_once 'chucnang/gv_nhapdiem.php';
+            include_once 'chucnang/gv_tieuchidiem.php';
+            include_once 'chucnang/sv_thongtin.php';
+            
+            $macb = '2134';
+                        
+            $ds_tc = tc_danhsach($macb);
+            if($ds_tc == NULL){
+                return;
+            }
+//Lấy điểm của mỗi tiêu chí của cán bộ hướng dẫn
+            $ds_diemtc = gv_diem_tc($macb);
+            if($ds_diemtc == NULL){
+                return;
+            }
+//Lấy số sinh viên của 1 nhóm niên luận
+            //$manth = $_POST['cbNhomNL'];
+            $manth = 'NTH01';
+            $dssv = gv_laysv($manth);
+            
+            if(isset($_POST['btnLuu'])){
+                while(mysql_fetch_array($dssv)){
+                    $matc = $_POST['hidMaTC'];
+                    $mssv = $_POST['txtMaSV'];
+                    $diem = $_POST['txtTenSV'];
+                    gv_luudiem($matc, $mssv, $diem);
+                }                         
+                echo "<script>window.location.href='?cn=nhapdiem'</script>";
+            }
+            if(isset($_POST['btnCapNhat'])){
+                $matc = $_POST['hidMaTC'];
+                $mssv = $_POST['txtMaSV'];
+                $diem = $_POST['txtTenSV'];
+                gv_capnhatdiem($matc, $mssv, $diem);
+                
+                echo "<script>window.location.href='?cn=nhapdiem'</script>";
+            }
+    ?>
 
 <div class="container">
     <div class="row">
     <div class="col-md-12">
         <h3 style="color: darkblue; font-weight: bold;">BẢNG GHI ĐIỂM NIÊN LUẬN</h3>
         <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-            <tr>
-                <th align='center' width="6%">Năm học:
-                    <input type="text" name="" value="2013-2014" style="text-align: center;" class="form-control"/>
-                    </th>
-                <th align="center" width="3%">Học kỳ:
-                    <input style="text-align: center;" type="text" name="" value="1" class="form-control"/>
-                </th>
-                <th align='center' width="4%">Nhóm HP:
-                    <select class="form-control" style="text-align: center;" size="1">
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                    </select>
-                </th>
-                <th align='center' width="6%">Nhóm niên luận:
-                    <select class="form-control" size="1" align="center">
-                        <option value="NTH01">NTH01</option>
-                        <option value="NTH02">NTH02</option>
-                        <option value="NTH03">NTH03</option>
-                    </select>
-                </th>
-                <th align='center' width="20%">Đề tài:
-                    <select class="form-control" size="1">
-                        <option value="1">Website bán quần áo</option>
-                        <option value="2">Game cờ caro trên Androi</option>
-                        <option value="3">Phần mềm quản lý hóa đơn</option>
-                    </select>
-                </th>
-            </tr>
+            <?php
+                gv_namhoc_hk($macb);
+                gv_manthdt_hp($macb);
+            ?>
          </table>
-        <form id="" name="" action="" method="post">
+        <form id="" name="frmNhapDiem" action="" method="post">
             <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                 <tr>
-                    <th rowspan="2" width="1%">STT</th>                            
-                    <th rowspan="2" width="8%">Nhóm niên luận</th>
+                    <th rowspan="2" width="1%">STT</th>           
                     <th rowspan="2" width="8%">MSSV</th>
                     <th rowspan="2" width="20%">Họ và tên</th>
                     <th colspan="4" width="25%">Tiêu chí</th>
@@ -59,35 +73,40 @@ and open the template in the editor.
                     <th rowspan="2" width="4%">Điểm chữ</th>                         
                 </tr>
                 <tr>
-                    <th width='2%'>4</th>
-                    <th width='2%'>2</th>
-                    <th width='2%'>3</th>
-                    <th width='2%'>1</th>
+                    <?php 
+                        while($diemtc = mysql_fetch_array($ds_diemtc)){
+                            echo "<th width='2%'>".
+                                    $diemtc['heso'].
+                                    "<input style='text-align:center;' type='hidden' name='hidMaTC' value='".$diemtc['matc']."' size='2'/>".
+                                 "</th>";
+                        }                                
+                    ?>
                 </tr>
-                <tr>
-                    <td align='center'>1</td>
-                    <td align='center'>NTH01</td>
-                    <td align='center'>1234567</td>
-                    <td>Hoàng thành</td>
-                    <td align='center'><input type="text" size="1" align="center" value="3"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="1.5"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="2"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="0.5"></td>
-                    <td align='center'>8.0</td>
-                    <td align='center'>B+</td>
-                </tr>
-                <tr>
-                    <td align='center'>2</td>
-                    <td align='center'>NTH01</td>
-                    <td align='center'>1324568</td>
-                    <td>Phan Long</td>
-                    <td align='center'><input type="text" size="1" align="center" value="3.5"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="2"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="2.5"></td>
-                    <td align='center'><input type="text" size="1" align="center" value="0.5"></td>
-                    <td align='center'>9.5</td>
-                    <td align='center'>A</td>
-                </tr>
+                <?php
+                      $stt = 1;                        
+                      while($sv = mysql_fetch_array($dssv)){
+                          echo "<tr>".
+                                  "<td align='center' width:1%>$stt</td>".
+                                  "<td align='center' width:4%>".
+                                      "<input style='border:0px white; text-align:center;' type='text' name='txtMaSV' value='".$sv['mssv']."' size='8'/>".
+                                  "</td>".
+                                  "<td><input style='border:0px white;' type='text' name='txtTenSV' value='".$sv['hoten']."' size='20'/></td>".                                    
+                        //Lấy điểm của các thành viên theo tiêu chí
+                              $sv_diem = sv_diem($sv['mssv']);
+                              if($sv_diem == NULL){
+                                  return;
+                              }
+                          while($diem = mysql_fetch_array($sv_diem)){
+                              echo "<td align='center' style='color: #FF00FF; font-weight:bold;'>".
+                                         "<input style='text-align:center;' type='text' size='1' align='center' value='".$diem['diem']."'/>".
+                                   "</td>";
+                         }
+                              echo "<td align='center' style='color: darkmagenta; font-weight:bold;'>".tongdiem($sv['mssv'])."</td>".
+                                   "<td align='center' style='color: brown; font-weight:bold;'>".diemchu($sv['mssv'])."</td>".
+                               "</tr>";
+                          $stt++;
+                      }    
+                ?>                
             </table>
 
             <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
@@ -108,8 +127,8 @@ and open the template in the editor.
                         </button>                            
                     </td>
                     <td>
-                        <button type="button" name="" class="btn btn-primary" style="width: 60%;">
-                            <img src="images/calculator.png"> Tính ĐTB
+                        <button type="submit" name="btnCapNhat" class="btn btn-primary" style="width: 60%;">
+                            <img src="images/calculator.png"> Cập nhật ĐTB
                         </button>
                     </td>
                 </tr>

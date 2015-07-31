@@ -85,7 +85,17 @@
 
                                 </ul>
                             </li>
-                            <li><a href="?cn=dknl">Đăng ký niên luận</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Đăng ký niên luận
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=dknl">Đăng ký</a></li>
+                                    <li class="divider"></li>                                
+                                    <li><a href="?cn=kqdangky">Kết quả đăng ký</a></li>                              
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Quản lý công việc
@@ -156,6 +166,8 @@
 
                         if ($_GET['cn'] == "dknl")
                             include("sinhvien/dang-ky-de-tai.php");
+                        if ($_GET['cn'] == "kqdangky")
+                            include("giaodien/ket-qua-dang-ky-de-tai.php");
 
                         if ($_GET['cn'] == "diendan")
                             include("giaodien/dien-dang-thao-luan.php");

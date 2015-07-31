@@ -36,7 +36,7 @@ and open the template in the editor.
                         <tr>
                             <th width="20%">Mã tiêu chí:</th>
                             <td width="50%">
-                                <input type="text" name="txtMaTC" value="" class="form-control" /> 
+                                <input style="width:35%; text-align: center;" type="text" name="txtMaTC" value="<?php echo matc_tutang(); ?>" class="form-control" readonly=""/> 
                             </td>
                         </tr>
                         <tr>

@@ -57,6 +57,17 @@ and open the template in the editor.
 //Đăng ký nhóm làm niên luận
         if(isset($_POST['btnDangKy'])){
             $manth = manth_tutang();
+            $madt = $_POST['cbTenDT'];
+                $buoi = $_POST['cbBuoi'];
+                $thu = $_POST['cbThu'];
+            $lichhop .= $buoi .= $thu;
+            $tochucnhom = $_POST['txtToChucNhom'] ;
+            $phamvidt = $_POST['txtPhamVi'];
+            $ghichu = $_POST['txtMoTa'];
+            //sv_dangky($madt,$mahp,$manth,$lichhop,$tochucnhom,$bdkh,$ktkh,$bdtt,$kttt,$giothucte,$tiendo,$hoanthanh,
+            //$phamvidt,$ghichu,$nhanxet,$chapnhat)
+            
+            //echo "<script>window.location.href='?cn='</script>";
         }    
     ?>
     
@@ -97,9 +108,9 @@ and open the template in the editor.
                                             {
                                                 $ma = mysql_fetch_array($ds_masv);
                                              //Lấy tên sv trong 1 nhóm hoc phần
-                                                $ds_tensv = lay_tensv($manhp,$ma['mssv']);
+                                                $ds_tensv = lay_tensv($manhp,$ma['mssv']);                                                                                               
                                                 if($ma != NULL){
-                                                    echo "<a href='#' data-toggle=\"tooltip\" data-placement='bottom' title='".$ds_tensv['hoten']."'>".$ma['mssv']."</a>".
+                                                    echo "<a href='#' data-toggle=\"tooltip\" data-placement='top' title='".$ds_tensv['hoten']."'>".$ma['mssv']."</a>".
                                                         ": <input type='checkbox' name='ckbThanhVien$stt' value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
                                                         "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
                                                 }                                               
@@ -146,11 +157,11 @@ and open the template in the editor.
                             </td>
                         </tr>
                         <tr>
-                            <th>Mô tả đề tài (Nếu có):</th>
+                            <th>Tổ chức nhóm:</th>
                             <td align='center' colspan="3">
-                                <textarea name="txtMoTa" rows="2" cols="2" class="ckeditor"></textarea>
+                                <textarea name="txtToChucNhom" rows="2" cols="2" class="ckeditor"></textarea>
                                     <script language="javascript">
-                                        CKEDITOR.replace( 'txtMoTa',
+                                        CKEDITOR.replace( 'txtToChucNhom',
                                         {
                                             skin : 'kama',
                                             extraPlugins : 'uicolor',
@@ -188,6 +199,28 @@ and open the template in the editor.
                                         });
                                     </script>
                             </td></tr>
+                        <tr>
+                            <th>Mô tả đề tài (Nếu có):</th>
+                            <td align='center' colspan="3">
+                                <textarea name="txtMoTa" rows="2" cols="2" class="ckeditor"></textarea>
+                                    <script language="javascript">
+                                        CKEDITOR.replace( 'txtMoTa',
+                                        {
+                                            skin : 'kama',
+                                            extraPlugins : 'uicolor',
+                                            uiColor: '#eeeeee',
+                                            toolbar : [['Font'],
+                                                ['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'], 
+                                                ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
+                                                ['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote'],
+                                                ['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+                                                ['Link','Unlink','Anchor', 'NumberedList','BulletedList','-','Outdent','Indent'],
+                                                ['Image','Flash','Table','Rule','Smiley','SpecialChar'],
+                                                ['Style','FontFormat','FontName','FontSize']]
+                                        });
+                                    </script>
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="4" align='center'>
                                 <button type="submit" name="btnDangKy" class="btn btn-success" style="width: 20%;">

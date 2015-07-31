@@ -81,11 +81,11 @@ and open the template in the editor.
                         <th rowspan="2" width="4%">Tổng điểm</th>
                         <th rowspan="2" width="4%">Điểm chữ</th>                         
                     </tr>
-                    <?php 
-                        while($diemtc = mysql_fetch_array($ds_diemtc)){
-                            echo "<th width='2%'>".$diemtc['heso']."</th>";
-                        }                                
-                    ?>
+                        <?php 
+                            while($diemtc = mysql_fetch_array($ds_diemtc)){
+                                echo "<th width='2%'>".$diemtc['heso']."</th>";
+                            }                                
+                        ?>
                     <tr> 
                     <?php 
                         $stt = 1;                        

@@ -41,7 +41,7 @@ and open the template in the editor.
                     <tr>
                         <th width="20%">Mã tiêu chí:</th>
                         <td width="50%">
-                            <input type="text" name="txtMaTC" value="<?php echo $tc['matc']; ?>" class="form-control" readonly="true" /> 
+                            <input style="width:35%; text-align: center;" type="text" name="txtMaTC" value="<?php echo $tc['matc']; ?>" class="form-control" readonly="true" /> 
                         </td>
                     </tr>
                     <tr>
