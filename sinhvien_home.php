@@ -113,21 +113,23 @@
                                 if(isset($_SESSION['user']))
                                 {
                                     $svUSER = $_SESSION['user'];
+                                    $menucon = "<ul class=\"dropdown-menu\" role='menu'>".
+                                                    "<li><a href='?cn=ttsv'>Thông tin sinh viên</a></li>".
+                                                    "<li class=\"divider\"></li>".                                    
+                                                    "<li><a href='?cn=xemcv'>Xem công việc</a></li>".
+                                                    "<li class=\"divider\"></li>".
+                                                    "<li><a href='?cn=dmk'>Đổi mật khẩu</a></li>".
+                                                    "<li class=\"divider\"></li>".
+                                                    "<li><a href='giaodienchung/dang-nhap.php?cn=dangxuat'>Đăng xuất</a></li>".
+                                                "</ul>";
                                 }                                
                            ?>    
-                            <li><a href="?cn=ttsv"></a></li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <?php echo "<strong style='color:blue;'>".$svUSER['hoten']." (".$svUSER['mssv'].")</strong>" ; ?>
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="?cn=xemcv">Xem công việc</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li>
-                                </ul>
+                                <?php echo $menucon; ?>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

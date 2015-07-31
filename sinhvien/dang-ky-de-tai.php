@@ -13,18 +13,24 @@ and open the template in the editor.
         <link rel="stylesheet" href="../bootstrap/css/signin.css">
         <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
-    </head>
-    
-    <style type="text/css">
-        th{
-            text-align: right;
-            color: darkblue;
-            background-color: #dff0d8;
-            vertical-align: middle;
-        }
         
-    </style>
-    
+        <style type="text/css">
+            th{
+                text-align: right;
+                color: darkblue;
+                background-color: #dff0d8;
+                vertical-align: middle;
+            }
+
+        </style>
+        
+        <script>
+            function dschon_detai() {
+                window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
+            }
+        </script>
+    </head>
+        
     <?php
         include_once 'chucnang/sv_dangkydetai.php';
         include_once 'chucnang/sv_thongtin.php';
@@ -35,29 +41,24 @@ and open the template in the editor.
         if($manl == null){
             return;
         }
-        $manhp = $manl['manhomhp'];
+        $manhp = $manl['manhomhp']; //Xác định mã nhóm
+        $manth = $manl['manhomthuchien'];
+        
         $tt = dt_canbo($manhp);
         if($tt == null){
             return;
         }
+        
 //Lây mssv của 1 nhóm hoc phần
         $ds_masv = lay_mssv($manhp);
         if($ds_masv == null){
             return;
-        }
-//Thêm thành viên vào nhóm
-        if(isset($_POST['btnThem'])){
-            $mssv = $_POST['ckbThanhVien$stt'];
-            $manth = manth_tutang();
-            $nhomtruong = $_POST['raNhomTruong'];
-            //($mssv,$manhomhp,$manhomthuchien,$nhomtruong)
-            sv_dangkythanhvien($mssv, $manhp, $manth, $nhomtruong);
-        }
+        }        
         
 //Đăng ký nhóm làm niên luận
         if(isset($_POST['btnDangKy'])){
             $manth = manth_tutang();
-            $madt = $_POST['cbTenDT'];
+            $madt = $_POST['rdMaDT'];
                 $buoi = $_POST['cbBuoi'];
                 $thu = $_POST['cbThu'];
             $lichhop .= $buoi .= $thu;
@@ -68,7 +69,20 @@ and open the template in the editor.
             //$phamvidt,$ghichu,$nhanxet,$chapnhat)
             
             //echo "<script>window.location.href='?cn='</script>";
-        }    
+        }        
+        
+//Thêm thành viên vào nhóm        
+        if(isset($_POST['btnThem']))
+        {
+            for($i=0; $i < count($_POST['chk']); $i++)
+            {
+                $mssv = $_POST['chk'][$i];
+                $nhomtruong = isset($_POST['rdNhomTruong']) ? 1 : 0;
+                $manth = manth_tutang();
+                //($mssv,$manhomhp,$manhomthuchien,$nhomtruong)
+                sv_dangkythanhvien($mssv,$manhp,$manth,$nhomtruong);
+            }
+        }
     ?>
     
     <body>
@@ -76,8 +90,41 @@ and open the template in the editor.
             
             <div class="row">
                 <div class="col-md-12">
-                <h3 style="color: darkblue; font-weight: bold;" align='center'>Đăng ký nhóm làm niên luận</h3> 
-                <form action="" method="post">
+                <h3 style="color: darkblue; font-weight: bold;" align='center'>ĐĂNG KÝ NHÓM LÀM NIÊN LUẬN</h3> 
+                <h4 style="color: darkblue; font-weight: bold;">Đăng ký thành viên</h4>
+                <form name="frmThemTV" action="" method="post">
+                    <table class="table table-bordered" id="tblChonTV"> 
+                        <?php 
+                            $n = mysql_num_rows($ds_masv); 
+                            $stt = 1;
+                            for($j=1; $j<=4; $j++){                                            
+                                echo "<td width='20%'>";                                            
+                                for($i=1;$i<6;$i++)
+                                {
+                                    $ma = mysql_fetch_array($ds_masv);
+                                 //Lấy tên sv trong 1 nhóm hoc phần
+                                    $ds_tensv = lay_tensv($manhp,$ma['mssv']);                                                                                               
+                                    if($ma != NULL){
+                                        echo "<a href='#' data-toggle=\"tooltip\" data-placement='top' title='".$ds_tensv['hoten']."'>".$ma['mssv']."</a>".
+                                            ": <input type=\"checkbox\" name=\"chk[]\" value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
+                                            "Nhóm trưởng: <input type=\"radio\" name=\"rdNhomTruong\" value=''/><br>";
+                                    }                                               
+
+                                    $stt++;                                                                                                   
+                                }                                    
+                                echo "</td>";  
+
+                            }                                            
+                            echo "<tr>".
+                                     "<td colspan='4' align='center'>".
+                                          "<input type='submit' name='btnThem' value='Thêm thành viên' class=\"btn btn-primary\">".
+                                    "</td>".
+                                 "</tr>";
+                        ?>   
+                    </table> 
+                </form>
+                <h4 style="color: darkblue; font-weight: bold;">Đăng ký đề tài</h4>    
+                <form name="frmDangKyNL" action="" method="post">
                     <table class="table table-bordered" border="1" width="800px" cellpadding="15px" cellspacing="0px" align='center' id="dangky">
                         <tr>
                             <th>Mã cán bộ:</th>
@@ -90,49 +137,19 @@ and open the template in the editor.
                             </td>
                         </tr>
                         <tr>
-                            <th width='15%' valign='middle'>Tên đề tài:</th>
+                            <th width='15%' valign='middle'>Chọn đề tài:</th>
+                            <td align="center">
+                                    <input onclick="dschon_detai()" type="radio" name="rdMaDT" value="" title="Nhấp chuột vào để chọn đề tài"/>
+                            </td>
                             <td align='center' colspan="3">
                                 <?php $macb='2134'; detai_canbo($macb); ?>
                             </td>
-                        </tr>
-                        <tr>
-                            <th>Thành viên nhóm:</th>
-                            <td colspan="3">
-                                <table class="table table-bordered" id="tblChonTV"> 
-                                    <?php 
-                                        $n = mysql_num_rows($ds_masv); 
-                                        $stt = 1;
-                                        for($j=1; $j<=4; $j++){                                            
-                                            echo "<td width='20%'>";                                            
-                                            for($i=1;$i<6;$i++)
-                                            {
-                                                $ma = mysql_fetch_array($ds_masv);
-                                             //Lấy tên sv trong 1 nhóm hoc phần
-                                                $ds_tensv = lay_tensv($manhp,$ma['mssv']);                                                                                               
-                                                if($ma != NULL){
-                                                    echo "<a href='#' data-toggle=\"tooltip\" data-placement='top' title='".$ds_tensv['hoten']."'>".$ma['mssv']."</a>".
-                                                        ": <input type='checkbox' name='ckbThanhVien$stt' value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
-                                                        "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
-                                                }                                               
-                                                
-                                                $stt++;                                                                                                   
-                                            }                                    
-                                            echo "</td>";  
-                                            
-                                        }                                            
-                                        echo "<tr>".
-                                                 "<td colspan='4' align='center'>".
-                                                      "<input type='submit' name='btnThem' value='Thêm thành viên' class=\"btn btn-primary\">".
-                                                "</td>".
-                                             "</tr>";
-                                    ?>   
-                                </table>                       
-                            </td>
+                            
                         </tr>
                         <tr>
                             <th>Ngày họp nhóm:</th>
                             <td colspan="3">
-                                <table class="table table-bordered" border="0" cellpadding="10px" cellspacing="0px" align="center">
+                                <table class="table table-bordered" border="0" cellpadding="0px" cellspacing="0px" align="center">
                                     <tr>
                                         <th>Chọn buổi họp nhóm:</th>
                                         <td>

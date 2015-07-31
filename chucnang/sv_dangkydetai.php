@@ -48,11 +48,11 @@
             return null;
     }
  /*====================== Đăng ký thành viên nhóm ====================================*/
-    function sv_dangkythanhvien($mssv,$manhomhp,$manhomthuchien,$nhomtruong){
-        $sqlDangKy = "INSERT INTO dangky_nhom(mssv,manhomhp,nhomtruong)".
-                            " VALUES('$mssv','$manhomhp','$manhomthuchien','$nhomtruong')";
-        $kq = mysql_query($sql);
-        
+    function sv_dangkythanhvien($mssv,$manhp,$manhomthuchien,$nhomtruong){
+        $sqlDangKy = "UPDATE dangky_nhom SET manhomthuchien='$manhomthuchien',nhomtruong=$nhomtruong".
+                     " WHERE mssv='$mssv' AND manhomhp='$manhp';";
+        mysql_query($sqlDangKy);
+        //echo $sqlDangKy;
     }
  /*====================== Lưu kết quả đăng ký đề tài nhóm niên luận ====================================*/
     function sv_dangky($madt,$mahp,$manth,$lichhop,$tochucnhom,$bdkh,$ktkh,$bdtt,$kttt,$giothucte,$tiendo,$hoanthanh,
@@ -67,7 +67,7 @@
                          " VALUES('$manth','$lichhop','$tochucnhom','$bdkh','$ktkh','$bdtt','$kttt',$giothucte,$tiendo,$hoanthanh".
                                     ",'$phamvidt','$ghichu','$nhanxet',$chapnhat); ".
                      "INSERT INTO ra_de_tai(madt,manhomhp,manhomthuchien) VALUES($madt,$mahp,$manth)";
-        $kq = mysqli_multi_query($sql);
+        mysqli_multi_query($sql);
         
     }
  /*====================== Mã nhóm thực hiện tự tăng ====================================*/

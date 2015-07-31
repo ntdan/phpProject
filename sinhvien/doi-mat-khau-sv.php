@@ -43,11 +43,13 @@ and open the template in the editor.
     if($sv == null){
         return;
     }
+    $mkcu = $sv['matkhau'];
+    
     if(isset($_POST['btnCapNhat'])){
         $masv = $_POST['txtMaSV'];
         $ten = $_POST['txtTen'];
         $email = $_POST['txtEmail'];        
-        $matkhauMoi = $_POST['txtMatKhauMoi1'];        
+        $matkhauMoi = isset($_POST['txtMatKhauMoi1']) ? $_POST['txtMatKhauMoi1'] : $mkcu ;        
         $filename = $sv['hinhdaidien'];
         $tachten = lay_ten($ten);
         
@@ -72,8 +74,7 @@ and open the template in the editor.
                 {
                     echo "<script>alert('Anh qua lon (nho hon 1 MB)');</script>";
                 }                  
-            }        
-        
+            }  
         sv_doimatkhau($masv, $filename, $matkhauMoi);
 
         echo "<script>window.location.href='?cn=ttsv'</script>";

@@ -54,7 +54,17 @@
                             <li>
                                 <a href="?cn=kehoach" data-toggle="tooltip" data-placement="bottom" title="Theo dõi thực hiện dự án">Kế hoạch</a>
                             </li>                            
-                            <li><a href="?cn=dsdt">Đề tài</a></li>
+                            <li class="dropdown">
+                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >
+                                    Đề tài
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=dsdt">Danh sách đề tài</a></li>
+                                    <li class="divider"></li>                           
+                                    <li><a href="">Danh sách đăng ký đề tài</a></li>
+                                </ul>
+                            </li>
                             <li><a href="?cn=khotl">Kho tài liệu</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -90,6 +100,8 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=ttgv">Thông tin giảng viên</a></li>
+                                    <li class="divider"></li>                           
                                     <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
                                     <li class="divider"></li>
                                     <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
