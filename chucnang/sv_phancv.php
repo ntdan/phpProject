@@ -3,9 +3,32 @@
     
 /*====================== Mã công việc tự tăng ====================================*/
     function macv_tutang(){
+        $pre = "CV";
+        $sql = "SELECT macv FROM cong_viec ORDER BY macv DESC";
+        $kq = mysql_query($sql);
         
+        if(mysql_num_rows($kq)>0){
+            $macuoi = mysql_fetch_array($kq);
+            $ma = $macuoi['macv'];  //Lấy mã cuối cùng của nhóm thưc hiện
+            $so = (int)substr($ma, 2) + 1;
+        }
+            return  $mamoi = $pre .=$so;     
     }
-
+/*====================== Mã công việc phụ thuộc tự tăng ====================================*/
+    function macvphuthuoc_tutang($macvchinh){
+        $pre = $macvchinh;
+        
+        $sql = "SELECT macv FROM cong_viec WHERE phuthuoc_cv='$macvchinh' ORDER BY macv DESC";
+        $kq = mysql_query($sql);
+        
+        if(mysql_num_rows($kq)>0){
+            $macuoi = mysql_fetch_array($kq);
+            $ma = $macuoi['macv'];  //Lấy mã cuối cùng của nhóm thưc hiện
+            $so = (int)substr($ma, 4) + 1;
+        }
+            $pre .=".";
+            return  $mamoi = $pre .= $so;     
+    }
  /*====================== Xem tên thành viên của 1 nhóm 'sv.mssv, sv.hoten, nth.manhomthuchien' ====================================*/   
     function xem_thanhvien($manth){
         $sql = "SELECT * FROM sinh_vien sv".

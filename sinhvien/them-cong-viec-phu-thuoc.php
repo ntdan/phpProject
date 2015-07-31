@@ -49,8 +49,9 @@ and open the template in the editor.
               cv_them($manth,$macv,$tencv,$giaocho,$bdkh,$ktkh,'null','null',$gio_thucte,$phuthuoc,$uutien,$trangthai,$tiendo,$ndcv,'null');
               
               echo "<script>window.location.href='?cn=dschitietphancong&id_manth=$manth&id_macv=$phuthuoc'</script>";
-          }
+          }          
     ?>
+    
     <body>        
         <div class="container">
             <div class="row">
@@ -60,10 +61,12 @@ and open the template in the editor.
                         <table class="table table-bordered" width="800px" cellpadding="15px" cellspacing="0px" id="bang1">
                             <tr>
                                 <th width="10%">Mã công việc:</th>
-                                <td><input type="text" name="txtMaCV" value="" class="form-control"></td>
+                                <td>
+                                    <input style="width:40%; text-align:center;" type="text" name="txtMaCV" value="<?php echo macvphuthuoc_tutang($phuthuoc); ?>" class="form-control" readonly=""/>
+                                </td>
                                 <th width="10%">Tên công việc:</th>
                                 <td>
-                                    <input type="text" name="txtTenCV" value="" class="form-control">
+                                    <input type="text" name="txtTenCV" value="" class="form-control"/>
                                 </td>
                             </tr>
                             <tr>

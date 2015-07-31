@@ -48,14 +48,15 @@ and open the template in the editor.
 //Thêm thành viên vào nhóm
         if(isset($_POST['btnThem'])){
             $mssv = $_POST['ckbThanhVien$stt'];
-            $manth = '';
+            $manth = manth_tutang();
             $nhomtruong = $_POST['raNhomTruong'];
             //($mssv,$manhomhp,$manhomthuchien,$nhomtruong)
-            
+            sv_dangkythanhvien($mssv, $manhp, $manth, $nhomtruong);
         }
+        
 //Đăng ký nhóm làm niên luận
         if(isset($_POST['btnDangKy'])){
-            
+            $manth = manth_tutang();
         }    
     ?>
     
@@ -87,7 +88,7 @@ and open the template in the editor.
                             <th>Thành viên nhóm:</th>
                             <td colspan="3">
                                 <table class="table table-bordered" id="tblChonTV"> 
-                                    <?php
+                                    <?php 
                                         $n = mysql_num_rows($ds_masv); 
                                         $stt = 1;
                                         for($j=1; $j<=4; $j++){                                            
@@ -95,11 +96,13 @@ and open the template in the editor.
                                             for($i=1;$i<6;$i++)
                                             {
                                                 $ma = mysql_fetch_array($ds_masv);
+                                             //Lấy tên sv trong 1 nhóm hoc phần
+                                                $ds_tensv = lay_tensv($manhp,$ma['mssv']);
                                                 if($ma != NULL){
-                                                    echo $ma['mssv'].": <input type='checkbox' name='ckbThanhVien$stt' value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
-                                                     "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
-                                                }
-                                                
+                                                    echo "<a href='#' data-toggle=\"tooltip\" data-placement='bottom' title='".$ds_tensv['hoten']."'>".$ma['mssv']."</a>".
+                                                        ": <input type='checkbox' name='ckbThanhVien$stt' value='".$ma['mssv']."''/>&nbsp;&nbsp;&nbsp;&nbsp;".
+                                                        "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
+                                                }                                               
                                                 
                                                 $stt++;                                                                                                   
                                             }                                    

@@ -16,6 +16,12 @@
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
         
         <script type="text/javascript">
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
+        
+        <script type="text/javascript">
             $(function() {
               $( "#txtNgayBatDauKH" ).datepicker({
                   dateFormat: "yy-mm-dd"

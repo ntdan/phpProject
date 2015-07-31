@@ -1,6 +1,17 @@
 <?php
     include_once 'thuvien/db.php';
-
+ 
+/*====================== Mã đề tài tự tăng ====================================*/
+    function madt_tutang(){
+        $sql = "SELECT madt FROM de_tai ORDER BY madt DESC";
+        $kq = mysql_query($sql);
+        
+        if(mysql_num_rows($kq)>0){
+            $macuoi = mysql_fetch_array($kq);
+            $ma = $macuoi['madt'];  //Lấy mã cuối cùng của nhóm thưc hiện
+            return $so = (int)$ma + 1;
+        }      
+    }
  /*====================== Xem đề tài ====================================*/
     function dt_xem($madt){
         $sql = "SELECT * FROM de_tai WHERE madt='$madt'";

@@ -34,6 +34,19 @@
         else
             return null;
     }
+ /*====================== Lấy hoten của sv 1 nhóm hoc phần ====================================*/
+    function lay_tensv($manhomhp,$mssv){
+        $sql = "SELECT distinct dk.mssv,sv.hoten,dk.manhomhp FROM dangky_nhom dk".
+                " JOIN sinh_vien sv ON dk.mssv = sv.mssv".
+                " WHERE dk.manhomhp='$manhomhp' AND dk.mssv='$mssv'";
+        $ds = mysql_query($sql);
+
+        if(mysql_num_rows($ds)>0){
+            return $ds;
+        }
+        else
+            return null;
+    }
  /*====================== Đăng ký thành viên nhóm ====================================*/
     function sv_dangkythanhvien($mssv,$manhomhp,$manhomthuchien,$nhomtruong){
         $sqlDangKy = "INSERT INTO dangky_nhom(mssv,manhomhp,nhomtruong)".
@@ -60,5 +73,20 @@
  /*====================== Mã nhóm thực hiện tự tăng ====================================*/
     function manth_tutang(){
         $pre = "NTH";
+        $sql = "SELECT manhomthuchien FROM nhom_thuc_hien ORDER BY manhomthuchien DESC";
+        $kq = mysql_query($sql);
+        
+        if(mysql_num_rows($kq)>0){
+            $macuoi = mysql_fetch_array($kq);
+            $ma = $macuoi['manhomthuchien'];  //Lấy mã cuối cùng của nhóm thưc hiện
+            $so = (int)substr($ma, 3) + 1;
+        }
+        if($so <= 9){
+            $pre .="0";
+           return  $mamoi = $pre .=$so;
+        }
+        else 
+            return  $mamoi = $pre .=$so;        
     }
+    
 ?>

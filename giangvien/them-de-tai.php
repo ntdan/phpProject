@@ -77,7 +77,7 @@ and open the template in the editor.
                     <tr>
                         <td width="25%">Mã đề tài:</td>
                         <td>
-                            <input type="text" id="txtMaDeTai" name="txtMaDeTai" value="" class="form-control"> 
+                            <input style="width:20%; text-align: center;" type="text" id="txtMaDeTai" name="txtMaDeTai" value="<?php echo madt_tutang(); ?>" class="form-control" readonly=""> 
                         </td>
                     </tr>
                     <tr>
