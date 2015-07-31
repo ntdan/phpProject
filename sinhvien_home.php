@@ -90,7 +90,7 @@
                                     <li><a href="?cn=noptl">Nộp tài liệu</a></li>                               
                                 </ul>
                             </li>                        
-                            <li><a href="?cn=xemdiem">Xem kết quả</a></li>
+                            <li><a href="?cn=xemdiem">Xem điểm</a></li>
                             <li><a href="?cn=diendan">Thảo luận</a></li>  
 <!--                            
                             <li><a href="sinhvien/dang-nhap-sv.php">Đăng nhập</a></li>

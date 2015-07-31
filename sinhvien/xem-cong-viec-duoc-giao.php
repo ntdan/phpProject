@@ -24,8 +24,7 @@ and open the template in the editor.
     </style>
     <?php
         include_once 'chucnang/sv_duocgiaocv.php';
-        
-        //$mssv = $_GET['id_mssv'];
+
         $mssv = '1111317';
     ?>
     

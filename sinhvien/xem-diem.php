@@ -26,9 +26,22 @@ and open the template in the editor.
     
     <?php
             include_once 'chucnang/sv_diem.php';
-            include_once 'chucnang/gv_tieuchidiem.php';;            
-            $manth = 'NTH01';
-            $macb = '2134';
+            include_once 'chucnang/gv_tieuchidiem.php';
+            include_once 'chucnang/sv_thongtin.php';
+            
+            $mssv = '1111317';
+ //Lấy mã nhóm niên luận mà sv đăng ký           
+            $manl = sv_maNhomNL($mssv);
+            if($manl == null){
+                return;
+            }
+//Lấy mã cán bộ hướng dẫn nhóm hp mà sv đăng ký
+            $laymacb = sv_maCB($mssv);
+            if($laymacb == NULL){
+                return;
+            }
+            $manth = $manl['manhomthuchien'];
+            $macb = $laymacb['macb'];
             
             $ds_tc = tc_danhsach($macb);
             if($ds_tc == NULL){
@@ -83,9 +96,9 @@ and open the template in the editor.
                                     "<td>".$sv['hoten']."</td>".                                    
                             //Lấy điểm của các thành viên theo tiêu chí
                                 $sv_diem = sv_diem($sv['mssv']);
-//                                if($sv_diem == NULL){
-//                                    return;
-//                                }
+                                if($sv_diem == NULL){
+                                    return;
+                                }
                             while($diem = mysql_fetch_array($sv_diem)){
                                 echo "<td align='center'>".$diem['diem']."</td>";
                             }

@@ -27,8 +27,15 @@ and open the template in the editor.
     
     <?php
         include_once 'chucnang/sv_dangkydetai.php';
+        include_once 'chucnang/sv_thongtin.php';
         
-        $manhp = '1';
+        $mssv = '1111317';
+        
+        $manl = sv_maNhomNL($mssv);
+        if($manl == null){
+            return;
+        }
+        $manhp = $manl['manhomhp'];
         $tt = dt_canbo($manhp);
         if($tt == null){
             return;
@@ -70,14 +77,9 @@ and open the template in the editor.
                             <td colspan="3">
                                 <table class="table table-bordered" id="tblChonTV"> 
                                     <?php
-                                        $n = mysql_num_rows($ds_masv);
-                                        if($n<=20){
-                                            $col = $n/5;
-                                        }else
-                                            $col = $n/10;
-                                        
+                                        $n = mysql_num_rows($ds_masv);                                       
                                         while($ma = mysql_fetch_array($ds_masv)){
-                                            
+                                             
                                             echo "<td>".
                                                      $ma['mssv'].": <input type='checkbox' name='ckbThanhVien' value=''/>".
                                                      "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>".

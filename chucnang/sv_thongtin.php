@@ -1,8 +1,29 @@
 <?php
 
     include_once 'thuvien/db.php';
+    
+/* ======================== Lây các mã khi đã đăng ký nhóm niên luận của 1 sv======================= */
+    function sv_maNhomNL($mssv){
+        $sqlNhom = "SELECT mssv,manhomhp,manhomthuchien,nhomtruong FROM dangky_nhom WHERE mssv='$mssv'";
+        $manhom = mysql_query($sqlNhom);
+       
+        if(mysql_num_rows($manhom) > 0){
+            return mysql_fetch_array($manhom);
+        }
+    }
+ /* ======================== Lây mã cán bộ hướng dẫn niên luận của 1 sv======================= */
+    function sv_maCB($mssv){
+        $sqlMa = "SELECT dk.mssv, dt.macb FROM dangky_nhom dk".
+                 " JOIN ra_de_tai radt ON dk.manhomhp=radt.manhomhp".
+                 " JOIN de_tai dt ON radt.madt=dt.madt".
+                 " WHERE mssv='$mssv'";
+        $macb = mysql_query($sqlMa);
+       
+        if(mysql_num_rows($macb) > 0){
+            return mysql_fetch_array($macb);
+        }
+    }
 /* ======================== Lay thong tin sv======================= */
-
     function sv_xem($mssv) {
         $sql = "SELECT * FROM sinh_vien WHERE mssv='$mssv'";
         $ds_sv = mysql_query($sql);

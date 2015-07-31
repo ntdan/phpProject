@@ -25,9 +25,16 @@ and open the template in the editor.
     </style>
     
     <?php
-        include_once 'chucnang/sv_phancv.php';     
+        include_once 'chucnang/sv_phancv.php'; 
+        include_once 'chucnang/sv_thongtin.php';
         
-          $manth='NTH02';
+        $mssv = '1111317';
+        
+        $manl = sv_maNhomNL($mssv);
+        if($manl == null){
+            return;
+        }
+        $manth = $manl['manhomthuchien'];
                   
           if(isset($_POST['btnThem']))
            {

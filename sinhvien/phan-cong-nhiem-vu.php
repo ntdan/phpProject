@@ -30,8 +30,16 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/sv_phancv.php';
         include_once 'chucnang/sv_nhomthuchien.php';
+        include_once 'chucnang/sv_thongtin.php';
         
-        $manth = 'NTH02';
+        $mssv = '1111317';
+        
+        $manl = sv_maNhomNL($mssv);
+        if($manl == null){
+            return;
+        }
+        $manth = $manl['manhomthuchien'];
+
         $dtth = xem_dtthuchien($manth);
         if($dtth == NULL){
             return;
