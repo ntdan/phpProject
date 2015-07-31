@@ -1,3 +1,7 @@
+    
+    <?php 
+        session_start();
+    ?>
 <!DOCTYPE html>
 <html>    
     <head>
@@ -49,11 +53,8 @@
             });
         </script>
         
-    </head>             
-    <?php 
-        session_start();
-    ?>
-    
+    </head>
+       
     <body>
         <div class="container body-content">  
             <div class="page-header">

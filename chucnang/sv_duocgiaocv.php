@@ -3,29 +3,8 @@
         include_once 'sv_thongtin.php';
         include_once 'sv_phancv.php';
         
-/*========================  ==================================*/ 
-        function sosanh_tensv($hoten,$manth){            
-         //Lấy tên sinh viên được giao nhiệm vụ trong 1 nhóm niên luận 
-            $dscv = cv_xem($manth);
-            while($dscv != NULL ){
-                $mangtensv = explode(trim(","), $dscv['giaocho']);
-            }            
-            print_r($mangtensv);
-            $sothanhvien = count($mangtensv);
-            
-         //Thực hiện so sánh tên sv đã đăng nhập và tên sv được giao nhiệm vụ 
-            $i=0;
-            while($i<$sothanhvien){                
-                $ss1 = strcasecmp($hoten, $mangtensv[$i]);       
-                if($ss1 == 0){
-                     return $mangtensv[$i];
-                }
-                $i++;
-            }
-        } 
-        
 /*======================== Danh sách công việc được giao của sinh viên ==================================*/ 
-        function sv_sodongcv($mssv){
+    function sv_sodongcvduocgiao($mssv){
         $count = 0;
 
         $sqlSelect = "SELECT * FROM dangky_nhom dk".
@@ -42,7 +21,7 @@
     }
     function danhsach_viecduocgiao($mssv,$hoten,$manth){
         global $sodongtrentrang;
-            $tongsodong = sv_sodongcv($mssv); 
+            $tongsodong = sv_sodongcvduocgiao($mssv); 
             $tranghientai = 1;
             if(isset($_GET['page']))
                     $tranghientai = $_GET['page'];
@@ -52,14 +31,13 @@
 
             $vitridong = $sodongtrentrang*($tranghientai-1);
             
-            $ten = sosanh_tensv($mssv, $manth);
             $sqlSelect = "SELECT distinct cv.macv,cv.congviec,cv.giaocho,cv.ngaybatdau_kehoach,cv.ngayketthuc_kehoach".
                                  ",cv.sogio_thucte,cv.phuthuoc_cv,cv.uutien,cv.trangthai,cv.tiendo,cv.noidungthuchien".
                          " FROM dangky_nhom dk".
                          " JOIN nhom_thuc_hien nth ON dk.manhomthuchien=nth.manhomthuchien".
                          " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
                          " JOIN cong_viec cv ON th.macv=cv.macv".
-                         " WHERE th.manhomthuchien='$manth' AND (cv.giaocho like '$ten' OR cv.giaocho like 'cả nhóm')".
+                         " WHERE th.manhomthuchien='$manth' AND (cv.giaocho like '$hoten' OR cv.giaocho like 'cả nhóm')".
                          " LIMIT $vitridong, $sodongtrentrang";
             $ds = mysql_query($sqlSelect);
             
@@ -79,9 +57,7 @@
 
             global $hinhcapnhat;
             global $hinhxoa;
-
-            echo sosanh_tensv($hoten, $manth);
-                
+            
             while(list($macv,$tencv,$giaocho,$bdkehoach,$ktkehoach,$sogio,$phuthuoc,
                     $uutien,$trangthai,$tiendo,$noidung) = mysql_fetch_array($ds))
             { 
@@ -113,7 +89,7 @@
             if($tongsodong > $sodongtrentrang)
             {
                     $trang = 1;	
-                    echo "<tr><td colspan='11'><div class=\"col-md-12\" align=\"center\">";
+                    echo "<tr><td colspan='10'><div class=\"col-md-12\" align=\"center\">";
 
                     echo phanTrang($tongsodong, $tranghientai);
                     echo "</div></td></tr>";

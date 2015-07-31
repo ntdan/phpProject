@@ -79,7 +79,7 @@
         $dscv = mysql_query($sql);
         //echo $sql;
         if(mysql_num_rows($dscv)>0){
-            return mysql_fetch_array($dscv);
+            return $dscv;
         }  else {
                 return NULL;
         }

@@ -22,12 +22,11 @@
         $dn_gv = gv_dangnhap($ten, $matkhau);    
         $dn_sv = sv_dangnhap($ten, $matkhau);
                 
-        if($dn_gv != ""){
-            $_SESSION['user'] = $dn_gv;
+        if($dn_gv != ""){            
             echo "<script>window.location.href = '../giangvien_home.php?cn=ttgv';</script>";
         }
         else if($dn_sv != ""){
-            $_SESSION['user'] = $dn_sv;
+            $_SESSION['username'] = $dn_sv;
             echo "<script>window.location.href = '../sinhvien_home.php?cn=ttsv';</script>";            
         }
         else        
