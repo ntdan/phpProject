@@ -171,8 +171,8 @@ and open the template in the editor.
                         <td>Trạng thái</td>
                         <td>
                             <select class="form-control" name="cbmTrangThai">
-                                <option value="Chưa thực hiện">Chưa thực hiện</option>
-                                <option value="Đang thực hiện">Đang thực hiện</option>
+                                <option value="Chưa làm">Chưa làm</option>
+                                <option value="Đang làm">Đang làm</option>
                                 <option value="Đã hoàn thành">Đã hoàn thành</option>                                        
                             </select> 
                         </td>

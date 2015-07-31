@@ -217,9 +217,10 @@ and open the template in the editor.
                                   "<tr>".
                                       "<th rowspan='2' width='2%'>ID</th>".
                                       "<th rowspan='2' width='15%'>Giao cho</th>".
-                                      "<th colspan='2' width='20%'>Kế hoạch</th>".
-                                      "<th colspan='3' width='20%'>Thực tế</th>".
-                                      "<th rowspan='2' width='20%'>Chi tiết công việc</th>".
+                                      "<th rowspan='2' width='15%'>Ngày tạo</th>".
+                                      "<th rowspan='2' width='8%'>Trạng thái</th>".
+                                      "<th colspan='2' width='15%'>Kế hoạch</th>".
+                                      "<th colspan='3' width='25%'>Thực tế</th>".
                                   "</tr>".
                                   "<tr>".
                                     "<th>Bắt đầu</th>".
@@ -229,14 +230,21 @@ and open the template in the editor.
                                      "<th>Số giờ</th>".
                                   "</tr>".
                                   "<tr>".
-                                     "<td>".$ctkh['macv']."</td>".
+                                     "<td align='center'>".$ctkh['macv']."</td>".
                                      "<td>".$ctkh['giaocho']."</td>".
-                                     "<td>".$ctkh['ngaybatdau_kehoach']."</td>".
-                                     "<td>".$ctkh['ngayketthuc_kehoach']."</td>". 
-                                     "<td>".$ctkh['ngaybatdau_thucte']."</td>".
-                                     "<td>".$ctkh['ngayketthuc_thucte']."</td>".                            
-                                     "<td>".$ctkh['sogio_thucte']."</td>".
-                                     "<td>".$ctkh['noidungthuchien']."</td>".
+                                     "<td align='center'>".$ctkh['ngaytao']."</td>".
+                                     "<td align='center'>".$ctkh['trangthai']."</td>".
+                                     "<td align='center'>".$ctkh['ngaybatdau_kehoach']."</td>".
+                                     "<td align='center'>".$ctkh['ngayketthuc_kehoach']."</td>". 
+                                     "<td align='center'>".$ctkh['ngaybatdau_thucte']."</td>".
+                                     "<td align='center'>".$ctkh['ngayketthuc_thucte']."</td>".                            
+                                     "<td align='center'>".$ctkh['sogio_thucte']."</td>".
+                                  "</tr>".
+                                      "<td colspan='9'>".
+                                            "<h4 style='color: darkblue; font-weight:bold;'>Chi tiết công việc:</h4>".
+                                            $ctkh['noidungthuchien'].
+                                      "</td>".
+                                  "<tr>".
                                   "</tr>".
                               "</table>".
                             "</div>";

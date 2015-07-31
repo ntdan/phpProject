@@ -26,7 +26,8 @@ and open the template in the editor.
     <?php
             include_once '../chucnang/sv_dschondetai.php';
             
-            $macb = 
+            //$macb = $_GET['id_macb'];
+            $macb = '2134';
             $thongtindt = ds_chondetai($macb);
     ?>
     <body>
@@ -42,14 +43,20 @@ and open the template in the editor.
                             <th>Công nghệ sử dụng</th>
                             <th>Trạng thái</th>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <?php
+                            $stt = 1;
+                            while($rw = mysql_fetch_array($thongtindt)){
+                                echo   "<tr>".
+                                           "<td>$stt</td>".
+                                           "<td>".$rw['tendt']."</td>".
+                                           "<td>".$rw['songuoitoida']."</td>".
+                                           "<td>".$rw['motadt']."</td>".
+                                           "<td>".$rw['congnghe']."</td>".
+                                           "<td><input type='submit' name='' value='Đăng ký' /></td>".
+                                       "</tr>";
+                                $stt++;
+                            }
+                        ?>
                     </table>
                 </div>
             </div>

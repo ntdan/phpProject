@@ -62,7 +62,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="?cn=dsdt">Danh sách đề tài</a></li>
                                     <li class="divider"></li>                           
-                                    <li><a href="">Danh sách đăng ký đề tài</a></li>
+                                    <li><a href="?cn=dsdangkydetai">Danh sách đăng ký đề tài</a></li>
                                 </ul>
                             </li>
                             <li><a href="?cn=khotl">Kho tài liệu</a></li>
@@ -160,6 +160,8 @@
                             include("giangvien/them-de-tai.php");
                         if ($_GET['cn'] == "suadetai")
                             include("giangvien/sua-de-tai.php");
+                        if ($_GET['cn'] == "dsdangkydetai")
+                            include("giangvien/danh-sach-dang-ky-de-tai.php");
 
                         if ($_GET['cn'] == "khotl")
                             include("giangvien/kho-tai-lieu.php");

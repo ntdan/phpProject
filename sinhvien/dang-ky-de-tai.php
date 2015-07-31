@@ -26,8 +26,8 @@ and open the template in the editor.
         
         <script>
             function dschon_detai() {
-                $macb = document.getElementById('txtMaCB');
-                window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
+                $macb = document.getElementById('txtMaCB').value;
+                window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php?id_macb=$macb", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=400");
             }
         </script>
     </head>
@@ -143,7 +143,7 @@ and open the template in the editor.
                                     <input onclick="dschon_detai()" type="radio" name="rdMaDT" value="" title="Nhấp chuột vào để chọn đề tài"/>
                             </td>
                             <td align='center' colspan="3">
-                                <?php $macb='2134'; detai_canbo($macb); ?>
+                                <input type="text" name="" value="Tên đề tài được chọn" class="form-control" readonly=""/>
                             </td>
                             
                         </tr>
