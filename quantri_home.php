@@ -25,6 +25,9 @@
     
     <?php 
         session_start();
+        if(!isset($_SESSION['user'])){
+            echo "<script>window.location.href='giaodienchung/dang-nhap.php';</script>";
+        }
     ?>
     
     <body>
@@ -66,8 +69,20 @@
                                     <li><a href="?cn=qtsv">Sinh viên</a></li>
                                 </ul>
                             </li> 
-                            <li><a href="giaodienchung/dang-nhap.php">Đăng nhập</a></li>
-                            <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li> 
+                            <?php 
+                                  if(isset($_GET['cn'])){
+                                      if($_GET['cn'] == 'dangxuat'){
+                                          session_destroy();
+                                          $_SESSION['user'] = NULL;
+                                      }
+                                  }
+                                  
+                                  if(isset($_SESSION['user'])){
+                                      $quantriUser = $_SESSION['user'];
+                                  }
+                            ?>
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$quantriUserUSER['hoten']." (".$quantriUserUSER['macb'].")</strong>" ; ?></a></li>
+                            <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 

@@ -35,7 +35,7 @@
             return null;
     }
 
-/* ======================== Xoa thong tin sv======================= */
+/* ======================== Xoa thong tin sv ======================= */
 
     function sv_xoa($mssv) {
         $sql = "DELETE FROM sinh_vien WHERE mssv='$mssv'";
@@ -52,14 +52,6 @@
         //echo $sql;
     }
 
-/* ======================== Them thong tin khac ======================= */
-
-    function sv_themchitiet($mssv, $hinh, $congnghe, $laptrinh, $kinhnghiem) {
-        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',kynangcongnghe='$congnghe',kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem' 
-                        WHERE mssv='$mssv'";
-        mysql_query($sql);
-    }
-
 /* ======================== Cap nhat thong tin sv ======================= */
 
     function sv_sua($mssv, $ten, $gt, $ngaysinh, $khoahoc, $email, $sdt, $hinh, $congnghe, $laptrinh, $kinhnghiem, $matkhau, $khoa) {
@@ -71,6 +63,14 @@
         mysql_query($sql);
     }
 
+/* ======================== Cập nhật thông tin khác ======================= */
+
+    function sv_themchitiet($mssv, $hinh, $congnghe, $laptrinh, $kinhnghiem) {
+        $sql = "UPDATE sinh_vien SET hinhdaidien='$hinh',kynangcongnghe='$congnghe',kienthuclaptrinh='$laptrinh',kinhnghiem='$kinhnghiem' 
+                        WHERE mssv='$mssv'";
+        mysql_query($sql);
+    }
+
 /* ======================== Doi mat khau sv ======================= */
 
     function sv_doimatkhau($mssv, $hinh, $matkhau) {
@@ -79,20 +79,23 @@
                         WHERE mssv='$mssv'";
         mysql_query($sql);
     }
-
+/* ======================== Thong tin làm niên luận của sv ======================= */ 
+    function sv_nhom($mssv){
+        
+    }    
+    
 /* ======================== Lay danh sách thong tin sv ======================= */
+//    function sv_danhsach() {
 
-    function sv_danhsach() {
+//        $sql = "SELECT * FROM sinh_vien";
+//        $ds_sv = mysql_query($sql);
 
-        $sql = "SELECT * FROM sinh_vien";
-        $ds_sv = mysql_query($sql);
-
-        if (mysql_num_rows($ds_sv) > 0) {
-            return $ds_sv;
-        }
-        else
-            return null;
-    }
+//        if (mysql_num_rows($ds_sv) > 0) {
+//            return $ds_sv;
+//        }
+//        else
+//            return null;
+//    }
  /*======================== Danh sach phan trang =======================*/
     function sodong_sv(){
         $count = 0;

@@ -51,17 +51,6 @@
                     </div>
                     <div class="navbar-collapse collapse">                        
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Giảng viên
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="?cn=ttgv">Thông tin cá nhân</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
-                                </ul>
-                            </li>
                             <li>
                                 <a href="?cn=kehoach" data-toggle="tooltip" data-placement="bottom" title="Theo dõi thực hiện dự án">Kế hoạch</a>
                             </li>                            
@@ -94,9 +83,19 @@
                                     {
                                        $sessUSER = $_SESSION['user']; 
                                     }    
-                                ?>                
-                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$sessUSER['hoten']." (".$sessUSER['macb'].")</strong>" ; ?></a></li>
-                            <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
+                                ?>             
+                            <li class="dropdown">
+                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo "<strong style='color:blue;'>".$sessUSER['hoten']." (".$sessUSER['macb'].")</strong>" ; ?>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
+                                </ul>
+                            </li>
+                            
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 

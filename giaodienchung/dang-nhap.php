@@ -15,7 +15,7 @@
 <?php 
     include_once '../chucnang/dangnhap.php';
     session_start();
-    $_SESSION['username'] = null;
+    $_SESSION['user'] = null;
  
     
     if(isset($_POST['btnDangNhap'])){
@@ -30,6 +30,11 @@
                 
         if($dn_gv != ""){ 
             $_SESSION['user'] = $dn_gv;
+            $gv = $dn_gv;
+            if($gv['quantri'] == 1){
+                $_SESSION['user'] = $dn_gv;
+                echo "<script>window.location.href = '../quantri_home.php?cn=ttgv';</script>";
+            }
             echo "<script>window.location.href = '../giangvien_home.php?cn=ttgv';</script>";
         }
         else if($dn_sv != ""){

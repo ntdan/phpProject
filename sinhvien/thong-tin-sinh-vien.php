@@ -120,14 +120,11 @@ and open the template in the editor.
                                 </tr>
                                 <tr>
                                     <td><label>Tên đề tài:</label></td>
-                                    <td>Website bán điện thoại</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Thành viên</label></td>
-                                    <td>
-                                        <strong>Nhóm trưởng : </strong>Huỳnh Trung Long<br>
-                                        <strong>Thành viên khác: </strong> Trấn Thành, Phạm Kim Chi
-                                    </td>                                    
+                                    <td><label>Mã nhóm niên luận</label></td>
+                                    <td></td>
                                 </tr>
                             </table>
                             <form action="" method="post">
@@ -136,25 +133,25 @@ and open the template in the editor.
                                     <tr>
                                         <td>Số điện thoại:</td>
                                         <td>
-                                            <input type="text" name="" value="" class="form-control">
+                                            <input type="text" name="txtDienThoai" value="" class="form-control">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kỹ năng công nghệ:</td>
                                         <td>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtCongNghe" rows="3"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kiến thức về ngôn lập trình:</td>
                                         <td>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtLapTrinh" rows="3"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Kinh nghiệm:</td>
                                         <td>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" name="txtKinhNghiem" rows="3"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,7 +160,7 @@ and open the template in the editor.
                                             <button type="submit" name="btnLuu" class="btn btn-primary" style="width: 20%;">
                                                 <img src="images/save-as-icon.png"> Lưu 
                                             </button>
-                                            <button type="reset" name="" class="btn btn-primary" style="width: 20%;">
+                                            <button type="submit" name="btnLamLai" class="btn btn-primary" style="width: 20%;">
                                                 <img src="images/refresh.png"> Làm lại
                                             </button> 
                                         </td>                                  

@@ -74,20 +74,6 @@
                     </div>               
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Thông tin sinh viên
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="?cn=ttsv">Thông tin cá nhân</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="?cn=xemcv">Xem công việc</a></li>
-                                    <hr style="margin-bottom: 7px; margin-top: 7px;">
-                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
-
-                                </ul>
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Đăng ký niên luận
@@ -108,21 +94,41 @@
                                     <li><a href="?cn=dscv">Danh sách các nhiệm vụ</a></li>
                                     <li class="divider"></li>                                
                                     <li><a href="?cn=phancongcv">Phân công việc</a></li>
-                                    <hr style="margin-bottom: 7px;margin-top: 10px;">                               
+                                    <li class="divider"></li>                             
                                     <li><a href="?cn=noptl">Nộp tài liệu</a></li>                               
                                 </ul>
                             </li>                        
                             <li><a href="?cn=xemdiem">Xem điểm</a></li>
                             <li><a href="?cn=diendan">Thảo luận</a></li> 
                            <?php 
-                                $dn = "";
+                                if(isset($_GET['cn']))
+                                {
+                                    if($_GET['cn'] == "dangxuat")
+                                    {
+                                        session_destroy();
+                                        $_SESSION['user'] = NULL;
+                                    }
+                                }
+                                
                                 if(isset($_SESSION['user']))
                                 {
-                                    $dn = $_SESSION['user'];
+                                    $svUSER = $_SESSION['user'];
                                 }                                
                            ?>    
-                            <li><a href="giaodienchung/dang-nhap.php"><?php echo $dn; ?></a></li>
-                            <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li>
+                            <li><a href="?cn=ttsv"></a></li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo "<strong style='color:blue;'>".$svUSER['hoten']." (".$svUSER['mssv'].")</strong>" ; ?>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=xemcv">Xem công việc</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
