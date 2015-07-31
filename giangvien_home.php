@@ -1,6 +1,8 @@
     
     <?php     
-        session_start();         
+        session_start();        
+        if(!isset($_SESSION['user']))
+            echo "<script>window.location.href='giaodienchung/dang-nhap.php';</script>";
     ?>
 <!DOCTYPE html>
 <html>         
@@ -78,19 +80,23 @@
                                 </ul>
                             </li>
                             <li><a href="?cn=qldiendan">Thảo luận</a></li>
-<!--                           
-                            <li><a href="giangvien/dang-nhap-gv.php">Đăng nhập</a></li>
-                            <li><a href="giangvien/dang-nhap-gv.php">Đăng xuất</a></li> 
-
--->                             <?php  
-                                    $dn = "";                                
-                                    if(isset($_SESSION['username']) && $_SESSION['username'])
+                                <?php                                    
+                                    if(isset($_GET['cn']))
                                     {
-                                       $dn = $_SESSION['user'];
+                                        if($_GET['cn'] == 'dangxuat')
+                                        {
+                                            session_destroy();
+                                            $_SESSION['user'] = null;
+                                        }                                        
+                                    }  
+                                    
+                                    if(isset($_SESSION['user']))
+                                    {
+                                       $sessUSER = $_SESSION['user']; 
                                     }    
                                 ?>                
-                            <li><a href="giaodienchung/dang-nhap.php"><?php echo $dn ; ?></a></li>
-                            <li><a href="giaodienchung/dang-nhap.php">Đăng xuất</a></li> 
+                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$sessUSER['hoten']." (".$sessUSER['macb'].")</strong>" ; ?></a></li>
+                            <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 

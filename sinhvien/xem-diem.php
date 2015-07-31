@@ -71,7 +71,7 @@ and open the template in the editor.
                         <?php namhoc_hp($manth) ?>
                     </tr>
                  </table>
-           
+      
                 <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                     <tr>
                         <th rowspan="2" width="1%">STT</th>
@@ -81,15 +81,17 @@ and open the template in the editor.
                         <th rowspan="2" width="4%">Tổng điểm</th>
                         <th rowspan="2" width="4%">Điểm chữ</th>                         
                     </tr>
+                    <tr>
                         <?php 
-                            while($diemtc = mysql_fetch_array($ds_diemtc)){
+                            while($diemtc = mysql_fetch_assoc($ds_diemtc)){
                                 echo "<th width='2%'>".$diemtc['heso']."</th>";
                             }                                
-                        ?>
-                    <tr> 
+                        ?>                        
+                </tr>
+                
                     <?php 
                         $stt = 1;                        
-                        while($sv = mysql_fetch_array($ds_sv)){
+                        while($sv = mysql_fetch_assoc($ds_sv)){
                             echo "<tr>".
                                     "<td align='center'>$stt</td>".
                                     "<td align='center'>".$sv['mssv']."</td>".
@@ -99,7 +101,7 @@ and open the template in the editor.
                                 if($sv_diem == NULL){
                                     return;
                                 }
-                            while($diem = mysql_fetch_array($sv_diem)){
+                            while($diem = mysql_fetch_assoc($sv_diem)){
                                 echo "<td align='center' style='color: #FF00FF; font-weight:bold;'>".$diem['diem']."</td>";
                             }
                             

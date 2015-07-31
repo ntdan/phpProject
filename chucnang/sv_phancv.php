@@ -50,7 +50,7 @@
                 " JOIN cong_viec cv on th.macv=cv.macv".
                 " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";;
         $ds = mysql_query($sql);
-        echo "<select class=\"form-control\" size='1' name='cbMaCV'>";
+        echo "<select onchange=\"document.forms['frm'].submit()\" class=\"form-control\" size='1' name='cbMaCV'>";
         while($row = mysql_fetch_array($ds)){
             echo "<option value='$row[macv]'>$row[congviec]</option>";
         }

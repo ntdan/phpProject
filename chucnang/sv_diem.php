@@ -15,7 +15,7 @@
     }
  /*====================== Danh sách thành viên của 1 nhóm ====================================*/   
     function thanhvien($manth){
-        $sql = "SELECT * FROM sinh_vien sv".
+        $sql = "SELECT sv.mssv,sv.hoten FROM sinh_vien sv".
                 " JOIN dangky_nhom dk ON sv.mssv=dk.mssv".
                 " JOIN nhom_thuc_hien nth ON dk.manhomthuchien=nth.manhomthuchien".
                 " WHERE nth.manhomthuchien='$manth'";

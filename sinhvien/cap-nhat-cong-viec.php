@@ -64,7 +64,9 @@ and open the template in the editor.
                                 <td><input type="text" name="txtMaCV" value="" class="form-control" readonly=""></td>
                                 <th width="10%">Tên công việc:</th>
                                 <td colspan="3">
+                                    <form name="frm" action="" method="post">
                                     <?php $manth = $_GET['id_manth']; xem_tenCVchinh($manth); ?>
+                                    </form>
                                 </td>
                             </tr>
                             <tr>

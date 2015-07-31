@@ -1,6 +1,8 @@
     
     <?php 
         session_start();
+        if(!isset($_SESSION['user']))
+            echo "<script>window.location.href='giaodienchung/dang-nhap.php';</script>";
     ?>
 <!DOCTYPE html>
 <html>    
@@ -111,11 +113,7 @@
                                 </ul>
                             </li>                        
                             <li><a href="?cn=xemdiem">Xem điểm</a></li>
-                            <li><a href="?cn=diendan">Thảo luận</a></li>  
-<!--                            
-                            <li><a href="sinhvien/dang-nhap-sv.php">Đăng nhập</a></li>
-                            <li><a href="sinhvien/dang-nhap-sv.php">Đăng xuất</a></li>
--->
+                            <li><a href="?cn=diendan">Thảo luận</a></li> 
                            <?php 
                                 $dn = "";
                                 if(isset($_SESSION['user']))

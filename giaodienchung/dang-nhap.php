@@ -14,20 +14,26 @@
 
 <?php 
     include_once '../chucnang/dangnhap.php';
+    session_start();
+    $_SESSION['username'] = null;
+ 
     
     if(isset($_POST['btnDangNhap'])){
+      // Xử lý để tránh MySQL injection
+        $ten = strip_tags($_POST['txtTenDangNhap']);
         $ten = addslashes($_POST['txtTenDangNhap']);
+        $matkhau = strip_tags($_POST['txtMatKhau']);
         $matkhau = addslashes($_POST['txtMatKhau']); 
         
         $dn_gv = gv_dangnhap($ten, $matkhau);    
         $dn_sv = sv_dangnhap($ten, $matkhau);
                 
         if($dn_gv != ""){ 
-            $_SESSION['username'] = $dn_gv;
+            $_SESSION['user'] = $dn_gv;
             echo "<script>window.location.href = '../giangvien_home.php?cn=ttgv';</script>";
         }
         else if($dn_sv != ""){
-            $_SESSION['username'] = $dn_sv;
+            $_SESSION['user'] = $dn_sv;
             echo "<script>window.location.href = '../sinhvien_home.php?cn=ttsv';</script>";            
         }
         else        
