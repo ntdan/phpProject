@@ -1,7 +1,7 @@
 <?php
 
     include_once 'thuvien/db.php';
-    
+
 /* ======================== Lây các mã khi đã đăng ký nhóm niên luận của 1 sv======================= */
     function sv_maNhomNL($mssv){
         $sqlNhom = "SELECT mssv,manhomhp,manhomthuchien,nhomtruong FROM dangky_nhom WHERE mssv='$mssv'";

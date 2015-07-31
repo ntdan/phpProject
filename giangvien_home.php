@@ -143,13 +143,13 @@
             });
         </script>
         
-        <script>
+        <script type="text/javascript">
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip();   
             });
         </script>
         
-        <script>
+        <script type="text/javascript">
             $(function() {
               $( "#txtNgaySinh" ).datepicker();
             });

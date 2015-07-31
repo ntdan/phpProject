@@ -100,10 +100,10 @@ and open the template in the editor.
                                     return;
                                 }
                             while($diem = mysql_fetch_array($sv_diem)){
-                                echo "<td align='center'>".$diem['diem']."</td>";
+                                echo "<td align='center' style='color: #FF00FF; font-weight:bold;'>".$diem['diem']."</td>";
                             }
                             
-                                echo "<td align='center'>".tongdiem($sv['mssv'])."</td>".
+                                echo "<td align='center' style='color: darkmagenta; font-weight:bold;'>".tongdiem($sv['mssv'])."</td>".
                                      "<td align='center' style='color: brown; font-weight:bold;'>".diemchu($sv['mssv'])."</td>".
                                  "</tr>";
                             $stt++;

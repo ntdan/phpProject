@@ -24,8 +24,14 @@ and open the template in the editor.
     </style>
     <?php
         include_once 'chucnang/sv_duocgiaocv.php';
-
+        include_once 'chucnang/sv_thongtin.php';
+        
         $mssv = '1111317';
+        $hoten = 'Phạm Thúy Ngọc';
+   //Lấy mã nhóm niên luận của sv
+        $manl = sv_maNhomNL($mssv);
+        if($manl == null){ return; }
+        $manth = $manl['manhomthuchien'];               
     ?>
     
     <body>
@@ -33,38 +39,23 @@ and open the template in the editor.
             
             <div class="row">
                 <div class="col-md-12">
-                    <h3 style="color: darkblue; font-weight: bold;" align="center">THÔNG TIN CÔNG VIỆC</h3><br>
+                    <h3 style="color: darkblue; font-weight: bold;" align="center">CÔNG VIỆC ĐƯỢC GIAO</h3><br>
                 </div>          
                 <div class="col-md-12">
                             <table class="table table-bordered" border="0" width="1000px" cellpadding="0px" cellspacing="0px" align='center' id="bang1">
                                 <tr>
-                                    <th width="4%">STT</th>
-                                    <th width="20%">Công việc <br>
-                                        <input type="text" value="" class="form-control">
-                                    </th>
-                                    <th width="10%">Trạng thái <br>
-                                        <select name="" class="form-control">
-                                            <option value="1">Tất cả</option>
-                                            <option value="2">Hoàn thành</option>
-                                            <option value="3">Sắp làm</option>
-                                            <option value="4">Đang làm</option>
-                                        </select>
-                                    </th>
-                                    <th width="8%">Ngày bắt đầu</th>
-                                    <th width="8%">Hạn hoàn tất <br>
-                                    </th>
-                                    <th width="14%">Độ ưu tiên <br>
-                                        <select name="" class="form-control">
-                                            <option value="1">Thấp</option>
-                                            <option value="2">Bình thường</option>
-                                            <option value="3">Cao</option>
-                                        </select>
-                                    </th>
-                                    <th width="10%">Giao cho</th>
-                                    <th width="20%">Nội dung</th>
-                                    <th>%</th>
+                                    <th width="1%">STT</th>
+                                    <th width="15%">Công việc</th>
+                                    <th width="8%">Giao cho</th>
+                                    <th width="6%">Ngày bắt đầu</th>
+                                    <th width="6%">Hạn hoàn tất</th>
+                                    <th width="4%">Thời gian</th>
+                                    <th width="4%">Phụ thuộc</th>
+                                    <th width="5%">Độ ưu tiên</th>
+                                    <th width="5%">Trạng thái</th>
+                                    <th width="8%">Tiến độ</th>
                                 </tr>
-                                <?php danhsach_viecduocgiao($mssv); ?>
+                                <?php danhsach_viecduocgiao($mssv,$hoten,$manth); ?>
                             </table>
                 </div>  <!-- /class="col-md-12" -->                     
             </div> <!-- /row -->

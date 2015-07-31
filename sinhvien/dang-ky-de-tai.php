@@ -30,7 +30,7 @@ and open the template in the editor.
         include_once 'chucnang/sv_thongtin.php';
         
         $mssv = '1111317';
-        
+//Lấy 'mã nhóm học phần' của sinh viên đã đăng lý        
         $manl = sv_maNhomNL($mssv);
         if($manl == null){
             return;

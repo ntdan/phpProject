@@ -20,7 +20,7 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="scripts/ckeditor/ckeditor.js"></script>
         
-        <script>
+        <script type="text/javascript">
             $(function() {
               $( "#txtNgayBatDauKH" ).datepicker({
                   dateFormat: "yy-mm-dd"
@@ -40,6 +40,11 @@
               $( "#txtNgayKTThucTe" ).datepicker({
                   dateFormat: "yy-mm-dd"
               });
+            });
+        </script>
+        <script type="text/javascript">            
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
             });
         </script>
         
