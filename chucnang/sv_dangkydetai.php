@@ -26,7 +26,7 @@
     }
 /*====================== Lấy mssv của 1 nhóm hoc phần ====================================*/
     function lay_mssv($manhomhp){
-        $sql = "SELECT mssv, manhomhp FROM dangky_nhom WHERE manhomhp='$manhomhp'";
+        $sql = "SELECT distinct mssv, manhomhp FROM dangky_nhom WHERE manhomhp='$manhomhp'";
         $ds = mysql_query($sql);
         if(mysql_num_rows($ds)>0){
             return $ds;

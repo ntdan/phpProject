@@ -45,7 +45,14 @@ and open the template in the editor.
         if($ds_masv == null){
             return;
         }
+//Thêm thành viên vào nhóm
+        if(isset($_POST['btnThem'])){
             
+        }
+//Đăng ký nhóm làm niên luận
+        if(isset($_POST['btnDangKy'])){
+            
+        }    
     ?>
     
     <body>
@@ -77,18 +84,27 @@ and open the template in the editor.
                             <td colspan="3">
                                 <table class="table table-bordered" id="tblChonTV"> 
                                     <?php
-                                        $n = mysql_num_rows($ds_masv);                                       
-                                        while($ma = mysql_fetch_array($ds_masv)){
-                                             
-                                            echo "<td>".
-                                                     $ma['mssv'].": <input type='checkbox' name='ckbThanhVien' value=''/>".
-                                                     "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>".
-                                                 "</td>";
+                                        $n = mysql_num_rows($ds_masv); 
+                                        $stt = 1;
+                                        for($j=1; $j<=4; $j++){                                            
+                                            echo "<td width='20%'>";                                            
+                                            for($i=1;$i<6;$i++)
+                                            {
+                                                $ma = mysql_fetch_array($ds_masv);
+                                                if($ma != NULL){
+                                                    echo $ma['mssv'].": <input type='checkbox' name='ckbThanhVien$stt' value=''/>&nbsp;&nbsp;&nbsp;&nbsp;".
+                                                     "Nhóm trưởng: <input type='radio' name='raNhomTruong' value=''/><br>";
+                                                }
+                                                
+                                                
+                                                $stt++;                                                                                                   
+                                            }                                    
+                                            echo "</td>";  
                                             
-                                        }
+                                        }                                            
                                         echo "<tr>".
                                                  "<td colspan='4' align='center'>".
-                                                      "<input type='button' value='Thêm thành viên' class=\"btn btn-primary\">".
+                                                      "<input type='submit' name='btnThem' value='Thêm thành viên' class=\"btn btn-primary\">".
                                                 "</td>".
                                              "</tr>";
                                     ?>   
@@ -167,7 +183,7 @@ and open the template in the editor.
                             </td></tr>
                         <tr>
                             <td colspan="4" align='center'>
-                                <button type="button" name="" class="btn btn-success" style="width: 20%;">
+                                <button type="submit" name="btnDangKy" class="btn btn-success" style="width: 20%;">
                                     Đăng ký 
                                 </button>
                             </td>
