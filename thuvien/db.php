@@ -7,6 +7,7 @@
  
  /*=================== Các Biến toàn cục ==================================*/
     $thumucHinhDaiDien = "hinhdaidien";
+    $thumucTaiLieu = "tai-lieu";
     $hinhxoa = "images/Document-Delete-icon.png";
     $hinhcapnhat = "images/edit-icon.png";
     $lock = "images/Lock.png";

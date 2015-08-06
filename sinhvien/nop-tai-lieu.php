@@ -37,28 +37,19 @@ and open the template in the editor.
             <div class="row">
                 <h3 style="color: darkblue; font-weight: bold;" align="center">NỘP TÀI LIỆU</h3><br>
                 <form method="post">
-                     <div class="col-md-12">
-                        <table class="table" cellpadding="15px" cellspacing="0px" align='center'>
-                            <tr>
-                                <td></td>
-                                <td align="right"><strong>Tên đề tài:</strong></td>
-                                <td style="color: darkblue; font-weight: bold;"><?php echo $detainhom['tendt']; ?></td>
-                                <td align="right" valign="middle"><strong>Công việc:</strong> &nbsp;</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option value="1">Phân tích yêu cầu</option>
-                                        <option value="2">Đặc tả yêu cầu</option>
-                                        <option value="3">Thiết kế chức năng</option>
-                                        <option value="3">Thiết kế giao diện</option>
-                                    </select>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label style="margin-left: 15px;">Tên đề tài: </label><br>
+                            <label style="margin-left: 15px;color: darkblue; font-weight: bold;">
+                                <?php echo $detainhom['tendt']; ?>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label style="display: block; float: left;">Công việc: </label>
+                            <?php chon_tenCV($manth); ?>
+                        </div>                                          
+                     </div><br>
+                     <div class="col-md-12">     
                         <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                             <tr>
                                 <th>STT</th>
@@ -76,42 +67,46 @@ and open the template in the editor.
                                 <td>Tập tin</td>
                                 <td>D:/NienLuan</td>
                                 <td>02/03/2014</td>
-                                <td align="center"><a href="#">[Xóa]</a></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                        <table  class="table" cellpadding="15px" cellspacing="0px" align='center'>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                            <span class="sr-only">45% Complete</span>
-                                        </div>
-                                    </div>
+                                <td align="center">
+                                    <a href="?cn=capnhattailieu"><img src="images/edit-icon.png"></a>&nbsp;&nbsp;
+                                    <a href="?cn=noptl"><img src="images/Document-Delete-icon.png"></a>
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>                                    
                             </tr>
-                            <tr>                                    
-                                <td></td>
-                                <td align="right"></td>
-                                <td colspan="2"><input type="file" value="" class="form-control"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>                            
+                        </table><hr>
+                        <div class="col-md-12">
+                             <div class="progress" style="width:50%;">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                    <span>45% Complete</span><!--class="sr-only"-->
+                                </div>                                 
+                             </div>
+                            <form method="post" action="" enctype="multipart/form-data">
+                                <input type="file" id="fTaiLieu" name="fTaiLieu" value="" class="form-control" style="width:60%;"/><br>
+                                <label>Mô tả:</label><input type="text" name="txtMoTa" value="" class="form-control" style="width:60%;"/><br>
+                                <input type="submit" name="uploadclick" value="Gửi tập tin" class="btn btn-success" style="margin-left: 50px;"/><br>
+                            </form>
+                            <?php                                                         
+                                if(isset($_POST['uploadclick'])){
+                                    $matl = matl_tutang();
+                                    $mota = $_POST['txtMoTa'];
+                                    
+                                    global  $thumucTaiLieu;
+                                    if(!file_exists($thumucTaiLieu))
+                                         mkdir($thumucTaiLieu);
+                                    if($_FILES['fTaiLieu']['type'] != "image/jpg" || $_FILES['fTaiLieu']['type'] != "image/jpeg" || $_FILES['fTaiLieu']['type'] != "image/png")
+                                    {          
+                                        $tentl = basename($_FILES['fTaiLieu']['name']);
+                                        $kichthuoc = $_FILES['fTaiLieu']['size'];
+                                        $duoi = $_FILES['fTaiLieu']['type'];
+                                        $duongdan = pathinfo($tentl); //Trả về thông tin đường dẫn file
+                                        
+                                        move_uploaded_file($_FILES['fTaiLieu']['tmp_name'], $thumucTaiLieu.'/'.$_FILES['fTaiLieu']['name']);                                                       
+                                    }   
+                                    sv_themtailieu($matl,$tentl,$kichthuoc,$mota);
+                                }
+                                
+                                    
+                            ?>
+                        </div>                                               
                     </div>
                 </form>               
             </div>   <!-- /row -->

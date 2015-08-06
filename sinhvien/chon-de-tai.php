@@ -52,7 +52,7 @@ and open the template in the editor.
                                            "<td>".$rw['songuoitoida']."</td>".
                                            "<td>".$rw['motadt']."</td>".
                                            "<td>".$rw['congnghe']."</td>".
-                                           "<td><input type='submit' name='' value='Đăng ký' /></td>".
+                                           "<td><input type='submit' id='rdDangKy' name='' value='Đăng ký' /></td>".
                                        "</tr>";
                                 $stt++;
                             }

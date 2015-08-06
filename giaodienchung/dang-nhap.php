@@ -31,14 +31,17 @@
         if($dn_gv != ""){ 
             $_SESSION['user'] = $dn_gv;
             $gv = $dn_gv;
+            $_SESSION['quyen'] = 'gv';
             if($gv['quantri'] == 1){
                 $_SESSION['user'] = $dn_gv;
+                $_SESSION['quyen'] = 'qt';
                 echo "<script>window.location.href = '../quantri_home.php?cn=ttgv';</script>";
             }
             echo "<script>window.location.href = '../giangvien_home.php?cn=ttgv';</script>";
         }
         else if($dn_sv != ""){
             $_SESSION['user'] = $dn_sv;
+            unset($_SESSION['quyen']);
             echo "<script>window.location.href = '../sinhvien_home.php?cn=ttsv';</script>";            
         }
         else        

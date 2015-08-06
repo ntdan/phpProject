@@ -43,19 +43,19 @@
         echo "</select>";
     }
 /*====================== Xem mã công việc của 1 nhóm ====================================*/
-    function xem_tenCVchinh($manth){
-        $sql = "SELECT *".
-                " FROM nhom_thuc_hien nth".
-                " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
-                " JOIN cong_viec cv on th.macv=cv.macv".
-                " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";;
-        $ds = mysql_query($sql);
-        echo "<select onchange=\"document.forms['frm'].submit()\" class=\"form-control\" size='1' name='cbMaCV'>";
-        while($row = mysql_fetch_array($ds)){
-            echo "<option value='$row[macv]'>$row[congviec]</option>";
-        }
-        echo "</select>";
-    }
+//    function xem_tenCVchinh($manth){
+//        $sql = "SELECT *".
+//                " FROM nhom_thuc_hien nth".
+//                " JOIN thuc_hien th ON nth.manhomthuchien=th.manhomthuchien".
+//                " JOIN cong_viec cv on th.macv=cv.macv".
+//                " WHERE th.manhomthuchien='$manth' AND cv.phuthuoc_cv='0'";;
+//        $ds = mysql_query($sql);
+//        echo "<select onchange=\"document.forms['frm'].submit()\" class=\"form-control\" size='1' name='cbMaCV'>";
+//        while($row = mysql_fetch_array($ds)){
+//            echo "<option value='$row[macv]'>$row[congviec]</option>";
+//        }
+//        echo "</select>";
+//    }
   
 /*====================== Xem tên Đề tài của 1 nhóm ====================================*/
     function xem_dtthuchien($manth){

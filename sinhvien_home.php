@@ -1,7 +1,7 @@
     
     <?php 
         session_start();
-        if(!isset($_SESSION['user']))
+        if(!isset($_SESSION['user']) || isset($_SESSION['quyen']))
             echo "<script>window.location.href='giaodienchung/dang-nhap.php';</script>";
     ?>
 <!DOCTYPE html>

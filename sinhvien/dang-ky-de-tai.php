@@ -28,8 +28,12 @@ and open the template in the editor.
             function dschon_detai() {
                 $macb = document.getElementById('txtMaCB').value;
                 //prompt($macb);
-                alert($macb);
-                window.open('http://localhost/phpProject/sinhvien/chon-de-tai.php?id_macb=$macb', "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=400");
+                //alert($macb);
+                var _window = window.open("http://localhost/phpProject/sinhvien/chon-de-tai.php?id_macb="+$macb, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=400");
+                _window.onbeforeunload = function()
+                {
+                    location.reload();
+                }
             }
         </script>
     </head>
@@ -142,7 +146,7 @@ and open the template in the editor.
                         <tr>
                             <th width='15%' valign='middle'>Chọn đề tài:</th>
                             <td align="center">
-                                    <input onclick="dschon_detai()" type="radio" name="rdMaDT" value="" title="Nhấp chuột vào để chọn đề tài"/>
+                                    <input onclick="dschon_detai()" type="radio" id="rdMaDT" name="rdMaDT" value="" title="Nhấp chuột vào để chọn đề tài"/>
                             </td>
                             <td align='center' colspan="3">
                                 <input type="text" name="" value="Tên đề tài được chọn" class="form-control" readonly=""/>
