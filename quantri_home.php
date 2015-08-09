@@ -46,18 +46,7 @@
                         </button>
                     </div>
                     <div class="navbar-collapse collapse">                        
-                        <ul class="nav navbar-nav">                            
-                            <li class="dropdown">
-                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Thông tin giảng viên
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="?cn=ttgv">Thông tin cá nhân</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
-                                </ul>
-                            </li>  
+                        <ul class="nav navbar-nav">  
                             <li class="dropdown">
                                 <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Quản trị
@@ -79,11 +68,22 @@
                                   
                                   if(isset($_SESSION['user']))
                                     {
-                                       $quantriUSER = $_SESSION['user']; 
+                                      $gvUSER = $_SESSION['user']; 
                                     }  
                             ?>
-                            <li><a href="giaodienchung/dang-nhap.php"><?php echo "<strong style='color:blue;'>".$quantriUSER['hoten']." (".$quantriUSER['macb'].")</strong>" ; ?></a></li>
-                            <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
+                            <li class="dropdown">
+                                <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo "<strong style='color:blue;'>".$gvUSER['hoten']." (".$gvUSER['macb'].")</strong>" ; ?>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="?cn=ttgv">Thông tin giảng viên</a></li>
+                                    <li class="divider"></li>                           
+                                    <li><a href="?cn=dmk">Đổi mật khẩu</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="giaodienchung/dang-nhap.php?cn=dangxuat">Đăng xuất</a></li> 
+                                </ul>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li> 

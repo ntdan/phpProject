@@ -1,8 +1,45 @@
 <?php
     include_once 'thuvien/db.php';
     include_once 'sv_diem.php';
-     
- /*========================== Lấy thông tin điểm số của mỗi sv trong 1 nhóm niên luận =====================================*/   
+    
+  /*========================== Chọn tên đề tài nhóm niên luận ===============================*/ 
+    function chon_DeTai($dt,$macb,$submit){
+        $sqlDeTai = "SELECT dt.madt, dt.tendt, radt.manhomthuchien".
+                " FROM nhom_hocphan hp".
+                " JOIN nien_khoa nk ON hp.mank=nk.mank".
+                " JOIN ra_de_tai radt ON hp.manhomhp=radt.manhomhp".
+                " JOIN de_tai dt ON radt.madt = dt.madt".
+                " WHERE dt.macb='$macb'";
+        $dsDeTai = mysql_query($sqlDeTai);
+        $str = " onChange=\"document.forms[0].submit();\" ";
+		if($submit == false)
+			$str = "";
+        // dem so dong nhan duoc
+        if(mysql_num_rows($dsDeTai) > 0)
+        {
+            echo "<th align='center' width='20%' name='cbTenDT'>Tên đề tài:".
+                    "<select class=\"form-control\" size='1' align='center' name='cbmDeTai' $str>";
+                while($row = mysql_fetch_assoc($dsDeTai))
+                {
+                        if($dt==$row['madt'])
+                        {
+                                echo "<option selected value='".$row['manhomthuchien']."'>";
+                        }else
+                        {
+                                echo "<option value='".$row['manhomthuchien']."'>";
+                        }
+                        echo $row['tendt'];
+                        echo "</option>";
+                }
+            echo "</select></th>";
+        }
+        else
+        {
+                return "";
+        }
+    } 
+    
+ /*========================== Lấy thông tin điểm số của mỗi sv trong 1 nhóm niên luận ===============================*/   
     function gv_diem($mssv){
         $sqlDiem = "SELECT mssv, diem".
                    " FROM chitiet_diem".
@@ -93,19 +130,19 @@
         }
         echo "</select></th>";
         
-        $sqlDeTai = "SELECT dt.madt, dt.tendt".
-                " FROM nhom_hocphan hp".
-                " JOIN nien_khoa nk ON hp.mank=nk.mank".
-                " JOIN ra_de_tai radt ON hp.manhomhp=radt.manhomhp".
-                " JOIN de_tai dt ON radt.madt = dt.madt".
-                " WHERE dt.macb='$macb'";
-        $kqDT = mysql_query($sqlDeTai);
-        echo "<th align='center' width='20%' name='cbTenDT'>Tên đề tài:".
-                "<select class=\"form-control\" size='1' align='center'>";
-        while($rw = mysql_fetch_array($kqDT)){
-               echo  "<option value='".$rw['madt']."'>".$rw['tendt']."</option>";
-        }
-        echo "</select></th>";
+//        $sqlDeTai = "SELECT dt.madt, dt.tendt".
+//                " FROM nhom_hocphan hp".
+//                " JOIN nien_khoa nk ON hp.mank=nk.mank".
+//                " JOIN ra_de_tai radt ON hp.manhomhp=radt.manhomhp".
+//                " JOIN de_tai dt ON radt.madt = dt.madt".
+//                " WHERE dt.macb='$macb'";
+//        $kqDT = mysql_query($sqlDeTai);
+//        echo "<th align='center' width='20%' name='cbTenDT'>Tên đề tài:".
+//                "<select class=\"form-control\" size='1' align='center'>";
+//        while($rw = mysql_fetch_array($kqDT)){
+//               echo  "<option value='".$rw['madt']."'>".$rw['tendt']."</option>";
+//        }
+//        echo "</select></th>";
     }
 
 /*========================== Tính tổng điểm của 1 sv =====================================*/

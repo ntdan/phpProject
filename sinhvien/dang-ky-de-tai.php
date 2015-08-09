@@ -7,12 +7,6 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Đăng ký đề tài niên luận</title>
-          <!-- Bootstrap -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../bootstrap/css/signin.css">
-        <script type="text/javascript" src="../scripts/ckeditor/ckeditor.js"></script>
-        <script src="../bootstrap/js/bootstrap.js"></script>
         
         <style type="text/css">
             th{
@@ -42,7 +36,7 @@ and open the template in the editor.
         include_once 'chucnang/sv_dangkydetai.php';
         include_once 'chucnang/sv_thongtin.php';
         
-        $mssv = '1111317';
+        $mssv = $svUSER['mssv'];
 //Lấy 'mã nhóm học phần' của sinh viên đã đăng lý        
         $manl = sv_maNhomNL($mssv);
         if($manl == null){

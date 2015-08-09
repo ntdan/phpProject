@@ -10,7 +10,7 @@
                 " JOIN sinh_vien sv ON dk.mssv=sv.mssv".
                 " WHERE nth.manhomthuchien='$manth'";
         $ds = mysql_query($sql);
-        
+echo $sql;
         if(mysql_num_rows($ds)>0){
             return $ds;
         }

@@ -32,8 +32,8 @@ and open the template in the editor.
         include_once 'chucnang/sv_nhomthuchien.php';
         include_once 'chucnang/sv_thongtin.php';
         
-        $mssv = '1111317';
-        
+        //$mssv = '1111317';
+        $mssv = $svUSER['mssv'];
         if(isset($_GET['id_macv'])){
             $macv = $_GET['id_macv'];
             cv_xoa($macv);

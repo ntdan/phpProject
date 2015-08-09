@@ -6,7 +6,7 @@
     function sv_maNhomNL($mssv){
         $sqlNhom = "SELECT mssv,manhomhp,manhomthuchien,nhomtruong FROM dangky_nhom WHERE mssv='$mssv'";
         $manhom = mysql_query($sqlNhom);
-       
+
         if(mysql_num_rows($manhom) > 0){
             return mysql_fetch_array($manhom);
         }

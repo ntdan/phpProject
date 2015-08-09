@@ -29,7 +29,7 @@ and open the template in the editor.
             include_once 'chucnang/gv_tieuchidiem.php';
             include_once 'chucnang/sv_thongtin.php';
             
-            $mssv = '1111317';
+            $mssv = $svUSER['mssv'];
  //Lấy mã nhóm niên luận mà sv đăng ký           
             $manl = sv_maNhomNL($mssv);
             if($manl == null){

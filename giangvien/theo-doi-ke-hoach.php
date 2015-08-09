@@ -20,7 +20,7 @@ and open the template in the editor.
         include_once 'chucnang/gv_dsthuchiendetai.php';
         include_once 'chucnang/hocky_nienkhoa.php';
         
-        $macb = '2134';
+        $macb = $gvUSER['macb'];
 
     ?>
         

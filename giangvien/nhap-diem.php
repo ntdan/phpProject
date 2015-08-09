@@ -17,8 +17,8 @@ and open the template in the editor.
             include_once 'chucnang/gv_tieuchidiem.php';
             include_once 'chucnang/sv_thongtin.php';
             
-            $macb = '2134';
-                        
+            //$macb = '2134';
+            $macb = $gvUSER['macb'];            
             $ds_tc = tc_danhsach($macb);
             if($ds_tc == NULL){
                 return;
@@ -29,7 +29,7 @@ and open the template in the editor.
                 return;
             }
 //Lấy số sinh viên của 1 nhóm niên luận
-            //$manth = $_POST['cbNhomNL'];
+            //$manth = $_POST['cbmDeTai']; //selectbox tên đề tài nhưng Giá trị là 'mã nhóm thực hiện'
             $manth = 'NTH01';
             $dssv = gv_laysv($manth);
             
@@ -55,14 +55,16 @@ and open the template in the editor.
 <div class="container">
     <div class="row">
     <div class="col-md-12">
-        <h3 style="color: darkblue; font-weight: bold;">BẢNG GHI ĐIỂM NIÊN LUẬN</h3>
-        <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
-            <?php
-                gv_namhoc_hk($macb);
-                gv_manthdt_hp($macb);
-            ?>
-         </table>
+        <h3 style="color: darkblue; font-weight: bold;">BẢNG GHI ĐIỂM NIÊN LUẬN</h3>        
         <form id="" name="frmNhapDiem" action="" method="post">
+            <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
+                <?php
+                    gv_namhoc_hk($macb);
+                    gv_manthdt_hp($macb);
+                    $detai = isset($_POST['cbmDeTai']) ? $_POST['cbmDeTai'] : -1;
+                    chon_DeTai($detai,$macb,TRUE);
+                ?>
+             </table>
             <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                 <tr>
                     <th rowspan="2" width="1%">STT</th>           

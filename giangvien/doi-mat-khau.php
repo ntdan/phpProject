@@ -33,8 +33,8 @@ and open the template in the editor.
 
     <?php
         include_once 'chucnang/gv_thongtin.php';
-        $macb = '2134';
-        //$macb = $_GET['id'];
+        //$macb = '2134';
+        $macb = $gvUSER['macb'];
         $gv = gv_xem($macb);
         if($gv == null){
             return;

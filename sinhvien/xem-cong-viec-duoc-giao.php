@@ -26,8 +26,8 @@ and open the template in the editor.
         include_once 'chucnang/sv_duocgiaocv.php';
         include_once 'chucnang/sv_thongtin.php';
         
-        $mssv = '1111317';
-        $hoten = 'Phạm Thúy Ngọc';
+        $mssv = $svUSER['mssv'];
+        $hoten = $svUSER['hoten'];
    //Lấy mã nhóm niên luận của sv
         $manl = sv_maNhomNL($mssv);
         if($manl == null){ return; }

@@ -2,23 +2,15 @@
     include_once 'thuvien/db.php';
     
 /*====================== Thêm tài liệu ====================================*/   
-    function sv_themtailieu($matl,$tentl,$kichthuoc,$mota){
-        $sql = "INSERT INTO tai_lieu(matl,tentl,kichthuoc,mota,ngaycapnhat)".
-                    " VALUES('$matl','$tentl',$kichthuoc,'$mota',now())";
+    function sv_themtailieu($matl,$macv,$tentl,$kichthuoc,$mota,$dc){
+        $sql = "INSERT INTO tai_lieu(matl,macv,tentl,kichthuoc,mota,ngaycapnhat,dieuchinh)".
+                    " VALUES('$matl','$macv','$tentl',$kichthuoc,'$mota',now(),$dc)";
         $kq = mysql_query($sql);
         echo $sql;
     }
-/*====================== Thêm tài liệu được điều chỉnh====================================*/ 
-    function sv_CapNhatTL($matl,$tentl,$kichthuoc,$duongdan,$mota,$macv,$madc,$tendc,$phuthuoc_tl,$noidungdc)
-    {
-        $connect = mysqli_connect('localhost', 'root', '', 'qlnienluan_ktpm');
-        mysqli_set_charset($connect, 'utf8');
+ /*====================== Xóa tài liệu ====================================*/
+    function sv_xoaTL($matl){
         
-        $sqltl = "INSERT INTO tai_lieu(matl,tentl,kichthuoc,duongdan,mota,ngaycapnhat)".
-                        " VALUES('$matl','$tentl',$kichthuoc,'$duongdan','$mota',now());".
-                 "INSERT INTO dieu_chinh(macv,matl,madc,tendc,phuthuoc_tl,noidungdc,ngaysua)".
-                        " VALUES('$macv','$matl','$madc','$tendc','$phuthuoc_tl','$noidungdc',now())";
-        mysqli_multi_query($connect, $sqltl);
     }
 /*====================== Mã tài liệu tự tăng ====================================*/
     function matl_tutang(){
@@ -30,13 +22,14 @@
             $macuoi = mysql_fetch_array($kq);
             $ma = $macuoi['matl'];  //Lấy mã cuối cùng của nhóm thưc hiện
             $so = (int)substr($ma, 2) + 1;
-        }
-        if($so<=9){
-            $pre .="0";
-            return $mamoi = $pre .= $so;
-        }
-        else if($so >= 10)
-            return  $mamoi = $pre .=$so;
+            if($so<=9){
+                $pre .="0";
+                return $mamoi = $pre .= $so;
+            }
+            else if($so >= 10)
+                return  $mamoi = $pre .=$so;
+         }else return $mamoi = 'TL01';
+        
     }
 /*====================== Mã tài liệu tự tăng ====================================*/
     function madc_tutang(){

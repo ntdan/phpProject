@@ -23,41 +23,43 @@ and open the template in the editor.
 
         </style>
     </head>
-    <?php
+    <?php            
             include_once '../chucnang/sv_dschondetai.php';
             
-            //$macb = $_GET['id_macb'];
-            $macb = '2134';
+            $macb = $_GET['id_macb'];
             $thongtindt = ds_chondetai($macb);
     ?>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-bordered table-hover" style="margin-top: 5%;">
-                        <tr>
-                            <th>STT</th>
-                            <th>Tên đề tài</th>
-                            <th>Số người tối đa</th>
-                            <th>Môt tả</th>
-                            <th>Công nghệ sử dụng</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                        <?php
-                            $stt = 1;
-                            while($rw = mysql_fetch_array($thongtindt)){
-                                echo   "<tr>".
-                                           "<td>$stt</td>".
-                                           "<td>".$rw['tendt']."</td>".
-                                           "<td>".$rw['songuoitoida']."</td>".
-                                           "<td>".$rw['motadt']."</td>".
-                                           "<td>".$rw['congnghe']."</td>".
-                                           "<td><input type='submit' id='rdDangKy' name='' value='Đăng ký' /></td>".
-                                       "</tr>";
-                                $stt++;
-                            }
-                        ?>
-                    </table>
+                    <form action="" method="post">
+                        <table class="table table-bordered table-hover" style="margin-top: 5%;">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên đề tài</th>
+                                <th>Số người tối đa</th>
+                                <th>Môt tả</th>
+                                <th>Công nghệ sử dụng</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                            <?php
+                                $stt = 1;
+                                while($rw = mysql_fetch_array($thongtindt)){
+                                    $chon = isset($_POST['btnDangKy']) ? $rw['madt'] : "Đăng ký";
+                                    echo   "<tr>".
+                                               "<td>$stt</td>".
+                                               "<td>".$rw['tendt']."</td>".
+                                               "<td>".$rw['songuoitoida']."</td>".
+                                               "<td>".$rw['motadt']."</td>".
+                                               "<td>".$rw['congnghe']."</td>".
+                                               "<td><button type='submit' id='btnDangKy' name='' value='$chon' ></button></td>".
+                                           "</tr>";
+                                    $stt++;
+                                }
+                            ?>
+                        </table>
+                    </form>
                 </div>
             </div>
         </div>        

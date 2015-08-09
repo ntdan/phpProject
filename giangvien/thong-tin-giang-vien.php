@@ -14,7 +14,7 @@
 
         include_once 'chucnang/gv_thongtin.php';
 
-        $maso = '2134';
+        $maso = $gvUSER['macb'];
         $gv = gv_xem($maso);
 
         if($gv == null){
@@ -34,31 +34,31 @@
                         <tr><th colspan="2" style="text-align: center">Thông tin giảng viên</th></tr>
                         <tr>
                             <td width="30%"><label>Mã số cán bộ:</label></td>
-                            <td><?php echo $gv['macb']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['macb']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Họ và tên:</label></td>
-                            <td><?php echo $gv['hoten']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['hoten']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Giới tính:</label></td>
-                            <td><?php echo $gv['gioitinh']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['gioitinh']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Ngày sinh:</label></td>
-                            <td><?php echo $gv['ngaysinh']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['ngaysinh']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Email:</label></td>
-                            <td><?php echo $gv['email']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['email']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Điện thoại:</label></td>
-                            <td><?php echo $gv['sdt']; ?></td>
+                            <td style="color:blue;"><?php echo $gv['sdt']; ?></td>
                         </tr>
                         <tr>
                             <td><label>Hướng dẫn nhóm học phần:</label></td>
-                            <td></td>
+                            <td style="color:blue;"></td>
                         </tr>
                     </table>
                 </div> <!-- /class="col-md-9 col-md-pull-3" -->

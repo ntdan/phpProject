@@ -55,7 +55,7 @@ and open the template in the editor.
                     <div class="col-md-12" style="background-color:#dff0d8; margin-bottom: 20px; padding: 8px;">
                         <label style="color: darkblue; font-size: 13pt;">Thuộc công việc:</label>
                         <label style="color: #F65D20;">
-                            <?php echo "<a href='?cn=phancongcv'>".$manth." - ".$cvchinh['congviec']."</a>"; ?>
+                            <?php echo "<a href='?cn=phancongcv'>".$cvchinh['macv']." - ".$cvchinh['congviec']."</a>"; ?>
                         </label>
                          <a href="?cn=themcvphuthuoc&id_manth=<?php echo $manth; ?>&id_macv=<?php echo $macv; ?>" style="margin-left: 40%;">
                             <button type="button" name="btnThem" class="btn btn-primary" style="width:20%;">

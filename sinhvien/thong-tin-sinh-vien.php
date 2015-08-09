@@ -44,8 +44,9 @@ and open the template in the editor.
 <?php 
     include 'chucnang/sv_thongtin.php';
     include 'chucnang/gv_thongtin.php';
+        include_once 'chucnang/gv_chitietkehoach.php';
     
-    $mssv = 1111317;    
+    $mssv = $svUSER['mssv'];    
 
 //Lấy thông tin giảng viên hướng dẫn
     $ma = sv_maCB($mssv);
@@ -57,6 +58,7 @@ and open the template in the editor.
     }
 //Lấy thông tin đề tài, nhóm niên luận
     $dtnhom = sv_nhom($mssv);
+    $manth = $dtnhom['manhomthuchien'];
 //Sinh viên cập nhật thêm thông tin
     if(isset($_POST['btnLuu'])){
         $sdt = $_POST['txtDienThoai']; 
@@ -72,6 +74,11 @@ and open the template in the editor.
     if($sv == null){
         return;
     }
+//Lấy danh sách thành viên trong nhóm        
+        $dstv = danhsach_thanhvien($manth);
+        if($dstv == NULL){
+            return;
+        }
 ?>
     
     <body>
@@ -113,12 +120,13 @@ and open the template in the editor.
                                     </li>
                                 </ul>
                             </div> <!-- /dropdown -->
+                            
                             <br>
                             <table class="table table-bordered" border="0" width="700px" cellpadding="25px" cellspacing="0px" align='center' id="bang1">
                                 <tr><th colspan="4" style="text-align: center">Thông tin sinh viên</th></tr>
                                 <tr>
                                     <td><label>Mã số sinh viên:</label></td>
-                                    <td style="color:blue;" colspan="3"><?php echo $sv['mssv']; ?></td>
+                                    <td style="color:blue;" colspan="3"><?php echo $sv['mssv']; ?></td>                                    
                                 </tr>
                                 <tr>
                                     <td><label>Họ và tên:</label></td>
@@ -130,17 +138,86 @@ and open the template in the editor.
                                 </tr>
                                 <tr>
                                     <td><label>Khóa:</label></td>
-                                    <td style="color:blue;" colspan="3"><?php echo $sv['khoahoc']; ?></td>
+                                    <td style="color:blue;"><?php echo $sv['khoahoc']; ?></td>
+                                    <td width="10%"><label>Nhóm học phần:</label></td>
+                                    <td style="color:blue;"><?php echo $dtnhom['tennhomhp']; ?></td>
                                 </tr>
                                 <tr>
                                     <td><label>Tên đề tài:</label></td>
                                     <td style="color:blue;" colspan="3"><?php echo $dtnhom['tendt']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td><label>Mã nhóm niên luận</label></td>
+                                    <td><label>Mã nhóm niên luận: </label></td>
                                     <td style="color:blue;"><?php echo $dtnhom['manhomthuchien']; ?></td>
-                                    <td width="20%"><label>Nhóm học phần:</label></td>
-                                    <td style="color:blue;"><?php echo $dtnhom['tennhomhp']; ?></td>
+                                    <td colspan="2" align="center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                Thành viên nhóm làm niên luận
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">
+                                                        <table class="table table-hover" width="500px" cellpadding="15px" cellspacing="0px">
+                                                            <tr>
+                                                                <th width="2%">STT</th>
+                                                                <th width="4%">MSSV</th>
+                                                                <th width="20%">Họ và tên</th>
+                                                                <th width="5%">Trưởng nhóm</th>
+                                                            </tr>
+                                                            <?php
+                                                                global $check;
+                                                                global $uncheck;
+                                                                $n = mysql_num_rows($dstv);
+                                                                $stt = 1;
+                                                                while($rw = mysql_fetch_array($dstv)){
+                                                                    $ch = $rw['nhomtruong'] == 1 ? $check : $uncheck;
+
+                                                                    echo "<tr>".
+                                                                            "<td align='center'>$stt</td>".
+                                                                            "<td>".$rw['mssv']."</td>".
+                                                                            "<td>".$rw['hoten']."</td>".
+                                                                            "<td align='center'><img src='$ch'/></td>".
+                                                                        "</tr>";
+                                                                    $stt++;
+                                                                }
+                                                            ?>                        
+                                                        </table>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div> <!-- /dropdown -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Tổ chức nhóm:</label></td>                                   
+                                    <?php
+                                        if(mysql_num_rows($dstv)>0){
+                                            $row = mysql_fetch_array($dstv);
+                                            echo  "<td colspan='3'>".$row['tochucnhom']."</td>";
+                                        }                           
+                                    ?>
+                                </tr>
+                                <tr>
+                                    <td><label>Lịch họp nhóm:</label></td>
+                                    <?php              
+                                        if(mysql_num_rows($dstv)>0){
+                                           $rw = mysql_fetch_array($dstv);
+                                            $b = ""; $lichhop = $rw['lichhop'];
+                                            $buoi = substr($lichhop, 0,1);
+                                            $bs = strcasecmp($buoi, 'S');
+                                            $bc = strcasecmp($buoi, 'C');
+
+                                            if($bs == 0){
+                                                $b="Sáng thứ "; 
+                                            }
+                                            else if($bc == 0){
+                                                $b="Chiều thứ "; 
+                                            }
+                                            $so = substr($lichhop,1,1);
+
+                                            echo "<td colspan='3'>".$b.$so."</td>";
+                                        }                           
+                                    ?>
                                 </tr>
                             </table>
                             <form action="" method="post">
@@ -163,7 +240,7 @@ and open the template in the editor.
                                     <tr>
                                         <td>Kiến thức về ngôn lập trình:</td>
                                         <td>
-                                            <textarea class="form-control" name="txtLapTrinh" rows="3">
+                                            <textarea class="form-control" name="txtLapTrinh" rows="3" style="text-align: left;">
                                                 <?php echo $sv['kienthuclaptrinh'];?>
                                             </textarea>
                                         </td>

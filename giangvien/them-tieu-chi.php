@@ -14,7 +14,7 @@ and open the template in the editor.
     <?php
         include_once 'chucnang/gv_tieuchidiem.php';
 
-        $macb = '2134';
+        $macb = $gvUSER['macb'];
 
         if(isset($_POST['btnThem'])){
             $matc = $_POST['txtMaTC'];

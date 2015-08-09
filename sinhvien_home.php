@@ -179,7 +179,7 @@
                         if ($_GET['cn'] == "dknl")
                             include("sinhvien/dang-ky-de-tai.php");
                         if ($_GET['cn'] == "kqdangky")
-                            include("giaodien/ket-qua-dang-ky-de-tai.php");
+                            include("sinhvien/ket-qua-dang-ky-de-tai.php");
 
                         if ($_GET['cn'] == "diendan")
                             include("giaodien/dien-dang-thao-luan.php");

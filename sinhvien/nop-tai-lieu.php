@@ -26,7 +26,7 @@ and open the template in the editor.
             include_once 'chucnang/sv_phancv.php';
             include_once 'chucnang/sv_thongtin.php';
             
-            $mssv = '1111317';
+            $mssv = $svUSER['mssv'];
             $ma = sv_maNhomNL($mssv);
             
             $manth = $ma['manhomthuchien'] ;
@@ -36,7 +36,7 @@ and open the template in the editor.
         <div class="container">            
             <div class="row">
                 <h3 style="color: darkblue; font-weight: bold;" align="center">NỘP TÀI LIỆU</h3><br>
-                <form method="post">
+                <form action="" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <label style="margin-left: 15px;">Tên đề tài: </label><br>
@@ -52,64 +52,108 @@ and open the template in the editor.
                      <div class="col-md-12">     
                         <table class="table table-bordered" cellpadding="15px" cellspacing="0px" align='center'>
                             <tr>
-                                <th>STT</th>
-                                <th>Tên tập tin</th>
-                                <th>Dung lượng</th>
-                                <th>Loại</th>
-                                <th>Đường dẫn</th>
-                                <th>Ngày đăng</th>   
-                                <th>Thao tác</th>
+                                <th width="1%">STT</th>
+                                <th width="8%">Tên tập tin</th>
+                                <th width="5%">Dung lượng</th>
+                                <th width="6%">Ngày đăng</th> 
+                                <th width="20%">Nhận xét GV</th>
+                                <th width="6%">Ngày nhận xét</th>
+                                <th width="5%">Thao tác</th>
                             </tr> 
                             <tr>
                                 <td>1</td>
                                 <td><label>Đặc tả sơ bộ</label></td>
                                 <td>3Mb</td>
-                                <td>Tập tin</td>
-                                <td>D:/NienLuan</td>
+                                <td></td>
+                                <td></td>
                                 <td>02/03/2014</td>
+                                
                                 <td align="center">
-                                    <a href="?cn=capnhattailieu"><img src="images/edit-icon.png"></a>&nbsp;&nbsp;
                                     <a href="?cn=noptl"><img src="images/Document-Delete-icon.png"></a>
                                 </td>
                             </tr>
                         </table><hr>
-                        <div class="col-md-12">
-                             <div class="progress" style="width:50%;">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                    <span>45% Complete</span><!--class="sr-only"-->
-                                </div>                                 
-                             </div>
-                            <form method="post" action="" enctype="multipart/form-data">
-                                <input type="file" id="fTaiLieu" name="fTaiLieu" value="" class="form-control" style="width:60%;"/><br>
-                                <label>Mô tả:</label><input type="text" name="txtMoTa" value="" class="form-control" style="width:60%;"/><br>
-                                <input type="submit" name="uploadclick" value="Gửi tập tin" class="btn btn-success" style="margin-left: 50px;"/><br>
-                            </form>
-                            <?php                                                         
-                                if(isset($_POST['uploadclick'])){
-                                    $matl = matl_tutang();
-                                    $mota = $_POST['txtMoTa'];
-                                    
-                                    global  $thumucTaiLieu;
-                                    if(!file_exists($thumucTaiLieu))
-                                         mkdir($thumucTaiLieu);
-                                    if($_FILES['fTaiLieu']['type'] != "image/jpg" || $_FILES['fTaiLieu']['type'] != "image/jpeg" || $_FILES['fTaiLieu']['type'] != "image/png")
-                                    {          
-                                        $tentl = basename($_FILES['fTaiLieu']['name']);
-                                        $kichthuoc = $_FILES['fTaiLieu']['size'];
-                                        $duoi = $_FILES['fTaiLieu']['type'];
-                                        $duongdan = pathinfo($tentl); //Trả về thông tin đường dẫn file
-                                        
-                                        move_uploaded_file($_FILES['fTaiLieu']['tmp_name'], $thumucTaiLieu.'/'.$_FILES['fTaiLieu']['name']);                                                       
-                                    }   
-                                    sv_themtailieu($matl,$tentl,$kichthuoc,$mota);
-                                }
-                                
-                                    
-                            ?>
-                        </div>                                               
-                    </div>
-                </form>               
-            </div>   <!-- /row -->
-        </div> <!-- /container -->
+                     </div>
+                </form>
+                    
+                <div class="col-md-12">
+                     <div id="progress" class="progress" style="width:50%;">
+                        <div id="progressbar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <span id="percent" style="color: black;">0%</span><!--class="sr-only"-->
+                        </div>                                 
+                     </div>
+                     <div id="result"></div>
+
+                     <form id="form_upload_ajax" action="" method="post" enctype="multipart/form-data">
+                        <input type="file" id="fTaiLieu" name="fTaiLieu" style="width:60%;"/><br>
+                        <label>Mô tả:</label>
+                        <textarea name="txtMoTa" class="form-control" rows="3" style="width:60%;"></textarea><br>
+                        <input type="submit" name="uploadclick" value="Gửi tập tin" class="btn btn-success" style="margin-left: 50px;"/><br>
+                    </form>
+                    <?php                                                         
+                        if(isset($_POST['uploadclick'])){
+                            $matl = matl_tutang();
+                            $macv = 'CV1';
+                            $mota = $_POST['txtMoTa'];
+
+                            global  $thumucTaiLieu;
+                            if(!file_exists($thumucTaiLieu))
+                                 mkdir($thumucTaiLieu);                                
+
+                            //$data = mysql_real_escape_string(file_get_contents($_FILES ['fTaiLieu']['tmp_name']));                                    
+                            $kieuDuoi = $_FILES["fTaiLieu"]["type"];
+                            //$t = $_FILES['fTaiLieu']['name'];
+                            //$d = pathinfo($t);
+                            //$extention = $d['extension'];
+                            //echo $kieuDuoi." - ".$extention."<br>";
+
+                            if($kieuDuoi == "application/pdf" || $kieuDuoi == "application/msword")
+                            {   
+                                $tentl = mysql_real_escape_string($_FILES['fTaiLieu']['name']);
+                                $kichthuoc = round(($_FILES['fTaiLieu']['size'])/(1024*1024),2); // đổi từ bytes -> Mb 
+                                move_uploaded_file($_FILES['fTaiLieu']['tmp_name'], $thumucTaiLieu.'/'.$_FILES['fTaiLieu']['name']);                                                                                                                                                                                                
+                            }   
+                            sv_themtailieu($matl,$macv,$tentl,$kichthuoc,$mota,0);
+                        }                                                               
+                    ?>
+                </div>                                               
+            </div><!-- /row -->
+           
+        </div>   <!-- /container -->
+        <script>
+            var progressbar = $('#progressbar');
+            var percent = $('#percent');
+            var result = $('#result');
+            var percentValue = "0%";
+
+            $('#form_upload_ajax').ajaxForm({
+                // Do something before uploading
+                beforeUpload: function() {
+                  result.empty();
+                  percentValue = "0%";
+                  progressbar.width = percentValue;
+                  percent.html(percentValue);
+                },
+
+                // Do somthing while uploading
+                uploadProgress: function(event, position, total, percentComplete) {
+                  var percentValue = percentComplete + '%';
+                  progressbar.width(percentValue)
+                  percent.html(percentValue);
+                },
+
+                // Do something while uploading file finish
+                success: function() {
+                  var percentValue = '100%';
+                  progressbar.width(percentValue)
+                  percent.html(percentValue);
+                },
+
+                // Add response text to div #result when uploading complete
+                complete: function(xhr) {      
+                  $('#result').html(xhr.responseText);
+                }
+            });
+          </script>
     </body>
 </html>

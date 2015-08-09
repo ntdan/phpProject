@@ -33,8 +33,8 @@ and open the template in the editor.
         
             include_once 'chucnang/gv_detai.php';
 
+            $macb = $gvUSER['macb'];
             $madt = $_POST['txtMaDeTai'];
-            $macb = '2134';
             $ten = $_POST['txtTenDeTai'];
             $mota = $_POST['txtMoTa'];
             $congnghe= $_POST['txtCongNghe'];

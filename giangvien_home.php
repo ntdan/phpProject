@@ -91,12 +91,12 @@
                                     
                                     if(isset($_SESSION['user']))
                                     {
-                                       $sessUSER = $_SESSION['user']; 
+                                       $gvUSER = $_SESSION['user']; 
                                     }    
                                 ?>             
                             <li class="dropdown">
                                 <a href="?cn=ttgv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <?php echo "<strong style='color:blue;'>".$sessUSER['hoten']." (".$sessUSER['macb'].")</strong>" ; ?>
+                                    <?php echo "<strong style='color:blue;'>".$gvUSER['hoten']." (".$gvUSER['macb'].")</strong>" ; ?>
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">

@@ -28,13 +28,9 @@ and open the template in the editor.
                 dt_xoa($_GET['id']);
             }
         }
-        $madt = '1';
-        $dt = dt_xem($madt);
-        if($dt == null){
-            return;
-        }
+        
  //Lấy thông tin giảng viên 
-        $maso = $dt['macb'];
+        $maso = $gvUSER['macb'];
         $gv = gv_xem($maso);
         if ($gv == null) {
             return;

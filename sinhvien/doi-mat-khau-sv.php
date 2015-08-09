@@ -37,8 +37,8 @@ and open the template in the editor.
 
 <?php
     include_once 'chucnang/sv_thongtin.php';
-    $masv = '1111317';
-    //$masv = $_GET['id'];
+    //$masv = '1111317';
+    $masv = $svUSER['mssv'];
     $sv = sv_xem($masv);
     if($sv == null){
         return;
